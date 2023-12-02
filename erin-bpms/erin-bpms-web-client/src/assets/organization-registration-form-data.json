@@ -1,0 +1,314 @@
+{
+  "_comment": "LEASING ORGANIZATION REGISTRATION TASK",
+  "user_task_leasing_organization_registration": {
+    "fieldGroups": [
+      {
+        "title": "Лизингийн байгууллага бүртгэх",
+        "type": "default",
+        "column": 3,
+        "fieldIds": ["branchId", "registerId", "registeredName"],
+        "fields": []
+      },
+      {
+        "subtitle": "Гэрээний мэдээлэл",
+        "type": "default",
+        "column": 3,
+        "fieldIds": [
+          "contractNumber",
+          "contractDate",
+          "contractPeriod",
+          "contractEndDate",
+          "contractFee",
+          "contractOldNumber"
+        ]
+      },
+      {
+        "subtitle": "Хамтран ажиллагчийн мэдээлэл",
+        "type": "default",
+        "column": 3,
+        "fieldIds": [
+          "partnerType",
+          "partnerDirection"
+        ]
+      },
+      {
+        "subtitle": null,
+        "type": "default",
+        "column": 3,
+        "fieldIds": [
+          "partnerCif",
+          "partnerRegistryId",
+          "partnerEstablishedDate",
+          "partnerAddress",
+          "partnerPhoneNumber",
+          "partnerEmail"
+        ],
+        "noSeparator": true
+      },
+      {
+        "subtitle": "Нийлүүлж буй бараа бүтээгдхүүн",
+        "type": "default",
+        "column": 3,
+        "fieldIds": [
+          "productSuppliedType"
+        ]
+      },
+      {
+        "subtitle": null,
+        "type": "textarea",
+        "column": 1,
+        "fieldIds": [
+          "productSuppliedDescription"
+        ],
+        "noSeparator": true
+      },
+      {
+        "subtitle": "Холбоо барих хүмүүс",
+        "type": "default",
+        "column": 3,
+        "fieldIds": [
+          "contactName",
+          "contactPhoneNumber",
+          "contactEmail"
+        ]
+      },
+      {
+        "subtitle": null,
+        "type": "textarea",
+        "column": 1,
+        "fieldIds": [
+          "contactDescription"
+        ],
+        "noSeparator": true
+      },
+      {
+        "subtitle": "Хүү шимтгэлийн мэдээлэл",
+        "type": "flexible",
+        "column": 3,
+        "fields": [],
+        "subFields": [],
+        "fieldIds": [
+          "feePaymentType0", "feePercentAmount0", "feeLoanAmount0",
+          "feePaymentType1", "feePercentAmount1", "feeLoanAmount1",
+          "feePaymentType2", "feePercentAmount2", "feeLoanAmount2"
+        ],
+        "flexibleForm": {
+          "8": [
+            {
+              "id": "feePaymentType",
+              "label": "Банкинд төлөх хэлбэр",
+              "required": false,
+              "options": [
+                {"id": "op1", "value": "Хувь"},
+                {"id": "op2", "value": "Хэмжээ"}
+              ],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""},
+              "validations": [],
+              "disabled": false,
+              "type": "string",
+              "context": null},
+            {
+              "id": "feePercentAmount",
+              "label": "Хувь / Хэмжээ",
+              "required": false,
+              "options": [],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""},
+              "validations": [],
+              "disabled": false,
+              "type": "string",
+              "context": null},
+            {
+              "id": "feeLoanAmount",
+              "label": "Зээлийн хэмжээ",
+              "required": false,
+              "options": [],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""},
+              "validations": [],
+              "disabled": false,
+              "type": "string",
+              "context": null}
+          ]
+        },
+        "max": 3
+      },
+      {
+        "subtitle": null,
+        "type": "default",
+        "column": 3,
+        "fieldIds": [
+          "feeSupplierDue",
+          "feeSupplierAmountPercent",
+          "feeAccountNumber",
+          "feeType",
+          "feeAmountPercent",
+          "feeLoanOriginationFee",
+          "feeOnlineBnpl",
+          "feeTerminalId"
+        ]
+      },
+      {
+        "subtitle": "Гэрээний сунгалт",
+        "type": "default",
+        "column": 3,
+        "fieldIds": [
+          "contractExtensionYear",
+          "contractHasExtension",
+          "contractExtensionNewDate"
+        ]
+      },
+      {
+
+        "subtitle": "Батлагдсаны дараах төлөв",
+        "type": "default",
+        "column": 3,
+        "fieldIds": [
+          "temporaryState"
+        ]
+      }
+    ],
+    "buttons": {
+      "saveOrg": false,
+      "confirmByDirector": false,
+      "print": false,
+      "close": false,
+      "refuse": false,
+      "confirm": false
+    },
+    "fieldAction": {
+      "contractPeriod":  "getEndDate",
+      "contractDate":  "getEndDate",
+      "contractExtensionYear": "getEndDate"
+    }
+  },
+
+  "_comment": "SALARY ORGANIZATION REGISTRATION TASK",
+  "user_task_salary_organization_registration": {
+    "fieldGroups": [
+      {
+        "title": "Цалингийн байгууллага бүртгэх",
+        "type": "default",
+        "column": 3,
+        "fieldIds": ["branchId", "registerId", "registeredName"],
+        "fields": []
+      },
+      {
+        "subtitle": "Гэрээний мэдээлэл",
+        "type": "default",
+        "column": 3,
+        "fieldIds": [
+          "contractNumber",
+          "contractDate",
+          "contractPeriod",
+          "contractEndDate",
+          "contractOldNumber"
+        ]
+      },
+      {
+        "subtitle": "Байгууллагын мэдээлэл",
+        "type": "default",
+        "column": 3,
+        "fieldIds": [
+          "partnerType",
+          "partnerDirection",
+          "partnerTotalEmployee"
+        ]
+      },
+      {
+        "subtitle": null,
+        "type": "default",
+        "column": 3,
+        "fieldIds": [
+          "partnerCif",
+          "partnerRegistryId",
+          "partnerEstablishedDate",
+          "partnerCodeND",
+          "partnerNDSubordinate",
+          "partnerAccountId",
+          "partnerContactEmployee",
+          "partnerPhoneNumber"
+        ],
+        "noSeparator": true
+      },
+      {
+        "subtitle": "Хүү шимтгэлийн мэдээлэл",
+        "type": "default",
+        "column": 3,
+        "fieldIds": [
+          "feeHasLoan",
+          "feeHasOnline"
+        ]
+      },
+      {
+        "subtitle": null,
+        "type": "default",
+        "column": 3,
+        "fieldIds": [
+          "feeType",
+          "feeOrganizationRating",
+          "feeAmountPercent",
+          "feeKeyWorker",
+          "feeBankFraud",
+          "feeSalaryTransaction"
+        ],
+        "noSeparator": true
+      },
+      {
+        "subtitle": null,
+        "type": "default",
+        "column": 3,
+        "fieldIds": [
+          "feeSalaryDays",
+          "feeSalaryDaysFirst",
+          "feeSalaryDaysSecond"
+        ],
+        "noSeparator": true
+      },
+      {
+        "subtitle": "Гэрээний сунгалт",
+        "type": "default",
+        "column": 3,
+        "fieldIds": [
+          "contractExtensionYear",
+          "contractHasExtension",
+          "contractExtensionNewDate"
+        ]
+      },
+      {
+        "subtitle": "Тохирсон Тусгай нөхцөл",
+        "type": "textarea",
+        "column": 1,
+        "fieldIds": [
+          "contractSpecialRemark"
+        ]
+      },
+      {
+
+        "subtitle": "Батлагдсаны дараах төлөв",
+        "type": "default",
+        "column": 3,
+        "fieldIds": [
+          "temporaryState"
+        ]
+      }
+    ],
+    "buttons": {
+      "saveOrg": false,
+      "confirmByDirector": false,
+      "print": false,
+      "close": false,
+      "refuse": false,
+      "confirm": false
+    },
+    "fieldAction": {
+      "contractPeriod":  "getEndDate",
+      "contractDate":  "getEndDate",
+      "contractExtensionYear": "getEndDate"
+    }
+  }
+}

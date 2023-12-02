@@ -1,0 +1,24 @@
+/*
+ * (C)opyright, 2020, ERIN SYSTEMS LLC
+ * The source code is protected by copyright laws and international copyright
+ * treaties, as well as other intellectual property laws and treaties.
+ * All rights reserved.
+ */
+
+dependencies {
+  compile project(':erin-bpms-base-process')
+  compile project(':erin-bpms-ohs-xac-new-core')
+
+  compile lib.javax.inject
+  compileOnly lib.camunda.process_engine
+
+  compileOnly lib.camunda.plugin_spin
+  compileOnly lib.camunda.json_jackson
+
+  compileOnly lib.erin.dms_alfresco
+
+  testCompile lib.camunda.process_engine
+
+  implementation group: 'technology.tabula', name: 'tabula', version: '1.0.5'
+}
+

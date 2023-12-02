@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:bioc="http://bpmn.io/schema/bpmn/biocolor/1.0" id="Definitions_0omjq5y" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="4.0.0">
+  <bpmn:collaboration id="Collaboration_1ftuugo">
+    <bpmn:participant id="leasing_organization_process" name="Лизингийн байгууллага бүртгэх" processRef="bpms_leasing_organization_process" />
+  </bpmn:collaboration>
+  <bpmn:process id="bpms_leasing_organization_process" isExecutable="true">
+    <bpmn:endEvent id="Event_11manvr">
+      <bpmn:incoming>Flow_1ym36s8</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:startEvent id="Event_1g5f2ue">
+      <bpmn:outgoing>Flow_04hahzy</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:sequenceFlow id="Flow_04hahzy" sourceRef="Event_1g5f2ue" targetRef="user_task_leasing_organization_registration" />
+    <bpmn:sequenceFlow id="Flow_1ym36s8" sourceRef="user_task_leasing_organization_registration" targetRef="Event_11manvr" />
+    <bpmn:userTask id="user_task_leasing_organization_registration" name="Лизингийн байгууллага бүртгэх">
+      <bpmn:extensionElements>
+        <camunda:formData>
+          <camunda:formField id="branchId" label="Салбарын дугаар" type="string">
+            <camunda:validation>
+              <camunda:constraint name="readonly" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="registerId" label="Регистрийн дугаар" type="string">
+            <camunda:validation>
+              <camunda:constraint name="readonly" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="registeredName" label="Бүртгэлийн нэр" type="string">
+            <camunda:validation>
+              <camunda:constraint name="readonly" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="contractNumber" label="Гэрээний дугаар" type="string">
+            <camunda:validation>
+              <camunda:constraint name="readonly" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="contractDate" label="Гэрээ байгуулсан огноо" type="date" />
+          <camunda:formField id="contractPeriod" label="Гэрээний хугацаа" type="string">
+            <camunda:properties>
+              <camunda:property id="oneYear" value="1 жил" />
+              <camunda:property id="twoYear" value="2 жил" />
+              <camunda:property id="threeYear" value="3 жил" />
+              <camunda:property id="fourYear" value="4 жил" />
+              <camunda:property id="fiveYear" value="5 жил" />
+            </camunda:properties>
+          </camunda:formField>
+          <camunda:formField id="contractEndDate" label="Гэрээний дуусах огноо" type="string">
+            <camunda:validation>
+              <camunda:constraint name="readonly" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="contractFee" label="Хураамж" type="string" />
+          <camunda:formField id="contractOldNumber" label="Өмнөх гэрээний дугаар" type="string">
+            <camunda:validation>
+              <camunda:constraint name="readonly" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="partnerType" label="Хамтран ажиллагчийн төрөл" type="string">
+            <camunda:properties>
+              <camunda:property id="Property_03f3cjm" value="Иргэн" />
+              <camunda:property id="Property_0ildd02" value="Байгууллага" />
+            </camunda:properties>
+          </camunda:formField>
+          <camunda:formField id="partnerDirection" label="Үйл ажиллагааны чиглэл" type="string">
+            <camunda:properties>
+              <camunda:property id="Property_1r6h9v5" value="Хөдөө аж ахуй" />
+              <camunda:property id="Property_251pfum" value="Барилга" />
+              <camunda:property id="Property_3parqmk" value="Аж үйлдвэр" />
+              <camunda:property id="Property_16t92p4" value="Уул уурхай үндсэн" />
+              <camunda:property id="Property_3ba04d6" value="Уул уурхайн туслах" />
+              <camunda:property id="Property_3ul6ukt" value="Бусад" />
+              <camunda:property id="Property_3vota70" value="Үйлчилгээ" />
+              <camunda:property id="Property_219hjd1" value="Худалдаа" />
+            </camunda:properties>
+          </camunda:formField>
+          <camunda:formField id="partnerCif" label="Сиф дугаар" type="string">
+            <camunda:validation>
+              <camunda:constraint name="readonly" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="partnerRegistryId" label="Улсын бүртгэлийн дугаар" type="string" />
+          <camunda:formField id="partnerEstablishedDate" label="Байгууллагдсан огноо" type="date" />
+          <camunda:formField id="partnerAddress" label="Хаяг" type="string" />
+          <camunda:formField id="partnerPhoneNumber" label="Утас" type="string" />
+          <camunda:formField id="partnerEmail" label="Имэйл" type="string" />
+          <camunda:formField id="productSuppliedType" label="Ангилал" type="string">
+            <camunda:properties>
+              <camunda:property id="Property_0mouvdh" value="Тавилга /Гэр ахуй, албан тасалгааны/" />
+              <camunda:property id="Property_0187sst" value="Тээврийн хэрэгсэл" />
+              <camunda:property id="Property_3cs1a1c" value="Цахилгаан бараа  /Гэр ахуй өргөн хэрэглээний/" />
+              <camunda:property id="Property_0ifab27" value="Компьютер" />
+              <camunda:property id="Property_0364s7j" value="Гар утас" />
+              <camunda:property id="Property_2lgjdne" value="Цахилгаан хэрэгсэл" />
+              <camunda:property id="Property_1q25mv7" value="Хивс" />
+              <camunda:property id="Property_154v97p" value="Зуух" />
+              <camunda:property id="Property_3d97vup" value="Ус цэвэршүүлэгч" />
+              <camunda:property id="Property_19ffh07" value="Агаар шүүгч" />
+              <camunda:property id="Property_2nt117j" value="Халаалтын төхөөрөмж" />
+              <camunda:property id="Property_0rsj6vl" value="Хөгжмийн зэмсэг" />
+              <camunda:property id="Property_14smuq7" value="Бусад" />
+            </camunda:properties>
+          </camunda:formField>
+          <camunda:formField id="productSuppliedDescription" label="Тайлбар / Нөхцөл / Шалтгаан" type="string" />
+          <camunda:formField id="contactName" label="Овог нэр" type="string" />
+          <camunda:formField id="contactPhoneNumber" label="Утас" type="string" />
+          <camunda:formField id="contactEmail" label="Имэйл" type="string" />
+          <camunda:formField id="contactDescription" label="Тайлбар" type="string" />
+          <camunda:formField id="feePaymentType0" label="Банкинд төлөх хэлбэр" type="string">
+            <camunda:properties>
+              <camunda:property id="op1" value="Хувь" />
+              <camunda:property id="op2" value="Хэмжээ" />
+            </camunda:properties>
+          </camunda:formField>
+          <camunda:formField id="feePaymentType1" label="Банкинд төлөх хэлбэр" type="string">
+            <camunda:properties>
+              <camunda:property id="op1" value="Хувь" />
+              <camunda:property id="op2" value="Хэмжээ" />
+            </camunda:properties>
+          </camunda:formField>
+          <camunda:formField id="feePaymentType2" label="Банкинд төлөх хэлбэр" type="string">
+            <camunda:properties>
+              <camunda:property id="op1" value="Хувь" />
+              <camunda:property id="op2" value="Хэмжээ" />
+            </camunda:properties>
+          </camunda:formField>
+          <camunda:formField id="feePercentAmount0" label="Хувь / Хэмжээ" type="string" />
+          <camunda:formField id="feePercentAmount1" label="Хувь / Хэмжээ" type="string" />
+          <camunda:formField id="feePercentAmount2" label="Хувь / Хэмжээ" type="string" />
+          <camunda:formField id="feeLoanAmount0" label="Зээлийн хэмжээ" type="string" />
+          <camunda:formField id="feeLoanAmount1" label="Зээлийн хэмжээ" type="string" />
+          <camunda:formField id="feeLoanAmount2" label="Зээлийн хэмжээ" type="string" />
+          <camunda:formField id="feeSupplierDue" label="Нийлүүлэгчид төлөх хугацаа" type="string" />
+          <camunda:formField id="feeSupplierAmountPercent" label="Нийлүүлэгчид төлөх хувь" type="string" />
+          <camunda:formField id="feeAccountNumber" label="Дансны дугаар" type="string" />
+          <camunda:formField id="feeType" label="Хүүгийн нөхцөл" type="string">
+            <camunda:properties>
+              <camunda:property id="standard" value="Стандарт" />
+              <camunda:property id="special" value="Тусгай" />
+            </camunda:properties>
+          </camunda:formField>
+          <camunda:formField id="feeAmountPercent" label="Хүүний хэмжээ" type="string" />
+          <camunda:formField id="feeLoanOriginationFee" label="Зээл олгосны шимтгэл" type="string" />
+          <camunda:formField id="feeOnlineBnpl" label="Онлайнаар зээл олгох эсэх BNPL" type="string">
+            <camunda:properties>
+              <camunda:property id="yes" value="Тийм" />
+              <camunda:property id="no" value="Үгүй" />
+            </camunda:properties>
+            <camunda:validation>
+              <camunda:constraint name="required" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="feeTerminalId" label="Терминал дугаар" type="string" />
+          <camunda:formField id="contractExtensionYear" label="Сунгалтын хугацаа" type="string">
+            <camunda:properties>
+              <camunda:property id="Property_270hohq" value="1 жил" />
+              <camunda:property id="Property_2h86mcm" value="2 жил" />
+              <camunda:property id="Property_3qaskga" value="3 жил" />
+              <camunda:property id="Property_3rdhusq" value="4 жил" />
+              <camunda:property id="Property_1qv0vco" value="5 жил" />
+            </camunda:properties>
+          </camunda:formField>
+          <camunda:formField id="contractHasExtension" label="Сунгасан эсэх" type="string">
+            <camunda:properties>
+              <camunda:property id="Property_1i9h9va" value="Тийм" />
+              <camunda:property id="Property_18r1beg" value="Үгүй" />
+            </camunda:properties>
+          </camunda:formField>
+          <camunda:formField id="contractExtensionNewDate" label="Сунгасан огноо" type="date" />
+          <camunda:formField id="temporaryState" label="Төлөв" type="string">
+            <camunda:validation>
+              <camunda:constraint name="readonly" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="processTypeId" type="string" />
+        </camunda:formData>
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_04hahzy</bpmn:incoming>
+      <bpmn:outgoing>Flow_1ym36s8</bpmn:outgoing>
+    </bpmn:userTask>
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Collaboration_1ftuugo">
+      <bpmndi:BPMNShape id="Participant_0ee083g_di" bpmnElement="leasing_organization_process" isHorizontal="true">
+        <dc:Bounds x="190" y="80" width="570" height="220" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_1ym36s8_di" bpmnElement="Flow_1ym36s8">
+        <di:waypoint x="520" y="194" />
+        <di:waypoint x="581" y="194" />
+        <di:waypoint x="581" y="190" />
+        <di:waypoint x="642" y="190" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_04hahzy_di" bpmnElement="Flow_04hahzy">
+        <di:waypoint x="298" y="190" />
+        <di:waypoint x="359" y="190" />
+        <di:waypoint x="359" y="194" />
+        <di:waypoint x="420" y="194" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="Event_11manvr_di" bpmnElement="Event_11manvr">
+        <dc:Bounds x="642" y="172" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_1g5f2ue_di" bpmnElement="Event_1g5f2ue">
+        <dc:Bounds x="262" y="172" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0ywnqnm_di" bpmnElement="user_task_leasing_organization_registration" bioc:stroke="black" bioc:fill="white">
+        <dc:Bounds x="420" y="154" width="100" height="80" />
+      </bpmndi:BPMNShape>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>

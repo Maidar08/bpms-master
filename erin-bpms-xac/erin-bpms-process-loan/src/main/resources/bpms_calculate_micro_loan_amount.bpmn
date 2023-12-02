@@ -1,0 +1,422 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="Definitions_0w1wgvw" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="4.4.0">
+  <bpmn:collaboration id="Collaboration_05c2vz5">
+    <bpmn:participant id="Participant_1nwygl7" name="09. Зээлийн хэмжээ тооцох" processRef="bpms_calculate_micro_loan_amount" />
+  </bpmn:collaboration>
+  <bpmn:process id="bpms_calculate_micro_loan_amount" isExecutable="true">
+    <bpmn:sequenceFlow id="Flow_0znbj9n" sourceRef="StartEvent_1" targetRef="user_task_calculate_micro_loan_amount" />
+    <bpmn:startEvent id="StartEvent_1" name="09. Зээлийн хэмжээ тооцоолох">
+      <bpmn:outgoing>Flow_0znbj9n</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:userTask id="user_task_calculate_micro_loan_amount" name="09. Зээлийн хэмжээ тооцох" camunda:formKey="09. Зээлийн хэмжээ тооцох">
+      <bpmn:extensionElements>
+        <camunda:formData>
+          <camunda:formField id="amount" label="Хүссэн зээлийн хэмжээ" type="long" />
+          <camunda:formField id="loanTerm" label="Зээлийн хугацаа (сар)" type="long">
+            <camunda:validation>
+              <camunda:constraint name="required" />
+              <camunda:constraint name="max" config="100" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="interestRate" label="Зээлийн хүү (жил)" type="string">
+            <camunda:validation>
+              <camunda:constraint name="required" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="loanProduct" label="Зээлийн бүтээгдэхүүн" type="string">
+            <camunda:properties>
+              <camunda:property id="DA52" value="DA52-365-Жижиг бизнесийн зээл - Иргэн" />
+              <camunda:property id="DA62" value="DA62-365-Жижиг бизнесийн зээл -ААН" />
+              <camunda:property id="DB50" value="DB50-365-Бичил зээл - Иргэн" />
+              <camunda:property id="DB51" value="DB51-365-Бичил зээл - Иргэн Тусгай" />
+              <camunda:property id="DB60" value="DB60-365-Бичил зээл - ААН" />
+              <camunda:property id="DA53" value="DA53-365-Жижиг бизнесийн зээл Төсөл- Иргэн" />
+              <camunda:property id="DA63" value="DA63-365-Жижиг бизнесийн зээл Төсөл-ААН" />
+              <camunda:property id="DA50" value="DA50-365-ЖДҮСан төсөл - Иргэн" />
+              <camunda:property id="DD54" value="DD54-365-Эко бизнесийн зээл - Иргэн" />
+              <camunda:property id="DA65" value="DA65-БОАЖЯ хамтарсан Жижиг биз.зээл-ААН" />
+              <camunda:property id="DD65" value="DD65-365-Эко бизнесийн зээл-Эмэгтэй БЭ - ААН" />
+              <camunda:property id="DJ85" value="DJ85-365-Дугаартай автомашины зээл-ААН" />
+              <camunda:property id="DB63" value="DB63-ЖДҮХС-МБИҮНХ бичил биз.зээл- ААН" />
+              <camunda:property id="DA64" value="DA64-JICA төслийн зээл-Хувьсах хүүтэй" />
+              <camunda:property id="DD55" value="DD55-365-Эко бизнесийн зээл- Эмэгтэй БЭ – Иргэн" />
+              <camunda:property id="DA66" value="DA66-ЖДҮХС-МБИҮНХ жижиг биз.зээл-ААН" />
+              <camunda:property id="DD64" value="DD64-365-Эко бизнесийн зээл - ААН" />
+              <camunda:property id="DB62" value="DB62-БОАЖЯамтай хамтарсан Бичил бизнесий" />
+              <camunda:property id="EH53" value="EH53-365-Хэрэглээний худалдан авалтын зээл - Иргэн" />
+              <camunda:property id="EG50" value="EG50-365- Сургалтын төлбөрийн зээл" />
+              <camunda:property id="EA52" value="EA52-Эко хэрэглээний зээл -дулаалга" />
+              <camunda:property id="EH90" value="EH90-Автомашины зээл-Иргэн" />
+              <camunda:property id="EH83" value="EH83-Хаслизинг санхүү түрээс-Иргэн" />
+              <camunda:property id="EH88" value="EH88-Дугаартай автомашины зээл-Иргэн" />
+              <camunda:property id="DJ83" value="DJ83-Хаслизинг санхүү түрээс-ААН" />
+              <camunda:property id="EH56" value="EH56-Эко хэрэглээний зээл /халаагуур/" />
+              <camunda:property id="DB52" value="DB52-Хөнгөлөлттэй бичил зээл" />
+              <camunda:property id="DD53" value="DD53-365-Бизнесийн зээл Төсөл-Иргэн" />
+              <camunda:property id="DD69" value="DD69-Репо бизнес зээл /дахин санхүүжилт/" />
+              <camunda:property id="DD70" value="DD70-Репо бизнесийн зээл" />
+              <camunda:property id="DD71" value="DD71-Репо бизнесийн зээл-Иргэн /дахин санхүүжилт/" />
+              <camunda:property id="DD72" value="DD72-Репо бизнесийн зээл-Иргэн /шинэ/" />
+              <camunda:property id="EH89" value="EH89-EMI-Автомашины зээл-Иргэн" />
+              <camunda:property id="DJ87" value="DJ87-EMI-Автомашины зээл-ААН" />
+              <camunda:property id="EA53" value="EA53-Эко хэрэглээний зээл-EMI /дулаалга/" />
+              <camunda:property id="EH57" value="EH57-Эко хэрэглээний зээл-EMI/халаагуур/" />
+              <camunda:property id="DJ88" value="DJ88-Автомашины зээл-ААН" />
+              <camunda:property id="DD81" value="DD81-Ажлын байр дэмжих зээл-Иргэн /Дахин санхүүжилт/ " />
+              <camunda:property id="DD82" value="DD82-Ажлын байр дэмжих зээл-Иргэн /Шинэ/" />
+              <camunda:property id="DD73" value="DD73-Ажлын байр дэмжих зээл-ААН /Дахин санхүүжилт/" />
+              <camunda:property id="DD74" value="DD74-Ажлын байр дэмжих зээл-ААН /Шинэ/" />
+              <camunda:property id="DA72" value="DA72-Эмэгтэй бизнес эрхлэгчдийг дэмжих зээл-Иргэн-Бичил" />
+              <camunda:property id="DA82" value="DA82-Эмэгтэй бизнес эрхлэгчдийг дэмжих зээл-ААН-Бичил" />
+              <camunda:property id="DA73" value="DA73-Эмэгтэй бизнес эрхлэгчдийг дэмжих зээл-Иргэн-Жижиг" />
+              <camunda:property id="DA83" value="DA83-Эмэгтэй бизнес эрхлэгчдийг дэмжих зээл-ААН-Жижиг" />
+              <camunda:property id="DD75" value="DD75-Хөдөө аж ахуйг дэмжих зээл-ААН/дахин" />
+              <camunda:property id="DD76" value="DD76-Хөдөө аж ахуйг дэмжих зээл-ААН/шинэ" />
+              <camunda:property id="DD83" value="DD83-Хөдөө аж ахуйг дэмжих зээл-ИРГЭН/дахин" />
+              <camunda:property id="DD84" value="DD84-Хөдөө аж ахуйг дэмжих зээл-ИРГЭН/шинэ" />
+              <camunda:property id="DD85" value="DD85-Хөдөө аж ахуйг дэмжих зээл-Иргэн/дахин - Жижиг" />
+              <camunda:property id="DD86" value="DD86-Хөдөө аж ахуйг дэмжих зээл-Иргэн/шинэ - Жижиг" />
+              <camunda:property id="DD87" value="DD87-Хөдөө аж ахуйг дэмжих зээл-ААН/дахин - Жижиг" />
+              <camunda:property id="DD88" value="DD88-Хөдөө аж ахуйг дэмжих зээл-ААН/шинэ - Жижиг" />
+              <camunda:property id="DD89" value="DD89-ОН руу шилжсэн ААН 1 хувь - Бичил" />
+              <camunda:property id="DD90" value="DD90-ОН руу шилжсэн ААН 1 хувь - Жижиг" />
+              <camunda:property id="DB53" value="DB53-365-Хялбар бичил зээл-Иргэн" />
+              <camunda:property id="EH15" value="EH15-Худалдан авалтын зээл - Сайн1" />
+              <camunda:property id="EH16" value="EH16-Худалдан авалтын зээл - Сайн2" />
+            </camunda:properties>
+          </camunda:formField>
+          <camunda:formField id="loanProductType" label="Зээлийн бүтээгдэхүүний төрөл" type="string">
+            <camunda:properties>
+              <camunda:property id="Property_18studo" value="Жижиг бизнесийн зээл" />
+              <camunda:property id="Property_35eb9rc" value="Бичил бизнесийн зээл" />
+              <camunda:property id="Property_0ga25rb" value="Худалдан авалт" />
+            </camunda:properties>
+            <camunda:validation>
+              <camunda:constraint name="required" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="areasOfActivity" label="Үйл ажиллагааны үндсэн чиглэл" type="string">
+            <camunda:properties>
+              <camunda:property id="Property_1787edf" value="Худалдаа" />
+              <camunda:property id="Property_34km5km" value="Үйлдвэрлэл" />
+              <camunda:property id="Property_0rq64dc" value="Үйлчилгээ" />
+            </camunda:properties>
+            <camunda:validation>
+              <camunda:constraint name="required" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="hasMortgage" label="Орон сууцны зээлтэй эсэх" type="string">
+            <camunda:properties>
+              <camunda:property id="Property_0uvo96l" value="Тийм" />
+              <camunda:property id="Property_3ubnl06" value="Үгүй" />
+              <camunda:property id="Property_3cbu7ot" value="Банкны нөхцөлтэй орон сууц" />
+            </camunda:properties>
+            <camunda:validation>
+              <camunda:constraint name="required" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="consumerLoanRepayment" label="Хэрэглээ ОСХА зээлийн төлбөр" type="long" />
+          <camunda:formField id="businessLoanRepayment" label="Бизнесийн зээлийн төлбөр" type="long" />
+          <camunda:formField id="householdExpenses" label="Өрхийн зардал /1 сараар/ " type="long" />
+          <camunda:formField id="purposeOfLoan" label="Зээлийн зориулалт" type="string">
+            <camunda:properties>
+              <camunda:property id="Property_14j7e67" value="Эргэлтийн хөрөнгө" />
+              <camunda:property id="Property_1rgb9l0" value="Үндсэн хөрөнгө" />
+            </camunda:properties>
+            <camunda:validation>
+              <camunda:constraint name="required" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="debtToSolvencyRatioString" label="Өр төлөх чадварын харьцаа" type="string">
+            <camunda:validation>
+              <camunda:constraint name="readonly" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="debtToIncomeRatioString" label="Өр орлогын харьцаа(45%)" type="string">
+            <camunda:validation>
+              <camunda:constraint name="readonly" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="debtToAssetsRatioString" label="Өр хөрөнгийн харьцаа" type="string">
+            <camunda:validation>
+              <camunda:constraint name="readonly" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="currentAssetsRatioString" label="Эргэлтийн хөрөнгийн харьцаа" type="string">
+            <camunda:validation>
+              <camunda:constraint name="readonly" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="collateralProvidedAmountString" label="Барьцаагаар хангагдах дүн" type="string">
+            <camunda:validation>
+              <camunda:constraint name="readonly" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="grantLoanAmount" label="Олгож болох зээлийн хэмжээ" type="long">
+            <camunda:validation>
+              <camunda:constraint name="readonly" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="acceptedLoanAmount" label="Батлах зээлийн хэмжээ" type="long">
+            <camunda:validation>
+              <camunda:constraint name="required" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="collateralAsset1" label="Барьцаа хөрөнгө" type="string" />
+          <camunda:formField id="collateralAsset2" label="Барьцаа хөрөнгө" type="string" />
+          <camunda:formField id="collateralAsset3" label="Барьцаа хөрөнгө" type="string" />
+          <camunda:formField id="collateralAsset4" label="Барьцаа хөрөнгө" type="string" />
+          <camunda:formField id="collateralAsset5" label="Барьцаа хөрөнгө" type="string" />
+          <camunda:formField id="collateralAsset6" label="Барьцаа хөрөнгө" type="string" />
+          <camunda:formField id="collateralAsset7" label="Барьцаа хөрөнгө" type="string" />
+          <camunda:formField id="collateralAsset8" label="Барьцаа хөрөнгө" type="string" />
+          <camunda:formField id="collateralAsset9" label="Барьцаа хөрөнгө" type="string" />
+          <camunda:formField id="collateralAsset10" label="Барьцаа хөрөнгө" type="string" />
+          <camunda:formField id="collateralAsset11" label="Барьцаа хөрөнгө" type="string" />
+          <camunda:formField id="collateralAsset12" label="Барьцаа хөрөнгө" type="string" />
+          <camunda:formField id="collateralAsset13" label="Барьцаа хөрөнгө" type="string" />
+          <camunda:formField id="collateralAsset14" label="Барьцаа хөрөнгө" type="string" />
+          <camunda:formField id="collateralAsset15" label="Барьцаа хөрөнгө" type="string" />
+          <camunda:formField id="collateralAsset16" label="Барьцаа хөрөнгө" type="string" />
+          <camunda:formField id="collateralAsset17" label="Барьцаа хөрөнгө" type="string" />
+          <camunda:formField id="collateralAsset18" label="Барьцаа хөрөнгө" type="string" />
+          <camunda:formField id="collateralAsset19" label="Барьцаа хөрөнгө" type="string" />
+          <camunda:formField id="collateralAsset0" label="Барьцаа хөрөнгө" type="string" />
+          <camunda:formField id="collateralAmount1" label="Барьцааны дүн" type="long" />
+          <camunda:formField id="collateralAmount2" label="Барьцааны дүн" type="long" />
+          <camunda:formField id="collateralAmount3" label="Барьцааны дүн" type="long" />
+          <camunda:formField id="collateralAmount4" label="Барьцааны дүн" type="long" />
+          <camunda:formField id="collateralAmount5" label="Барьцааны дүн" type="long" />
+          <camunda:formField id="collateralAmount6" label="Барьцааны дүн" type="long" />
+          <camunda:formField id="collateralAmount7" label="Барьцааны дүн" type="long" />
+          <camunda:formField id="collateralAmount8" label="Барьцааны дүн" type="long" />
+          <camunda:formField id="collateralAmount9" label="Барьцааны дүн" type="long" />
+          <camunda:formField id="collateralAmount10" label="Барьцааны дүн" type="long" />
+          <camunda:formField id="collateralAmount11" label="Барьцааны дүн" type="long" />
+          <camunda:formField id="collateralAmount12" label="Барьцааны дүн" type="long" />
+          <camunda:formField id="collateralAmount13" label="Барьцааны дүн" type="long" />
+          <camunda:formField id="collateralAmount14" label="Барьцааны дүн" type="long" />
+          <camunda:formField id="collateralAmount15" label="Барьцааны дүн" type="long" />
+          <camunda:formField id="collateralAmount16" label="Барьцааны дүн" type="long" />
+          <camunda:formField id="collateralAmount17" label="Барьцааны дүн" type="long" />
+          <camunda:formField id="collateralAmount18" label="Барьцааны дүн" type="long" />
+          <camunda:formField id="collateralAmount19" label="Барьцааны дүн" type="long" />
+          <camunda:formField id="collateralAmount0" label="Барьцааны дүн" type="long" />
+          <camunda:formField id="loanApprovalAmount1" label="Зээл олгох дүн" type="long">
+            <camunda:validation>
+              <camunda:constraint name="readonly" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="loanApprovalAmount2" label="Зээл олгох дүн" type="long">
+            <camunda:validation>
+              <camunda:constraint name="readonly" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="loanApprovalAmount3" label="Зээл олгох дүн" type="long">
+            <camunda:validation>
+              <camunda:constraint name="readonly" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="loanApprovalAmount4" label="Зээл олгох дүн" type="long">
+            <camunda:validation>
+              <camunda:constraint name="readonly" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="loanApprovalAmount5" label="Зээл олгох дүн" type="long">
+            <camunda:validation>
+              <camunda:constraint name="readonly" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="loanApprovalAmount6" label="Зээл олгох дүн" type="long">
+            <camunda:validation>
+              <camunda:constraint name="readonly" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="loanApprovalAmount7" label="Зээл олгох дүн" type="long">
+            <camunda:validation>
+              <camunda:constraint name="readonly" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="loanApprovalAmount8" label="Зээл олгох дүн" type="long">
+            <camunda:validation>
+              <camunda:constraint name="readonly" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="loanApprovalAmount9" label="Зээл олгох дүн" type="long">
+            <camunda:validation>
+              <camunda:constraint name="readonly" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="loanApprovalAmount10" label="Зээл олгох дүн" type="long">
+            <camunda:validation>
+              <camunda:constraint name="readonly" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="loanApprovalAmount11" label="Зээл олгох дүн" type="long">
+            <camunda:validation>
+              <camunda:constraint name="readonly" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="loanApprovalAmount12" label="Зээл олгох дүн" type="long">
+            <camunda:validation>
+              <camunda:constraint name="readonly" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="loanApprovalAmount13" label="Зээл олгох дүн" type="long">
+            <camunda:validation>
+              <camunda:constraint name="readonly" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="loanApprovalAmount14" label="Зээл олгох дүн" type="long">
+            <camunda:validation>
+              <camunda:constraint name="readonly" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="loanApprovalAmount15" label="Зээл олгох дүн" type="long">
+            <camunda:validation>
+              <camunda:constraint name="readonly" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="loanApprovalAmount16" label="Зээл олгох дүн" type="long">
+            <camunda:validation>
+              <camunda:constraint name="readonly" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="loanApprovalAmount17" label="Зээл олгох дүн" type="long">
+            <camunda:validation>
+              <camunda:constraint name="readonly" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="loanApprovalAmount18" label="Зээл олгох дүн" type="long">
+            <camunda:validation>
+              <camunda:constraint name="readonly" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="loanApprovalAmount19" label="Зээл олгох дүн" type="long">
+            <camunda:validation>
+              <camunda:constraint name="readonly" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="loanApprovalAmount0" label="Зээл олгох дүн" type="long">
+            <camunda:validation>
+              <camunda:constraint name="readonly" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="microLoanCalculationCount" type="long" defaultValue="0" />
+          <camunda:formField id="reCalculated" type="boolean" defaultValue="false" />
+        </camunda:formData>
+        <camunda:taskListener delegateExpression="${updateLoanAmountTaskListener}" event="complete" />
+        <camunda:taskListener delegateExpression="${manuallyStartRelatedTaskListener}" event="complete" />
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_0znbj9n</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_10j9jox</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:sequenceFlow id="SequenceFlow_0qlpbp1" sourceRef="service_task_micro_set_variable_for_loan_account" targetRef="Event_00jjwzc" />
+    <bpmn:serviceTask id="Activity_08bhlkr" name="Calculate" camunda:delegateExpression="${calculateLoanAmountMicroTask}">
+      <bpmn:incoming>SequenceFlow_0l8h3ij</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_1cnios3</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:exclusiveGateway id="ExclusiveGateway_1r72l8n">
+      <bpmn:incoming>SequenceFlow_10j9jox</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_0l8h3ij</bpmn:outgoing>
+      <bpmn:outgoing>Flow_0gggbii</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:sequenceFlow id="SequenceFlow_10j9jox" sourceRef="user_task_calculate_micro_loan_amount" targetRef="ExclusiveGateway_1r72l8n" />
+    <bpmn:sequenceFlow id="SequenceFlow_0l8h3ij" sourceRef="ExclusiveGateway_1r72l8n" targetRef="Activity_08bhlkr">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${calculateLoanAmount == true}</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:endEvent id="Event_00jjwzc" name="Дууссан">
+      <bpmn:incoming>SequenceFlow_0qlpbp1</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:exclusiveGateway id="ExclusiveGateway_0fk4k5v">
+      <bpmn:incoming>SequenceFlow_1cnios3</bpmn:incoming>
+      <bpmn:incoming>Flow_0r4lm04</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_0ihipda</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:sequenceFlow id="SequenceFlow_1cnios3" sourceRef="Activity_08bhlkr" targetRef="ExclusiveGateway_0fk4k5v" />
+    <bpmn:sequenceFlow id="SequenceFlow_0ihipda" sourceRef="ExclusiveGateway_0fk4k5v" targetRef="service_task_micro_set_variable_for_loan_account" />
+    <bpmn:serviceTask id="service_task_micro_set_variable_for_loan_account" name="Бичил зээлийн дансны variable set хийх" camunda:delegateExpression="${setAccountFieldsAfterAmountCalcTask}">
+      <bpmn:incoming>SequenceFlow_0ihipda</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_0qlpbp1</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:serviceTask id="Activity_0yweclz" name="Validation" camunda:delegateExpression="${microLoanAmountValidationTask}">
+      <bpmn:incoming>Flow_0gggbii</bpmn:incoming>
+      <bpmn:outgoing>Flow_0r4lm04</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:sequenceFlow id="Flow_0r4lm04" sourceRef="Activity_0yweclz" targetRef="ExclusiveGateway_0fk4k5v" />
+    <bpmn:sequenceFlow id="Flow_0gggbii" sourceRef="ExclusiveGateway_1r72l8n" targetRef="Activity_0yweclz" />
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Collaboration_05c2vz5">
+      <bpmndi:BPMNShape id="Participant_1nwygl7_di" bpmnElement="Participant_1nwygl7" isHorizontal="true">
+        <dc:Bounds x="129" y="80" width="912" height="320" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_0gggbii_di" bpmnElement="Flow_0gggbii">
+        <di:waypoint x="480" y="235" />
+        <di:waypoint x="480" y="300" />
+        <di:waypoint x="570" y="300" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0r4lm04_di" bpmnElement="Flow_0r4lm04">
+        <di:waypoint x="670" y="300" />
+        <di:waypoint x="750" y="300" />
+        <di:waypoint x="750" y="235" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_0ihipda_di" bpmnElement="SequenceFlow_0ihipda">
+        <di:waypoint x="775" y="210" />
+        <di:waypoint x="840" y="210" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_1cnios3_di" bpmnElement="SequenceFlow_1cnios3">
+        <di:waypoint x="670" y="140" />
+        <di:waypoint x="750" y="140" />
+        <di:waypoint x="750" y="185" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_0l8h3ij_di" bpmnElement="SequenceFlow_0l8h3ij">
+        <di:waypoint x="480" y="185" />
+        <di:waypoint x="480" y="140" />
+        <di:waypoint x="570" y="140" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_10j9jox_di" bpmnElement="SequenceFlow_10j9jox">
+        <di:waypoint x="400" y="210" />
+        <di:waypoint x="455" y="210" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_0qlpbp1_di" bpmnElement="SequenceFlow_0qlpbp1">
+        <di:waypoint x="940" y="210" />
+        <di:waypoint x="982" y="210" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0znbj9n_di" bpmnElement="Flow_0znbj9n">
+        <di:waypoint x="228" y="210" />
+        <di:waypoint x="300" y="210" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
+        <dc:Bounds x="192" y="192" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="184" y="235" width="61" height="40" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0h3cbl3_di" bpmnElement="user_task_calculate_micro_loan_amount">
+        <dc:Bounds x="300" y="170" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0093vox_di" bpmnElement="Activity_08bhlkr">
+        <dc:Bounds x="570" y="100" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="ExclusiveGateway_1r72l8n_di" bpmnElement="ExclusiveGateway_1r72l8n" isMarkerVisible="true">
+        <dc:Bounds x="455" y="185" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_00jjwzc_di" bpmnElement="Event_00jjwzc">
+        <dc:Bounds x="982" y="192" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="980" y="235" width="41" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="ExclusiveGateway_0fk4k5v_di" bpmnElement="ExclusiveGateway_0fk4k5v" isMarkerVisible="true">
+        <dc:Bounds x="725" y="185" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="ServiceTask_129mb8p_di" bpmnElement="service_task_micro_set_variable_for_loan_account">
+        <dc:Bounds x="840" y="170" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1ntcjxb_di" bpmnElement="Activity_0yweclz">
+        <dc:Bounds x="570" y="260" width="100" height="80" />
+      </bpmndi:BPMNShape>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>

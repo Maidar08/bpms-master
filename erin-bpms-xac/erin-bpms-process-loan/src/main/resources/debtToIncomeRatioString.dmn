@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/DMN/20151101/dmn.xsd" xmlns:camunda="http://camunda.org/schema/1.0/dmn" id="Definitions_0tp9xqe" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="3.7.3">
+  <decision id="debtToIncomeRatioString" name="Debt To Income Ratio String">
+    <decisionTable id="decisionTable_1">
+      <input id="input_1" camunda:inputVariable="hasMortgage">
+        <inputExpression id="inputExpression_1" typeRef="string">
+          <text></text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_00483kz" camunda:inputVariable="hasConsumptionLoan">
+        <inputExpression id="LiteralExpression_1d1w03e" typeRef="string">
+          <text></text>
+        </inputExpression>
+      </input>
+      <output id="output_1" name="debtToIncomeRatioString" typeRef="string" />
+      <rule id="DecisionRule_0tiayo3">
+        <inputEntry id="UnaryTests_127dl9p">
+          <text>"Тийм"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_17ew66i">
+          <text>"Тийм"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1n4hdfm">
+          <text>"45"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1diketn">
+        <inputEntry id="UnaryTests_1qmjtvv">
+          <text>"Тийм"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0ymrb4q">
+          <text>"Үгүй"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0mx61gl">
+          <text>"45"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1jaqq6b">
+        <inputEntry id="UnaryTests_1du4lfg">
+          <text>"Үгүй"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_06nc4d7">
+          <text>"Тийм"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0cy67kf">
+          <text>"60"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_15tojk1">
+        <inputEntry id="UnaryTests_1c4lyrn">
+          <text>"Үгүй"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0za4054">
+          <text>"Үгүй"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_19djjxu">
+          <text>"Тооцохгүй"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1fe42jj">
+        <inputEntry id="UnaryTests_0tmv0a7">
+          <text>"Банкны нөхцөлтэй орон сууц"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0unxz3h">
+          <text>"Тийм"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0sj4fgr">
+          <text>"60"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_164re7p">
+        <inputEntry id="UnaryTests_0b88aer">
+          <text>"Банкны нөхцөлтэй орон сууц"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0d9h00l">
+          <text>"Үгүй"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_07cnnzf">
+          <text>"60"</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+</definitions>

@@ -1,0 +1,43 @@
+table {
+  width: 100%;
+  table-layout: fixed;
+  overflow-y: scroll;
+}
+
+.mat-header-cell {
+  background-color: white;
+  border-color: white !important;
+  font-size: 12px !important;
+  color: black !important;
+}
+
+a {
+  color: cornflowerblue;
+}
+
+a:hover {
+  cursor: pointer;
+}
+
+.mat-column-number {
+  width: 8%;
+}
+
+.mat-column-note {
+  width: 50%;
+}
+
+.mat-column-username {
+  width: 28%;
+}
+
+th, td {
+  width: auto;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+th.mat-cell, td.mat-cell, td.mat-footer-cell, th.mat-footer-cell {
+  padding-right: 10px;
+}

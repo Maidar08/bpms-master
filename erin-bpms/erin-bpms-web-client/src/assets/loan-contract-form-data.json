@@ -1,0 +1,5551 @@
+{
+  "_comment": "PREPARE LOAN CONTRACT",
+  "user_task_prepare_loan_contract_info": {
+    "fieldGroups": [
+      {
+        "title": null,
+        "type": "default",
+        "column": 3,
+        "fieldIds": [
+          "productDescription",
+          "loanAmount",
+          "accountNumber"
+        ],
+        "fields": []
+      },
+      {
+        "title": null,
+        "type": "default",
+        "column": 3,
+        "fieldIds": [
+          "rateChange",
+          "applicationFee",
+          "mortgageContract",
+          "loanServiceFee",
+          "numberOfContract",
+          "collateralContract",
+          "commitmentFee",
+          "assetInfo",
+          "fiduciaryContract",
+          "dummy2",
+          "dummy3",
+          "guaranteeAgreement"
+        ],
+        "fields": []
+      },
+      {
+        "title": null,
+        "subtitle": "Хасбанкны данс",
+        "type": "flexible",
+        "column": 3,
+        "fields": [],
+        "subFields": [],
+        "fieldIds": [
+          "casaAccount0", "savingsAccount0", "cardAccount0",
+          "casaAccount1", "savingsAccount1", "cardAccount1",
+          "casaAccount2", "savingsAccount2", "cardAccount2",
+          "casaAccount3", "savingsAccount3", "cardAccount3",
+          "casaAccount4", "savingsAccount4", "cardAccount4"
+        ],
+        "flexibleForm": {
+          "2": [
+            {
+              "id": "casaAccount",
+              "label": "Харилцах данс",
+              "required": false,
+              "options": [],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "string",
+              "context": null
+            },
+            {
+              "id": "savingsAccount",
+              "label": "Хадгаламжийн данс",
+              "required": false,
+              "options": [],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [{"name": "maxlength", "config": "11"}],
+              "disabled": false,
+              "type": "string",
+              "context": null
+            },
+            {
+              "id": "cardAccount",
+              "label": "Картын данс",
+              "required": false,
+              "options": [],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "string",
+              "context": null
+            }
+          ]
+        },
+        "max": 5
+      },
+      {
+        "title": null,
+        "subtitle": "Бусад банкны данс",
+        "type": "flexible",
+        "column": 3,
+        "fields": [],
+        "subFields": [],
+        "fieldIds": [
+          "otherBankName0",
+          "dummy40",
+          "dummy50",
+          "otherCasaAccount0",
+          "otherSavingsAccount0",
+          "otherCardAccount0",
+          "otherBankName1",
+          "dummy41",
+          "dummy51",
+          "otherCasaAccount1",
+          "otherSavingsAccount1",
+          "otherCardAccount1",
+          "otherBankName2",
+          "dummy42",
+          "dummy52",
+          "otherCasaAccount2",
+          "otherSavingsAccount2",
+          "otherCardAccount2",
+          "otherBankName3",
+          "dummy43",
+          "dummy53",
+          "otherCasaAccount3",
+          "otherSavingsAccount3",
+          "otherCardAccount3",
+          "otherBankName4",
+          "dummy44",
+          "dummy54",
+          "otherCasaAccount4",
+          "otherSavingsAccount4",
+          "otherCardAccount4"
+        ],
+        "flexibleForm": {
+          "3": [
+            {
+              "id": "otherBankName",
+              "label": "Банкны нэр",
+              "required": false,
+              "options": [
+                {"id": "op1", "value": "ХасБанк"},
+                {"id": "op2", "value": "Ариг банк"},
+                {"id": "op3", "value": "Богд банк"},
+                {"id": "op4", "value": "Голомт банк"},
+                {"id": "op5", "value": "Капитрон банк"},
+                {"id": "op6", "value": "Кредит банк"},
+                {"id": "op7", "value": "Төрийн банк"},
+                {"id": "op8", "value": "Төрийн сан"},
+                {"id": "op9", "value": "Тээвэр хөгжлийн банк"},
+                {"id": "op10", "value": "Улаанбаатар хотын банк"},
+                {"id": "op11", "value": "Үндэсний хөрөнгө оруулалтын банк"},
+                {"id": "op12", "value": "Хаан банк"},
+                {"id": "op13", "value": "Худалдаа хөгжлийн банк"},
+                {"id": "op14", "value": "Чингис хаан банк"}
+              ],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "string",
+              "context": null
+            },
+            {
+              "id": "dummy4",
+              "label": "dummy",
+              "required": false,
+              "options": [],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "string",
+              "context": null
+            },
+            {
+              "id": "dummy5",
+              "label": "dummy",
+              "required": false,
+              "options": [],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "string",
+              "context": null
+            },
+            {
+              "id": "otherCasaAccount",
+              "label": "Харилцах данс",
+              "required": false,
+              "options": [],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "string",
+              "context": null
+            },
+            {
+              "id": "otherSavingsAccount",
+              "label": "Хадгаламжийн данс",
+              "required": false,
+              "options": [],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "string",
+              "context": null
+            },
+            {
+              "id": "otherCardAccount",
+              "label": "Картын данс",
+              "required": false,
+              "options": [],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "string",
+              "context": null
+            }
+          ]
+        },
+        "max": 5
+      },
+      {
+        "title": null,
+        "subtitle": "Зээлийн мэдээллийн хуудас",
+        "type": "default",
+        "column": 3,
+        "fieldIds": [
+          "serviceFee",
+          "supplierFee",
+          "otherFee",
+          "propertyInsurance",
+          "accidentInsurance"
+        ],
+        "fields": []
+      }
+    ],
+    "buttons": {
+      "save": false,
+      "createContractWithDialog": false
+    },
+    "entities": {
+      "taskType": null,
+      "entity": null
+    }
+  },
+  "_comment": "EMPLOYEE MORTGAGE MAIN LOAN CONTRACT",
+  "user_task_prepare_employee_mortgage_loan_contract_info": {
+    "fieldGroups": [
+      {
+        "title": null,
+        "type": "default",
+        "column": 3,
+        "fieldIds": [
+          "productDescription",
+          "loanAmount",
+          "accountNumber"
+        ],
+        "fields": []
+      },
+      {
+        "title": null,
+        "type": "default",
+        "column": 3,
+        "fieldIds": [
+          "rateChange",
+          "applicationFee",
+          "mortgageContract",
+          "loanServiceFee",
+          "numberOfContract",
+          "collateralContract",
+          "insuranceAccountNumberOnly",
+          "dummy1",
+          "fiduciaryContract",
+          "dummy2",
+          "dummy3",
+          "guaranteeAgreement"
+        ],
+        "fields": []
+      },
+      {
+        "title": null,
+        "subtitle": "Хасбанкны данс",
+        "type": "flexible",
+        "column": 3,
+        "fields": [],
+        "subFields": [],
+        "fieldIds": [
+          "casaAccount0", "savingsAccount0", "cardAccount0",
+          "casaAccount1", "savingsAccount1", "cardAccount1",
+          "casaAccount2", "savingsAccount2", "cardAccount2",
+          "casaAccount3", "savingsAccount3", "cardAccount3",
+          "casaAccount4", "savingsAccount4", "cardAccount4"
+        ],
+        "flexibleForm": {
+          "2": [
+            {
+              "id": "casaAccount",
+              "label": "Харилцах данс",
+              "required": false,
+              "options": [],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [{"name": "maxlength", "config": "11"}],
+              "disabled": false,
+              "type": "string",
+              "context": null
+            },
+            {
+              "id": "savingsAccount",
+              "label": "Хадгаламжийн данс",
+              "required": false,
+              "options": [],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [{"name": "maxlength", "config": "11"}],
+              "disabled": false,
+              "type": "string",
+              "context": null
+            },
+            {
+              "id": "cardAccount",
+              "label": "Картын данс",
+              "required": false,
+              "options": [],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [{"name": "maxlength", "config": "11"}],
+              "disabled": false,
+              "type": "string",
+              "context": null
+            }
+          ]
+        },
+        "max": 5
+      },
+      {
+        "title": null,
+        "subtitle": "Бусад банкны данс",
+        "type": "flexible",
+        "column": 3,
+        "fields": [],
+        "subFields": [],
+        "fieldIds": [
+          "otherBankName0",
+          "dummy40",
+          "dummy50",
+          "otherCasaAccount0",
+          "otherSavingsAccount0",
+          "otherCardAccount0",
+          "otherBankName1",
+          "dummy41",
+          "dummy51",
+          "otherCasaAccount1",
+          "otherSavingsAccount1",
+          "otherCardAccount1",
+          "otherBankName2",
+          "dummy42",
+          "dummy52",
+          "otherCasaAccount2",
+          "otherSavingsAccount2",
+          "otherCardAccount2",
+          "otherBankName3",
+          "dummy43",
+          "dummy53",
+          "otherCasaAccount3",
+          "otherSavingsAccount3",
+          "otherCardAccount3",
+          "otherBankName4",
+          "dummy44",
+          "dummy54",
+          "otherCasaAccount4",
+          "otherSavingsAccount4",
+          "otherCardAccount4"
+        ],
+        "flexibleForm": {
+          "3": [
+            {
+              "id": "otherBankName",
+              "label": "Банкны нэр",
+              "required": false,
+              "options": [
+                {"id": "op1", "value": "ХасБанк"},
+                {"id": "op2", "value": "Ариг банк"},
+                {"id": "op3", "value": "Богд банк"},
+                {"id": "op4", "value": "Голомт банк"},
+                {"id": "op5", "value": "Капитрон банк"},
+                {"id": "op6", "value": "Кредит банк"},
+                {"id": "op7", "value": "Төрийн банк"},
+                {"id": "op8", "value": "Төрийн сан"},
+                {"id": "op9", "value": "Тээвэр хөгжлийн банк"},
+                {"id": "op10", "value": "Улаанбаатар хотын банк"},
+                {"id": "op11", "value": "Үндэсний хөрөнгө оруулалтын банк"},
+                {"id": "op12", "value": "Хаан банк"},
+                {"id": "op13", "value": "Худалдаа хөгжлийн банк"},
+                {"id": "op14", "value": "Чингис хаан банк"}
+              ],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "string",
+              "context": null
+            },
+            {
+              "id": "dummy4",
+              "label": "dummy",
+              "required": false,
+              "options": [],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "string",
+              "context": null
+            },
+            {
+              "id": "dummy5",
+              "label": "dummy",
+              "required": false,
+              "options": [],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "string",
+              "context": null
+            },
+            {
+              "id": "otherCasaAccount",
+              "label": "Харилцах данс",
+              "required": false,
+              "options": [],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "string",
+              "context": null
+            },
+            {
+              "id": "otherSavingsAccount",
+              "label": "Хадгаламжийн данс",
+              "required": false,
+              "options": [],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "string",
+              "context": null
+            },
+            {
+              "id": "otherCardAccount",
+              "label": "Картын данс",
+              "required": false,
+              "options": [],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "string",
+              "context": null
+            }
+          ]
+        },
+        "max": 5
+      },
+      {
+        "title": null,
+        "subtitle": "Зээлийн мэдээллийн хуудас",
+        "type": "default",
+        "column": 3,
+        "fieldIds": [
+          "serviceFee",
+          "supplierFee",
+          "otherFee",
+          "propertyInsurance",
+          "accidentInsurance"
+        ],
+        "fields": []
+      },
+      {
+        "title": null,
+        "subtitle": "Худалдан авч буй үл хөдлөх хөрөнгийн мэдээлэл",
+        "type": "flexible",
+        "column": 3,
+        "fields": [],
+        "subFields": [],
+        "fieldIds": [
+          "province0",
+          "doorNumber0",
+          "offerAmount0",
+          "district0",
+          "areaSquare0",
+          "advanceAmountPercent0",
+          "bagKhoroo0",
+          "registryNumber0",
+          "amount0",
+          "town0",
+          "certificateNumber0",
+          "dummy60",
+          "streetApartment0",
+
+          "province1",
+          "doorNumber1",
+          "offerAmount1",
+          "district1",
+          "areaSquare1",
+          "advanceAmountPercent1",
+          "bagKhoroo1",
+          "registryNumber1",
+          "amount1",
+          "town1",
+          "certificateNumber1",
+          "dummy61",
+          "streetApartment1",
+
+          "province2",
+          "doorNumber2",
+          "offerAmount2",
+          "district2",
+          "areaSquare2",
+          "advanceAmountPercent2",
+          "bagKhoroo2",
+          "registryNumber2",
+          "amount2",
+          "town2",
+          "certificateNumber2",
+          "dummy62",
+          "streetApartment2",
+
+          "province3",
+          "doorNumber3",
+          "offerAmount3",
+          "district3",
+          "areaSquare3",
+          "advanceAmountPercent3",
+          "bagKhoroo3",
+          "registryNumber3",
+          "amount3",
+          "town3",
+          "certificateNumber3",
+          "dummy63",
+          "streetApartment3",
+
+          "province4",
+          "doorNumber4",
+          "offerAmount4",
+          "district4",
+          "areaSquare4",
+          "advanceAmountPercent4",
+          "bagKhoroo4",
+          "registryNumber4",
+          "amount4",
+          "town4",
+          "certificateNumber4",
+          "dummy64",
+          "streetApartment4"
+        ],
+        "flexibleForm": {
+          "5": [
+            {
+              "id": "province",
+              "label": "Аймаг/Хот",
+              "required": false,
+              "options": [],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "string",
+              "context": null
+            },
+            {
+              "id": "doorNumber",
+              "label": "Тоот",
+              "required": false,
+              "options": [],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "string",
+              "context": null
+            },
+            {
+              "id": "offerAmount",
+              "label": "Худалдан авах үнэ",
+              "required": false,
+              "options": [],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "BigDecimal",
+              "context": null
+            },
+            {
+              "id": "district",
+              "label": "Сум/Дүүрэг",
+              "required": false,
+              "options": [],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "string",
+              "context": null
+            },
+
+            {
+              "id": "areaSquare",
+              "label": "Талбай /мкв/",
+              "required": false,
+              "options": [],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "string",
+              "context": null
+            },
+            {
+              "id": "advanceAmountPercent",
+              "label": "Урьдчилгаа дүнгийн хувь",
+              "required": false,
+              "options": [],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "string",
+              "context": null
+            },
+            {
+              "id": "bagKhoroo",
+              "label": "Баг/Хороо",
+              "required": false,
+              "options": [],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "string",
+              "context": null
+            },
+            {
+              "id": "registryNumber",
+              "label": "Улсын бүртгэлийн дугаар",
+              "required": false,
+              "options": [],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "string",
+              "context": null
+            },
+            {
+              "id": "amount",
+              "label": "Урьдчилгаа дүн",
+              "required": false,
+              "options": [],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "BigDecimal",
+              "context": null
+            },
+            {
+              "id": "town",
+              "label": "Хороолол/хотхон",
+              "required": false,
+              "options": [],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "string",
+              "context": null
+            },
+            {
+              "id": "certificateNumber",
+              "label": "Гэрчилгээний дугаар",
+              "required": false,
+              "options": [],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "string",
+              "context": null
+            },
+            {
+              "id": "dummy6",
+              "label": "dummy",
+              "required": false,
+              "options": [],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "string",
+              "context": null
+            },
+            {
+              "id": "streetApartment",
+              "label": "Байр/Гудамж",
+              "required": false,
+              "options": [],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "string",
+              "context": null
+            }
+          ]
+        },
+        "max": 5
+      },
+      {
+        "title": null,
+        "subtitle": "Хашаа байшин/АОС-н мэдээлэл",
+        "type": "flexible",
+        "column": 3,
+        "fields": [],
+        "subFields": [],
+        "fieldIds": [
+          "aocType0",
+          "aocSquare0",
+          "aocProjectTotalAmount0",
+          "aocArea0",
+          "aocRegNumber0",
+          "aocWorkPercent0",
+          "aocAreaRegNumber0",
+          "aocCertificateNumber0",
+          "dummy70",
+          "aocAreaCertiNumber0",
+
+
+          "aocType1",
+          "aocSquare1",
+          "aocProjectTotalAmount1",
+          "aocArea1",
+          "aocRegNumber1",
+          "aocWorkPercent1",
+          "aocAreaRegNumber1",
+          "aocCertificateNumber1",
+          "dummy71",
+          "aocAreaCertiNumber1",
+
+
+          "aocType2",
+          "aocSquare2",
+          "aocProjectTotalAmount2",
+          "aocArea2",
+          "aocRegNumber2",
+          "aocWorkPercent2",
+          "aocAreaRegNumber2",
+          "aocCertificateNumber2",
+          "dummy72",
+          "aocAreaCertiNumber2",
+
+
+          "aocType3",
+          "aocSquare3",
+          "aocProjectTotalAmount3",
+          "aocArea3",
+          "aocRegNumber3",
+          "aocWorkPercent3",
+          "aocAreaRegNumber3",
+          "aocCertificateNumber3",
+          "dummy73",
+          "aocAreaCertiNumber3",
+
+
+          "aocType4",
+          "aocSquare4",
+          "aocProjectTotalAmount4",
+          "aocArea4",
+          "aocRegNumber4",
+          "aocWorkPercent4",
+          "aocAreaRegNumber4",
+          "aocCertificateNumber4",
+          "dummy74",
+          "aocAreaCertiNumber4"
+        ],
+        "flexibleForm": {
+          "6": [
+            {
+              "id": "aocType",
+              "label": "Төрөл",
+              "required": false,
+              "options": [
+                {"id": "aoc", "value": "АОС"},
+                {"id": "house", "value": "Хашаа байшин"}
+              ],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "string",
+              "context": null
+            },
+            {
+              "id": "aocSquare",
+              "label": "Талбай /мкв/",
+              "required": false,
+              "options": [],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "string",
+              "context": null
+            },
+            {
+              "id": "aocProjectTotalAmount",
+              "label": "Төсвийн нийт дүн",
+              "required": false,
+              "options": [],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "BigDecimal",
+              "context": null
+            },
+            {
+              "id": "aocArea",
+              "label": "Газрын талбай /мкв/",
+              "required": false,
+              "options": [],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "string",
+              "context": null
+            },
+            {
+              "id": "aocRegNumber",
+              "label": "Улсын бүртгэлийн дугаар",
+              "required": false,
+              "options": [],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "string",
+              "context": null
+            },
+            {
+              "id": "aocWorkPercent",
+              "label": "Гүйцэтгэлийн хувь",
+              "required": false,
+              "options": [],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "string",
+              "context": null
+            },
+            {
+              "id": "aocAreaRegNumber",
+              "label": "Газрын улсын бүртгэлийн №",
+              "required": false,
+              "options": [],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "string",
+              "context": null
+            },
+            {
+              "id": "aocCertificateNumber",
+              "label": "Гэрчилгээний дугаар",
+              "required": false,
+              "options": [],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "string",
+              "context": null
+            },
+            {
+              "id": "dummy7",
+              "label": "dummy",
+              "required": false,
+              "options": [],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "string",
+              "context": null
+            },
+            {
+              "id": "aocAreaCertiNumber",
+              "label": "Газрын гэрчилгээний №",
+              "required": false,
+              "options": [],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "string",
+              "context": null
+            }
+          ]
+        },
+        "max": 5
+      },
+      {
+        "title": null,
+        "subtitle": "Авто машины гарааж мэдээлэл",
+        "type": "flexible",
+        "column": 3,
+        "fields": [],
+        "subFields": [],
+        "fieldIds": [
+          "macProvinceCity0",
+          "macSquare0",
+          "macBuyAmount0",
+          "macSumDistrict0",
+          "macRegNumber0",
+          "macAdvanceAmountPercent0",
+          "macBagKhoroo0",
+          "macCertificateNumber0",
+          "macAmount0",
+          "macApartment0",
+          "dummy80",
+          "dummy81",
+          "macNumber0",
+
+
+          "macProvinceCity1",
+          "macSquare1",
+          "macBuyAmount1",
+          "macSumDistrict1",
+          "macRegNumber1",
+          "macAdvanceAmountPercent1",
+          "macBagKhoroo1",
+          "macCertificateNumber1",
+          "macAmount1",
+          "macApartment1",
+          "dummy82",
+          "dummy83",
+          "macNumber1",
+
+
+          "macProvinceCity2",
+          "macSquare2",
+          "macBuyAmount2",
+          "macSumDistrict2",
+          "macRegNumber2",
+          "macAdvanceAmountPercent2",
+          "macBagKhoroo2",
+          "macCertificateNumber2",
+          "macAmount2",
+          "macApartment2",
+          "dummy84",
+          "dummy85",
+          "macNumber2",
+
+
+          "macProvinceCity3",
+          "macSquare3",
+          "macBuyAmount3",
+          "macSumDistrict3",
+          "macRegNumber3",
+          "macAdvanceAmountPercent3",
+          "macBagKhoroo3",
+          "macCertificateNumber3",
+          "macAmount3",
+          "macApartment3",
+          "dummy86",
+          "dummy87",
+          "macNumber3",
+
+
+          "macProvinceCity4",
+          "macSquare4",
+          "macBuyAmount4",
+          "macSumDistrict4",
+          "macRegNumber4",
+          "macAdvanceAmountPercent4",
+          "macBagKhoroo4",
+          "macCertificateNumber4",
+          "macAmount4",
+          "macApartment4",
+          "dummy88",
+          "dummy89",
+          "macNumber4"
+        ],
+        "flexibleForm": {
+          "7": [
+            {
+              "id": "macProvinceCity",
+              "label": "Аймаг/Хот",
+              "required": false,
+              "options": [
+              ],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "string",
+              "context": null
+            },
+            {
+              "id": "macSquare",
+              "label": "Талбай /мкв/",
+              "required": false,
+              "options": [],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "string",
+              "context": null
+            },
+            {
+              "id": "macBuyAmount",
+              "label": "Худалдан авах дүн",
+              "required": false,
+              "options": [],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "BigDecimal",
+              "context": null
+            },
+            {
+              "id": "macSumDistrict",
+              "label": "Сум/Дүүрэг",
+              "required": false,
+              "options": [],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "string",
+              "context": null
+            },
+            {
+              "id": "macRegNumber",
+              "label": "Улсын бүртгэлийн дугаар",
+              "required": false,
+              "options": [],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "string",
+              "context": null
+            },
+            {
+              "id": "macAdvanceAmountPercent",
+              "label": "Урьдчилгээ дүнгийн хувь",
+              "required": false,
+              "options": [],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "string",
+              "context": null
+            },
+            {
+              "id": "macBagKhoroo",
+              "label": "Баг/Хороо",
+              "required": false,
+              "options": [],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "string",
+              "context": null
+            },
+            {
+              "id": "macCertificateNumber",
+              "label": "Гэрчилгээний дугаар",
+              "required": false,
+              "options": [],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "string",
+              "context": null
+            },
+            {
+              "id": "macAmount",
+              "label": "Урьдчилгаа дүн",
+              "required": false,
+              "options": [],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "BigDecimal",
+              "context": null
+            },
+            {
+              "id": "macApartment",
+              "label": "Байр/Гудамж",
+              "required": false,
+              "options": [],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "string",
+              "context": null
+            },
+            {
+              "id": "dummy8",
+              "label": "dummy",
+              "required": false,
+              "options": [
+              ],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "string",
+              "context": null
+            },
+            {
+              "id": "dummy8",
+              "label": "dummy",
+              "required": false,
+              "options": [],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "string",
+              "context": null
+            },
+            {
+              "id": "macNumber",
+              "label": "Тоот",
+              "required": false,
+              "options": [],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "string",
+              "context": null
+            }
+          ]
+        },
+        "max": 5
+      }
+    ],
+    "buttons": {
+      "save": false,
+      "createContractWithDialog": false
+    },
+    "entities": {
+      "taskType": null,
+      "entity": null
+    }
+  },
+  "_comment": "EMPLOYEE CONSUMPTION LOAN CONTRACT",
+  "user_task_employee_consumption_loan": {
+    "fieldGroups": [
+      {
+        "title": null,
+        "type": "default",
+        "column": 3,
+        "fieldIds": [
+          "productDescription",
+          "loanAmount",
+          "accountNumber"
+        ],
+        "fields": []
+      },
+      {
+        "title": null,
+        "type": "default",
+        "column": 3,
+        "fieldIds": [
+          "rateChange",
+          "applicationFee",
+          "mortgageContract",
+          "loanServiceFee",
+          "numberOfContract",
+          "collateralContract",
+          "commitmentFee",
+          "assetInfo",
+          "fiduciaryContract",
+          "dummy2",
+          "dummy3",
+          "guaranteeAgreement"
+        ],
+        "fields": []
+      },
+      {
+        "title": null,
+        "subtitle": "Хасбанкны данс",
+        "type": "flexible",
+        "column": 3,
+        "fields": [],
+        "subFields": [],
+        "fieldIds": [
+          "casaAccount0",
+          "savingsAccount0",
+          "cardAccount0",
+          "casaAccount1",
+          "savingsAccount1",
+          "cardAccount1",
+          "casaAccount2",
+          "savingsAccount2",
+          "cardAccount2",
+          "casaAccount3",
+          "savingsAccount3",
+          "cardAccount3",
+          "casaAccount4",
+          "savingsAccount4",
+          "cardAccount4"
+        ],
+        "flexibleForm": {
+          "2": [
+            {
+              "id": "casaAccount",
+              "label": "Харилцах данс",
+              "required": false,
+              "options": [],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "string",
+              "context": null
+            },
+            {
+              "id": "savingsAccount",
+              "label": "Хадгаламжийн данс",
+              "required": false,
+              "options": [],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [{"name": "maxlength", "config": "11"}],
+              "disabled": false,
+              "type": "string",
+              "context": null
+            },
+            {
+              "id": "cardAccount",
+              "label": "Картын данс",
+              "required": false,
+              "options": [],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "string",
+              "context": null
+            }
+          ]
+        },
+        "max": 5
+      },
+      {
+        "title": null,
+        "subtitle": "Бусад банкны данс",
+        "type": "flexible",
+        "column": 3,
+        "fields": [],
+        "subFields": [],
+        "fieldIds": [
+          "otherBankName0",
+          "dummy40",
+          "dummy50",
+          "otherCasaAccount0",
+          "otherSavingsAccount0",
+          "otherCardAccount0",
+          "otherBankName1",
+          "dummy41",
+          "dummy51",
+          "otherCasaAccount1",
+          "otherSavingsAccount1",
+          "otherCardAccount1",
+          "otherBankName2",
+          "dummy42",
+          "dummy52",
+          "otherCasaAccount2",
+          "otherSavingsAccount2",
+          "otherCardAccount2",
+          "otherBankName3",
+          "dummy43",
+          "dummy53",
+          "otherCasaAccount3",
+          "otherSavingsAccount3",
+          "otherCardAccount3",
+          "otherBankName4",
+          "dummy44",
+          "dummy54",
+          "otherCasaAccount4",
+          "otherSavingsAccount4",
+          "otherCardAccount4"
+        ],
+        "flexibleForm": {
+          "3": [
+            {
+              "id": "otherBankName",
+              "label": "Банкны нэр",
+              "required": false,
+              "options": [
+                {
+                  "id": "op1",
+                  "value": "ХасБанк"
+                },
+                {
+                  "id": "op2",
+                  "value": "Ариг банк"
+                },
+                {
+                  "id": "op3",
+                  "value": "Богд банк"
+                },
+                {
+                  "id": "op4",
+                  "value": "Голомт банк"
+                },
+                {
+                  "id": "op5",
+                  "value": "Капитрон банк"
+                },
+                {
+                  "id": "op6",
+                  "value": "Кредит банк"
+                },
+                {
+                  "id": "op7",
+                  "value": "Төрийн банк"
+                },
+                {
+                  "id": "op8",
+                  "value": "Төрийн сан"
+                },
+                {
+                  "id": "op9",
+                  "value": "Тээвэр хөгжлийн банк"
+                },
+                {
+                  "id": "op10",
+                  "value": "Улаанбаатар хотын банк"
+                },
+                {
+                  "id": "op11",
+                  "value": "Үндэсний хөрөнгө оруулалтын банк"
+                },
+                {
+                  "id": "op12",
+                  "value": "Хаан банк"
+                },
+                {
+                  "id": "op13",
+                  "value": "Худалдаа хөгжлийн банк"
+                },
+                {
+                  "id": "op14",
+                  "value": "Чингис хаан банк"
+                }
+              ],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "string",
+              "context": null
+            },
+            {
+              "id": "dummy4",
+              "label": "dummy",
+              "required": false,
+              "options": [],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "string",
+              "context": null
+            },
+            {
+              "id": "dummy5",
+              "label": "dummy",
+              "required": false,
+              "options": [],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "string",
+              "context": null
+            },
+            {
+              "id": "otherCasaAccount",
+              "label": "Харилцах данс",
+              "required": false,
+              "options": [],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "string",
+              "context": null
+            },
+            {
+              "id": "otherSavingsAccount",
+              "label": "Хадгаламжийн данс",
+              "required": false,
+              "options": [],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "string",
+              "context": null
+            },
+            {
+              "id": "otherCardAccount",
+              "label": "Картын данс",
+              "required": false,
+              "options": [],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "string",
+              "context": null
+            }
+          ]
+        },
+        "max": 5
+      },
+      {
+        "title": null,
+        "subtitle": "Зээлийн мэдээллийн хуудас",
+        "type": "default",
+        "column": 3,
+        "fieldIds": [
+          "serviceFee",
+          "supplierFee",
+          "otherFee",
+          "propertyInsurance",
+          "accidentInsurance"
+        ],
+        "fields": []
+      }
+    ],
+    "buttons": {
+      "save": false,
+      "createContract": false
+    },
+    "entities": {
+      "taskType": null,
+      "entity": null
+    }
+  },
+  "_comment": "MICRO BUSINESS PREPARE LOAN CONTRACT",
+  "user_task_prepare_micro_loan_contract_info": {
+    "fieldGroups": [
+      {
+        "title": null,
+        "type": "default",
+        "column": 3,
+        "fieldIds": [
+          "productDescription",
+          "loanAmount",
+          "accountNumber"
+        ],
+        "fields": []
+      },
+      {
+        "title": null,
+        "type": "default",
+        "column": 3,
+        "fieldIds": [
+          "rateChange",
+          "applicationFee",
+          "mortgageContract",
+          "loanServiceFee",
+          "numberOfContract",
+          "collateralContract",
+          "commitmentFee",
+          "assetInfo",
+          "dummy1",
+          "fiduciaryContract",
+          "dummy2",
+          "dummy3",
+          "guaranteeAgreement"
+        ],
+        "fields": []
+      },
+      {
+        "title": null,
+        "subtitle": "Хасбанкны данс",
+        "type": "flexible",
+        "column": 3,
+        "fields": [],
+        "subFields": [],
+        "fieldIds": [
+          "casaAccount0", "savingsAccount0", "cardAccount0",
+          "casaAccount1", "savingsAccount1", "cardAccount1",
+          "casaAccount2", "savingsAccount2", "cardAccount2",
+          "casaAccount3", "savingsAccount3", "cardAccount3",
+          "casaAccount4", "savingsAccount4", "cardAccount4"
+        ],
+        "flexibleForm": {
+          "2": [
+            {
+              "id": "casaAccount",
+              "label": "Харилцах данс",
+              "required": false,
+              "options": [],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "string",
+              "context": null
+            },
+            {
+              "id": "savingsAccount",
+              "label": "Хадгаламжийн данс",
+              "required": false,
+              "options": [],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [{"name": "maxlength", "config": "11"}],
+              "disabled": false,
+              "type": "string",
+              "context": null
+            },
+            {
+              "id": "cardAccount",
+              "label": "Картын данс",
+              "required": false,
+              "options": [],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "string",
+              "context": null
+            }
+          ]
+        },
+        "max": 5
+      },
+      {
+        "title": null,
+        "subtitle": "Бусад банкны данс",
+        "type": "flexible",
+        "column": 3,
+        "fields": [],
+        "subFields": [],
+        "fieldIds": [
+          "otherBankName0",
+          "dummy40",
+          "dummy50",
+          "otherCasaAccount0",
+          "otherSavingsAccount0",
+          "otherCardAccount0",
+          "otherBankName1",
+          "dummy41",
+          "dummy51",
+          "otherCasaAccount1",
+          "otherSavingsAccount1",
+          "otherCardAccount1",
+          "otherBankName2",
+          "dummy42",
+          "dummy52",
+          "otherCasaAccount2",
+          "otherSavingsAccount2",
+          "otherCardAccount2",
+          "otherBankName3",
+          "dummy43",
+          "dummy53",
+          "otherCasaAccount3",
+          "otherSavingsAccount3",
+          "otherCardAccount3",
+          "otherBankName4",
+          "dummy44",
+          "dummy54",
+          "otherCasaAccount4",
+          "otherSavingsAccount4",
+          "otherCardAccount4"
+        ],
+        "flexibleForm": {
+          "3": [
+            {
+              "id": "otherBankName",
+              "label": "Банкны нэр",
+              "required": false,
+              "options": [
+                {"id": "op1", "value": "ХасБанк"},
+                {"id": "op2", "value": "Ариг банк"},
+                {"id": "op3", "value": "Богд банк"},
+                {"id": "op4", "value": "Голомт банк"},
+                {"id": "op5", "value": "Капитрон банк"},
+                {"id": "op6", "value": "Кредит банк"},
+                {"id": "op7", "value": "Төрийн банк"},
+                {"id": "op8", "value": "Төрийн сан"},
+                {"id": "op9", "value": "Тээвэр хөгжлийн банк"},
+                {"id": "op10", "value": "Улаанбаатар хотын банк"},
+                {"id": "op11", "value": "Үндэсний хөрөнгө оруулалтын банк"},
+                {"id": "op12", "value": "Хаан банк"},
+                {"id": "op13", "value": "Худалдаа хөгжлийн банк"},
+                {"id": "op14", "value": "Чингис хаан банк"}
+              ],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "string",
+              "context": null
+            },
+            {
+              "id": "dummy4",
+              "label": "dummy",
+              "required": false,
+              "options": [],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "string",
+              "context": null
+            },
+            {
+              "id": "dummy5",
+              "label": "dummy",
+              "required": false,
+              "options": [],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "string",
+              "context": null
+            },
+            {
+              "id": "otherCasaAccount",
+              "label": "Харилцах данс",
+              "required": false,
+              "options": [],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "string",
+              "context": null
+            },
+            {
+              "id": "otherSavingsAccount",
+              "label": "Хадгаламжийн данс",
+              "required": false,
+              "options": [],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "string",
+              "context": null
+            },
+            {
+              "id": "otherCardAccount",
+              "label": "Картын данс",
+              "required": false,
+              "options": [],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "string",
+              "context": null
+            }
+          ]
+        },
+        "max": 5
+      },
+      {
+        "title": null,
+        "subtitle": "Зээлийн мэдээллийн хуудас",
+        "type": "default",
+        "column": 3,
+        "fieldIds": [
+          "serviceFee",
+          "supplierFee",
+          "otherFee",
+          "propertyInsurance",
+          "accidentInsurance"
+        ],
+        "fields": []
+      }
+    ],
+    "buttons": {
+      "save": false,
+      "createContractWithDialog": false
+    },
+    "fieldAction": {
+      "accountNumber": "getLoanAccountInfo"
+    },
+    "entities": {
+      "taskType": null,
+      "entity": null
+    }
+  },
+  "_comment": "PREPARE CREDIT LINE LOAN CONTRACT",
+  "user_task_prepare_credit_line_loan_contract_info":{
+    "fieldGroups": [
+      {
+        "title": null,
+        "type": "default",
+        "column": 3,
+        "fieldIds": [
+          "productDescription",
+          "loanAmount",
+          "accountNumber"
+        ],
+        "fields": []
+      },
+      {
+        "title": null,
+        "type": "default",
+        "column": 3,
+        "fieldIds": [
+          "rateChange",
+          "applicationFee",
+          "mortgageContract",
+          "loanServiceFee",
+          "numberOfContract",
+          "collateralContract",
+          "commitmentFee",
+          "assetInfo",
+          "dummy1",
+          "fiduciaryContract",
+          "dummy2",
+          "dummy3",
+          "guaranteeAgreement"
+        ],
+        "fields": []
+      },
+      {
+        "title": null,
+        "subtitle": "Хасбанкны данс",
+        "type": "flexible",
+        "column": 3,
+        "fields": [],
+        "subFields": [],
+        "fieldIds": [
+          "casaAccount0", "savingsAccount0", "cardAccount0",
+          "casaAccount1", "savingsAccount1", "cardAccount1",
+          "casaAccount2", "savingsAccount2", "cardAccount2",
+          "casaAccount3", "savingsAccount3", "cardAccount3",
+          "casaAccount4", "savingsAccount4", "cardAccount4"
+        ],
+        "flexibleForm": {
+          "2": [
+            {
+              "id": "casaAccount",
+              "label": "Харилцах данс",
+              "required": false,
+              "options": [],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "string",
+              "context": null
+            },
+            {
+              "id": "savingsAccount",
+              "label": "Хадгаламжийн данс",
+              "required": false,
+              "options": [],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [{"name": "maxlength", "config": "11"}],
+              "disabled": false,
+              "type": "string",
+              "context": null
+            },
+            {
+              "id": "cardAccount",
+              "label": "Картын данс",
+              "required": false,
+              "options": [],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "string",
+              "context": null
+            }
+          ]
+        },
+        "max": 5
+      },
+      {
+        "title": null,
+        "subtitle": "Бусад банкны данс",
+        "type": "flexible",
+        "column": 3,
+        "fields": [],
+        "subFields": [],
+        "fieldIds": [
+          "otherBankName0",
+          "dummy40",
+          "dummy50",
+          "otherCasaAccount0",
+          "otherSavingsAccount0",
+          "otherCardAccount0",
+          "otherBankName1",
+          "dummy41",
+          "dummy51",
+          "otherCasaAccount1",
+          "otherSavingsAccount1",
+          "otherCardAccount1",
+          "otherBankName2",
+          "dummy42",
+          "dummy52",
+          "otherCasaAccount2",
+          "otherSavingsAccount2",
+          "otherCardAccount2",
+          "otherBankName3",
+          "dummy43",
+          "dummy53",
+          "otherCasaAccount3",
+          "otherSavingsAccount3",
+          "otherCardAccount3",
+          "otherBankName4",
+          "dummy44",
+          "dummy54",
+          "otherCasaAccount4",
+          "otherSavingsAccount4",
+          "otherCardAccount4"
+        ],
+        "flexibleForm": {
+          "3": [
+            {
+              "id": "otherBankName",
+              "label": "Банкны нэр",
+              "required": false,
+              "options": [
+                {"id": "op1", "value": "ХасБанк"},
+                {"id": "op2", "value": "Ариг банк"},
+                {"id": "op3", "value": "Богд банк"},
+                {"id": "op4", "value": "Голомт банк"},
+                {"id": "op5", "value": "Капитрон банк"},
+                {"id": "op6", "value": "Кредит банк"},
+                {"id": "op7", "value": "Төрийн банк"},
+                {"id": "op8", "value": "Төрийн сан"},
+                {"id": "op9", "value": "Тээвэр хөгжлийн банк"},
+                {"id": "op10", "value": "Улаанбаатар хотын банк"},
+                {"id": "op11", "value": "Үндэсний хөрөнгө оруулалтын банк"},
+                {"id": "op12", "value": "Хаан банк"},
+                {"id": "op13", "value": "Худалдаа хөгжлийн банк"},
+                {"id": "op14", "value": "Чингис хаан банк"}
+              ],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "string",
+              "context": null
+            },
+            {
+              "id": "dummy4",
+              "label": "dummy",
+              "required": false,
+              "options": [],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "string",
+              "context": null
+            },
+            {
+              "id": "dummy5",
+              "label": "dummy",
+              "required": false,
+              "options": [],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "string",
+              "context": null
+            },
+            {
+              "id": "otherCasaAccount",
+              "label": "Харилцах данс",
+              "required": false,
+              "options": [],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "string",
+              "context": null
+            },
+            {
+              "id": "otherSavingsAccount",
+              "label": "Хадгаламжийн данс",
+              "required": false,
+              "options": [],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "string",
+              "context": null
+            },
+            {
+              "id": "otherCardAccount",
+              "label": "Картын данс",
+              "required": false,
+              "options": [],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "string",
+              "context": null
+            }
+          ]
+        },
+        "max": 5
+      },
+      {
+        "title": null,
+        "subtitle": "Зээлийн мэдээллийн хуудас",
+        "type": "default",
+        "column": 3,
+        "fieldIds": [
+          "serviceFee",
+          "supplierFee",
+          "otherFee",
+          "propertyInsurance",
+          "accidentInsurance"
+        ],
+        "fields": []
+      }
+    ],
+    "buttons": {
+      "save": false,
+      "createContract": false
+    },
+    "entities": {
+      "taskType": null,
+      "entity": null
+    }
+  },
+  "_comment": "PREPARE LOAN CONTRACT ATTACHMENT",
+  "user_task_attachment_contract":{
+    "fieldGroups": [
+      {
+        "title": null,
+        "type": "default",
+        "column": 3,
+        "fieldIds": [
+          "productDescription",
+          "loanAmount",
+          "accountNumber"
+        ],
+        "fields": []
+      },
+      {
+        "title": null,
+        "type": "default",
+        "column": 3,
+        "fieldIds": [
+          "contractID",
+          "contractDate",
+          "isTestifyByCollateral",
+          "rightsOfThirdPerson",
+          "typeOfAttachment",
+          "optionOfDutiesPerformance",
+          "noteRightsOfThirdPerson",
+          "loanContractType"
+        ],
+        "fields": []
+      },
+      {
+        "title": null,
+        "subtitle": "Үүрэг хүлээгч/Барьцаалуулагчийн мэдээлэл",
+        "type": "flexible",
+        "column": 3,
+        "fields": [],
+        "subFields": [],
+        "fieldIds": [
+          "fullNameOfМortgagor0", "registerNumberOfМortgagor0", "ubIDOfМortgagor0","addressOfМortgagor0",
+          "phoneNumberOfМortgagor0","emailAddressOfМortgagor0", "occupationOfМortgagor0","2008a0","2008b0","20090", "20110",
+          "fullNameOfМortgagor1", "registerNumberOfМortgagor1", "ubIDOfМortgagor1","addressOfМortgagor1",
+          "phoneNumberOfМortgagor1","emailAddressOfМortgagor1", "occupationOfМortgagor1","2008a1","2008b1","20091", "20111",
+          "fullNameOfМortgagor2", "registerNumberOfМortgagor2", "ubIDOfМortgagor2","addressOfМortgagor2",
+          "phoneNumberOfМortgagor2","emailAddressOfМortgagor2", "occupationOfМortgagor2","2008a2","2008b2","20092", "20112",
+          "fullNameOfМortgagor3", "registerNumberOfМortgagor3", "ubIDOfМortgagor3","addressOfМortgagor3",
+          "phoneNumberOfМortgagor3","emailAddressOfМortgagor3", "occupationOfМortgagor3","2008a3","2008b3","20093", "20113",
+          "fullNameOfМortgagor4", "registerNumberOfМortgagor4", "ubIDOfМortgagor4","addressOfМortgagor4",
+          "phoneNumberOfМortgagor4","emailAddressOfМortgagor4", "occupationOfМortgagor4","2008a4","2008b4","20094", "20114"
+        ],
+        "flexibleForm": {
+          "2": [
+            {
+              "id": "fullNameOfМortgagor",
+              "label": "Овог, нэр",
+              "required": false,
+              "options": [],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "string",
+              "context": null
+            },
+            {
+              "id": "registerNumberOfМortgagor",
+              "label": "Регистр/УБ дугаар",
+              "required": false,
+              "options": [],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "string",
+              "context": null
+            },
+            {
+              "id": "ubIDOfМortgagor",
+              "label": "УБ дугаар",
+              "required": false,
+              "options": [],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "string",
+              "context": null
+            },
+            {
+              "id": "addressOfМortgagor",
+              "label": "Хаяг",
+              "required": false,
+              "options": [],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "string",
+              "context": null
+            },
+            {
+              "id": "phoneNumberOfМortgagor",
+              "label": "Утас",
+              "required": false,
+              "options": [],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "string",
+              "context": null
+            },
+            {
+              "id": "emailAddressOfМortgagor",
+              "label": "Цахим хаяг",
+              "required": false,
+              "options": [],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "string",
+              "context": null
+            },
+            {
+              "id": "occupationOfМortgagor",
+              "label": "Ажил мэргэжил",
+              "required": false,
+              "options": [],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "string",
+              "context": null
+            },
+            {
+              "id": "2008a",
+              "label": "2008а",
+              "required": false,
+              "options": [],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "string",
+              "context": null
+            },
+            {
+              "id": "2008b",
+              "label": "2008б",
+              "required": false,
+              "options": [],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "string",
+              "context": null
+            },
+            {
+              "id": "2009",
+              "label": "2009",
+              "required": false,
+              "options": [],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "string",
+              "context": null
+            }, {
+              "id": "2011",
+              "label": "2011",
+              "required": false,
+              "options": [],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "string",
+              "context": null
+            }
+          ]
+        },
+        "max": 30
+      },
+      {
+        "title": null,
+        "subtitle": "Барьцаалуулагч/Батлан даагчийн мэдээлэл",
+        "type": "flexible",
+        "column": 3,
+        "fields": [],
+        "subFields": [],
+        "fieldIds": [
+          "fullNameOfGuarantor0", "registerNumberOfGuarantor0", "ubIDofGuarantor0", "addressOfGuarantor0", "businessAddressOfGuarantor0",
+          "phoneNumberOfGuarantor0", "representativeLegalEntityName0", "occupationOfGuarantor0",
+          "fullNameOfGuarantor1", "registerNumberOfGuarantor1", "ubIDofGuarantor1", "addressOfGuarantor1", "businessAddressOfGuarantor1",
+          "phoneNumberOfGuarantor1", "representativeLegalEntityName1", "occupationOfGuarantor1",
+          "fullNameOfGuarantor2", "registerNumberOfGuarantor2", "ubIDofGuarantor2", "addressOfGuarantor2", "businessAddressOfGuarantor2",
+          "phoneNumberOfGuarantor2", "representativeLegalEntityName2", "occupationOfGuarantor2",
+          "fullNameOfGuarantor3", "registerNumberOfGuarantor3", "ubIDofGuarantor3", "addressOfGuarantor3", "businessAddressOfGuarantor3",
+          "phoneNumberOfGuarantor3", "representativeLegalEntityName3", "occupationOfGuarantor3",
+          "fullNameOfGuarantor4", "registerNumberOfGuarantor4", "ubIDofGuarantor4", "addressOfGuarantor4", "businessAddressOfGuarantor4",
+          "phoneNumberOfGuarantor4", "representativeLegalEntityName4", "occupationOfGuarantor4"
+        ],
+        "flexibleForm": {
+          "3": [
+            {
+              "id": "fullNameOfGuarantor",
+              "label": "Овог, нэр",
+              "required": false,
+              "options": [],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "string",
+              "context": null
+            },
+            {
+              "id": "registerNumberOfGuarantor",
+              "label": "Регистр",
+              "required": false,
+              "options": [],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "string",
+              "context": null
+            },
+            {
+              "id": "ubIDofGuarantor",
+              "label": "УБ дугаар",
+              "required": false,
+              "options": [],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "string",
+              "context": null
+            },
+            {
+              "id": "addressOfGuarantor",
+              "label": "Хаяг",
+              "required": false,
+              "options": [],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "string",
+              "context": null
+            },
+            {
+              "id": "businessAddressOfGuarantor",
+              "label": "Бизнесийн хаяг",
+              "required": false,
+              "options": [],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "string",
+              "context": null
+            },
+            {
+              "id": "phoneNumberOfGuarantor",
+              "label": "Утас",
+              "required": false,
+              "options": [],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "string",
+              "context": null
+            },
+            {
+              "id": "representativeLegalEntityName",
+              "label": "Төлөөлөх хуулийн этгээдийн нэр",
+              "required": false,
+              "options": [],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "string",
+              "context": null
+            },
+            {
+              "id": "occupationOfGuarantor",
+              "label": "Ажил мэргэжил",
+              "required": false,
+              "options": [],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "string",
+              "context": null
+            }
+          ]
+        },
+        "max": 30
+      }
+    ],
+    "buttons": {
+      "clearForm": false,
+      "save": false,
+      "createContract": false
+    },
+    "entities": {
+      "taskType": null,
+      "entity": null
+    }
+  },
+  "_comment": "PREPARE CREDIT LINE LOAN CONTRACT ATTACHMENT",
+  "user_task_credit_line_attachment_contract": {
+    "fieldGroups": [
+      {
+        "title": null,
+        "type": "default",
+        "column": 3,
+        "fieldIds": [
+          "productDescription",
+          "loanAmount",
+          "accountNumber"
+        ],
+        "fields": []
+      },
+      {
+        "title": null,
+        "type": "default",
+        "column": 3,
+        "fieldIds": [
+          "contractID",
+          "contractDate",
+          "isTestifyByCollateral",
+          "rightsOfThirdPerson",
+          "typeOfAttachment",
+          "optionOfDutiesPerformance",
+          "noteRightsOfThirdPerson",
+          "loanContractType"
+        ],
+        "fields": []
+      },
+      {
+        "title": "Үүрэг хүлээгч/Барьцаалуулагчийн мэдээлэл",
+        "type": "flexible",
+        "column": 3,
+        "fields": [],
+        "subFields": [],
+        "fieldIds": [
+          "fullNameOfМortgagor0", "registerNumberOfМortgagor0", "ubIDOfМortgagor0","addressOfМortgagor0",
+          "phoneNumberOfМortgagor0","emailAddressOfМortgagor0", "occupationOfМortgagor0","2008a0","2008b0","20090", "20110",
+          "fullNameOfМortgagor1", "registerNumberOfМortgagor1", "ubIDOfМortgagor1","addressOfМortgagor1",
+          "phoneNumberOfМortgagor1","emailAddressOfМortgagor1", "occupationOfМortgagor1","2008a1","2008b1","20091", "20111",
+          "fullNameOfМortgagor2", "registerNumberOfМortgagor2", "ubIDOfМortgagor2","addressOfМortgagor2",
+          "phoneNumberOfМortgagor2","emailAddressOfМortgagor2", "occupationOfМortgagor2","2008a2","2008b2","20092", "20112",
+          "fullNameOfМortgagor3", "registerNumberOfМortgagor3", "ubIDOfМortgagor3","addressOfМortgagor3",
+          "phoneNumberOfМortgagor3","emailAddressOfМortgagor3", "occupationOfМortgagor3","2008a3","2008b3","20093", "20113",
+          "fullNameOfМortgagor4", "registerNumberOfМortgagor4", "ubIDOfМortgagor4","addressOfМortgagor4",
+          "phoneNumberOfМortgagor4","emailAddressOfМortgagor4", "occupationOfМortgagor4","2008a4","2008b4","20094", "20114",
+          "fullNameOfМortgagor5", "registerNumberOfМortgagor5", "ubIDOfМortgagor5","addressOfМortgagor5",
+          "phoneNumberOfМortgagor5","emailAddressOfМortgagor5", "occupationOfМortgagor5","2008a5","2008b5","20095", "20115",
+          "fullNameOfМortgagor6", "registerNumberOfМortgagor6", "ubIDOfМortgagor6","addressOfМortgagor6",
+          "phoneNumberOfМortgagor6","emailAddressOfМortgagor6", "occupationOfМortgagor6","2008a6","2008b6","20096", "20116",
+          "fullNameOfМortgagor7", "registerNumberOfМortgagor7", "ubIDOfМortgagor7","addressOfМortgagor7",
+          "phoneNumberOfМortgagor7","emailAddressOfМortgagor7", "occupationOfМortgagor7","2008a7","2008b7","20097", "20117",
+          "fullNameOfМortgagor8", "registerNumberOfМortgagor8", "ubIDOfМortgagor8","addressOfМortgagor8",
+          "phoneNumberOfМortgagor8","emailAddressOfМortgagor8", "occupationOfМortgagor8","2008a8","2008b8","20098", "20118",
+          "fullNameOfМortgagor9", "registerNumberOfМortgagor9", "ubIDOfМortgagor9","addressOfМortgagor9",
+          "phoneNumberOfМortgagor9","emailAddressOfМortgagor9", "occupationOfМortgagor9","2008a9","2008b9","20099", "20119",
+          "fullNameOfМortgagor10", "registerNumberOfМortgagor10", "ubIDOfМortgagor10","addressOfМortgagor10",
+          "phoneNumberOfМortgagor10","emailAddressOfМortgagor10", "occupationOfМortgagor10","2008a10","2008b10","200910", "201110",
+          "fullNameOfМortgagor11", "registerNumberOfМortgagor11", "ubIDOfМortgagor11","addressOfМortgagor11",
+          "phoneNumberOfМortgagor11","emailAddressOfМortgagor11", "occupationOfМortgagor11","2008a11","2008b11","200911", "201111",
+          "fullNameOfМortgagor12", "registerNumberOfМortgagor12", "ubIDOfМortgagor12","addressOfМortgagor12",
+          "phoneNumberOfМortgagor12","emailAddressOfМortgagor12", "occupationOfМortgagor12","2008a12","2008b12","200912", "201112",
+          "fullNameOfМortgagor13", "registerNumberOfМortgagor13", "ubIDOfМortgagor13","addressOfМortgagor13",
+          "phoneNumberOfМortgagor13","emailAddressOfМortgagor13", "occupationOfМortgagor13","2008a13","2008b13","200913", "201113",
+          "fullNameOfМortgagor14", "registerNumberOfМortgagor14", "ubIDOfМortgagor14","addressOfМortgagor14",
+          "phoneNumberOfМortgagor14","emailAddressOfМortgagor14", "occupationOfМortgagor14","2008a14","2008b14","200914", "201114",
+          "fullNameOfМortgagor15", "registerNumberOfМortgagor15", "ubIDOfМortgagor15","addressOfМortgagor15",
+          "phoneNumberOfМortgagor15","emailAddressOfМortgagor15", "occupationOfМortgagor15","2008a15","2008b15","200915", "201115",
+          "fullNameOfМortgagor16", "registerNumberOfМortgagor16", "ubIDOfМortgagor16","addressOfМortgagor16",
+          "phoneNumberOfМortgagor16","emailAddressOfМortgagor16", "occupationOfМortgagor16","2008a16","2008b16","200916", "201116",
+          "fullNameOfМortgagor17", "registerNumberOfМortgagor17", "ubIDOfМortgagor17","addressOfМortgagor17",
+          "phoneNumberOfМortgagor17","emailAddressOfМortgagor17", "occupationOfМortgagor17","2008a17","2008b17","200917", "201117",
+          "fullNameOfМortgagor18", "registerNumberOfМortgagor18", "ubIDOfМortgagor18","addressOfМortgagor18",
+          "phoneNumberOfМortgagor18","emailAddressOfМortgagor18", "occupationOfМortgagor18","2008a18","2008b18","200918", "201118",
+          "fullNameOfМortgagor19", "registerNumberOfМortgagor19", "ubIDOfМortgagor19","addressOfМortgagor19",
+          "phoneNumberOfМortgagor19","emailAddressOfМortgagor19", "occupationOfМortgagor19","2008a19","2008b19","200919", "201119",
+          "fullNameOfМortgagor20", "registerNumberOfМortgagor20", "ubIDOfМortgagor20","addressOfМortgagor20",
+          "phoneNumberOfМortgagor20","emailAddressOfМortgagor20", "occupationOfМortgagor20","2008a20","2008b20","200920", "201120",
+          "fullNameOfМortgagor21", "registerNumberOfМortgagor21", "ubIDOfМortgagor21","addressOfМortgagor21",
+          "phoneNumberOfМortgagor21","emailAddressOfМortgagor21", "occupationOfМortgagor21","2008a21","2008b21","200921", "201121",
+          "fullNameOfМortgagor22", "registerNumberOfМortgagor22", "ubIDOfМortgagor22","addressOfМortgagor22",
+          "phoneNumberOfМortgagor22","emailAddressOfМortgagor22", "occupationOfМortgagor22","2008a22","2008b22","200922", "201122",
+          "fullNameOfМortgagor23", "registerNumberOfМortgagor23", "ubIDOfМortgagor23","addressOfМortgagor23",
+          "phoneNumberOfМortgagor23","emailAddressOfМortgagor23", "occupationOfМortgagor23","2008a23","2008b23","200923", "201123",
+          "fullNameOfМortgagor24", "registerNumberOfМortgagor24", "ubIDOfМortgagor24","addressOfМortgagor24",
+          "phoneNumberOfМortgagor24","emailAddressOfМortgagor24", "occupationOfМortgagor24","2008a24","2008b24","200924", "201124",
+          "fullNameOfМortgagor25", "registerNumberOfМortgagor25", "ubIDOfМortgagor25","addressOfМortgagor25",
+          "phoneNumberOfМortgagor25","emailAddressOfМortgagor25", "occupationOfМortgagor25","2008a25","2008b25","200925", "201125",
+          "fullNameOfМortgagor26", "registerNumberOfМortgagor26", "ubIDOfМortgagor26","addressOfМortgagor26",
+          "phoneNumberOfМortgagor26","emailAddressOfМortgagor26", "occupationOfМortgagor26","2008a26","2008b26","200926", "201126",
+          "fullNameOfМortgagor27", "registerNumberOfМortgagor27", "ubIDOfМortgagor27","addressOfМortgagor27",
+          "phoneNumberOfМortgagor27","emailAddressOfМortgagor27", "occupationOfМortgagor27","2008a27","2008b27","200927", "201127",
+          "fullNameOfМortgagor28", "registerNumberOfМortgagor28", "ubIDOfМortgagor28","addressOfМortgagor28",
+          "phoneNumberOfМortgagor28","emailAddressOfМortgagor28", "occupationOfМortgagor28","2008a28","2008b28","200928", "201128",
+          "fullNameOfМortgagor29", "registerNumberOfМortgagor29", "ubIDOfМortgagor29","addressOfМortgagor29",
+          "phoneNumberOfМortgagor29","emailAddressOfМortgagor29", "occupationOfМortgagor29","2008a29","2008b29","200929", "201129"
+        ],
+        "flexibleForm": {
+          "2": [
+            {
+              "id": "fullNameOfМortgagor",
+              "label": "Овог, нэр",
+              "required": false,
+              "options": [],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "string",
+              "context": null
+            },
+            {
+              "id": "registerNumberOfМortgagor",
+              "label": "Регистр/УБ дугаар",
+              "required": false,
+              "options": [],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "string",
+              "context": null
+            },
+            {
+              "id": "ubIDOfМortgagor",
+              "label": "УБ дугаар",
+              "required": false,
+              "options": [],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "string",
+              "context": null
+            },
+            {
+              "id": "addressOfМortgagor",
+              "label": "Хаяг",
+              "required": false,
+              "options": [],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "string",
+              "context": null
+            },
+            {
+              "id": "phoneNumberOfМortgagor",
+              "label": "Утас",
+              "required": false,
+              "options": [],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "string",
+              "context": null
+            },
+            {
+              "id": "emailAddressOfМortgagor",
+              "label": "Цахим хаяг",
+              "required": false,
+              "options": [],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "string",
+              "context": null
+            },
+            {
+              "id": "occupationOfМortgagor",
+              "label": "Ажил мэргэжил",
+              "required": false,
+              "options": [],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "string",
+              "context": null
+            },
+            {
+              "id": "2008a",
+              "label": "2008а",
+              "required": false,
+              "options": [],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "string",
+              "context": null
+            },
+            {
+              "id": "2008b",
+              "label": "2008б",
+              "required": false,
+              "options": [],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "string",
+              "context": null
+            },
+            {
+              "id": "2009",
+              "label": "2009",
+              "required": false,
+              "options": [],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "string",
+              "context": null
+            }, {
+              "id": "2011",
+              "label": "2011",
+              "required": false,
+              "options": [],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "string",
+              "context": null
+            }
+          ]
+        },
+        "max": 30
+      },
+      {
+        "title": "Барьцаалуулагч/Батлан даагчийн мэдээлэл",
+        "type": "flexible",
+        "column": 3,
+        "fields": [],
+        "subFields": [],
+        "fieldIds": [
+          "fullNameOfGuarantor0", "registerNumberOfGuarantor0", "ubIDofGuarantor0", "addressOfGuarantor0", "businessAddressOfGuarantor0",
+          "phoneNumberOfGuarantor0", "representativeLegalEntityName0", "occupationOfGuarantor0",
+          "fullNameOfGuarantor1", "registerNumberOfGuarantor1", "ubIDofGuarantor1", "addressOfGuarantor1", "businessAddressOfGuarantor1",
+          "phoneNumberOfGuarantor1", "representativeLegalEntityName1", "occupationOfGuarantor1",
+          "fullNameOfGuarantor2", "registerNumberOfGuarantor2", "ubIDofGuarantor2", "addressOfGuarantor2", "businessAddressOfGuarantor2",
+          "phoneNumberOfGuarantor2", "representativeLegalEntityName2", "occupationOfGuarantor2",
+          "fullNameOfGuarantor3", "registerNumberOfGuarantor3", "ubIDofGuarantor3", "addressOfGuarantor3", "businessAddressOfGuarantor3",
+          "phoneNumberOfGuarantor3", "representativeLegalEntityName3", "occupationOfGuarantor3",
+          "fullNameOfGuarantor4", "registerNumberOfGuarantor4", "ubIDofGuarantor4", "addressOfGuarantor4", "businessAddressOfGuarantor4",
+          "phoneNumberOfGuarantor4", "representativeLegalEntityName4", "occupationOfGuarantor4",
+          "fullNameOfGuarantor5", "registerNumberOfGuarantor5", "ubIDofGuarantor5", "addressOfGuarantor5", "businessAddressOfGuarantor5",
+          "phoneNumberOfGuarantor5", "representativeLegalEntityName5", "occupationOfGuarantor5",
+          "fullNameOfGuarantor6", "registerNumberOfGuarantor6", "ubIDofGuarantor6", "addressOfGuarantor6", "businessAddressOfGuarantor6",
+          "phoneNumberOfGuarantor6", "representativeLegalEntityName6", "occupationOfGuarantor6",
+          "fullNameOfGuarantor7", "registerNumberOfGuarantor7", "ubIDofGuarantor7", "addressOfGuarantor7", "businessAddressOfGuarantor7",
+          "phoneNumberOfGuarantor7", "representativeLegalEntityName7", "occupationOfGuarantor7",
+          "fullNameOfGuarantor8", "registerNumberOfGuarantor8", "ubIDofGuarantor8", "addressOfGuarantor8", "businessAddressOfGuarantor8",
+          "phoneNumberOfGuarantor8", "representativeLegalEntityName8", "occupationOfGuarantor8",
+          "fullNameOfGuarantor9", "registerNumberOfGuarantor9", "ubIDofGuarantor9", "addressOfGuarantor9", "businessAddressOfGuarantor9",
+          "phoneNumberOfGuarantor9", "representativeLegalEntityName9", "occupationOfGuarantor9",
+          "fullNameOfGuarantor10", "registerNumberOfGuarantor10", "ubIDofGuarantor10", "addressOfGuarantor10", "businessAddressOfGuarantor10",
+          "phoneNumberOfGuarantor10", "representativeLegalEntityName10", "occupationOfGuarantor10",
+          "fullNameOfGuarantor11", "registerNumberOfGuarantor11", "ubIDofGuarantor11", "addressOfGuarantor11", "businessAddressOfGuarantor11",
+          "phoneNumberOfGuarantor11", "representativeLegalEntityName11", "occupationOfGuarantor11",
+          "fullNameOfGuarantor12", "registerNumberOfGuarantor12", "ubIDofGuarantor12", "addressOfGuarantor12", "businessAddressOfGuarantor12",
+          "phoneNumberOfGuarantor12", "representativeLegalEntityName12", "occupationOfGuarantor12",
+          "fullNameOfGuarantor13", "registerNumberOfGuarantor13", "ubIDofGuarantor13", "addressOfGuarantor13", "businessAddressOfGuarantor13",
+          "phoneNumberOfGuarantor13", "representativeLegalEntityName13", "occupationOfGuarantor13",
+          "fullNameOfGuarantor14", "registerNumberOfGuarantor14", "ubIDofGuarantor14", "addressOfGuarantor14", "businessAddressOfGuarantor14",
+          "phoneNumberOfGuarantor14", "representativeLegalEntityName14", "occupationOfGuarantor14",
+          "fullNameOfGuarantor15", "registerNumberOfGuarantor15", "ubIDofGuarantor15", "addressOfGuarantor15", "businessAddressOfGuarantor15",
+          "phoneNumberOfGuarantor15", "representativeLegalEntityName15", "occupationOfGuarantor15",
+          "fullNameOfGuarantor16", "registerNumberOfGuarantor16", "ubIDofGuarantor16", "addressOfGuarantor16", "businessAddressOfGuarantor16",
+          "phoneNumberOfGuarantor16", "representativeLegalEntityName16", "occupationOfGuarantor16",
+          "fullNameOfGuarantor17", "registerNumberOfGuarantor17", "ubIDofGuarantor17", "addressOfGuarantor17", "businessAddressOfGuarantor17",
+          "phoneNumberOfGuarantor17", "representativeLegalEntityName17", "occupationOfGuarantor17",
+          "fullNameOfGuarantor18", "registerNumberOfGuarantor18", "ubIDofGuarantor18", "addressOfGuarantor18", "businessAddressOfGuarantor18",
+          "phoneNumberOfGuarantor18", "representativeLegalEntityName18", "occupationOfGuarantor18",
+          "fullNameOfGuarantor19", "registerNumberOfGuarantor19", "ubIDofGuarantor19", "addressOfGuarantor19", "businessAddressOfGuarantor19",
+          "phoneNumberOfGuarantor19", "representativeLegalEntityName19", "occupationOfGuarantor19",
+          "fullNameOfGuarantor20", "registerNumberOfGuarantor20", "ubIDofGuarantor20", "addressOfGuarantor20", "businessAddressOfGuarantor20",
+          "phoneNumberOfGuarantor20", "representativeLegalEntityName20", "occupationOfGuarantor20",
+          "fullNameOfGuarantor21", "registerNumberOfGuarantor21", "ubIDofGuarantor21", "addressOfGuarantor21", "businessAddressOfGuarantor21",
+          "phoneNumberOfGuarantor21", "representativeLegalEntityName21", "occupationOfGuarantor21",
+          "fullNameOfGuarantor22", "registerNumberOfGuarantor22", "ubIDofGuarantor22", "addressOfGuarantor22", "businessAddressOfGuarantor22",
+          "phoneNumberOfGuarantor22", "representativeLegalEntityName22", "occupationOfGuarantor22",
+          "fullNameOfGuarantor23", "registerNumberOfGuarantor23", "ubIDofGuarantor23", "addressOfGuarantor23", "businessAddressOfGuarantor23",
+          "phoneNumberOfGuarantor23", "representativeLegalEntityName23", "occupationOfGuarantor23",
+          "fullNameOfGuarantor24", "registerNumberOfGuarantor24", "ubIDofGuarantor24", "addressOfGuarantor24", "businessAddressOfGuarantor24",
+          "phoneNumberOfGuarantor24", "representativeLegalEntityName24", "occupationOfGuarantor24",
+          "fullNameOfGuarantor25", "registerNumberOfGuarantor25", "ubIDofGuarantor25", "addressOfGuarantor25", "businessAddressOfGuarantor25",
+          "phoneNumberOfGuarantor25", "representativeLegalEntityName25", "occupationOfGuarantor25",
+          "fullNameOfGuarantor26", "registerNumberOfGuarantor26", "ubIDofGuarantor26", "addressOfGuarantor26", "businessAddressOfGuarantor26",
+          "phoneNumberOfGuarantor26", "representativeLegalEntityName26", "occupationOfGuarantor26",
+          "fullNameOfGuarantor27", "registerNumberOfGuarantor27", "ubIDofGuarantor27", "addressOfGuarantor27", "businessAddressOfGuarantor27",
+          "phoneNumberOfGuarantor27", "representativeLegalEntityName27", "occupationOfGuarantor27",
+          "fullNameOfGuarantor28", "registerNumberOfGuarantor28", "ubIDofGuarantor28", "addressOfGuarantor28", "businessAddressOfGuarantor28",
+          "phoneNumberOfGuarantor28", "representativeLegalEntityName28", "occupationOfGuarantor28",
+          "fullNameOfGuarantor29", "registerNumberOfGuarantor29", "ubIDofGuarantor29", "addressOfGuarantor29", "businessAddressOfGuarantor29",
+          "phoneNumberOfGuarantor29", "representativeLegalEntityName29", "occupationOfGuarantor29"
+        ],
+        "flexibleForm": {
+          "3": [
+            {
+              "id": "fullNameOfGuarantor",
+              "label": "Овог, нэр",
+              "required": false,
+              "options": [],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "string",
+              "context": null
+            },
+            {
+              "id": "registerNumberOfGuarantor",
+              "label": "Регистр",
+              "required": false,
+              "options": [],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "string",
+              "context": null
+            },
+            {
+              "id": "ubIDofGuarantor",
+              "label": "УБ дугаар",
+              "required": false,
+              "options": [],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "string",
+              "context": null
+            },
+            {
+              "id": "addressOfGuarantor",
+              "label": "Хаяг",
+              "required": false,
+              "options": [],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "string",
+              "context": null
+            },
+            {
+              "id": "businessAddressOfGuarantor",
+              "label": "Бизнесийн хаяг",
+              "required": false,
+              "options": [],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "string",
+              "context": null
+            },
+            {
+              "id": "phoneNumberOfGuarantor",
+              "label": "Утас",
+              "required": false,
+              "options": [],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "string",
+              "context": null
+            },
+            {
+              "id": "representativeLegalEntityName",
+              "label": "Төлөөлөх хуулийн этгээдийн нэр",
+              "required": false,
+              "options": [],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "string",
+              "context": null
+            },
+            {
+              "id": "occupationOfGuarantor",
+              "label": "Ажил мэргэжил",
+              "required": false,
+              "options": [],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "string",
+              "context": null
+            }
+          ]
+        },
+        "max": 30
+      }
+    ],
+    "buttons": {
+      "save": false,
+      "createContract": false
+    },
+    "entities": {
+      "taskType": null,
+      "entity": null
+    }
+  },
+  "_comment": "INPUT CO OWNER INFORMATION",
+  "user_task_co_owner_contract":{
+    "fieldGroups": [
+      {
+        "title": null,
+        "type": "default",
+        "column": 3,
+        "fieldIds": [
+          "productName",
+          "loanAmount",
+          "accountNumber"
+        ],
+        "fields": []
+      },
+      {
+        "title": null,
+        "type": "default",
+        "column": 3,
+        "fieldIds": [
+          "contractNumber",
+          "coOwnerLoanAttachmentNumber",
+          "contractDate",
+          "typeOfLoanAgreement",
+          "collateralListNumber",
+          "attachment"
+        ],
+        "fields": []
+      },
+      {
+        "title": null,
+        "subtitle": "Хамтран өмчлөгч",
+        "type": "flexible",
+        "column": 3,
+        "fields": [],
+        "subFields": [],
+        "fieldIds": [
+          "fullNameCoOwner0", "birthCertificateCoOwner0", "ageGroupCoOwner0","registerCoOwner0","addressCoOwner0","attachmentCoOwner0",
+          "fullNameCoOwner1", "birthCertificateCoOwner1", "ageGroupCoOwner1","registerCoOwner1","addressCoOwner1","attachmentCoOwner1",
+          "fullNameCoOwner2", "birthCertificateCoOwner2", "ageGroupCoOwner2","registerCoOwner2","addressCoOwner2","attachmentCoOwner2",
+          "fullNameCoOwner3", "birthCertificateCoOwner3", "ageGroupCoOwner3","registerCoOwner3","addressCoOwner3","attachmentCoOwner3",
+          "fullNameCoOwner4", "birthCertificateCoOwner4", "ageGroupCoOwner4","registerCoOwner4","addressCoOwner4","attachmentCoOwner4",
+          "fullNameCoOwner5", "birthCertificateCoOwner5", "ageGroupCoOwner5","registerCoOwner5","addressCoOwner5","attachmentCoOwner5",
+          "fullNameCoOwner6", "birthCertificateCoOwner6", "ageGroupCoOwner6","registerCoOwner6","addressCoOwner6","attachmentCoOwner6",
+          "fullNameCoOwner7", "birthCertificateCoOwner7", "ageGroupCoOwner7","registerCoOwner7","addressCoOwner7","attachmentCoOwner7",
+          "fullNameCoOwner8", "birthCertificateCoOwner8", "ageGroupCoOwner8","registerCoOwner8","addressCoOwner8","attachmentCoOwner8",
+          "fullNameCoOwner9", "birthCertificateCoOwner9", "ageGroupCoOwner9","registerCoOwner9","addressCoOwner9","attachmentCoOwner9",
+          "fullNameCoOwner10", "birthCertificateCoOwner10", "ageGroupCoOwner10","registerCoOwner10","addressCoOwner10","attachmentCoOwner10",
+          "fullNameCoOwner11", "birthCertificateCoOwner11", "ageGroupCoOwner11","registerCoOwner11","addressCoOwner11","attachmentCoOwner11",
+          "fullNameCoOwner12", "birthCertificateCoOwner12", "ageGroupCoOwner12","registerCoOwner12","addressCoOwner12","attachmentCoOwner12",
+          "fullNameCoOwner13", "birthCertificateCoOwner13", "ageGroupCoOwner13","registerCoOwner13","addressCoOwner13","attachmentCoOwner13",
+          "fullNameCoOwner14", "birthCertificateCoOwner14", "ageGroupCoOwner14","registerCoOwner14","addressCoOwner14","attachmentCoOwner14",
+          "fullNameCoOwner15", "birthCertificateCoOwner15", "ageGroupCoOwner15","registerCoOwner15","addressCoOwner15","attachmentCoOwner15",
+          "fullNameCoOwner16", "birthCertificateCoOwner16", "ageGroupCoOwner16","registerCoOwner16","addressCoOwner16","attachmentCoOwner16",
+          "fullNameCoOwner17", "birthCertificateCoOwner17", "ageGroupCoOwner17","registerCoOwner17","addressCoOwner17","attachmentCoOwner17",
+          "fullNameCoOwner18", "birthCertificateCoOwner18", "ageGroupCoOwner18","registerCoOwner18","addressCoOwner18","attachmentCoOwner18",
+          "fullNameCoOwner19", "birthCertificateCoOwner19", "ageGroupCoOwner19","registerCoOwner19","addressCoOwner19","attachmentCoOwner19",
+          "fullNameCoOwner20", "birthCertificateCoOwner20", "ageGroupCoOwner20","registerCoOwner20","addressCoOwner20","attachmentCoOwner20",
+          "fullNameCoOwner21", "birthCertificateCoOwner21", "ageGroupCoOwner21","registerCoOwner21","addressCoOwner21","attachmentCoOwner21",
+          "fullNameCoOwner22", "birthCertificateCoOwner22", "ageGroupCoOwner22","registerCoOwner22","addressCoOwner22","attachmentCoOwner22",
+          "fullNameCoOwner23", "birthCertificateCoOwner23", "ageGroupCoOwner23","registerCoOwner23","addressCoOwner23","attachmentCoOwner23",
+          "fullNameCoOwner24", "birthCertificateCoOwner4", "ageGroupCoOwner24","registerCoOwner4","addressCoOwner24","attachmentCoOwner24",
+          "fullNameCoOwner25", "birthCertificateCoOwner25", "ageGroupCoOwner25","registerCoOwner25","addressCoOwner25","attachmentCoOwner25",
+          "fullNameCoOwner26", "birthCertificateCoOwner26", "ageGroupCoOwner26","registerCoOwner26","addressCoOwner26","attachmentCoOwner26",
+          "fullNameCoOwner27", "birthCertificateCoOwner27", "ageGroupCoOwner27","registerCoOwner27","addressCoOwner27","attachmentCoOwner27",
+          "fullNameCoOwner28", "birthCertificateCoOwner28", "ageGroupCoOwner28","registerCoOwner28","addressCoOwner28","attachmentCoOwner28",
+          "fullNameCoOwner29", "birthCertificateCoOwner29", "ageGroupCoOwner29","registerCoOwner29","addressCoOwner29","attachmentCoOwner29"
+        ],
+        "flexibleForm": {
+          "2": [
+            {
+              "id": "fullNameCoOwner",
+              "label": "Овог нэр",
+              "required": false,
+              "options": [],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "string",
+              "context": null
+            },
+            {
+              "id": "birthCertificateCoOwner",
+              "label": "Төрсний Гэрчилгээ",
+              "required": false,
+              "options": [],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "string",
+              "context": null
+            },
+            {
+              "id": "ageGroupCoOwner",
+              "label": "Насны ангилал",
+              "required": false,
+              "options": [
+                {"id": "ageGroupCoOwner01", "value": "0-13"},
+                {"id": "ageGroupCoOwner02", "value": "14-17"},
+                {"id": "ageGroupCoOwner03", "value": "18 нас хүрсэн"}
+              ],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "string",
+              "context": null
+            },
+            {
+              "id": "registerCoOwner",
+              "label": "Регистр",
+              "required": false,
+              "options": [],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "string",
+              "context": null
+            },
+            {
+              "id": "addressCoOwner",
+              "label": "Аймаг/Хот",
+              "required": false,
+              "options": [],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "string",
+              "context": null
+            },
+            {
+              "id": "attachmentCoOwner",
+              "label": "Хавсралт",
+              "required": false,
+              "options": [],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "string",
+              "context": null
+            }
+          ]
+        },
+        "min": 0,
+        "max": 30
+      },
+      {
+        "title": null,
+        "subtitle": "Дараачийн барьцааны гэрээний нөхцөл /2011/",
+        "type": "default",
+        "column": 3,
+        "fieldIds": [
+          "dateOfLoanAgreementForCoOwner",
+          "collateralAttachmentNumber",
+          "coOwnerAttachmentNumber"
+        ],
+        "fields": []
+      }
+    ],
+    "buttons": {
+      "save": false,
+      "createContract": false
+    },
+    "entities": {
+      "taskType": null,
+      "entity": null
+    }
+  },
+  "_comment": "INPUT CREDIT LINE CO OWNER INFORMATION",
+  "user_task_credit_line_co_owner_contract":{
+    "fieldGroups": [
+      {
+        "title": null,
+        "type": "default",
+        "column": 3,
+        "fieldIds": [
+          "productName",
+          "loanAmount",
+          "accountNumber"
+        ],
+        "fields": []
+      },
+      {
+        "title": null,
+        "type": "default",
+        "column": 3,
+        "fieldIds": [
+          "contractNumber",
+          "coOwnerLoanAttachmentNumber",
+          "contractDate",
+          "typeOfLoanAgreement",
+          "collateralListNumber",
+          "attachment"
+        ],
+        "fields": []
+      },
+      {
+        "title": "Хамтран өмчлөгч",
+        "type": "flexible",
+        "column": 3,
+        "fields": [],
+        "subFields": [],
+        "fieldIds": [
+          "fullNameCoOwner0", "birthCertificateCoOwner0", "ageGroupCoOwner0","registerCoOwner0","addressCoOwner0","attachmentCoOwner0",
+          "fullNameCoOwner1", "birthCertificateCoOwner1", "ageGroupCoOwner1","registerCoOwner1","addressCoOwner1","attachmentCoOwner1",
+          "fullNameCoOwner2", "birthCertificateCoOwner2", "ageGroupCoOwner2","registerCoOwner2","addressCoOwner2","attachmentCoOwner2",
+          "fullNameCoOwner3", "birthCertificateCoOwner3", "ageGroupCoOwner3","registerCoOwner3","addressCoOwner3","attachmentCoOwner3",
+          "fullNameCoOwner4", "birthCertificateCoOwner4", "ageGroupCoOwner4","registerCoOwner4","addressCoOwner4","attachmentCoOwner4",
+          "fullNameCoOwner5", "birthCertificateCoOwner5", "ageGroupCoOwner5","registerCoOwner5","addressCoOwner5","attachmentCoOwner5",
+          "fullNameCoOwner6", "birthCertificateCoOwner6", "ageGroupCoOwner6","registerCoOwner6","addressCoOwner6","attachmentCoOwner6",
+          "fullNameCoOwner7", "birthCertificateCoOwner7", "ageGroupCoOwner7","registerCoOwner7","addressCoOwner7","attachmentCoOwner7",
+          "fullNameCoOwner8", "birthCertificateCoOwner8", "ageGroupCoOwner8","registerCoOwner8","addressCoOwner8","attachmentCoOwner8",
+          "fullNameCoOwner9", "birthCertificateCoOwner9", "ageGroupCoOwner9","registerCoOwner9","addressCoOwner9","attachmentCoOwner9",
+          "fullNameCoOwner10", "birthCertificateCoOwner10", "ageGroupCoOwner10","registerCoOwner10","addressCoOwner10","attachmentCoOwner10",
+          "fullNameCoOwner11", "birthCertificateCoOwner11", "ageGroupCoOwner11","registerCoOwner11","addressCoOwner11","attachmentCoOwner11",
+          "fullNameCoOwner12", "birthCertificateCoOwner12", "ageGroupCoOwner12","registerCoOwner12","addressCoOwner12","attachmentCoOwner12",
+          "fullNameCoOwner13", "birthCertificateCoOwner13", "ageGroupCoOwner13","registerCoOwner13","addressCoOwner13","attachmentCoOwner13",
+          "fullNameCoOwner14", "birthCertificateCoOwner14", "ageGroupCoOwner14","registerCoOwner14","addressCoOwner14","attachmentCoOwner14",
+          "fullNameCoOwner15", "birthCertificateCoOwner15", "ageGroupCoOwner15","registerCoOwner15","addressCoOwner15","attachmentCoOwner15",
+          "fullNameCoOwner16", "birthCertificateCoOwner16", "ageGroupCoOwner16","registerCoOwner16","addressCoOwner16","attachmentCoOwner16",
+          "fullNameCoOwner17", "birthCertificateCoOwner17", "ageGroupCoOwner17","registerCoOwner17","addressCoOwner17","attachmentCoOwner17",
+          "fullNameCoOwner18", "birthCertificateCoOwner18", "ageGroupCoOwner18","registerCoOwner18","addressCoOwner18","attachmentCoOwner18",
+          "fullNameCoOwner19", "birthCertificateCoOwner19", "ageGroupCoOwner19","registerCoOwner19","addressCoOwner19","attachmentCoOwner19",
+          "fullNameCoOwner20", "birthCertificateCoOwner20", "ageGroupCoOwner20","registerCoOwner20","addressCoOwner20","attachmentCoOwner20",
+          "fullNameCoOwner21", "birthCertificateCoOwner21", "ageGroupCoOwner21","registerCoOwner21","addressCoOwner21","attachmentCoOwner21",
+          "fullNameCoOwner22", "birthCertificateCoOwner22", "ageGroupCoOwner22","registerCoOwner22","addressCoOwner22","attachmentCoOwner22",
+          "fullNameCoOwner23", "birthCertificateCoOwner23", "ageGroupCoOwner23","registerCoOwner23","addressCoOwner23","attachmentCoOwner23",
+          "fullNameCoOwner24", "birthCertificateCoOwner4", "ageGroupCoOwner24","registerCoOwner4","addressCoOwner24","attachmentCoOwner24",
+          "fullNameCoOwner25", "birthCertificateCoOwner25", "ageGroupCoOwner25","registerCoOwner25","addressCoOwner25","attachmentCoOwner25",
+          "fullNameCoOwner26", "birthCertificateCoOwner26", "ageGroupCoOwner26","registerCoOwner26","addressCoOwner26","attachmentCoOwner26",
+          "fullNameCoOwner27", "birthCertificateCoOwner27", "ageGroupCoOwner27","registerCoOwner27","addressCoOwner27","attachmentCoOwner27",
+          "fullNameCoOwner28", "birthCertificateCoOwner28", "ageGroupCoOwner28","registerCoOwner28","addressCoOwner28","attachmentCoOwner28",
+          "fullNameCoOwner29", "birthCertificateCoOwner29", "ageGroupCoOwner29","registerCoOwner29","addressCoOwner29","attachmentCoOwner29"
+        ],
+        "flexibleForm": {
+          "2": [
+            {
+              "id": "fullNameCoOwner",
+              "label": "Овог нэр",
+              "required": false,
+              "options": [],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "string",
+              "context": null
+            },
+            {
+              "id": "birthCertificateCoOwner",
+              "label": "Төрсний Гэрчилгээ",
+              "required": false,
+              "options": [],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "string",
+              "context": null
+            },
+            {
+              "id": "ageGroupCoOwner",
+              "label": "Насны ангилал",
+              "required": false,
+              "options": [],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "string",
+              "context": null
+            },
+            {
+              "id": "registerCoOwner",
+              "label": "Регистр",
+              "required": false,
+              "options": [],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "string",
+              "context": null
+            },
+            {
+              "id": "addressCoOwner",
+              "label": "Аймаг/Хот",
+              "required": false,
+              "options": [],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "string",
+              "context": null
+            },
+            {
+              "id": "attachmentCoOwner",
+              "label": "Хавсралт",
+              "required": false,
+              "options": [],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "string",
+              "context": null
+            }
+          ]
+        },
+        "min": 0,
+        "max": 30
+      },
+      {
+        "title": "Дараачийн барьцааны гэрээний нөхцөл /2011/",
+        "type": "default",
+        "column": 3,
+        "fieldIds": [
+          "dateOfLoanAgreementForCoOwner",
+          "collateralAttachmentNumber",
+          "coOwnerAttachmentNumber"
+        ],
+        "fields": []
+      }
+    ],
+    "buttons": {
+      "save": false,
+      "createContract": false
+    },
+    "entities": {
+      "taskType": null,
+      "entity": null
+    }
+  },
+  "_comment": "INPUT FIDUCIARY ASSET",
+  "user_task_input_fiduciary_asset":{
+    "fieldGroups": [
+      {
+        "title": null,
+        "type": "default",
+        "column": 3,
+        "fieldIds": [
+          "productDescription",
+          "loanAmount",
+          "accountNumber"
+        ],
+        "fields": []
+      },
+      {
+        "title": null,
+        "type": "default",
+        "column": 3,
+        "fieldIds": [
+          "contractIDFiduciary",
+          "contractDate"
+        ],
+        "fields": []
+      },
+      {
+        "title": null,
+        "subtitle": "Үүрэг хүлээгч/Барьцаалуулагчийн мэдээлэл",
+        "type": "flexible",
+        "column": 3,
+        "fields": [],
+        "subFields": [],
+        "fieldIds": [
+          "fullName0", "registerNumber0", "ubNumber0", "address0", "businessAddress0", "phoneNumber0", "representativeName0", "occupancy0",
+          "fullName1", "registerNumber1", "ubNumber1", "address1", "businessAddress1", "phoneNumber1", "representativeName1", "occupancy1",
+          "fullName2", "registerNumber2", "ubNumber2", "address2", "businessAddress2", "phoneNumber2", "representativeName2", "occupancy2",
+          "fullName3", "registerNumber3", "ubNumber3", "address3", "businessAddress3", "phoneNumber3", "representativeName3", "occupancy3",
+          "fullName4", "registerNumber4", "ubNumber4", "address4", "businessAddress4", "phoneNumber4", "representativeName4", "occupancy4",
+          "fullName5", "registerNumber5", "ubNumber5", "address5", "businessAddress5", "phoneNumber5", "representativeName5", "occupancy5",
+          "fullName6", "registerNumber6", "ubNumber6", "address6", "businessAddress6", "phoneNumber6", "representativeName6", "occupancy6",
+          "fullName7", "registerNumber7", "ubNumber7", "address7", "businessAddress7", "phoneNumber7", "representativeName7", "occupancy7",
+          "fullName8", "registerNumber8", "ubNumber8", "address8", "businessAddress8", "phoneNumber8", "representativeName8", "occupancy8",
+          "fullName9", "registerNumber9", "ubNumber9", "address9", "businessAddress9", "phoneNumber9", "representativeName9", "occupancy9",
+          "fullName10", "registerNumber10", "ubNumber10", "address10", "businessAddress10", "phoneNumber10", "representativeName10", "occupancy10",
+          "fullName11", "registerNumber11", "ubNumber11", "address11", "businessAddress11", "phoneNumber11", "representativeName11", "occupancy11",
+          "fullName12", "registerNumber12", "ubNumber12", "address12", "businessAddress12", "phoneNumber12", "representativeName12", "occupancy12",
+          "fullName13", "registerNumber13", "ubNumber13", "address13", "businessAddress13", "phoneNumber13", "representativeName13", "occupancy13",
+          "fullName14", "registerNumber14", "ubNumber14", "address14", "businessAddress14", "phoneNumber14", "representativeName14", "occupancy14",
+          "fullName15", "registerNumber15", "ubNumber15", "address15", "businessAddress15", "phoneNumber15", "representativeName15", "occupancy15",
+          "fullName16", "registerNumber16", "ubNumber16", "address16", "businessAddress16", "phoneNumber16", "representativeName16", "occupancy16",
+          "fullName17", "registerNumber17", "ubNumber17", "address17", "businessAddress17", "phoneNumber17", "representativeName17", "occupancy17",
+          "fullName18", "registerNumber18", "ubNumber18", "address18", "businessAddress18", "phoneNumber18", "representativeName18", "occupancy18",
+          "fullName19", "registerNumber19", "ubNumber19", "address19", "businessAddress19", "phoneNumber19", "representativeName19", "occupancy19",
+          "fullName20", "registerNumber20", "ubNumber20", "address20", "businessAddress20", "phoneNumber20", "representativeName20", "occupancy20",
+          "fullName21", "registerNumber21", "ubNumber21", "address21", "businessAddress21", "phoneNumber21", "representativeName21", "occupancy21",
+          "fullName22", "registerNumber22", "ubNumber22", "address22", "businessAddress22", "phoneNumber22", "representativeName22", "occupancy22",
+          "fullName23", "registerNumber23", "ubNumber23", "address23", "businessAddress23", "phoneNumber23", "representativeName23", "occupancy23",
+          "fullName24", "registerNumber24", "ubNumber24", "address24", "businessAddress24", "phoneNumber24", "representativeName24", "occupancy24",
+          "fullName25", "registerNumber25", "ubNumber25", "address25", "businessAddress25", "phoneNumber25", "representativeName25", "occupancy25",
+          "fullName26", "registerNumber26", "ubNumber26", "address26", "businessAddress26", "phoneNumber26", "representativeName26", "occupancy26",
+          "fullName27", "registerNumber27", "ubNumber27", "address27", "businessAddress27", "phoneNumber27", "representativeName27", "occupancy27",
+          "fullName28", "registerNumber28", "ubNumber28", "address28", "businessAddress28", "phoneNumber28", "representativeName28", "occupancy28",
+          "fullName29", "registerNumber29", "ubNumber29", "address29", "businessAddress29", "phoneNumber29", "representativeName29", "occupancy29",
+          "fullName30", "registerNumber30", "ubNumber30", "address30", "businessAddress30", "phoneNumber30", "representativeName30", "occupancy30"
+        ],
+        "flexibleForm": {
+          "2": [
+            {
+              "id": "fullName",
+              "label": "Овог нэр",
+              "required": false,
+              "options": [],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "string",
+              "context": null
+            },
+            {
+              "id": "registerNumber",
+              "label": "Регистр",
+              "required": false,
+              "options": [],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "string",
+              "context": null
+            },
+            {
+              "id": "ubNumber",
+              "label": "УБ дугаар",
+              "required": false,
+              "options": [],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "string",
+              "context": null
+            },
+            {
+              "id": "address",
+              "label": "Хаяг",
+              "required": false,
+              "options": [],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "string",
+              "context": null
+            },
+            {
+              "id": "businessAddress",
+              "label": "Бизнессийн хаяг",
+              "required": false,
+              "options": [],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "string",
+              "context": null
+            },
+            {
+              "id": "phoneNumber",
+              "label": "Утас",
+              "required": false,
+              "options": [],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "string",
+              "context": null
+            },
+            {
+              "id": "representativeName",
+              "label": "Төлөөлөх хуулийн этгээдийн нэр",
+              "required": false,
+              "options": [],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "string",
+              "context": null
+            },
+            {
+              "id": "occupancy",
+              "label": "Ажил мэргэжил",
+              "required": false,
+              "options": [],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "string",
+              "context": null
+            }
+          ]
+        },
+        "min": 0,
+        "max": 30
+      },
+      {
+        "title": null,
+        "subtitle": "Фидуцийн хөрөнгийн мэдээлэл",
+        "type": "flexible",
+        "column": 3,
+        "fields": [],
+        "subFields": [],
+        "fieldIds": [
+         "fiduciaryType0", "certificateNumber0", "arliinDugaar0", "quantity0", "dateOfCommission0", "areaSize0", "materialFeature0", "transactionPrice0", "realPrice0", "ulsiinDugaar0",
+          "fiduciaryType1", "certificateNumber1", "arliinDugaar1", "quantity1", "dateOfCommission1", "areaSize1", "materialFeature1", "transactionPrice1", "realPrice1", "ulsiinDugaar1",
+          "fiduciaryType2", "certificateNumber2", "arliinDugaar2", "quantity2", "dateOfCommission2", "areaSize2", "materialFeature2", "transactionPrice2", "realPrice0", "ulsiinDugaar2",
+          "fiduciaryType3", "certificateNumber3", "arliinDugaar3", "quantity3", "dateOfCommission3", "areaSize3", "materialFeature3", "transactionPrice3", "realPrice3", "ulsiinDugaar3",
+          "fiduciaryType4", "certificateNumber4", "arliinDugaar4", "quantity4", "dateOfCommission4", "areaSize4", "materialFeature4", "transactionPrice4", "realPrice4", "ulsiinDugaar4",
+          "fiduciaryType5", "certificateNumber5", "arliinDugaar5", "quantity5", "dateOfCommission5", "areaSize5", "materialFeature5", "transactionPrice5", "realPrice5", "ulsiinDugaar5",
+          "fiduciaryType6", "certificateNumber6", "arliinDugaar6", "quantity6", "dateOfCommission6", "areaSize6", "materialFeature6", "transactionPrice6", "realPrice6", "ulsiinDugaar6",
+          "fiduciaryType7", "certificateNumber7", "arliinDugaar7", "quantity7", "dateOfCommission7", "areaSize7", "materialFeature7", "transactionPrice7", "realPrice7", "ulsiinDugaar7",
+          "fiduciaryType8", "certificateNumber8", "arliinDugaar8", "quantity8", "dateOfCommission8", "areaSize8", "materialFeature8", "transactionPrice8", "realPrice8", "ulsiinDugaar8",
+          "fiduciaryType9", "certificateNumber9", "arliinDugaar9", "quantity9", "dateOfCommission9", "areaSize9", "materialFeature9", "transactionPrice9", "realPrice9", "ulsiinDugaar9",
+          "fiduciaryType10", "certificateNumber10", "arliinDugaar10", "quantity10", "dateOfCommission10", "areaSize10", "materialFeature10", "transactionPrice10", "realPrice10", "ulsiinDugaar10",
+          "fiduciaryType11", "certificateNumber11", "arliinDugaar11", "quantity11", "dateOfCommission11", "areaSize11", "materialFeature11", "transactionPrice11", "realPrice11", "ulsiinDugaar11",
+          "fiduciaryType12", "certificateNumber12", "arliinDugaar12", "quantity12", "dateOfCommission12", "areaSize12", "materialFeature12", "transactionPrice12", "realPrice12", "ulsiinDugaar12",
+          "fiduciaryType13", "certificateNumber13", "arliinDugaar13", "quantity13", "dateOfCommission13", "areaSize13", "materialFeature13", "transactionPrice13", "realPrice13", "ulsiinDugaar13",
+          "fiduciaryType14", "certificateNumber14", "arliinDugaar14", "quantity14", "dateOfCommission14", "areaSize14", "materialFeature14", "transactionPrice14", "realPrice14", "ulsiinDugaar14",
+          "fiduciaryType15", "certificateNumber15", "arliinDugaar15", "quantity15", "dateOfCommission15", "areaSize15", "materialFeature15", "transactionPrice15", "realPrice15", "ulsiinDugaar15",
+          "fiduciaryType16", "certificateNumber16", "arliinDugaar16", "quantity16", "dateOfCommission16", "areaSize16", "materialFeature16", "transactionPrice16", "realPrice16", "ulsiinDugaar16",
+          "fiduciaryType17", "certificateNumber17", "arliinDugaar17", "quantity17", "dateOfCommission17", "areaSize17", "materialFeature17", "transactionPrice17", "realPrice17", "ulsiinDugaar17",
+          "fiduciaryType18", "certificateNumber18", "arliinDugaar18", "quantity18", "dateOfCommission18", "areaSize18", "materialFeature18", "transactionPrice18", "realPrice18", "ulsiinDugaar18",
+          "fiduciaryType19", "certificateNumber19", "arliinDugaar19", "quantity19", "dateOfCommission19", "areaSize19", "materialFeature19", "transactionPrice19", "realPrice19", "ulsiinDugaar19",
+          "fiduciaryType20", "certificateNumber20", "arliinDugaar20", "quantity20", "dateOfCommission20", "areaSize20", "materialFeature20", "transactionPrice20", "realPrice20", "ulsiinDugaar20",
+          "fiduciaryType21", "certificateNumber21", "arliinDugaar21", "quantity21", "dateOfCommission21", "areaSize21", "materialFeature21", "transactionPrice21", "realPrice21", "ulsiinDugaar21",
+          "fiduciaryType22", "certificateNumber22", "arliinDugaar22", "quantity22", "dateOfCommission22", "areaSize22", "materialFeature22", "transactionPrice22", "realPrice22", "ulsiinDugaar22",
+          "fiduciaryType23", "certificateNumber23", "arliinDugaar23", "quantity23", "dateOfCommission23", "areaSize23", "materialFeature23", "transactionPrice23", "realPrice23", "ulsiinDugaar23",
+          "fiduciaryType24", "certificateNumber24", "arliinDugaar24", "quantity24", "dateOfCommission24", "areaSize24", "materialFeature24", "transactionPrice24", "realPrice24", "ulsiinDugaar24",
+          "fiduciaryType25", "certificateNumber25", "arliinDugaar25", "quantity25", "dateOfCommission25", "areaSize25", "materialFeature25", "transactionPrice25", "realPrice25", "ulsiinDugaar25",
+          "fiduciaryType26", "certificateNumber26", "arliinDugaar26", "quantity26", "dateOfCommission26", "areaSize26", "materialFeature26", "transactionPrice26", "realPrice26", "ulsiinDugaar26",
+          "fiduciaryType27", "certificateNumber27", "arliinDugaar27", "quantity27", "dateOfCommission27", "areaSize27", "materialFeature27", "transactionPrice27", "realPrice27", "ulsiinDugaar27",
+          "fiduciaryType28", "certificateNumber28", "arliinDugaar28", "quantity28", "dateOfCommission28", "areaSize28", "materialFeature28", "transactionPrice28", "realPrice28", "ulsiinDugaar28",
+          "fiduciaryType29", "certificateNumber29", "arliinDugaar29", "quantity29", "dateOfCommission29", "areaSize29", "materialFeature29", "transactionPrice29", "realPrice29", "ulsiinDugaar29"
+        ],
+        "flexibleForm": {
+          "3": [
+            {
+              "id": "fiduciaryType",
+              "label": "Нэр төрөл",
+              "required": false,
+              "options": [],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "string",
+              "context": null
+            },
+            {
+              "id": "certificateNumber",
+              "label": "Гэрчилгээний дугаар",
+              "required": false,
+              "options": [],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "string",
+              "context": null
+            },
+            {
+              "id": "arliinDugaar",
+              "label": "Арлын дугаар",
+              "required": false,
+              "options": [],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "string",
+              "context": null
+            },
+            {
+              "id": "quantity",
+              "label": "Тоо ширхэг",
+              "required": false,
+              "options": [],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "string",
+              "context": null
+            },
+            {
+              "id": "dateOfCommission",
+              "label": "Ашиглалтанд орсон огноо",
+              "required": false,
+              "options": [],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "date",
+              "context": null
+            },
+            {
+              "id": "areaSize",
+              "label": "Талбайн хэмжээ",
+              "required": false,
+              "options": [],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "BigDecimal",
+              "context": null
+            },
+            {
+              "id": "materialFeature",
+              "label": "Хийц, загвар/Материалын шинж",
+              "required": false,
+              "options": [],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "string",
+              "context": null
+            },
+            {
+              "id": "transactionPrice",
+              "label": "Үнэ/Шилжүүлэх үеийн байдлаар",
+              "required": false,
+              "options": [],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "BigDecimal",
+              "context": null
+            },
+            {
+              "id": "realPrice",
+              "label": "Үнэ/Бодитоор гаргуулах үеийн байдал",
+              "required": false,
+              "options": [],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "BigDecimal",
+              "context": null
+            },
+            {
+              "id": "ulsiinDugaar",
+              "label": "Улсын дугаар",
+              "required": false,
+              "options": [],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "string",
+              "context": null
+            }
+          ]
+        },
+        "min": 0,
+        "max": 30
+      }
+    ],
+    "buttons": {
+      "save": false,
+      "createContract": false
+    },
+    "entities": {
+      "taskType": null,
+      "entity": null
+    }
+  },
+  "_comment": "INPUT CREDIT LINE FIDUCIARY ASSET",
+  "user_task_credit_line_input_fiduciary_asset":{
+    "fieldGroups": [
+      {
+        "title": null,
+        "type": "default",
+        "column": 3,
+        "fieldIds": [
+          "productDescription",
+          "loanAmount",
+          "accountNumber"
+        ],
+        "fields": []
+      },
+      {
+        "title": null,
+        "type": "default",
+        "column": 3,
+        "fieldIds": [
+          "contractID",
+          "contractDate"
+        ],
+        "fields": []
+      },
+      {
+        "title":  "Үүрэг хүлээгч/Барьцаалуулагчийн мэдээлэл",
+        "type": "flexible",
+        "column": 3,
+        "fields": [],
+        "subFields": [],
+        "fieldIds": [
+          "fullName0", "registerNumber0", "ubNumber0", "address0", "businessAddress0", "phoneNumber0", "representativeName0", "occupancy0",
+          "fullName1", "registerNumber1", "ubNumber1", "address1", "businessAddress1", "phoneNumber1", "representativeName1", "occupancy1",
+          "fullName2", "registerNumber2", "ubNumber2", "address2", "businessAddress2", "phoneNumber2", "representativeName2", "occupancy2",
+          "fullName3", "registerNumber3", "ubNumber3", "address3", "businessAddress3", "phoneNumber3", "representativeName3", "occupancy3",
+          "fullName4", "registerNumber4", "ubNumber4", "address4", "businessAddress4", "phoneNumber4", "representativeName4", "occupancy4",
+          "fullName5", "registerNumber5", "ubNumber5", "address5", "businessAddress5", "phoneNumber5", "representativeName5", "occupancy5",
+          "fullName6", "registerNumber6", "ubNumber6", "address6", "businessAddress6", "phoneNumber6", "representativeName6", "occupancy6",
+          "fullName7", "registerNumber7", "ubNumber7", "address7", "businessAddress7", "phoneNumber7", "representativeName7", "occupancy7",
+          "fullName8", "registerNumber8", "ubNumber8", "address8", "businessAddress8", "phoneNumber8", "representativeName8", "occupancy8",
+          "fullName9", "registerNumber9", "ubNumber9", "address9", "businessAddress9", "phoneNumber9", "representativeName9", "occupancy9",
+          "fullName10", "registerNumber10", "ubNumber10", "address10", "businessAddress10", "phoneNumber10", "representativeName10", "occupancy10",
+          "fullName11", "registerNumber11", "ubNumber11", "address11", "businessAddress11", "phoneNumber11", "representativeName11", "occupancy11",
+          "fullName12", "registerNumber12", "ubNumber12", "address12", "businessAddress12", "phoneNumber12", "representativeName12", "occupancy12",
+          "fullName13", "registerNumber13", "ubNumber13", "address13", "businessAddress13", "phoneNumber13", "representativeName13", "occupancy13",
+          "fullName14", "registerNumber14", "ubNumber14", "address14", "businessAddress14", "phoneNumber14", "representativeName14", "occupancy14",
+          "fullName15", "registerNumber15", "ubNumber15", "address15", "businessAddress15", "phoneNumber15", "representativeName15", "occupancy15",
+          "fullName16", "registerNumber16", "ubNumber16", "address16", "businessAddress16", "phoneNumber16", "representativeName16", "occupancy16",
+          "fullName17", "registerNumber17", "ubNumber17", "address17", "businessAddress17", "phoneNumber17", "representativeName17", "occupancy17",
+          "fullName18", "registerNumber18", "ubNumber18", "address18", "businessAddress18", "phoneNumber18", "representativeName18", "occupancy18",
+          "fullName19", "registerNumber19", "ubNumber19", "address19", "businessAddress19", "phoneNumber19", "representativeName19", "occupancy19",
+          "fullName20", "registerNumber20", "ubNumber20", "address20", "businessAddress20", "phoneNumber20", "representativeName20", "occupancy20",
+          "fullName21", "registerNumber21", "ubNumber21", "address21", "businessAddress21", "phoneNumber21", "representativeName21", "occupancy21",
+          "fullName22", "registerNumber22", "ubNumber22", "address22", "businessAddress22", "phoneNumber22", "representativeName22", "occupancy22",
+          "fullName23", "registerNumber23", "ubNumber23", "address23", "businessAddress23", "phoneNumber23", "representativeName23", "occupancy23",
+          "fullName24", "registerNumber24", "ubNumber24", "address24", "businessAddress24", "phoneNumber24", "representativeName24", "occupancy24",
+          "fullName25", "registerNumber25", "ubNumber25", "address25", "businessAddress25", "phoneNumber25", "representativeName25", "occupancy25",
+          "fullName26", "registerNumber26", "ubNumber26", "address26", "businessAddress26", "phoneNumber26", "representativeName26", "occupancy26",
+          "fullName27", "registerNumber27", "ubNumber27", "address27", "businessAddress27", "phoneNumber27", "representativeName27", "occupancy27",
+          "fullName28", "registerNumber28", "ubNumber28", "address28", "businessAddress28", "phoneNumber28", "representativeName28", "occupancy28",
+          "fullName29", "registerNumber29", "ubNumber29", "address29", "businessAddress29", "phoneNumber29", "representativeName29", "occupancy29",
+          "fullName30", "registerNumber30", "ubNumber30", "address30", "businessAddress30", "phoneNumber30", "representativeName30", "occupancy30"
+        ],
+        "flexibleForm": {
+          "2": [
+            {
+              "id": "fullName",
+              "label": "Овог нэр",
+              "required": false,
+              "options": [],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "string",
+              "context": null
+            },
+            {
+              "id": "registerNumber",
+              "label": "Регистр",
+              "required": false,
+              "options": [],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "string",
+              "context": null
+            },
+            {
+              "id": "ubNumber",
+              "label": "УБ дугаар",
+              "required": false,
+              "options": [],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "string",
+              "context": null
+            },
+            {
+              "id": "address",
+              "label": "Хаяг",
+              "required": false,
+              "options": [],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "string",
+              "context": null
+            },
+            {
+              "id": "businessAddress",
+              "label": "Бизнессийн хаяг",
+              "required": false,
+              "options": [],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "string",
+              "context": null
+            },
+            {
+              "id": "phoneNumber",
+              "label": "Утас",
+              "required": false,
+              "options": [],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "string",
+              "context": null
+            },
+            {
+              "id": "representativeName",
+              "label": "Төлөөлөх хуулийн этгээдийн нэр",
+              "required": false,
+              "options": [],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "string",
+              "context": null
+            },
+            {
+              "id": "occupancy",
+              "label": "Ажил мэргэжил",
+              "required": false,
+              "options": [],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "string",
+              "context": null
+            }
+          ]
+        },
+        "min": 0,
+        "max": 30
+      },
+      {
+        "title": "Фидуцийн хөрөнгийн мэдээлэл",
+        "type": "flexible",
+        "column": 3,
+        "fields": [],
+        "subFields": [],
+        "fieldIds": [
+          "fiduciaryType0", "certificateNumber0", "arliinDugaar0", "quantity0", "dateOfCommission0", "areaSize0", "materialFeature0", "transactionPrice0", "realPrice0",
+          "fiduciaryType1", "certificateNumber1", "arliinDugaar1", "quantity1", "dateOfCommission1", "areaSize1", "materialFeature1", "transactionPrice1", "realPrice1",
+          "fiduciaryType2", "certificateNumber2", "arliinDugaar2", "quantity2", "dateOfCommission2", "areaSize2", "materialFeature2", "transactionPrice2", "realPrice0",
+          "fiduciaryType3", "certificateNumber3", "arliinDugaar3", "quantity3", "dateOfCommission3", "areaSize3", "materialFeature3", "transactionPrice3", "realPrice3",
+          "fiduciaryType4", "certificateNumber4", "arliinDugaar4", "quantity4", "dateOfCommission4", "areaSize4", "materialFeature4", "transactionPrice4", "realPrice4",
+          "fiduciaryType5", "certificateNumber5", "arliinDugaar5", "quantity5", "dateOfCommission5", "areaSize5", "materialFeature5", "transactionPrice5", "realPrice5",
+          "fiduciaryType6", "certificateNumber6", "arliinDugaar6", "quantity6", "dateOfCommission6", "areaSize6", "materialFeature6", "transactionPrice6", "realPrice6",
+          "fiduciaryType7", "certificateNumber7", "arliinDugaar7", "quantity7", "dateOfCommission7", "areaSize7", "materialFeature7", "transactionPrice7", "realPrice7",
+          "fiduciaryType8", "certificateNumber8", "arliinDugaar8", "quantity8", "dateOfCommission8", "areaSize8", "materialFeature8", "transactionPrice8", "realPrice8",
+          "fiduciaryType9", "certificateNumber9", "arliinDugaar9", "quantity9", "dateOfCommission9", "areaSize9", "materialFeature9", "transactionPrice9", "realPrice9",
+          "fiduciaryType10", "certificateNumber10", "arliinDugaar10", "quantity10", "dateOfCommission10", "areaSize10", "materialFeature10", "transactionPrice10", "realPrice10",
+          "fiduciaryType11", "certificateNumber11", "arliinDugaar11", "quantity11", "dateOfCommission11", "areaSize11", "materialFeature11", "transactionPrice11", "realPrice11",
+          "fiduciaryType12", "certificateNumber12", "arliinDugaar12", "quantity12", "dateOfCommission12", "areaSize12", "materialFeature12", "transactionPrice12", "realPrice12",
+          "fiduciaryType13", "certificateNumber13", "arliinDugaar13", "quantity13", "dateOfCommission13", "areaSize13", "materialFeature13", "transactionPrice13", "realPrice13",
+          "fiduciaryType14", "certificateNumber14", "arliinDugaar14", "quantity14", "dateOfCommission14", "areaSize14", "materialFeature14", "transactionPrice14", "realPrice14",
+          "fiduciaryType15", "certificateNumber15", "arliinDugaar15", "quantity15", "dateOfCommission15", "areaSize15", "materialFeature15", "transactionPrice15", "realPrice15",
+          "fiduciaryType16", "certificateNumber16", "arliinDugaar16", "quantity16", "dateOfCommission16", "areaSize16", "materialFeature16", "transactionPrice16", "realPrice16",
+          "fiduciaryType17", "certificateNumber17", "arliinDugaar17", "quantity17", "dateOfCommission17", "areaSize17", "materialFeature17", "transactionPrice17", "realPrice17",
+          "fiduciaryType18", "certificateNumber18", "arliinDugaar18", "quantity18", "dateOfCommission18", "areaSize18", "materialFeature18", "transactionPrice18", "realPrice18",
+          "fiduciaryType19", "certificateNumber19", "arliinDugaar19", "quantity19", "dateOfCommission19", "areaSize19", "materialFeature19", "transactionPrice19", "realPrice19",
+          "fiduciaryType20", "certificateNumber20", "arliinDugaar20", "quantity20", "dateOfCommission20", "areaSize20", "materialFeature20", "transactionPrice20", "realPrice20",
+          "fiduciaryType21", "certificateNumber21", "arliinDugaar21", "quantity21", "dateOfCommission21", "areaSize21", "materialFeature21", "transactionPrice21", "realPrice21",
+          "fiduciaryType22", "certificateNumber22", "arliinDugaar22", "quantity22", "dateOfCommission22", "areaSize22", "materialFeature22", "transactionPrice22", "realPrice22",
+          "fiduciaryType23", "certificateNumber23", "arliinDugaar23", "quantity23", "dateOfCommission23", "areaSize23", "materialFeature23", "transactionPrice23", "realPrice23",
+          "fiduciaryType24", "certificateNumber24", "arliinDugaar24", "quantity24", "dateOfCommission24", "areaSize24", "materialFeature24", "transactionPrice24", "realPrice24",
+          "fiduciaryType25", "certificateNumber25", "arliinDugaar25", "quantity25", "dateOfCommission25", "areaSize25", "materialFeature25", "transactionPrice25", "realPrice25",
+          "fiduciaryType26", "certificateNumber26", "arliinDugaar26", "quantity26", "dateOfCommission26", "areaSize26", "materialFeature26", "transactionPrice26", "realPrice26",
+          "fiduciaryType27", "certificateNumber27", "arliinDugaar27", "quantity27", "dateOfCommission27", "areaSize27", "materialFeature27", "transactionPrice27", "realPrice27",
+          "fiduciaryType28", "certificateNumber28", "arliinDugaar28", "quantity28", "dateOfCommission28", "areaSize28", "materialFeature28", "transactionPrice28", "realPrice28",
+          "fiduciaryType29", "certificateNumber29", "arliinDugaar29", "quantity29", "dateOfCommission29", "areaSize29", "materialFeature29", "transactionPrice29", "realPrice29"
+        ],
+        "flexibleForm": {
+          "3": [
+            {
+              "id": "fiduciaryType",
+              "label": "Нэр төрөл",
+              "required": false,
+              "options": [],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "string",
+              "context": null
+            },
+            {
+              "id": "certificateNumber",
+              "label": "Гэрчилгээний дугаар",
+              "required": false,
+              "options": [],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "string",
+              "context": null
+            },
+            {
+              "id": "arliinDugaar",
+              "label": "Арлын дугаар",
+              "required": false,
+              "options": [],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "string",
+              "context": null
+            },
+            {
+              "id": "quantity",
+              "label": "Тоо ширхэг",
+              "required": false,
+              "options": [],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "string",
+              "context": null
+            },
+            {
+              "id": "dateOfCommission",
+              "label": "Ашиглалтанд орсон огноо",
+              "required": false,
+              "options": [],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "string",
+              "context": null
+            },
+            {
+              "id": "areaSize",
+              "label": "Талбайн хэмжээ",
+              "required": false,
+              "options": [],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "string",
+              "context": null
+            },
+            {
+              "id": "materialFeature",
+              "label": "Хийц, загвар/Материалын шинж",
+              "required": false,
+              "options": [],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "string",
+              "context": null
+            },
+            {
+              "id": "transactionPrice",
+              "label": "Үнэ/Шилжүүлэх үеийн байдлаар",
+              "required": false,
+              "options": [],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "string",
+              "context": null
+            },
+            {
+              "id": "realPrice",
+              "label": "Үнэ/Бодитоор гаргуулах үеийн байдал",
+              "required": false,
+              "options": [],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "string",
+              "context": null
+            }
+          ]
+        },
+        "max": 30
+      }
+    ],
+    "buttons": {
+      "save": false,
+      "createContract": false
+    },
+    "entities": {
+      "taskType": null,
+      "entity": null
+    }
+  },
+  "_comment": "VIEW LOAN COLLATERAL",
+  "user_task_view_loan_collateral":{
+    "fieldGroups": [
+      {
+        "title": null,
+        "type": "default",
+        "column": 3,
+        "fieldIds": [
+          "productDescription",
+          "loanAmount",
+          "accountNumber"
+        ],
+        "fields": []
+      },
+      {
+        "title": null,
+        "type": "default",
+        "column": 3,
+        "fieldIds": [
+          "typeOfCollateral",
+          "customerName",
+          "attachmentType",
+          "position",
+          "dateOfContract",
+          "loanAttachmentNumber",
+          "interpretationOfTheSignature",
+          "attachmentNumber",
+          "downloadCollateralInfo"
+        ],
+        "fields": [],
+        "buttonIds": ["downloadCollateralInfo"]
+      }
+    ],
+    "table": {
+      "tableHeader": "Барьцааны жагсаалт",
+      "tableColumns": [
+        {
+          "columnDef": "checkSelectedCollateral",
+          "type": "checkbox",
+          "hasCheckbox":  true,
+          "headerText": "",
+          "separator": false,
+          "edit": false,
+          "percent": false
+        },
+        {
+          "columnDef": "collateralCode",
+          "headerText": "Барьцааны төрлийн код",
+          "type": "string",
+          "separator": false,
+          "edit": false,
+          "percent": false
+        },
+        {
+          "columnDef": "collateralId",
+          "headerText": "Барьцааны код",
+          "type": "string"
+        },
+        {
+          "columnDef": "apportionedAmount",
+          "headerText": "Барьцааны дүн",
+          "type": "string"
+        }
+      ]
+    },
+    "buttons": {
+      "save": false,
+      "createContract": false
+    },
+    "fieldAction": {
+      "typeOfCollateral": "filterCollateral"
+    },
+    "entities": {
+      "taskType": null,
+      "entity": null
+    }
+  },
+  "_comment": "VIEW CREDIT LINE LOAN COLLATERAL",
+  "user_task_credit_line_view_loan_collateral":{
+    "fieldGroups": [
+      {
+        "title": null,
+        "type": "default",
+        "column": 3,
+        "fieldIds": [
+          "productDescription",
+          "loanAmount",
+          "accountNumber"
+        ],
+        "fields": []
+      },
+      {
+        "title": null,
+        "type": "default",
+        "column": 3,
+        "fieldIds": [
+          "typeOfCollateral",
+          "customerName",
+          "attachmentType",
+          "position",
+          "dateOfContract",
+          "loanAttachmentNumber",
+          "interpretationOfTheSignature",
+          "attachmentNumber"
+        ],
+        "fields": []
+      },
+      {
+        "title": null,
+        "type": "flexible",
+        "column": 3,
+        "fields": [],
+        "subFields": [],
+        "fieldIds": [
+          "choosingCollateral0"
+        ],
+        "flexibleForm": {
+          "2": [
+            {
+              "id": "choosingCollateral",
+              "label": "Барьцаа сонгох",
+              "required": false,
+              "options": [],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "string",
+              "context": null
+            }
+          ]
+        },
+        "max": 5
+      }
+    ],
+    "buttons": {
+      "save": false,
+      "createContract": false
+    },
+    "fieldAction": {
+      "typeOfCollateral": "filterCollateral"
+    },
+    "entities": {
+      "taskType": null,
+      "entity": null
+    }
+  },
+  "_comment": "LOAN PAYMENT PERMISSION PREPARATION",
+  "user_task_loan_transaction_permission_preparation":{
+    "fieldGroups": [
+      {
+        "title": null,
+        "type": "default",
+        "column": 3,
+        "fieldIds": [
+          "preparationType"
+        ],
+        "fields": []
+      },
+      {
+        "title": null,
+        "type": "default",
+        "column": 3,
+        "fieldIds": [
+          "accountNumber",
+          "loanContractTotalAmount",
+          "currencyValue",
+          "confirmedTotalAmount",
+          "loanRepaymentFee",
+          "printCollateralList",
+          "currentTotalAmount",
+          "closingAccountNumber",
+          "checkboxPoll",
+          "crossTrade",
+          "spaceNull",
+          "buNe"
+        ],
+        "checkboxFieldIds": ["printCollateralList"],
+        "fields": [],
+        "noSeparator": true
+      },
+      {
+        "subtitle": "Зээл олголт",
+        "type": "default",
+        "column": 3,
+        "fields": [],
+        "subFields": [],
+        "fieldIds": [
+          "loanAccountFirstAmount"
+        ]
+      },
+      {
+        "title": null,
+        "type": "default",
+        "column": 3,
+        "fields": [],
+        "subFields": [],
+        "fieldIds": [
+          "accountNumberTrans",
+          "accountName",
+          "amount"
+        ],
+        "noSeparator": true
+      }
+    ],
+    "buttons": {
+      "save": false,
+      "createContract": false
+    },
+    "fieldAction": {
+    },
+    "entities": {
+      "taskType": null,
+      "entity": null
+    }
+  },
+  "_comment": "LOAN REPAYMENT AFTER",
+  "user_task_loan_repayment_after": {
+    "fieldGroups": [
+      {
+        "title": null,
+        "type": "default",
+        "column": 4,
+        "fieldIds": [
+          "productDescription",
+          "loanAmount",
+          "accountNumber",
+          "zetAttachmentNumber"
+
+        ],
+        "fields": []
+      }
+    ],
+    "buttons": {
+      "save": false,
+      "createContract": false
+    },
+    "fieldAction": {
+    },
+    "entities": {
+      "taskType": null,
+      "entity": null
+    }
+  },
+  "_comment": "MORTGAGE LOAN CONTRACT",
+  "user_task_prepare_mortgage_loan_contract_info":{
+    "fieldGroups": [
+      {
+        "title": null,
+        "type": "default",
+        "column": 3,
+        "fieldIds": [
+          "productDescription",
+          "loanAmount",
+          "accountNumber"
+        ],
+        "fields": []
+      },
+      {
+        "title": null,
+        "type": "default",
+        "column": 3,
+        "fieldIds": [
+          "rateChange",
+          "applicationFee",
+          "mortgageContract",
+          "loanServiceFee",
+          "numberOfContract",
+          "collateralContract",
+          "insuranceAccountNumberOnly",
+          "dummy1",
+          "fiduciaryContract",
+          "dummy2",
+          "dummy3",
+          "guaranteeAgreement"
+        ],
+        "fields": []
+      },
+      {
+        "title": null,
+        "subtitle": "Хасбанкны данс",
+        "type": "flexible",
+        "column": 3,
+        "fields": [],
+        "subFields": [],
+        "fieldIds": [
+          "casaAccount0", "savingsAccount0", "cardAccount0",
+          "casaAccount1", "savingsAccount1", "cardAccount1",
+          "casaAccount2", "savingsAccount2", "cardAccount2",
+          "casaAccount3", "savingsAccount3", "cardAccount3",
+          "casaAccount4", "savingsAccount4", "cardAccount4"
+        ],
+        "flexibleForm": {
+          "2": [
+            {
+              "id": "casaAccount",
+              "label": "Харилцах данс",
+              "required": false,
+              "options": [],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "string",
+              "context": null
+            },
+            {
+              "id": "savingsAccount",
+              "label": "Хадгаламжийн данс",
+              "required": false,
+              "options": [],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [{"name": "maxlength", "config": "11"}],
+              "disabled": false,
+              "type": "string",
+              "context": null
+            },
+            {
+              "id": "cardAccount",
+              "label": "Картын данс",
+              "required": false,
+              "options": [],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "string",
+              "context": null
+            }
+          ]
+        },
+        "max": 5
+      },
+      {
+        "title": null,
+        "subtitle": "Бусад банкны данс",
+        "type": "flexible",
+        "column": 3,
+        "fields": [],
+        "subFields": [],
+        "fieldIds": [
+          "otherBankName0",
+          "dummy40",
+          "dummy50",
+          "otherCasaAccount0",
+          "otherSavingsAccount0",
+          "otherCardAccount0",
+          "otherBankName1",
+          "dummy41",
+          "dummy51",
+          "otherCasaAccount1",
+          "otherSavingsAccount1",
+          "otherCardAccount1",
+          "otherBankName2",
+          "dummy42",
+          "dummy52",
+          "otherCasaAccount2",
+          "otherSavingsAccount2",
+          "otherCardAccount2",
+          "otherBankName3",
+          "dummy43",
+          "dummy53",
+          "otherCasaAccount3",
+          "otherSavingsAccount3",
+          "otherCardAccount3",
+          "otherBankName4",
+          "dummy44",
+          "dummy54",
+          "otherCasaAccount4",
+          "otherSavingsAccount4",
+          "otherCardAccount4"
+        ],
+        "flexibleForm": {
+          "3": [
+            {
+              "id": "otherBankName",
+              "label": "Банкны нэр",
+              "required": false,
+              "options": [
+                {"id": "op1", "value": "ХасБанк"},
+                {"id": "op2", "value": "Ариг банк"},
+                {"id": "op3", "value": "Богд банк"},
+                {"id": "op4", "value": "Голомт банк"},
+                {"id": "op5", "value": "Капитрон банк"},
+                {"id": "op6", "value": "Кредит банк"},
+                {"id": "op7", "value": "Төрийн банк"},
+                {"id": "op8", "value": "Төрийн сан"},
+                {"id": "op9", "value": "Тээвэр хөгжлийн банк"},
+                {"id": "op10", "value": "Улаанбаатар хотын банк"},
+                {"id": "op11", "value": "Үндэсний хөрөнгө оруулалтын банк"},
+                {"id": "op12", "value": "Хаан банк"},
+                {"id": "op13", "value": "Худалдаа хөгжлийн банк"},
+                {"id": "op14", "value": "Чингис хаан банк"}
+              ],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "string",
+              "context": null
+            },
+            {
+              "id": "dummy4",
+              "label": "dummy",
+              "required": false,
+              "options": [],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "string",
+              "context": null
+            },
+            {
+              "id": "dummy5",
+              "label": "dummy",
+              "required": false,
+              "options": [],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "string",
+              "context": null
+            },
+            {
+              "id": "otherCasaAccount",
+              "label": "Харилцах данс",
+              "required": false,
+              "options": [],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "string",
+              "context": null
+            },
+            {
+              "id": "otherSavingsAccount",
+              "label": "Хадгаламжийн данс",
+              "required": false,
+              "options": [],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "string",
+              "context": null
+            },
+            {
+              "id": "otherCardAccount",
+              "label": "Картын данс",
+              "required": false,
+              "options": [],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "string",
+              "context": null
+            }
+          ]
+        },
+        "max": 5
+      },
+      {
+        "title": null,
+        "subtitle": "Зээлийн мэдээллийн хуудас",
+        "type": "default",
+        "column": 3,
+        "fieldIds": [
+          "serviceFee",
+          "supplierFee",
+          "otherFee",
+          "propertyInsurance",
+          "accidentInsurance"
+        ],
+        "fields": []
+      },
+      {
+        "title": null,
+        "subtitle": "Худалдан авч буй үл хөдлөх хөрөнгийн мэдээлэл",
+        "type": "flexible",
+        "column": 3,
+        "fields": [],
+        "subFields": [],
+        "fieldIds": [
+          "province0",
+          "doorNumber0",
+          "offerAmount0",
+          "district0",
+          "areaSquare0",
+          "advanceAmountPercent0",
+          "bagKhoroo0",
+          "registryNumber0",
+          "amount0",
+          "town0",
+          "certificateNumber0",
+          "dummy60",
+          "streetApartment0",
+
+          "province1",
+          "doorNumber1",
+          "offerAmount1",
+          "district1",
+          "areaSquare1",
+          "advanceAmountPercent1",
+          "bagKhoroo1",
+          "registryNumber1",
+          "amount1",
+          "town1",
+          "certificateNumber1",
+          "dummy61",
+          "streetApartment1",
+
+          "province2",
+          "doorNumber2",
+          "offerAmount2",
+          "district2",
+          "areaSquare2",
+          "advanceAmountPercent2",
+          "bagKhoroo2",
+          "registryNumber2",
+          "amount2",
+          "town2",
+          "certificateNumber2",
+          "dummy62",
+          "streetApartment2",
+
+          "province3",
+          "doorNumber3",
+          "offerAmount3",
+          "district3",
+          "areaSquare3",
+          "advanceAmountPercent3",
+          "bagKhoroo3",
+          "registryNumber3",
+          "amount3",
+          "town3",
+          "certificateNumber3",
+          "dummy63",
+          "streetApartment3",
+
+          "province4",
+          "doorNumber4",
+          "offerAmount4",
+          "district4",
+          "areaSquare4",
+          "advanceAmountPercent4",
+          "bagKhoroo4",
+          "registryNumber4",
+          "amount4",
+          "town4",
+          "certificateNumber4",
+          "dummy64",
+          "streetApartment4"
+        ],
+        "flexibleForm": {
+          "5": [
+            {
+              "id": "province",
+              "label": "Аймаг/Хот",
+              "required": false,
+              "options": [],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "string",
+              "context": null
+            },
+            {
+              "id": "doorNumber",
+              "label": "Тоот",
+              "required": false,
+              "options": [],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "string",
+              "context": null
+            },
+            {
+              "id": "offerAmount",
+              "label": "Худалдан авах үнэ",
+              "required": false,
+              "options": [],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "BigDecimal",
+              "context": null
+            },
+            {
+              "id": "district",
+              "label": "Сум/Дүүрэг",
+              "required": false,
+              "options": [],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "string",
+              "context": null
+            },
+
+            {
+              "id": "areaSquare",
+              "label": "Талбай /мкв/",
+              "required": false,
+              "options": [],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "string",
+              "context": null
+            },
+            {
+              "id": "advanceAmountPercent",
+              "label": "Урьдчилгаа дүнгийн хувь",
+              "required": false,
+              "options": [],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "string",
+              "context": null
+            },
+            {
+              "id": "bagKhoroo",
+              "label": "Баг/Хороо",
+              "required": false,
+              "options": [],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "string",
+              "context": null
+            },
+            {
+              "id": "registryNumber",
+              "label": "Улсын бүртгэлийн дугаар",
+              "required": false,
+              "options": [],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "string",
+              "context": null
+            },
+            {
+              "id": "amount",
+              "label": "Урьдчилгаа дүн",
+              "required": false,
+              "options": [],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "BigDecimal",
+              "context": null
+            },
+            {
+              "id": "town",
+              "label": "Хороолол/хотхон",
+              "required": false,
+              "options": [],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "string",
+              "context": null
+            },
+            {
+              "id": "certificateNumber",
+              "label": "Гэрчилгээний дугаар",
+              "required": false,
+              "options": [],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "string",
+              "context": null
+            },
+            {
+              "id": "dummy6",
+              "label": "dummy",
+              "required": false,
+              "options": [],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "string",
+              "context": null
+            },
+            {
+              "id": "streetApartment",
+              "label": "Байр/Гудамж",
+              "required": false,
+              "options": [],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "string",
+              "context": null
+            }
+          ]
+        },
+        "max": 5
+      },
+      {
+        "title": null,
+        "subtitle": "Хашаа байшин/АОС-н мэдээлэл",
+        "type": "flexible",
+        "column": 3,
+        "fields": [],
+        "subFields": [],
+        "fieldIds": [
+          "aocType0",
+          "aocSquare0",
+          "aocProjectTotalAmount0",
+          "aocArea0",
+          "aocRegNumber0",
+          "aocWorkPercent0",
+          "aocAreaRegNumber0",
+          "aocCertificateNumber0",
+          "dummy70",
+          "aocAreaCertiNumber0",
+
+
+          "aocType1",
+          "aocSquare1",
+          "aocProjectTotalAmount1",
+          "aocArea1",
+          "aocRegNumber1",
+          "aocWorkPercent1",
+          "aocAreaRegNumber1",
+          "aocCertificateNumber1",
+          "dummy71",
+          "aocAreaCertiNumber1",
+
+
+          "aocType2",
+          "aocSquare2",
+          "aocProjectTotalAmount2",
+          "aocArea2",
+          "aocRegNumber2",
+          "aocWorkPercent2",
+          "aocAreaRegNumber2",
+          "aocCertificateNumber2",
+          "dummy72",
+          "aocAreaCertiNumber2",
+
+
+          "aocType3",
+          "aocSquare3",
+          "aocProjectTotalAmount3",
+          "aocArea3",
+          "aocRegNumber3",
+          "aocWorkPercent3",
+          "aocAreaRegNumber3",
+          "aocCertificateNumber3",
+          "dummy73",
+          "aocAreaCertiNumber3",
+
+
+          "aocType4",
+          "aocSquare4",
+          "aocProjectTotalAmount4",
+          "aocArea4",
+          "aocRegNumber4",
+          "aocWorkPercent4",
+          "aocAreaRegNumber4",
+          "aocCertificateNumber4",
+          "dummy74",
+          "aocAreaCertiNumber4"
+        ],
+        "flexibleForm": {
+          "6": [
+            {
+              "id": "aocType",
+              "label": "Төрөл",
+              "required": false,
+              "options": [
+                {"id": "aoc", "value": "АОС"},
+                {"id": "house", "value": "Хашаа байшин"}
+              ],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "string",
+              "context": null
+            },
+            {
+              "id": "aocSquare",
+              "label": "Талбай /мкв/",
+              "required": false,
+              "options": [],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "string",
+              "context": null
+            },
+            {
+              "id": "aocProjectTotalAmount",
+              "label": "Төсвийн нийт дүн",
+              "required": false,
+              "options": [],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "BigDecimal",
+              "context": null
+            },
+            {
+              "id": "aocArea",
+              "label": "Газрын талбай /мкв/",
+              "required": false,
+              "options": [],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "string",
+              "context": null
+            },
+            {
+              "id": "aocRegNumber",
+              "label": "Улсын бүртгэлийн дугаар",
+              "required": false,
+              "options": [],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "string",
+              "context": null
+            },
+            {
+              "id": "aocWorkPercent",
+              "label": "Гүйцэтгэлийн хувь",
+              "required": false,
+              "options": [],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "string",
+              "context": null
+            },
+            {
+              "id": "aocAreaRegNumber",
+              "label": "Газрын улсын бүртгэлийн №",
+              "required": false,
+              "options": [],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "string",
+              "context": null
+            },
+            {
+              "id": "aocCertificateNumber",
+              "label": "Гэрчилгээний дугаар",
+              "required": false,
+              "options": [],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "string",
+              "context": null
+            },
+            {
+              "id": "dummy7",
+              "label": "dummy",
+              "required": false,
+              "options": [],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "string",
+              "context": null
+            },
+            {
+              "id": "aocAreaCertiNumber",
+              "label": "Газрын гэрчилгээний №",
+              "required": false,
+              "options": [],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "string",
+              "context": null
+            }
+          ]
+        },
+        "max": 5
+      },
+      {
+        "title": null,
+        "subtitle": "Авто машины гарааж мэдээлэл",
+        "type": "flexible",
+        "column": 3,
+        "fields": [],
+        "subFields": [],
+        "fieldIds": [
+          "macProvinceCity0",
+          "macSquare0",
+          "macBuyAmount0",
+          "macSumDistrict0",
+          "macRegNumber0",
+          "macAdvanceAmountPercent0",
+          "macBagKhoroo0",
+          "macCertificateNumber0",
+          "macAmount0",
+          "macApartment0",
+          "dummy80",
+          "dummy81",
+          "macNumber0",
+
+
+          "macProvinceCity1",
+          "macSquare1",
+          "macBuyAmount1",
+          "macSumDistrict1",
+          "macRegNumber1",
+          "macAdvanceAmountPercent1",
+          "macBagKhoroo1",
+          "macCertificateNumber1",
+          "macAmount1",
+          "macApartment1",
+          "dummy82",
+          "dummy83",
+          "macNumber1",
+
+
+          "macProvinceCity2",
+          "macSquare2",
+          "macBuyAmount2",
+          "macSumDistrict2",
+          "macRegNumber2",
+          "macAdvanceAmountPercent2",
+          "macBagKhoroo2",
+          "macCertificateNumber2",
+          "macAmount2",
+          "macApartment2",
+          "dummy84",
+          "dummy85",
+          "macNumber2",
+
+
+          "macProvinceCity3",
+          "macSquare3",
+          "macBuyAmount3",
+          "macSumDistrict3",
+          "macRegNumber3",
+          "macAdvanceAmountPercent3",
+          "macBagKhoroo3",
+          "macCertificateNumber3",
+          "macAmount3",
+          "macApartment3",
+          "dummy86",
+          "dummy87",
+          "macNumber3",
+
+
+          "macProvinceCity4",
+          "macSquare4",
+          "macBuyAmount4",
+          "macSumDistrict4",
+          "macRegNumber4",
+          "macAdvanceAmountPercent4",
+          "macBagKhoroo4",
+          "macCertificateNumber4",
+          "macAmount4",
+          "macApartment4",
+          "dummy88",
+          "dummy89",
+          "macNumber4"
+        ],
+        "flexibleForm": {
+          "7": [
+            {
+              "id": "macProvinceCity",
+              "label": "Аймаг/Хот",
+              "required": false,
+              "options": [
+              ],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "string",
+              "context": null
+            },
+            {
+              "id": "macSquare",
+              "label": "Талбай /мкв/",
+              "required": false,
+              "options": [],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "string",
+              "context": null
+            },
+            {
+              "id": "macBuyAmount",
+              "label": "Худалдан авах дүн",
+              "required": false,
+              "options": [],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "BigDecimal",
+              "context": null
+            },
+            {
+              "id": "macSumDistrict",
+              "label": "Сум/Дүүрэг",
+              "required": false,
+              "options": [],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "string",
+              "context": null
+            },
+            {
+              "id": "macRegNumber",
+              "label": "Улсын бүртгэлийн дугаар",
+              "required": false,
+              "options": [],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "string",
+              "context": null
+            },
+            {
+              "id": "macAdvanceAmountPercent",
+              "label": "Урьдчилгээ дүнгийн хувь",
+              "required": false,
+              "options": [],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "string",
+              "context": null
+            },
+            {
+              "id": "macBagKhoroo",
+              "label": "Баг/Хороо",
+              "required": false,
+              "options": [],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "string",
+              "context": null
+            },
+            {
+              "id": "macCertificateNumber",
+              "label": "Гэрчилгээний дугаар",
+              "required": false,
+              "options": [],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "string",
+              "context": null
+            },
+            {
+              "id": "macAmount",
+              "label": "Урьдчилгаа дүн",
+              "required": false,
+              "options": [],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "BigDecimal",
+              "context": null
+            },
+            {
+              "id": "macApartment",
+              "label": "Байр/Гудамж",
+              "required": false,
+              "options": [],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "string",
+              "context": null
+            },
+            {
+              "id": "dummy8",
+              "label": "dummy",
+              "required": false,
+              "options": [
+              ],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "string",
+              "context": null
+            },
+            {
+              "id": "dummy8",
+              "label": "dummy",
+              "required": false,
+              "options": [],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "string",
+              "context": null
+            },
+            {
+              "id": "macNumber",
+              "label": "Тоот",
+              "required": false,
+              "options": [],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "string",
+              "context": null
+            }
+          ]
+        },
+        "max": 5
+      }
+    ],
+    "buttons": {
+      "save": false,
+      "createContractWithDialog": false
+    },
+    "entities": {
+      "taskType": null,
+      "entity": null
+    }
+  },
+  "_comment": "DIRECT PRINTING LOAN CONTRACT",
+  "user_task_direct_printing_contract": {
+    "fieldGroups": [
+      {
+        "title": null,
+        "type": "default",
+        "column": 3,
+        "fieldIds": [
+          "productDescription",
+          "loanAmount",
+          "accountNumber"
+        ],
+        "fields": []
+      }
+    ],
+    "buttons": {
+      "save": false,
+      "createContractWithDialog": false
+    },
+    "fieldAction": {
+    },
+    "entities": {
+      "taskType": null,
+      "entity": null
+    }
+  },
+  "_comment": "PREPARE TRADE ATTACHMENT CONTRACT",
+  "user_task_prepare_trade_attachment_contract": {
+    "fieldGroups": [
+      {
+        "title": "Худалдах, худалдан авах хавсралт гэрээ бэлтгэх",
+        "type": "default",
+        "column": 3,
+        "fieldIds": [
+          "productDescription",
+          "loanAmount",
+          "accountNumber"
+        ],
+        "fields": []
+      },
+      {
+        "title": null,
+        "type": "default",
+        "column": 3,
+        "fieldIds": [
+          "attachmentType",
+          "contractNumber",
+          "stgDate"
+        ],
+        "fields": []
+      },
+      {
+        "title": null,
+        "subtitle": "Бэлтгэн нийлүүлэгчийн мэдээлэл",
+        "type": "default",
+        "column": 3,
+        "fieldIds": [
+          "bnName",
+          "bnRegistration",
+          "bnAddress",
+          "bnRepresentativeName",
+          "bnAccountNumber",
+          "bnBankName",
+          "bnRepresentativePosition",
+          "additionalInformation"
+        ],
+        "fields": []
+      },
+      {
+        "title": null,
+        "subtitle": "Худалдан авч буй хөрөнгийн мэдээлэл",
+        "type": "flexible",
+        "column": 3,
+        "fields": [],
+        "subFields": [],
+        "fieldIds": [
+          "assetName0", "totalPrice0", "quantity0", "guaranteeMonth0", "guaranteeKm0", "runInKm0", "fuelRank0", "discount0", "repaymentAccountNumber0", "additionalInformation0",
+          "assetName1", "totalPrice1", "quantity1", "guaranteeMonth1", "guaranteeKm1", "runInKm1", "fuelRank1", "discount1", "repaymentAccountNumber1", "additionalInformation1",
+          "assetName2", "totalPrice2", "quantity2", "guaranteeMonth2", "guaranteeKm2", "runInKm2", "fuelRank2", "discount2", "repaymentAccountNumber2", "additionalInformation2",
+          "assetName3", "totalPrice3", "quantity3", "guaranteeMonth3", "guaranteeKm3", "runInKm3", "fuelRank3", "discount3", "repaymentAccountNumber3", "additionalInformation3",
+          "assetName4", "totalPrice4", "quantity4", "guaranteeMonth4", "guaranteeKm4", "runInKm4", "fuelRank4", "discount4", "repaymentAccountNumber4", "additionalInformation4",
+          "assetName5", "totalPrice5", "quantity5", "guaranteeMonth5", "guaranteeKm5", "runInKm5", "fuelRank5", "discount5", "repaymentAccountNumber5", "additionalInformation5",
+          "assetName6", "totalPrice6", "quantity6", "guaranteeMonth6", "guaranteeKm6", "runInKm6", "fuelRank6", "discount6", "repaymentAccountNumber6", "additionalInformation6",
+          "assetName7", "totalPrice7", "quantity7", "guaranteeMonth7", "guaranteeKm7", "runInKm7", "fuelRank7", "discount7", "repaymentAccountNumber7", "additionalInformation7",
+          "assetName8", "totalPrice8", "quantity8", "guaranteeMonth8", "guaranteeKm8", "runInKm8", "fuelRank8", "discount8", "repaymentAccountNumber8", "additionalInformation8",
+          "assetName9", "totalPrice9", "quantity9", "guaranteeMonth9", "guaranteeKm9", "runInKm9", "fuelRank9", "discount9", "repaymentAccountNumber9", "additionalInformation9"
+        ],
+        "flexibleForm": {
+          "3": [
+            {
+              "id": "assetName",
+              "label": "Хөрөнгийн нэр",
+              "required": false,
+              "options": [],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "string",
+              "context": null
+            },
+            {
+              "id": "totalPrice",
+              "label": "Нийт үнэ",
+              "required": false,
+              "options": [],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "string",
+              "context": null
+            },
+            {
+              "id": "quantity",
+              "label": "Тоо ширхэг",
+              "required": false,
+              "options": [],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "string",
+              "context": null
+            },
+            {
+              "id": "guaranteeMonth",
+              "label": "Баталгаа (сар)",
+              "required": false,
+              "options": [],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "string",
+              "context": null
+            },
+            {
+              "id": "guaranteeKm",
+              "label": "Баталгаа (км/мот цаг)",
+              "required": false,
+              "options": [],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "string",
+              "context": null
+            },
+            {
+              "id": "runInKm",
+              "label": "Гүйлт (км/мот цаг)",
+              "required": false,
+              "options": [],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "string",
+              "context": null
+            },
+            {
+              "id": "fuelRank",
+              "label": "Шатахууны ангилал",
+              "required": false,
+              "options": [],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "string",
+              "context": null
+            },
+            {
+              "id": "discount",
+              "label": "Хөнгөлөлт",
+              "required": false,
+              "options": [],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "string",
+              "context": null
+            },
+            {
+              "id": "repaymentAccountNumber",
+              "label": "Буцаан худалдах төлбөр шилжих данс",
+              "required": false,
+              "options": [],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "string",
+              "context": null
+            },
+            {
+              "id": "additionalInformation",
+              "label": "Нэмэлт мэдээлэл",
+              "required": false,
+              "options": [],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "string",
+              "context": null
+            }
+            
+          ]
+        },
+        "max": 10
+      }
+    ],
+    "buttons": {
+      "save": false,
+      "createContract": false
+    }
+  }
+}

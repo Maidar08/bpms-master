@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:bioc="http://bpmn.io/schema/bpmn/biocolor/1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="Definitions_19c5dqe" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="3.7.3">
+  <bpmn:collaboration id="Collaboration_1xtwd95">
+    <bpmn:participant id="branch_banking_deposit_contract" name="Харилцах, хадгаламжийн гэрээ" processRef="bpms_branch_banking_deposit_contract" />
+  </bpmn:collaboration>
+  <bpmn:process id="bpms_branch_banking_deposit_contract" isExecutable="true">
+    <bpmn:startEvent id="StartEvent_1">
+      <bpmn:outgoing>SequenceFlow_0z1fic4</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:sequenceFlow id="SequenceFlow_0z1fic4" sourceRef="StartEvent_1" targetRef="user_task_branch_banking_deposit_contract" />
+    <bpmn:userTask id="user_task_branch_banking_deposit_contract" name="Харилцах, хадгаламжийн гэрээ" camunda:formKey="Харилцах, хадгаламжийн гэрээ татах">
+      <bpmn:extensionElements>
+        <camunda:formData>
+          <camunda:formField id="contractType" label="Гэрээний төрөл" type="string">
+            <camunda:properties>
+              <camunda:property id="childAccountChildMoney" value="Хүүхэд-Харилцах - Хүүхдийн мөнгө " />
+              <camunda:property id="citizenMasterContract" value="Иргэн-Мастер гэрээ" />
+              <camunda:property id="citizenMasterContractExtension" value="Иргэн-Мастер гэрээний хавсралт" />
+              <camunda:property id="entityTimeDepositContract" value="ААН-Хугацаатай хадгаламж энгийн/тусгай" />
+              <camunda:property id="entityPrepaidInterestDepositContract" value="ААН-Хүүгээ зарлагаддаг хадгаламж энгийн/тусгай" />
+              <camunda:property id="entityAccountDepositContract" value="ААН-Харилцах данс энгийн/тусгай" />
+            </camunda:properties>
+            <camunda:validation>
+              <camunda:constraint name="required" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="accountId" label="Дансны дугаар" type="long" />
+          <camunda:formField id="downloadDepositButton" label="ТАТАХ" type="string" defaultValue="download" />
+          <camunda:formField id="cifNumber" label="СИФ " type="long">
+            <camunda:validation>
+              <camunda:constraint name="readonly" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="attachmentNumber" label="Хавсралтын дугаар" type="long" />
+        </camunda:formData>
+      </bpmn:extensionElements>
+      <bpmn:incoming>SequenceFlow_0z1fic4</bpmn:incoming>
+      <bpmn:incoming>Flow_1hc0sq2</bpmn:incoming>
+      <bpmn:outgoing>Flow_1ipjqxn</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:sequenceFlow id="Flow_1ipjqxn" sourceRef="user_task_branch_banking_deposit_contract" targetRef="Gateway_1c3jwgx" />
+    <bpmn:endEvent id="Event_0qin1p1">
+      <bpmn:extensionElements>
+        <camunda:executionListener delegateExpression="${clearDepositContractVariables}" event="end" />
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_0sbp59p</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:exclusiveGateway id="Gateway_1c3jwgx">
+      <bpmn:incoming>Flow_1ipjqxn</bpmn:incoming>
+      <bpmn:outgoing>Flow_0sbp59p</bpmn:outgoing>
+      <bpmn:outgoing>Flow_1hc0sq2</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:sequenceFlow id="Flow_0sbp59p" sourceRef="Gateway_1c3jwgx" targetRef="Event_0qin1p1">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${action=="complete"}</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:sequenceFlow id="Flow_1hc0sq2" sourceRef="Gateway_1c3jwgx" targetRef="user_task_branch_banking_deposit_contract">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${action == "back"}</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Collaboration_1xtwd95">
+      <bpmndi:BPMNShape id="Participant_0un5ha1_di" bpmnElement="branch_banking_deposit_contract" isHorizontal="true">
+        <dc:Bounds x="170" y="80" width="560" height="250" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_1hc0sq2_di" bpmnElement="Flow_1hc0sq2">
+        <di:waypoint x="540" y="186" />
+        <di:waypoint x="540" y="130" />
+        <di:waypoint x="390" y="130" />
+        <di:waypoint x="390" y="171" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0sbp59p_di" bpmnElement="Flow_0sbp59p">
+        <di:waypoint x="565" y="211" />
+        <di:waypoint x="652" y="211" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1ipjqxn_di" bpmnElement="Flow_1ipjqxn">
+        <di:waypoint x="440" y="211" />
+        <di:waypoint x="532" y="211" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_0z1fic4_di" bpmnElement="SequenceFlow_0z1fic4">
+        <di:waypoint x="256" y="211" />
+        <di:waypoint x="340" y="211" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
+        <dc:Bounds x="220" y="193" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="UserTask_1nmeoxo_di" bpmnElement="user_task_branch_banking_deposit_contract" bioc:stroke="rgb(67, 160, 71)" bioc:fill="rgb(200, 230, 201)">
+        <dc:Bounds x="340" y="171" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_0qin1p1_di" bpmnElement="Event_0qin1p1">
+        <dc:Bounds x="652" y="193" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Gateway_1c3jwgx_di" bpmnElement="Gateway_1c3jwgx" isMarkerVisible="true">
+        <dc:Bounds x="515" y="186" width="50" height="50" />
+      </bpmndi:BPMNShape>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>

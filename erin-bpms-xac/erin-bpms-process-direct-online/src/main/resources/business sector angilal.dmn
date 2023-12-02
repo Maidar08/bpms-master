@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/DMN/20151101/dmn.xsd" xmlns:biodi="http://bpmn.io/schema/dmn/biodi/1.0" id="Definitions_1rokp6x" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="3.5.0">
+  <decision id="DecFindingLevelDirectOnline" name="business sectors">
+    <extensionElements>
+      <biodi:bounds x="150" y="150" width="180" height="80" />
+    </extensionElements>
+    <decisionTable id="decisionTable_1">
+      <input id="input_1" label="Business sector">
+        <inputExpression id="inputExpression_1" typeRef="string">
+          <text>sector</text>
+        </inputExpression>
+      </input>
+      <output id="output_1" label="Economic level" name="level" typeRef="string" />
+      <rule id="DecisionRule_1jnbeox">
+        <inputEntry id="UnaryTests_1wah45g">
+          <text>"Барилга"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1bq17et">
+          <text>"2"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1g9hmgl">
+        <inputEntry id="UnaryTests_0rcrt6c">
+          <text>"Уул уурхай үндэс"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0wqhg9v">
+          <text>"2"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0xvlmre">
+        <inputEntry id="UnaryTests_1gvpu0g">
+          <text>"Бусад"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1is959k">
+          <text>"2"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_06xtc2w">
+        <inputEntry id="UnaryTests_0bjh627">
+          <text>"Хөдөө аж ахуй"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_055sl2p">
+          <text>"1"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1h66xes">
+        <inputEntry id="UnaryTests_1fasb0s">
+          <text>"Аж үйлдвэр"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_13pfc5y">
+          <text>"0"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0fvk46g">
+        <inputEntry id="UnaryTests_1ksyjlw">
+          <text>"Уул уурхайн туслах"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1yb8qhv">
+          <text>"0"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1e5e04k">
+        <inputEntry id="UnaryTests_17bmii8">
+          <text>"Үйлчилгээ"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1llnesf">
+          <text>"0"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1l3hxwf">
+        <inputEntry id="UnaryTests_0yo695q">
+          <text>"Худалдаа"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1668q4q">
+          <text>"0"</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+</definitions>

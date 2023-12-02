@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/DMN/20151101/dmn.xsd" xmlns:camunda="http://camunda.org/schema/1.0/dmn" id="Definitions_0fhxsl8" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="3.7.3">
+  <decision id="organization_level" name="Organization Level">
+    <decisionTable id="decisionTable_1">
+      <input id="input_1" label="Байгууллагын зэрэглэл" camunda:inputVariable="organization_level">
+        <inputExpression id="inputExpression_1" typeRef="string">
+          <text></text>
+        </inputExpression>
+      </input>
+      <output id="output_1" label="Organization Level Score High" name="organization_level_score_high" typeRef="double" />
+      <output id="OutputClause_1o7rljy" label="Organization Level Score Low" name="organization_level_score_low" typeRef="double" />
+      <output id="OutputClause_0ojksy6" label="Key Worker Score" name="organization_key_worker_score" typeRef="double" />
+      <output id="OutputClause_0qwyx6h" label="Organization Level Score Range" name="organization_level_score_range" typeRef="double" />
+      <rule id="DecisionRule_1k41k2i">
+        <inputEntry id="UnaryTests_0n8vkx2">
+          <text>"A"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_07izqie">
+          <text>1.50</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0awj06p">
+          <text>1.30</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0idfd9r">
+          <text>1.20</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0r0gltr">
+          <text>0.20</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_07kh02u">
+        <inputEntry id="UnaryTests_0zsyvrj">
+          <text>"B"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1cuio7n">
+          <text>1.70</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1x2hs30">
+          <text>1.50</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0id0jij">
+          <text>1.30</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1r45ap0">
+          <text>0.20</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1tv8oo8">
+        <inputEntry id="UnaryTests_1fuhgf5">
+          <text>"C"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0at8cjq">
+          <text>1.70</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0993m0m">
+          <text>1.50</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_133bs55">
+          <text>1.30</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0xrpi86">
+          <text>0.20</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+</definitions>

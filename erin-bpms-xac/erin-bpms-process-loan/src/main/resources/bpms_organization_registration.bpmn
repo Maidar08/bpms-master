@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" id="Definitions_0cjnghj" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="4.0.0">
+  <bpmn:collaboration id="Collaboration_000u204">
+    <bpmn:participant id="Participant_1t5kyer" name="Байгууллагын бүртгэл" processRef="bpms_organization_registration" />
+  </bpmn:collaboration>
+  <bpmn:process id="bpms_organization_registration" isExecutable="true">
+    <bpmn:startEvent id="StartEvent_1">
+      <bpmn:outgoing>Flow_0zaqjah</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:sequenceFlow id="Flow_0zaqjah" sourceRef="StartEvent_1" targetRef="Activity_02cqqop" />
+    <bpmn:endEvent id="Event_180uxv2">
+      <bpmn:incoming>Flow_1ucg8fu</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_1ucg8fu" sourceRef="Activity_02cqqop" targetRef="Event_180uxv2" />
+    <bpmn:userTask id="Activity_02cqqop" name="Байгууллагын бүртгэл" camunda:formKey="Байгууллагын бүртгэл">
+      <bpmn:extensionElements>
+        <camunda:formData>
+          <camunda:formField id="name" label="Байгууллагын нэр" type="string" />
+        </camunda:formData>
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_0zaqjah</bpmn:incoming>
+      <bpmn:outgoing>Flow_1ucg8fu</bpmn:outgoing>
+    </bpmn:userTask>
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Collaboration_000u204">
+      <bpmndi:BPMNShape id="Participant_1t5kyer_di" bpmnElement="Participant_1t5kyer" isHorizontal="true">
+        <dc:Bounds x="129" y="70" width="600" height="250" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_1ucg8fu_di" bpmnElement="Flow_1ucg8fu">
+        <di:waypoint x="370" y="190" />
+        <di:waypoint x="432" y="190" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0zaqjah_di" bpmnElement="Flow_0zaqjah">
+        <di:waypoint x="215" y="190" />
+        <di:waypoint x="270" y="190" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
+        <dc:Bounds x="179" y="172" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_180uxv2_di" bpmnElement="Event_180uxv2">
+        <dc:Bounds x="432" y="172" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0xsih6k_di" bpmnElement="Activity_02cqqop">
+        <dc:Bounds x="270" y="150" width="100" height="80" />
+      </bpmndi:BPMNShape>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>

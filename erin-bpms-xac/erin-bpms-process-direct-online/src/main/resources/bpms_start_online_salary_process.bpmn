@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" id="Definitions_0jp3jnm" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="4.4.0">
+  <bpmn:collaboration id="Collaboration_1j9w9zi">
+    <bpmn:participant id="test_start_process" processRef="bpms_start_online_salary_process" />
+  </bpmn:collaboration>
+  <bpmn:process id="bpms_start_online_salary_process" isExecutable="true">
+    <bpmn:startEvent id="StartEvent_1">
+      <bpmn:outgoing>SequenceFlow_1sbfux8</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:sequenceFlow id="SequenceFlow_1sbfux8" sourceRef="StartEvent_1" targetRef="user_task_set_constant_variables" />
+    <bpmn:sequenceFlow id="SequenceFlow_11v8kx7" sourceRef="Task_1ah7jv2" targetRef="EndEvent_04wbqzo" />
+    <bpmn:sequenceFlow id="SequenceFlow_1g0twpg" sourceRef="user_task_set_constant_variables" targetRef="Task_1ah7jv2" />
+    <bpmn:serviceTask id="Task_1ah7jv2" name="Start Process Set Variables" camunda:delegateExpression="${startOnlineSalaryProcess}">
+      <bpmn:incoming>SequenceFlow_1g0twpg</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_11v8kx7</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:userTask id="user_task_set_constant_variables" name="Constant variables">
+      <bpmn:extensionElements>
+        <camunda:formData>
+          <camunda:formField id="isExcludedHealthInsurance" label="ЭМД чөлөөлөх эсэх" type="boolean" defaultValue="false" />
+          <camunda:formField id="isExcludedNiigmiinDaatgal" label="НДШ чөлөөлөх эсэх" type="boolean" defaultValue="false" />
+          <camunda:formField id="hasMortgage" label="Орон сууцны зээлтэй эсэх" type="boolean" defaultValue="false" />
+          <camunda:formField id="isDirectOnline" type="boolean" defaultValue="true" />
+          <camunda:formField id="isLoanAccountCreate" type="boolean" defaultValue="true" />
+          <camunda:formField id="calculateAmount" label="Олгох боломжит зээлийн хэмжээг тооцоолох" type="boolean" defaultValue="true" />
+          <camunda:formField id="incomeType" label="орлогын төрөл" type="string" defaultValue="Цалингийн орлого" />
+          <camunda:formField id="legalStatus" label="Хуулийн статус" type="string" defaultValue="Монгол улсын иргэн" />
+          <camunda:formField id="categoryEnquire" type="string" defaultValue="04. Лавлагаа" />
+          <camunda:formField id="subCategoryMongolBank" type="string" defaultValue="01. Лавлагаа" />
+          <camunda:formField id="grantMinimumAmount" label="Батлагдах дүнгийн доод хэмжээ" type="long" defaultValue="300000" />
+          <camunda:formField id="loanProductDescription" type="string" defaultValue="EB71 - Онлайн цалингийн зээл" />
+          <camunda:formField id="categoryLoanApplication" type="string" defaultValue="01. Өргөдөл" />
+          <camunda:formField id="subCategoryLoanApplication" type="string" defaultValue="01. Өргөдөл, хүсэлт" />
+          <camunda:formField id="coborrower" type="string" />
+          <camunda:formField id="additionalSpecialCondition" type="string" />
+          <camunda:formField id="repaymentType" type="string" defaultValue="Үндсэн төлбөр тэнцүү" />
+          <camunda:formField id="loanOfficer" type="string" defaultValue="Хасбанк" />
+          <camunda:formField id="loanPurpose" label="Зээлийн зориулалт" type="string" defaultValue="Өрхийн хэрэглээ" />
+          <camunda:formField id="categoryLoanDecision" type="string" defaultValue="10 З.Шийдвэр" />
+          <camunda:formField id="subCategoryLoanDecision" type="string" defaultValue="01. Зээлийн шийдвэр" />
+          <camunda:formField id="categoryContract" type="string" defaultValue="11. З.Гэрээ" />
+          <camunda:formField id="subCategoryOtherContract" type="string" defaultValue="02. Бусад гэрээ" />
+          <camunda:formField id="attentiveLoan" label="Анхаарал татсан зээл" type="string" defaultValue="AU01" />
+          <camunda:formField id="businessTypeReason" label="Зориулалт/Биз_төрөл" type="string" defaultValue="PRK" />
+          <camunda:formField id="worker" type="string" defaultValue="IBANKSERVICE" />
+          <camunda:formField id="subType" label="Ажил олгогч нь хамтран ажиллах гэрээтэй" type="string" defaultValue="ST00" />
+          <camunda:formField id="insuranceCompanyInfo" type="string" defaultValue="IBANKSERVICE" />
+          <camunda:formField id="loanCycle" type="string" defaultValue="1" />
+          <camunda:formField id="schoolName" type="string" defaultValue="2" />
+          <camunda:formField id="defaultBranch" type="string" defaultValue="108" />
+          <camunda:formField id="copyOfContract" label="2" type="long" />
+          <camunda:formField id="mortgageContract" label="Ипотекийн гэрээ" type="string" defaultValue="Хоосон" />
+          <camunda:formField id="fiduciaryContract" label="Фидуцийн гэрээ" type="string" defaultValue="Хоосон" />
+          <camunda:formField id="collateralContract" label="Барьцааны гэрээ" type="string" defaultValue="Хоосон" />
+          <camunda:formField id="warrantyContract" label="Батлан даалтын гэрээ" type="string" defaultValue="Хоосон" />
+          <camunda:formField id="xacDepositAccount" label="Хасбанкны данс - Хадгаламжийн данс" type="string" defaultValue="Хоосон" />
+          <camunda:formField id="xacCardAccount" label="Хасбанкны данс - Картын данс" type="string" defaultValue="Хоосон" />
+          <camunda:formField id="otherBankName" label="Бусад банкны данс - Банкны нэр" type="string" defaultValue="Хоосон" />
+          <camunda:formField id="otherBankAccount" label="Бусад банкны данс - Харилцах данс" type="string" defaultValue="Хоосон" />
+          <camunda:formField id="otherBankDepositAccount" label="Бусад банкны данс - Хадгаламжийн данс" type="string" defaultValue="Хоосон" />
+          <camunda:formField id="subCategoryBasicContract" type="string" defaultValue="01. Үндсэн з.гэрээ" />
+          <camunda:formField id="disbursementSttlMode" type="string" defaultValue="ACC" />
+          <camunda:formField id="disbursementSttlCcy" type="string" defaultValue="MNT" />
+          <camunda:formField id="disbursementExchrt" type="long" defaultValue="1" />
+          <camunda:formField id="disburseTempAccount" label="Шимтгэлийн түр данс" type="string" defaultValue="26060507" />
+          <camunda:formField id="defaultAccount" label="түр данс" type="string" defaultValue="100260000058" />
+          <camunda:formField id="settleBranch" label="түр дансны салбар" type="string" defaultValue="157" />
+          <camunda:formField id="repaymentTypeId" type="string" defaultValue="equalPrinciplePayment" />
+          <camunda:formField id="deductionAccount" label="шимтгэлийн данс" type="string" defaultValue="100420560001" />
+          <camunda:formField id="accCurrency" type="string" defaultValue="MNT" />
+          <camunda:formField id="directOnlineRepaymentTypeId" type="string" defaultValue="b" />
+        </camunda:formData>
+      </bpmn:extensionElements>
+      <bpmn:incoming>SequenceFlow_1sbfux8</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_1g0twpg</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:endEvent id="EndEvent_04wbqzo">
+      <bpmn:incoming>SequenceFlow_11v8kx7</bpmn:incoming>
+    </bpmn:endEvent>
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Collaboration_1j9w9zi">
+      <bpmndi:BPMNShape id="Participant_1rtknly_di" bpmnElement="test_start_process" isHorizontal="true">
+        <dc:Bounds x="129" y="79" width="551" height="281" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="SequenceFlow_1g0twpg_di" bpmnElement="SequenceFlow_1g0twpg">
+        <di:waypoint x="370" y="209" />
+        <di:waypoint x="430" y="209" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_11v8kx7_di" bpmnElement="SequenceFlow_11v8kx7">
+        <di:waypoint x="530" y="209" />
+        <di:waypoint x="592" y="209" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_1sbfux8_di" bpmnElement="SequenceFlow_1sbfux8">
+        <di:waypoint x="215" y="209" />
+        <di:waypoint x="270" y="209" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
+        <dc:Bounds x="179" y="192" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="ServiceTask_133buem_di" bpmnElement="Task_1ah7jv2">
+        <dc:Bounds x="430" y="169" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="UserTask_06oi7ds_di" bpmnElement="user_task_set_constant_variables">
+        <dc:Bounds x="270" y="169" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="EndEvent_04wbqzo_di" bpmnElement="EndEvent_04wbqzo">
+        <dc:Bounds x="592" y="191" width="36" height="36" />
+      </bpmndi:BPMNShape>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>

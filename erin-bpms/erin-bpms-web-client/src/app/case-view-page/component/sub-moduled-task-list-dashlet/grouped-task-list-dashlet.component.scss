@@ -1,0 +1,59 @@
+.header-text {
+  margin-bottom: 1vh;
+}
+
+.node-container {
+  margin-top:  2vh;
+  .nodeTitle {
+    margin-bottom: 30px;
+  }
+}
+
+.header-text erin-title .line, .node-container erin-title .line{
+  width: 20%;
+}
+.nodeTitle {
+  //margin-left: 1.5vw;
+  margin: 1.5vw;
+  font-size: 15px;
+  color: gray;
+}
+
+.tree-node {
+  margin-bottom: 30px;
+  mat-card {
+    width: auto;
+    height: fit-content;
+    margin: 16px 16px 16px 0;
+    overflow-y: auto;
+    cursor: pointer;
+  }
+}
+
+@media (max-width: 1610px) {
+  .header-text {
+    height: 3vh;
+    margin-bottom: 2vh;
+  }
+}
+
+@media only screen and (max-width: 1024px){
+  .header-text erin-title .title-text  {
+    margin-left: 0;
+    margin-right: 0;
+  }
+  .tree-node mat-card {
+    width: 83%;
+    margin: 0 16px 16px 16px;
+  }
+}
+
+@media (min-width: 1300px) and (max-width: 1520px){
+}
+
+@media (max-width: 910px){
+  .tree-node mat-card {
+    width: auto;
+    height: auto;
+  }
+}

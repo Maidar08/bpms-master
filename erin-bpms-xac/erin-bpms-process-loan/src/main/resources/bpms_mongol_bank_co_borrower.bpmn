@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" xmlns:bioc="http://bpmn.io/schema/bpmn/biocolor/1.0" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" id="Definitions_1eoozmh" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="3.7.3">
+  <bpmn:collaboration id="Collaboration_07fu3rj">
+    <bpmn:participant id="Participant_0qdfkdn" name="Монгол банк лавлагаа (Хамтран)" processRef="bpms_mongol_bank_co_borrower" />
+  </bpmn:collaboration>
+  <bpmn:process id="bpms_mongol_bank_co_borrower" isExecutable="true">
+    <bpmn:startEvent id="StartEvent_1">
+      <bpmn:outgoing>SequenceFlow_01q4y51</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:sequenceFlow id="SequenceFlow_01q4y51" sourceRef="StartEvent_1" targetRef="UserTask_01adzfr" />
+    <bpmn:sequenceFlow id="SequenceFlow_0ge34i9" sourceRef="UserTask_01adzfr" targetRef="ServiceTask_0f64hu6" />
+    <bpmn:sequenceFlow id="SequenceFlow_07h59d7" sourceRef="ServiceTask_0f64hu6" targetRef="ServiceTask_1kiibb3" />
+    <bpmn:userTask id="UserTask_01adzfr" name="05. (Хамтран) Монгол банк лавлагаа" camunda:formKey="05. (Хамтран) Монгол банк лавлагаа">
+      <bpmn:extensionElements>
+        <camunda:formData>
+          <camunda:formField id="legalStatus" label="Хуулийн статус" type="string" defaultValue="Монгол улсын иргэн">
+            <camunda:properties>
+              <camunda:property id="citizenOfMongolian" value="Монгол улсын иргэн" />
+            </camunda:properties>
+            <camunda:validation>
+              <camunda:constraint name="required" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="registerNumberCoBorrower" label="Хамтрангийн регистр" type="string" />
+        </camunda:formData>
+      </bpmn:extensionElements>
+      <bpmn:incoming>SequenceFlow_01q4y51</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_0ge34i9</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:serviceTask id="ServiceTask_0f64hu6" name="Хамтрангийн зээлийн мэдээлэл тавах" camunda:delegateExpression="${downloadCoBorrowerInfoFromMongolBankTask}">
+      <bpmn:incoming>SequenceFlow_0ge34i9</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_07h59d7</bpmn:outgoing>
+      <bpmn:property id="Property_0w2au18" name="__targetRef_placeholder" />
+    </bpmn:serviceTask>
+    <bpmn:endEvent id="EndEvent_1d97nph">
+      <bpmn:incoming>SequenceFlow_0q0unbm</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:serviceTask id="ServiceTask_1kiibb3" name="Хамтрангийн регистр field-ийг цэвэрлэх" camunda:delegateExpression="${cleanCoBorrowerRegNumTask}">
+      <bpmn:incoming>SequenceFlow_07h59d7</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_0q0unbm</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:sequenceFlow id="SequenceFlow_0q0unbm" sourceRef="ServiceTask_1kiibb3" targetRef="EndEvent_1d97nph" />
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Collaboration_07fu3rj">
+      <bpmndi:BPMNShape id="Participant_0qdfkdn_di" bpmnElement="Participant_0qdfkdn" isHorizontal="true">
+        <dc:Bounds x="129" y="100" width="761" height="229" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="SequenceFlow_0q0unbm_di" bpmnElement="SequenceFlow_0q0unbm">
+        <di:waypoint x="670" y="200" />
+        <di:waypoint x="742" y="200" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_07h59d7_di" bpmnElement="SequenceFlow_07h59d7">
+        <di:waypoint x="530" y="200" />
+        <di:waypoint x="570" y="200" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_0ge34i9_di" bpmnElement="SequenceFlow_0ge34i9">
+        <di:waypoint x="380" y="200" />
+        <di:waypoint x="430" y="200" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_01q4y51_di" bpmnElement="SequenceFlow_01q4y51">
+        <di:waypoint x="238" y="200" />
+        <di:waypoint x="280" y="200" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
+        <dc:Bounds x="202" y="182" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="UserTask_01adzfr_di" bpmnElement="UserTask_01adzfr" bioc:stroke="rgb(67, 160, 71)" bioc:fill="rgb(200, 230, 201)">
+        <dc:Bounds x="280" y="160" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="ServiceTask_0f64hu6_di" bpmnElement="ServiceTask_0f64hu6" bioc:stroke="rgb(142, 36, 170)" bioc:fill="rgb(225, 190, 231)">
+        <dc:Bounds x="430" y="160" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="EndEvent_1d97nph_di" bpmnElement="EndEvent_1d97nph">
+        <dc:Bounds x="742" y="182" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="ServiceTask_1kiibb3_di" bpmnElement="ServiceTask_1kiibb3" bioc:stroke="rgb(67, 160, 71)" bioc:fill="rgb(200, 230, 201)">
+        <dc:Bounds x="570" y="160" width="100" height="80" />
+      </bpmndi:BPMNShape>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>

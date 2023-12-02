@@ -1,0 +1,15 @@
+name: Start VPN on test server 
+run-name: Start VPN service trigger by @${{ github.actor }}
+on:   
+  workflow_dispatch:
+jobs:
+  build-server:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Start VPN Server 
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ vars.BPMS_TEST_SERVER_HOST }}
+          username: ${{ secrets.BPMS_TEST_SERVER_USER }}
+          key: ${{ secrets.BPMS_TEST_SERVER_KEY }}
+          script: whoami

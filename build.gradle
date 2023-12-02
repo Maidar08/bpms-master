@@ -1,0 +1,71 @@
+plugins {
+  id "org.sonarqube" version "3.0"
+  id 'jacoco'
+}
+
+apply from: 'libs.gradle'
+
+allprojects {
+  group 'mn.erin.bpms'
+  version = '4.12.3'
+
+  repositories {
+    flatDir {
+      dir "$rootDir/libs"
+    }
+    mavenCentral()
+    maven {
+      url "$artifactoryContextUrl/libs-snapshot"
+      credentials {
+        username = artifactoryUser
+        password = artifactoryApiKey
+      }
+    }
+
+    maven {
+      url "$artifactoryContextUrl/libs-release"
+      credentials {
+        username = artifactoryUser
+        password = artifactoryApiKey
+      }
+    }
+
+  }
+}
+
+subprojects {
+  apply plugin: "java"
+
+  sourceCompatibility = JavaVersion.VERSION_1_8
+  targetCompatibility = JavaVersion.VERSION_1_8
+
+  dependencies {
+    compile lib.slf4j
+    compile 'org.json:json:20180813'
+
+
+    testCompile lib.junit
+    testCompile lib.mockito
+  }
+
+  compileJava.options.encoding = 'UTF-8'
+  compileTestJava.options.encoding = 'UTF-8'
+
+  configurations.all {
+    resolutionStrategy.cacheChangingModulesFor 0, 'seconds'
+  }
+}
+
+sonarqube {
+  properties {
+    def exclusion = [
+        "build/**",
+        "dist/**",
+        "node_modules/**",
+        "out/**"
+    ]
+    property "sonar.host.url", "http://47.242.175.240:9000"
+    property "sonar.exclusions", exclusion.join(',')
+    property "sonar.scm.provider", "git"
+  }
+}

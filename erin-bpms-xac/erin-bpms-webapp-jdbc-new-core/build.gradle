@@ -1,0 +1,30 @@
+/*
+ * (C)opyright, 2020, ERIN SYSTEMS LLC
+ * The source code is protected by copyright laws and international copyright
+ * treaties, as well as other intellectual property laws and treaties.
+ * All rights reserved.
+ */
+apply plugin: 'war'
+
+dependencies {
+
+  compile project(':erin-bpms-base-repository-jdbc')
+  compile project(':erin-bpms-webapp')
+  compile project(':erin-bpms-process-loan')
+  compile project(':erin-bpms-process-loan-contract')
+  compile project(':erin-bpms-process-direct-online')
+  compile project(':erin-bpms-process-organization-registration')
+  compile project(':erin-bpms-loan-request-rest')
+  compile project(':erin-bpms-organization-request-rest')
+  compile project(':erin-bpms-direct-online-rest')
+  compile project(':erin-bpms-document-rest')
+
+  compile project(':erin-aim-repository-jdbc')
+  compile project(':erin-aim-repository-ldap')
+
+  compile files('libs/ojdbc8.jar')
+
+  compile lib.erin.cmn_jdbc
+
+  compile lib.erin.dms_alfresco
+}

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/DMN/20151101/dmn.xsd" xmlns:camunda="http://camunda.org/schema/1.0/dmn" id="Definitions_1ss3lac" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="3.7.1">
+  <decision id="loan_history" name="Loan History">
+    <decisionTable id="decisionTable_1">
+      <input id="InputClause_07an72w" label="Зээлийн түүх" camunda:inputVariable="loan_history">
+        <inputExpression id="LiteralExpression_1derxf4" typeRef="string" expressionLanguage="juel">
+          <text></text>
+        </inputExpression>
+      </input>
+      <output id="output_1" label="Loan History Score" name="loan_history_score" typeRef="integer" />
+      <rule id="DecisionRule_18dxid1">
+        <inputEntry id="UnaryTests_0jt68pw">
+          <text>"Байхгүй"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0cb2hyk">
+          <text>0</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0vzhi3w">
+        <inputEntry id="UnaryTests_0mp3l45">
+          <text>"Сайн"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0iktscz">
+          <text>4</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0l4bfsf">
+        <inputEntry id="UnaryTests_0rxmk1p">
+          <text>"Хугацаа хэтэрсэн"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_089mrhm">
+          <text>1</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_09lakfd">
+        <inputEntry id="UnaryTests_05t5gmf">
+          <text>"Эргэлзээтэй / Чанаргүй"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_008k96u">
+          <text>0</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0jj4lf3">
+        <inputEntry id="UnaryTests_14ltlls">
+          <text>"Муу"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1eoq82t">
+          <text>0</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+</definitions>

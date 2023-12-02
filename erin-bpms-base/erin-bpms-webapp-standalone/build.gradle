@@ -1,0 +1,24 @@
+/*
+ * (C)opyright, 2020, ERIN SYSTEMS LLC
+ * The source code is protected by copyright laws and international copyright
+ * treaties, as well as other intellectual property laws and treaties.
+ * All rights reserved.
+ */
+apply plugin: 'war'
+
+dependencies {
+
+  compile project(':erin-aim-shiro')
+  compile project(':erin-aim-rest')
+  compile project(':erin-aim-repository-memory')
+
+  compile lib.erin.dms_alfresco
+
+  compile project(':erin-bpms-base-rest')
+  compile project(':erin-bpms-base-repository-memory')
+
+  compile lib.erin.swagger_ui
+
+  compile lib.spring.mvc
+  compile lib.javax.servlet
+}

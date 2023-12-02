@@ -1,0 +1,44 @@
+--------------------------------------------------------
+--  ERIN CONTRACT INFO TABLE OF LEASING ORGANIZATION
+--------------------------------------------------------
+CREATE TABLE ERIN_CONTRACT_INFO_LEASING
+  (
+     ORG_REQUEST_ID           VARCHAR2(50 BYTE) NOT NULL,
+     CONTRACT_NUM             VARCHAR2(50 BYTE) NOT NULL,
+
+     TERM_YEAR                CHAR(2 CHAR) DEFAULT '1',
+     CUSTOMER_CIF             VARCHAR(50 BYTE),
+     ACCOUNT_NUMBER           VARCHAR(10 BYTE),
+
+     PAYMENT_TYPE             VARCHAR(50 BYTE),
+     PAYMENT_AMOUNT           VARCHAR(255 BYTE),
+     PAYMENT_PERCENT          NUMBER(18, 2),
+
+     SUPP_PAY_TERM_DAY        CHAR(2 CHAR),
+     SUPP_PAY_PERCENT         NUMBER(18),
+
+     IS_ZERO_RATE             CHAR(2 CHAR) DEFAULT 'N',
+     FEE                      NUMBER(18),
+
+     CREATED_DATE             TIMESTAMP(6),
+     END_DATE                 TIMESTAMP(6),
+
+     CREATED_USER_ID          VARCHAR2(50 BYTE) NOT NULL,
+     CREATED_USER_NAME        VARCHAR2(100 BYTE),
+
+     LAST_UPDATED_USER_ID     VARCHAR2(50 BYTE) NOT NULL,
+     LAST_UPDATED_USER_NAME   VARCHAR2(100 BYTE),
+
+     APPROVED_USER_ID         VARCHAR2(50 BYTE),
+     APPROVED_USER_NAME       VARCHAR2(100 BYTE),
+
+     REL_EMP_NAME             VARCHAR2(255 BYTE),
+     REL_EMP_PHONE            VARCHAR2(255 BYTE),
+
+     CREATED_AT               TIMESTAMP(6) NOT NULL,
+     UPDATED_AT               TIMESTAMP(6) NOT NULL,
+
+     MODIFIED_NUM             VARCHAR2(50 BYTE) NOT NULL,
+     IS_LATEST                CHAR(1 CHAR) DEFAULT 'N',
+     CONSTRAINT ERIN_CONTRACT_INFO_LEASING_PK1 PRIMARY KEY (ORG_REQUEST_ID, CONTRACT_NUM)
+  );

@@ -1,0 +1,5 @@
+dependencies {
+  compile project(':erin-aim-domain')
+  compile lib.springData.jdbc
+  compile lib.javax.inject
+}

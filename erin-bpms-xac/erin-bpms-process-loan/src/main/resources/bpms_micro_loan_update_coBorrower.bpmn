@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:bioc="http://bpmn.io/schema/bpmn/biocolor/1.0" id="Definitions_0phh0sj" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="4.0.0">
+  <bpmn:collaboration id="Collaboration_19qr5uc">
+    <bpmn:participant id="Participant_1w1mjxj" name="Хамтрангийн мэдээлэл" processRef="bpms_micro_loan_update_coBorrower" />
+  </bpmn:collaboration>
+  <bpmn:process id="bpms_micro_loan_update_coBorrower" name="bpms_micro_loan_coBorrower" isExecutable="true">
+    <bpmn:startEvent id="StartEvent_1" name="Зээлийн хүсэлтийн бүртгэл баталгаажсан">
+      <bpmn:outgoing>Flow_107usi8</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:sequenceFlow id="Flow_107usi8" sourceRef="StartEvent_1" targetRef="user_task_micro_loan_update_coBorrower" />
+    <bpmn:sequenceFlow id="SequenceFlow_09xl7iv" sourceRef="user_task_micro_loan_update_coBorrower" targetRef="service_task_micro_download_co_borrower_info" />
+    <bpmn:userTask id="user_task_micro_loan_update_coBorrower" name="04. Хамтран зээлдэгч нэмэх" camunda:formKey="04. Хамтран зээлдэгч нэмэх">
+      <bpmn:extensionElements>
+        <camunda:formData>
+          <camunda:formField id="registerNumberCoBorrower" label="Регистр (Хамтран зээлдэгч)" type="string">
+            <camunda:validation>
+              <camunda:constraint name="required" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="incomeTypeCoBorrower" label="Орлогын төрөл" type="string">
+            <camunda:properties>
+              <camunda:property id="salaryIncomeTypeCoBorower" value="Цалингийн орлого" />
+              <camunda:property id="businessIncomeTypeCoBorower" value="Бизнесийн орлого" />
+            </camunda:properties>
+            <camunda:validation>
+              <camunda:constraint name="required" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="borrowerTypeCoBorrower" label="Зээлдэгчийн төрөл" type="string">
+            <camunda:properties>
+              <camunda:property id="citizenTypeCoBorrower" value="Иргэн" />
+              <camunda:property id="organizationTypeCoBorrower" value="Аж ахуй нэгж" />
+            </camunda:properties>
+            <camunda:validation>
+              <camunda:constraint name="required" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="coBorrowerType" label="Зээлдэгчийн хэн болох" type="string">
+            <camunda:properties>
+              <camunda:property id="JH1" value="Эхнэр нөхөр" />
+              <camunda:property id="JH2" value="Эцэг эх" />
+              <camunda:property id="JH3" value="Хүүхэд" />
+              <camunda:property id="JH4" value="Ах эгч дүү" />
+              <camunda:property id="JH5" value="Өвөө эмээ" />
+              <camunda:property id="JH6" value="Хууль ёсны асран хамгаалагч" />
+              <camunda:property id="JH7" value="Итгэмжлэгдэгч" />
+              <camunda:property id="JH8" value="Өв залгамжлагч" />
+              <camunda:property id="JH9" value="Төлбөр хүлээн авагч" />
+              <camunda:property id="JH10" value="Бусад" />
+              <camunda:property id="JH11" value="Толгой компани" />
+              <camunda:property id="JH12" value="Охин компани" />
+              <camunda:property id="JH13" value="Хараат компани" />
+            </camunda:properties>
+          </camunda:formField>
+        </camunda:formData>
+        <camunda:taskListener delegateExpression="${setCoBorrowerIndexListener}" event="complete" />
+        <camunda:taskListener delegateExpression="${disableElementaryCriteriaTaskListener}" event="complete" />
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_107usi8</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_09xl7iv</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:serviceTask id="service_task_micro_download_co_borrower_info" name="Core Banking System-с мэдээлэл татах" camunda:delegateExpression="${downloadCoBorrowerInfoTask}">
+      <bpmn:incoming>SequenceFlow_09xl7iv</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_05bbkwz</bpmn:outgoing>
+      <bpmn:property id="Property_15wvvko" name="__targetRef_placeholder" />
+      <bpmn:dataInputAssociation id="DataInputAssociation_00f5sbj">
+        <bpmn:sourceRef>DataStoreReference_1yyjr92</bpmn:sourceRef>
+        <bpmn:targetRef>Property_15wvvko</bpmn:targetRef>
+      </bpmn:dataInputAssociation>
+    </bpmn:serviceTask>
+    <bpmn:dataStoreReference id="DataStoreReference_1yyjr92" name="CBS" />
+    <bpmn:serviceTask id="service_task_micro_download_risky_co_borrower_info" name="Risky customer-c мэдээлэл татах" camunda:delegateExpression="${checkRiskyCoBorrowerTask}">
+      <bpmn:incoming>SequenceFlow_05bbkwz</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_16hudmb</bpmn:outgoing>
+      <bpmn:property id="Property_0kh6css" name="__targetRef_placeholder" />
+      <bpmn:dataInputAssociation id="DataInputAssociation_11ma44r">
+        <bpmn:sourceRef>DataStoreReference_1althcl</bpmn:sourceRef>
+        <bpmn:targetRef>Property_0kh6css</bpmn:targetRef>
+      </bpmn:dataInputAssociation>
+    </bpmn:serviceTask>
+    <bpmn:sequenceFlow id="SequenceFlow_05bbkwz" sourceRef="service_task_micro_download_co_borrower_info" targetRef="service_task_micro_download_risky_co_borrower_info" />
+    <bpmn:dataStoreReference id="DataStoreReference_1althcl" name="Risky" />
+    <bpmn:endEvent id="EndEvent_11v3tcd" name="Хамтран нэмсэн, өөрчилсөн">
+      <bpmn:incoming>SequenceFlow_0yapbgl</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="SequenceFlow_0yapbgl" sourceRef="UserTask_1o9qjiv" targetRef="EndEvent_11v3tcd" />
+    <bpmn:userTask id="UserTask_1o9qjiv" name="04. Хамтран зээлдэгч нэмэх" camunda:formKey="04. Хамтран зээлдэгч нэмэх">
+      <bpmn:extensionElements>
+        <camunda:taskListener delegateExpression="${setParentTaskIdTaskListener}" event="create" />
+        <camunda:formData>
+          <camunda:formField id="fullNameCoBorrower" label="Овог, нэр" type="string">
+            <camunda:validation>
+              <camunda:constraint name="readonly" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="cifNumberCoBorrower" label="CIF (Хамтран зээлдэгч)" type="string">
+            <camunda:validation>
+              <camunda:constraint name="readonly" />
+              <camunda:constraint name="required" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="occupancyCoBorrower" label="Ажил эрхлэлт" type="string" />
+          <camunda:formField id="emailCoBorrower" label="Цахим хаяг" type="string" />
+          <camunda:formField id="addressCoBorrower" label="Хаяг" type="string">
+            <camunda:validation>
+              <camunda:constraint name="required" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="phoneNumberCoBorrower" label="Утасны дугаар" type="string">
+            <camunda:validation>
+              <camunda:constraint name="required" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="borrowerTypeCoBorrower" label="Зээлдэгчийн төрөл" type="string">
+            <camunda:validation>
+              <camunda:constraint name="readonly" />
+            </camunda:validation>
+          </camunda:formField>
+        </camunda:formData>
+        <camunda:taskListener delegateExpression="${cleanCoBorrowerFieldListener}" event="complete" />
+        <camunda:properties>
+          <camunda:property name="microUpdateCoborrowerParentTaskName" value="user_task_micro_loan_update_coBorrower" />
+        </camunda:properties>
+      </bpmn:extensionElements>
+      <bpmn:incoming>SequenceFlow_16hudmb</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_0yapbgl</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:sequenceFlow id="SequenceFlow_16hudmb" sourceRef="service_task_micro_download_risky_co_borrower_info" targetRef="UserTask_1o9qjiv" />
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Collaboration_19qr5uc">
+      <bpmndi:BPMNShape id="Participant_1w1mjxj_di" bpmnElement="Participant_1w1mjxj" isHorizontal="true">
+        <dc:Bounds x="120" y="70" width="820" height="320" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="SequenceFlow_16hudmb_di" bpmnElement="SequenceFlow_16hudmb">
+        <di:waypoint x="670" y="190" />
+        <di:waypoint x="720" y="190" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_0yapbgl_di" bpmnElement="SequenceFlow_0yapbgl">
+        <di:waypoint x="820" y="190" />
+        <di:waypoint x="872" y="190" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_05bbkwz_di" bpmnElement="SequenceFlow_05bbkwz">
+        <di:waypoint x="514" y="190" />
+        <di:waypoint x="570" y="190" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_09xl7iv_di" bpmnElement="SequenceFlow_09xl7iv">
+        <di:waypoint x="368" y="190" />
+        <di:waypoint x="414" y="190" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_107usi8_di" bpmnElement="Flow_107usi8">
+        <di:waypoint x="215" y="190" />
+        <di:waypoint x="268" y="190" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
+        <dc:Bounds x="179" y="172" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="162" y="215" width="71" height="53" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0qi6al7_di" bpmnElement="user_task_micro_loan_update_coBorrower" bioc:stroke="rgb(67, 160, 71)" bioc:fill="rgb(200, 230, 201)">
+        <dc:Bounds x="268" y="150" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="ServiceTask_168nkv5_di" bpmnElement="service_task_micro_download_co_borrower_info" bioc:stroke="rgb(251, 140, 0)" bioc:fill="rgb(255, 224, 178)">
+        <dc:Bounds x="414" y="150" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="DataStoreReference_1yyjr92_di" bpmnElement="DataStoreReference_1yyjr92" bioc:stroke="rgb(251, 140, 0)" bioc:fill="rgb(255, 224, 178)">
+        <dc:Bounds x="439" y="275" width="50" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="453" y="332" width="24" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="ServiceTask_0zj02gf_di" bpmnElement="service_task_micro_download_risky_co_borrower_info" bioc:stroke="rgb(251, 140, 0)" bioc:fill="rgb(255, 224, 178)">
+        <dc:Bounds x="570" y="150" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="DataStoreReference_1althcl_di" bpmnElement="DataStoreReference_1althcl" bioc:stroke="rgb(251, 140, 0)" bioc:fill="rgb(255, 224, 178)">
+        <dc:Bounds x="595" y="275" width="50" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="607" y="332" width="28" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="EndEvent_11v3tcd_di" bpmnElement="EndEvent_11v3tcd">
+        <dc:Bounds x="872" y="172" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="847" y="215" width="87" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="UserTask_1o9qjiv_di" bpmnElement="UserTask_1o9qjiv" bioc:stroke="rgb(67, 160, 71)" bioc:fill="rgb(200, 230, 201)">
+        <dc:Bounds x="720" y="150" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="DataInputAssociation_00f5sbj_di" bpmnElement="DataInputAssociation_00f5sbj">
+        <di:waypoint x="464" y="275" />
+        <di:waypoint x="464" y="230" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="DataInputAssociation_11ma44r_di" bpmnElement="DataInputAssociation_11ma44r">
+        <di:waypoint x="620" y="275" />
+        <di:waypoint x="620" y="230" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>

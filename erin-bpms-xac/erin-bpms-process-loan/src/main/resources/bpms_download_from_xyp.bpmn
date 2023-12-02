@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" xmlns:bioc="http://bpmn.io/schema/bpmn/biocolor/1.0" id="Definitions_0glvwc5" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="3.5.0">
+  <bpmn:collaboration id="Collaboration_0roz3jh">
+    <bpmn:participant id="Participant_0hl4504" name="ХУР-аас мэдээлэл татах" processRef="bpms_download_from_xyp" />
+  </bpmn:collaboration>
+  <bpmn:process id="bpms_download_from_xyp" isExecutable="true">
+    <bpmn:startEvent id="StartEvent_1" name="ХУР-аас татах хүсэлт ирсэн">
+      <bpmn:outgoing>SequenceFlow_1ey379v</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:userTask id="UserTask_03hclbt" name="03. ХУР лавлагаа" camunda:formKey="03. ХУР лавлагаа">
+      <bpmn:extensionElements>
+        <camunda:formData>
+          <camunda:formField id="month" label="Цалин задаргаа (Сараар)" type="string" defaultValue="12">
+            <camunda:properties>
+              <camunda:property id="year" value="12" />
+              <camunda:property id="two_year" value="24" />
+              <camunda:property id="three_year" value="36" />
+            </camunda:properties>
+            <camunda:validation>
+              <camunda:constraint name="required" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="registerNumber" label="Харилцагчийн регистр" type="string">
+            <camunda:validation>
+              <camunda:constraint name="readonly" />
+              <camunda:constraint name="required" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="employeeRegisterNumber" label="Ажилтны регистр" type="string">
+            <camunda:validation>
+              <camunda:constraint name="required" />
+            </camunda:validation>
+          </camunda:formField>
+        </camunda:formData>
+        <camunda:taskListener delegateExpression="${setCaseInstanceIdListener}" event="create" />
+      </bpmn:extensionElements>
+      <bpmn:incoming>SequenceFlow_1ey379v</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_02ig0jn</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:serviceTask id="Task_1561dq3" name="Иргэний үнэмлэхний лавлагаа татах" camunda:delegateExpression="${downloadIDCardInfoFromXypTask}">
+      <bpmn:incoming>SequenceFlow_0t3xwjd</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_0zffzse</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:serviceTask id="Task_093k615" name="Оршин суугаа газрын лавлагаа татах" camunda:delegateExpression="${downloadAddressInfoFromXypTask}">
+      <bpmn:incoming>SequenceFlow_02ig0jn</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_0t3xwjd</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:serviceTask id="Task_0nwex3p" name="Нийгмийн даатгалын лавлагаа татах" camunda:delegateExpression="${downloadSalaryInfoFromXypTask}">
+      <bpmn:incoming>SequenceFlow_0zffzse</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_173w6gb</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:endEvent id="EndEvent_03cxc26" name="Харилцагчын лавлагаануудыг ХУР-аас татсан">
+      <bpmn:incoming>SequenceFlow_173w6gb</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="SequenceFlow_173w6gb" sourceRef="Task_0nwex3p" targetRef="EndEvent_03cxc26" />
+    <bpmn:sequenceFlow id="SequenceFlow_0t3xwjd" sourceRef="Task_093k615" targetRef="Task_1561dq3" />
+    <bpmn:sequenceFlow id="SequenceFlow_1ey379v" sourceRef="StartEvent_1" targetRef="UserTask_03hclbt" />
+    <bpmn:sequenceFlow id="SequenceFlow_02ig0jn" sourceRef="UserTask_03hclbt" targetRef="Task_093k615" />
+    <bpmn:sequenceFlow id="SequenceFlow_0zffzse" sourceRef="Task_1561dq3" targetRef="Task_0nwex3p" />
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Collaboration_0roz3jh">
+      <bpmndi:BPMNShape id="Participant_0hl4504_di" bpmnElement="Participant_0hl4504" isHorizontal="true">
+        <dc:Bounds x="140" y="62" width="890" height="230" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="SequenceFlow_0zffzse_di" bpmnElement="SequenceFlow_0zffzse">
+        <di:waypoint x="710" y="152" />
+        <di:waypoint x="760" y="152" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_02ig0jn_di" bpmnElement="SequenceFlow_02ig0jn">
+        <di:waypoint x="400" y="152" />
+        <di:waypoint x="450" y="152" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_1ey379v_di" bpmnElement="SequenceFlow_1ey379v">
+        <di:waypoint x="248" y="152" />
+        <di:waypoint x="300" y="152" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_0t3xwjd_di" bpmnElement="SequenceFlow_0t3xwjd">
+        <di:waypoint x="550" y="152" />
+        <di:waypoint x="610" y="152" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_173w6gb_di" bpmnElement="SequenceFlow_173w6gb">
+        <di:waypoint x="860" y="152" />
+        <di:waypoint x="942" y="152" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
+        <dc:Bounds x="212" y="134" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="193" y="177" width="74" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="UserTask_0alhcpz_di" bpmnElement="UserTask_03hclbt" bioc:stroke="black" bioc:fill="white">
+        <dc:Bounds x="300" y="112" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="ServiceTask_1a6ymod_di" bpmnElement="Task_1561dq3" bioc:stroke="black" bioc:fill="white">
+        <dc:Bounds x="610" y="112" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="ServiceTask_1ilkz6d_di" bpmnElement="Task_093k615" bioc:stroke="black" bioc:fill="white">
+        <dc:Bounds x="450" y="112" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="ServiceTask_0x2r12y_di" bpmnElement="Task_0nwex3p" bioc:stroke="black" bioc:fill="white">
+        <dc:Bounds x="760" y="112" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="EndEvent_03cxc26_di" bpmnElement="EndEvent_03cxc26">
+        <dc:Bounds x="942" y="134" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="920" y="177" width="82" height="40" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>

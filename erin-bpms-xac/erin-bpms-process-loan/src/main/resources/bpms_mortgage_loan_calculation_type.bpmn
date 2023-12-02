@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:bioc="http://bpmn.io/schema/bpmn/biocolor/1.0" id="Definitions_19mtejm" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="3.7.3">
+  <bpmn:collaboration id="Collaboration_081y6wt">
+    <bpmn:participant id="Participant_0pmg6f9" processRef="bpms_mortgage_loan_calculation_type" />
+  </bpmn:collaboration>
+  <bpmn:process id="bpms_mortgage_loan_calculation_type" isExecutable="true">
+    <bpmn:startEvent id="StartEvent_1">
+      <bpmn:outgoing>Flow_02rcu1d</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:sequenceFlow id="Flow_02rcu1d" sourceRef="StartEvent_1" targetRef="user_task_salary_calculation" />
+    <bpmn:sequenceFlow id="Flow_1n0g1tp" sourceRef="user_task_salary_calculation" targetRef="Event_0xglgjw" />
+    <bpmn:endEvent id="Event_0xglgjw">
+      <bpmn:incoming>Flow_1n0g1tp</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:userTask id="user_task_salary_calculation" name="08. Тооцоолол хийх" camunda:formKey="08. Тооцоолол хийх">
+      <bpmn:extensionElements>
+        <camunda:formData>
+          <camunda:formField id="calculationType" label="Тооцооллын хэлбэрээ сонгоно уу" type="string">
+            <camunda:properties>
+              <camunda:property id="calculationSalary" value="Цалингийн тооцоолол" />
+              <camunda:property id="calculationBusiness" value="Бизнесийн тооцоолол" />
+            </camunda:properties>
+            <camunda:validation>
+              <camunda:constraint name="required" />
+            </camunda:validation>
+          </camunda:formField>
+        </camunda:formData>
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_02rcu1d</bpmn:incoming>
+      <bpmn:outgoing>Flow_1n0g1tp</bpmn:outgoing>
+    </bpmn:userTask>
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Collaboration_081y6wt">
+      <bpmndi:BPMNShape id="Participant_0pmg6f9_di" bpmnElement="Participant_0pmg6f9" isHorizontal="true">
+        <dc:Bounds x="120" y="70" width="600" height="250" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_1n0g1tp_di" bpmnElement="Flow_1n0g1tp">
+        <di:waypoint x="450" y="195" />
+        <di:waypoint x="572" y="195" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_02rcu1d_di" bpmnElement="Flow_02rcu1d">
+        <di:waypoint x="215" y="195" />
+        <di:waypoint x="350" y="195" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
+        <dc:Bounds x="179" y="177" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_0xglgjw_di" bpmnElement="Event_0xglgjw">
+        <dc:Bounds x="572" y="177" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0cbwdsz_di" bpmnElement="user_task_salary_calculation" bioc:stroke="rgb(67, 160, 71)" bioc:fill="rgb(200, 230, 201)">
+        <dc:Bounds x="350" y="155" width="100" height="80" />
+      </bpmndi:BPMNShape>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>

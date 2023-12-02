@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:bioc="http://bpmn.io/schema/bpmn/biocolor/1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="Definitions_1q28ce6" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="3.7.3">
+  <bpmn:collaboration id="Collaboration_15xfdqe">
+    <bpmn:participant id="branch_banking_customer_e_transaction" name="Цахим гүйлгээ" processRef="bpms_branch_banking_e_transaction" />
+  </bpmn:collaboration>
+  <bpmn:process id="bpms_branch_banking_e_transaction" isExecutable="true">
+    <bpmn:startEvent id="StartEvent_1">
+      <bpmn:outgoing>Flow_0ifm2cs</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:userTask id="user_task_branch_banking_e_transaction" name="Цахим гүйлгээ" camunda:formKey="Цахим гүйлгээ">
+      <bpmn:extensionElements>
+        <camunda:formData>
+          <camunda:formField id="accountId" label="Дансны дугаар" type="long">
+            <camunda:validation>
+              <camunda:constraint name="required" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="transactionStartDate" label="Эхлэх огноо" type="date" />
+          <camunda:formField id="transactionEndDate" label="Дуусах огноо" type="date" />
+          <camunda:formField id="transactionChannel" label="Гүйлгээний суваг" type="string">
+            <camunda:properties>
+              <camunda:property id="EBK" value="Интернет банк" />
+              <camunda:property id="MBK" value="Мобайл банк" />
+            </camunda:properties>
+          </camunda:formField>
+          <camunda:formField id="transactionFormType" label="Гүйлгээний маягтын төрөл" type="string">
+            <camunda:properties>
+              <camunda:property id="eTransaction" value="Цахим гүйлгээ" />
+              <camunda:property id="eCustomPayTransaction" value="Гаалийн цахим гүйлгээний маягт" />
+            </camunda:properties>
+            <camunda:validation>
+              <camunda:constraint name="required" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="searchButtonETran" label="ХАЙХ" type="string" defaultValue="getEtransactionList" />
+        </camunda:formData>
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_0ifm2cs</bpmn:incoming>
+      <bpmn:incoming>Flow_0qc6loo</bpmn:incoming>
+      <bpmn:outgoing>Flow_1yt3hhy</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:endEvent id="Event_09m929z">
+      <bpmn:extensionElements>
+        <camunda:executionListener delegateExpression="${clearETransactionVariablesListener}" event="end" />
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_1yvvd6d</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:exclusiveGateway id="Gateway_0ganeqt">
+      <bpmn:incoming>Flow_1yt3hhy</bpmn:incoming>
+      <bpmn:outgoing>Flow_1yvvd6d</bpmn:outgoing>
+      <bpmn:outgoing>Flow_0qc6loo</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:sequenceFlow id="Flow_0ifm2cs" sourceRef="StartEvent_1" targetRef="user_task_branch_banking_e_transaction" />
+    <bpmn:sequenceFlow id="Flow_1yt3hhy" sourceRef="user_task_branch_banking_e_transaction" targetRef="Gateway_0ganeqt" />
+    <bpmn:sequenceFlow id="Flow_1yvvd6d" sourceRef="Gateway_0ganeqt" targetRef="Event_09m929z">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${action == "complete"}</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:sequenceFlow id="Flow_0qc6loo" sourceRef="Gateway_0ganeqt" targetRef="user_task_branch_banking_e_transaction">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${action == "back"}</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Collaboration_15xfdqe">
+      <bpmndi:BPMNShape id="Participant_0neu7c6_di" bpmnElement="branch_banking_customer_e_transaction" isHorizontal="true">
+        <dc:Bounds x="160" y="70" width="660" height="250" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_0qc6loo_di" bpmnElement="Flow_0qc6loo">
+        <di:waypoint x="610" y="165" />
+        <di:waypoint x="610" y="120" />
+        <di:waypoint x="451" y="120" />
+        <di:waypoint x="451" y="150" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1yvvd6d_di" bpmnElement="Flow_1yvvd6d">
+        <di:waypoint x="635" y="190" />
+        <di:waypoint x="712" y="190" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1yt3hhy_di" bpmnElement="Flow_1yt3hhy">
+        <di:waypoint x="501" y="190" />
+        <di:waypoint x="585" y="190" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0ifm2cs_di" bpmnElement="Flow_0ifm2cs">
+        <di:waypoint x="289" y="190" />
+        <di:waypoint x="401" y="190" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
+        <dc:Bounds x="253" y="172" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0y6i30v_di" bpmnElement="user_task_branch_banking_e_transaction" bioc:stroke="rgb(67, 160, 71)" bioc:fill="rgb(200, 230, 201)">
+        <dc:Bounds x="401" y="150" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_09m929z_di" bpmnElement="Event_09m929z">
+        <dc:Bounds x="712" y="172" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Gateway_0ganeqt_di" bpmnElement="Gateway_0ganeqt" isMarkerVisible="true">
+        <dc:Bounds x="585" y="165" width="50" height="50" />
+      </bpmndi:BPMNShape>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>

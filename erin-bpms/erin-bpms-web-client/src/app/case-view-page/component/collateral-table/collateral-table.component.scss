@@ -1,0 +1,55 @@
+table, mat-header-row{
+  width: 100%;
+}
+.table-container{
+  min-height: 10vh;
+  max-height: 40vh;
+  overflow-y: auto;
+  overflow-x:hidden;
+}
+.mat-column-checkbox, {
+  flex: 0 0 4% !important;
+}
+.mat-column-createdOnBpms, .mat-column-hairCut, .mat-column-startDate, .mat-column-revalueDate {
+  flex: 0 0 8.3% !important;
+}
+.mat-column-amountOfAssessment, .mat-column-accountId, .mat-column-availableAmount {
+  flex: 0 0 11.2% !important;
+}
+.mat-column-collateralId, .mat-column-description, {
+  flex: 0 0 13% !important;
+}
+mat-cell:last-of-type, mat-header-cell:last-of-type, mat-footer-cell:last-of-type {
+  padding: 0 !important;
+}
+mat-cell:last-of-type{
+  margin-left: 1vw;
+}
+.mat-header-cell {
+  font-size: 11px !important;
+  font-weight: bold;
+  text-align: center !important;
+  word-break: break-word;
+}
+
+.mat-cell {
+  span {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    padding-left: 0.3vw;
+  }
+}
+.context-menu{
+  visibility: hidden;
+  position: fixed;
+}
+::ng-deep .collateral-context-menu{
+   overflow-y: hidden;
+   height: 24px !important;
+   max-width: 150px !important;
+    mat-icon{
+      font-size: 18px !important;
+      margin: 2px 4px 0 0 !important; ;
+    }
+}

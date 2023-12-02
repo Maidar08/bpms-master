@@ -1,0 +1,60 @@
+.mat-toolbar {
+  background: #0e0048 !important;
+  color: white !important;
+  font-size: 16px;
+  font-family: Arial, serif;
+
+  .mat-primary {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+  }
+}
+
+.spacer {
+  flex-grow: 1;
+}
+
+mat-icon:hover {
+  color: var(--field-color);
+}
+
+.exit-icon {
+  color: var(--primary-color);
+}
+
+.logo {
+  margin-right: 15px;
+}
+
+::ng-deep .mat-menu-content {
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  color: var(--primary-color);
+}
+
+::ng-deep .mat-menu-panel {
+  min-height: 40px !important;
+}
+
+.mat-menu-item {
+  line-height: 45px;
+  height: 45px;
+}
+.logoutButton{
+  margin-left: 13px;
+}
+p{
+ font-size: 14px;
+}
+
+@media (min-width: 680px) and (max-width: 910px){
+  .mat-toolbar {
+    padding-right: 60px;
+
+    .mat-primary {
+      position: sticky;
+      top: 0;
+    }
+  }
+}

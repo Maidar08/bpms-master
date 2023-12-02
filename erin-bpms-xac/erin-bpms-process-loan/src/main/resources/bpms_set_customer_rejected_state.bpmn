@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:bioc="http://bpmn.io/schema/bpmn/biocolor/1.0" id="Definitions_0m56d4u" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="3.5.0">
+  <bpmn:collaboration id="Collaboration_1f9yzn5">
+    <bpmn:participant id="Participant_12ubqbq" name="Харилцагч татгалзсан төлөвт оруулах" processRef="bpms_set_customer_rejected_state" />
+  </bpmn:collaboration>
+  <bpmn:process id="bpms_set_customer_rejected_state" isExecutable="true">
+    <bpmn:startEvent id="StartEvent_1">
+      <bpmn:outgoing>SequenceFlow_061tnfw</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:endEvent id="EndEvent_0ss9r27">
+      <bpmn:incoming>SequenceFlow_021wv3c</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:serviceTask id="Task_0oz8p8x" name="Харилцагч татгалзсан төлөвтэй хадгалах" camunda:delegateExpression="${setCustomerRejectedStateTask}">
+      <bpmn:incoming>SequenceFlow_061tnfw</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_021wv3c</bpmn:outgoing>
+      <bpmn:property id="Property_0gdl24v" name="__targetRef_placeholder" />
+      <bpmn:dataInputAssociation id="DataInputAssociation_1bds4a5">
+        <bpmn:sourceRef>DataObjectReference_0qhgqjd</bpmn:sourceRef>
+        <bpmn:targetRef>Property_0gdl24v</bpmn:targetRef>
+      </bpmn:dataInputAssociation>
+    </bpmn:serviceTask>
+    <bpmn:dataObjectReference id="DataObjectReference_0qhgqjd" name="Зээлийн хүсэлт" dataObjectRef="DataObject_13pekge" />
+    <bpmn:dataObject id="DataObject_13pekge" />
+    <bpmn:sequenceFlow id="SequenceFlow_061tnfw" sourceRef="StartEvent_1" targetRef="Task_0oz8p8x" />
+    <bpmn:sequenceFlow id="SequenceFlow_021wv3c" sourceRef="Task_0oz8p8x" targetRef="EndEvent_0ss9r27" />
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Collaboration_1f9yzn5">
+      <bpmndi:BPMNShape id="Participant_12ubqbq_di" bpmnElement="Participant_12ubqbq" isHorizontal="true">
+        <dc:Bounds x="129" y="80" width="451" height="239" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
+        <dc:Bounds x="192" y="172" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="SequenceFlow_061tnfw_di" bpmnElement="SequenceFlow_061tnfw">
+        <di:waypoint x="228" y="190" />
+        <di:waypoint x="280" y="190" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="EndEvent_0ss9r27_di" bpmnElement="EndEvent_0ss9r27">
+        <dc:Bounds x="432" y="172" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="SequenceFlow_021wv3c_di" bpmnElement="SequenceFlow_021wv3c">
+        <di:waypoint x="380" y="190" />
+        <di:waypoint x="432" y="190" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="ServiceTask_15z14i9_di" bpmnElement="Task_0oz8p8x" bioc:stroke="rgb(67, 160, 71)" bioc:fill="rgb(200, 230, 201)">
+        <dc:Bounds x="280" y="150" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="DataObjectReference_0qhgqjd_di" bpmnElement="DataObjectReference_0qhgqjd" bioc:stroke="rgb(67, 160, 71)" bioc:fill="rgb(200, 230, 201)">
+        <dc:Bounds x="412" y="245" width="36" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="390" y="302" width="80" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="DataInputAssociation_1bds4a5_di" bpmnElement="DataInputAssociation_1bds4a5">
+        <di:waypoint x="412" y="257" />
+        <di:waypoint x="373" y="229" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>

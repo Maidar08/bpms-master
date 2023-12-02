@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:bioc="http://bpmn.io/schema/bpmn/biocolor/1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="Definitions_0tz75ec" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="3.7.3">
+  <bpmn:collaboration id="Collaboration_0mdel6b">
+    <bpmn:participant id="branch_banking_deposit_contract" name="Хадгаламжийн гэрээ" processRef="bpms_branch_banking_future_millionare" />
+  </bpmn:collaboration>
+  <bpmn:process id="bpms_branch_banking_future_millionare" isExecutable="true">
+    <bpmn:startEvent id="StartEvent_1">
+      <bpmn:outgoing>SequenceFlow_1alnx36</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:sequenceFlow id="SequenceFlow_1alnx36" sourceRef="StartEvent_1" targetRef="user_task_branch_banking_future_millionare" />
+    <bpmn:sequenceFlow id="Flow_0tmsl8o" sourceRef="user_task_branch_banking_future_millionare" targetRef="Gateway_1jbxujb" />
+    <bpmn:userTask id="user_task_branch_banking_future_millionare" name="Ирээдүйн саятан гэрээ" camunda:formKey="Хадгаламжийн гэрээ хэвлэх">
+      <bpmn:extensionElements>
+        <camunda:formData>
+          <camunda:formField id="contractType" label="Гэрээний төрөл" type="string">
+            <camunda:properties>
+              <camunda:property id="childFutureMillionare" value="Хүүхэд-Ирээдүйн саятан" />
+              <camunda:property id="childFutureMillionareThirdPartyCondition" value="Хүүхэд-Ирээдүйн саятан гуравдагч нөхцөл" />
+              <camunda:property id="childFutureMillionareEndow" value="Хүүхэд-Ирээдүйн саятан бэлэглэл" />
+            </camunda:properties>
+            <camunda:validation>
+              <camunda:constraint name="required" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="accountId" label="Дансны дугаар" type="long">
+            <camunda:validation>
+              <camunda:constraint name="required" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="downloadDepositButton" label="ТАТАХ" type="string" defaultValue="download">
+            <camunda:validation />
+          </camunda:formField>
+          <camunda:formField id="parentsName" label="Эцэг эхийн нэр" type="string">
+            <camunda:validation>
+              <camunda:constraint name="readonly" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="name" label="Нэр" type="string">
+            <camunda:validation>
+              <camunda:constraint name="readonly" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="registerId" label="Регистрийн дугаар" type="string">
+            <camunda:validation>
+              <camunda:constraint name="readonly" />
+            </camunda:validation>
+          </camunda:formField>
+        </camunda:formData>
+      </bpmn:extensionElements>
+      <bpmn:incoming>SequenceFlow_1alnx36</bpmn:incoming>
+      <bpmn:incoming>Flow_19odk35</bpmn:incoming>
+      <bpmn:outgoing>Flow_0tmsl8o</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:sequenceFlow id="Flow_07lx6f2" sourceRef="Gateway_1jbxujb" targetRef="Event_1ibjgms">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${action=="complete"}</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:sequenceFlow id="Flow_19odk35" sourceRef="Gateway_1jbxujb" targetRef="user_task_branch_banking_future_millionare">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${action == "back"}</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:endEvent id="Event_1ibjgms">
+      <bpmn:extensionElements>
+        <camunda:executionListener delegateExpression="${clearFutureMillionareVariables}" event="end" />
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_07lx6f2</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:exclusiveGateway id="Gateway_1jbxujb">
+      <bpmn:incoming>Flow_0tmsl8o</bpmn:incoming>
+      <bpmn:outgoing>Flow_07lx6f2</bpmn:outgoing>
+      <bpmn:outgoing>Flow_19odk35</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Collaboration_0mdel6b">
+      <bpmndi:BPMNShape id="Participant_01d7s4b_di" bpmnElement="branch_banking_deposit_contract" isHorizontal="true">
+        <dc:Bounds x="129" y="90" width="641" height="250" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_19odk35_di" bpmnElement="Flow_19odk35">
+        <di:waypoint x="530" y="185" />
+        <di:waypoint x="530" y="120" />
+        <di:waypoint x="370" y="120" />
+        <di:waypoint x="370" y="170" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_07lx6f2_di" bpmnElement="Flow_07lx6f2">
+        <di:waypoint x="555" y="210" />
+        <di:waypoint x="652" y="210" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0tmsl8o_di" bpmnElement="Flow_0tmsl8o">
+        <di:waypoint x="420" y="210" />
+        <di:waypoint x="505" y="210" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_1alnx36_di" bpmnElement="SequenceFlow_1alnx36">
+        <di:waypoint x="248" y="210" />
+        <di:waypoint x="320" y="210" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
+        <dc:Bounds x="212" y="192" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="UserTask_0a377ng_di" bpmnElement="user_task_branch_banking_future_millionare" bioc:stroke="rgb(67, 160, 71)" bioc:fill="rgb(200, 230, 201)">
+        <dc:Bounds x="320" y="170" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_1ibjgms_di" bpmnElement="Event_1ibjgms">
+        <dc:Bounds x="652" y="192" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Gateway_1jbxujb_di" bpmnElement="Gateway_1jbxujb" isMarkerVisible="true">
+        <dc:Bounds x="505" y="185" width="50" height="50" />
+      </bpmndi:BPMNShape>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>

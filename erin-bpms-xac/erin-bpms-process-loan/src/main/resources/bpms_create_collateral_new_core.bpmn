@@ -1,0 +1,732 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:bioc="http://bpmn.io/schema/bpmn/biocolor/1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="Definitions_1q7mhwx" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="3.7.3">
+  <bpmn:collaboration id="Collaboration_0qtiq96">
+    <bpmn:participant id="Participant_00oufh1" name="14. Барьцаа хөрөнгө үүсгэх" processRef="bpms_create_collateral_new_core" />
+  </bpmn:collaboration>
+  <bpmn:process id="bpms_create_collateral_new_core" isExecutable="true">
+    <bpmn:exclusiveGateway id="ExclusiveGateway_1c8ttcf">
+      <bpmn:incoming>SequenceFlow_12lkp6t</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_0ne0o89</bpmn:outgoing>
+      <bpmn:outgoing>SequenceFlow_0nc0yyd</bpmn:outgoing>
+      <bpmn:outgoing>SequenceFlow_1ouu5j7</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:userTask id="user_task_new_core_create_immovable_collateral" name="14. Барьцаа хөрөнгө үүсгэх" camunda:formKey="14. Барьцаа үүсгэх - Үл хөдлөх хөрөнгө">
+      <bpmn:extensionElements>
+        <camunda:formData>
+          <camunda:formField id="collateralCode" label="Барьцааны код" type="string">
+            <camunda:properties>
+              <camunda:property id="Property_0cd2uud" />
+            </camunda:properties>
+            <camunda:validation>
+              <camunda:constraint name="required" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="reviewDate" label="Нөхөн барьцаалах огноо" type="date" />
+          <camunda:formField id="yearOfConstruction" label="Ашиглалтанд орсон он" type="string">
+            <camunda:validation>
+              <camunda:constraint name="maxlength" config="7" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="conditionOfContract" label="Эрх олж авсан гэрээний үндсэн нөхцөл" type="long" />
+          <camunda:formField id="purposeOfUsage" label="Хэрэглээний зорилго" type="string">
+            <camunda:properties>
+              <camunda:property id="Property_16ch1q2" value="Амьдран суух" />
+              <camunda:property id="Property_0bpcua6" value="Үйлчилгээ" />
+              <camunda:property id="Property_33b8p7b" value="Газар өмчлөл" />
+            </camunda:properties>
+          </camunda:formField>
+          <camunda:formField id="formNumber" label="Барьцаалбарын дугаар" type="string">
+            <camunda:validation>
+              <camunda:constraint name="maxlength" config="11" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="propertyId" label="Улсын бүртгэлийн дугаар" type="string">
+            <camunda:validation>
+              <camunda:constraint name="maxlength" config="21" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="propertyDocNumber" label="Гэрчилгээний дугаар" type="string">
+            <camunda:validation>
+              <camunda:constraint name="required" />
+              <camunda:constraint name="maxlength" config="14" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="builtArea" label="Талбайн хэмжээ" type="string">
+            <camunda:validation>
+              <camunda:constraint name="maxlength" config="16" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="dueDate" label="Гэрчилгээний дуусах он" type="date" />
+          <camunda:formField id="landArea" label="Өрөөний тоо" type="long">
+            <camunda:properties>
+              <camunda:property id="Property_3kilovi" value="1" />
+              <camunda:property id="Property_3hvnpo2" value="2" />
+              <camunda:property id="Property_2gu7dta" value="3" />
+              <camunda:property id="Property_1lv5nud" value="4" />
+              <camunda:property id="Property_31ap4rj" value="5" />
+              <camunda:property id="Property_0unv9og" value="6" />
+              <camunda:property id="Property_0b05qrb" value="7" />
+              <camunda:property id="Property_0f3l6ik" value="8" />
+              <camunda:property id="Property_1a2sppo" value="9" />
+              <camunda:property id="Property_16fdojl" value="10" />
+            </camunda:properties>
+          </camunda:formField>
+          <camunda:formField id="city" label="Аймаг/Хот" type="string">
+            <camunda:properties>
+              <camunda:property id="Property_0kr76co" value="Улаанбаатар хот" />
+              <camunda:property id="Property_0orsmq7" value="Архангай аймаг" />
+              <camunda:property id="Property_1i0o6am" value="Баян-өлгий аймаг" />
+              <camunda:property id="Property_3qfsoab" value="Булган аймаг" />
+              <camunda:property id="Property_07ikcp8" value="Дархан-уул аймаг" />
+              <camunda:property id="Property_1jpe0en" value="Дорнод аймаг" />
+              <camunda:property id="Property_08lncj1" value="Дорноговь аймаг" />
+              <camunda:property id="Property_2k7tca1" value="Говь-алтай аймаг" />
+              <camunda:property id="Property_1lvll1f" value="Говьсүмбэр аймаг" />
+              <camunda:property id="Property_1gcsad0" value="Хэнтий аймаг" />
+              <camunda:property id="Property_2o4so7s" value="Ховд аймаг" />
+              <camunda:property id="Property_06382u0" value="Хөвсгөл аймаг" />
+              <camunda:property id="Property_0o24612" value="Орхон аймаг" />
+              <camunda:property id="Property_1t2u2i4" value="Сэлэнгэ аймаг" />
+              <camunda:property id="Property_22000rn" value="Сүхбаатар аймаг" />
+              <camunda:property id="Property_0cmbm6r" value="Төв аймаг" />
+              <camunda:property id="Property_023qbsa" value="Өмнөговь аймаг" />
+              <camunda:property id="Property_23kuadp" value="Увс аймаг" />
+              <camunda:property id="Property_3iotrak" value="Өвөрхангай аймаг" />
+              <camunda:property id="Property_3j4q7ln" value="Завхан аймаг" />
+            </camunda:properties>
+          </camunda:formField>
+          <camunda:formField id="address1" label="Сум/Дүүрэг" type="string">
+            <camunda:validation>
+              <camunda:constraint name="required" />
+              <camunda:constraint name="maxlength" config="46" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="address2" label="Баг/Хороо" type="string">
+            <camunda:validation>
+              <camunda:constraint name="required" />
+              <camunda:constraint name="maxlength" config="46" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="builderName" label="Хороолол/Хотхон" type="string">
+            <camunda:validation>
+              <camunda:constraint name="maxlength" config="46" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="houseNumber" label="Байшин дугаар" type="string">
+            <camunda:validation>
+              <camunda:constraint name="required" />
+              <camunda:constraint name="maxlength" config="11" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="address3" label="Тоот" type="string">
+            <camunda:validation>
+              <camunda:constraint name="required" />
+              <camunda:constraint name="maxlength" config="46" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="streetName" label="Гудамж" type="string">
+            <camunda:validation>
+              <camunda:constraint name="maxlength" config="51" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="streetNumber" label="Гудамж дугаар" type="string">
+            <camunda:validation>
+              <camunda:constraint name="maxlength" config="51" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="remarks" label="Дэлгэрэнгүй" type="string">
+            <camunda:validation>
+              <camunda:constraint name="maxlength" config="241" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="inspectionType" label="Үнэлгээний төрөл" type="string">
+            <camunda:properties>
+              <camunda:property id="Property_22g5hnu" />
+            </camunda:properties>
+            <camunda:validation>
+              <camunda:constraint name="required" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="inspectionAmountValue" label="Үнэлгээчний үнэлгээ" type="long">
+            <camunda:validation>
+              <camunda:constraint name="required" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="amountOfCollateral" label="Барьцааны дүн" type="long">
+            <camunda:validation>
+              <camunda:constraint name="required" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="deductionRate" label="Хасагдуулах хувь" type="string" defaultValue="0">
+            <camunda:validation>
+              <camunda:constraint name="readonly" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="collateralAssessment" label="Үнэлгээ" type="long">
+            <camunda:validation>
+              <camunda:constraint name="readonly" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="inspectorId" label="Хяналт хийсэн ажилтны ID" type="string">
+            <camunda:validation>
+              <camunda:constraint name="maxlength" config="6" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="inspectionDate" label="Үнэлгээ хийсэн огноо" type="date" />
+          <camunda:formField id="ownershipType" label="Өмчлөлийн хэлбэр" type="string" />
+          <camunda:formField id="ownerCifNumber" label="Өмчлөгчийн СИФ дугаар" type="string">
+            <camunda:validation>
+              <camunda:constraint name="maxlength" config="51" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="ownerName" label="Өмчлөгчийн нэр" type="string">
+            <camunda:validation>
+              <camunda:constraint name="required" />
+              <camunda:constraint name="maxlength" config="80" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="immovableNumber" label="Нэгж талбарын дугаар" type="string">
+            <camunda:validation>
+              <camunda:constraint name="maxlength" config="21" />
+            </camunda:validation>
+          </camunda:formField>
+        </camunda:formData>
+        <camunda:properties>
+          <camunda:property name="createImmovableCollParentTaskName" value="user_task_collateral_list" />
+        </camunda:properties>
+        <camunda:taskListener delegateExpression="${setParentTaskIdTaskListener}" event="create" />
+        <camunda:taskListener delegateExpression="${setRootParentIdTaskListener}" event="complete" />
+      </bpmn:extensionElements>
+      <bpmn:incoming>SequenceFlow_0ne0o89</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_0tujdiy</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:serviceTask id="Activity_15gkdvn" name="create immovable property collateral to CBS" camunda:delegateExpression="${createImmovableCollateralServiceTask}">
+      <bpmn:incoming>SequenceFlow_0tujdiy</bpmn:incoming>
+      <bpmn:outgoing>Flow_1ddbfcr</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:userTask id="user_task_new_core_create_machinery_collateral" name="14. Барьцаа хөрөнгө үүсгэх" camunda:formKey="14. Барьцаа үүсгэх - Тоног төхөөрөмж">
+      <bpmn:extensionElements>
+        <camunda:formData>
+          <camunda:formField id="collateralCode" label="Барьцааны код" type="string">
+            <camunda:validation>
+              <camunda:constraint name="required" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="formNumber" label="Моторын багтаамж" type="string">
+            <camunda:validation>
+              <camunda:constraint name="maxlength" config="21" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="manufacturer" label="Үйлдвэрлэгч" type="string">
+            <camunda:validation>
+              <camunda:constraint name="maxlength" config="21" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="machineNum" label="Тоног төхөөрөмжийг дугаар" type="string">
+            <camunda:validation>
+              <camunda:constraint name="required" />
+              <camunda:constraint name="maxlength" config="21" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="machineModel" label="Тоног төхөөрөмжийн загвар" type="string">
+            <camunda:validation>
+              <camunda:constraint name="maxlength" config="16" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="manufactureYear" label="Үйлдвэрлэсэн огноо" type="string">
+            <camunda:validation>
+              <camunda:constraint name="maxlength" config="7" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="cifNumber" label="Хэрэглэгчийн СИФ" type="string">
+            <camunda:validation>
+              <camunda:constraint name="maxlength" config="51" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="remarks" label="Тайлбар" type="string">
+            <camunda:validation>
+              <camunda:constraint name="maxlength" config="241" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="reviewDate" label="Нөхөн барьцаалах огноо" type="date" />
+          <camunda:formField id="inspectionType" label="Үнэлгээний төрөл" type="string">
+            <camunda:validation>
+              <camunda:constraint name="required" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="inspectionAmountValue" label="Үнэлгээчний үнэлгээ" type="long">
+            <camunda:validation>
+              <camunda:constraint name="required" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="amountOfCollateral" label="Барьцааны дүн" type="long">
+            <camunda:validation>
+              <camunda:constraint name="required" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="deductionRate" label="Хасагдуулах хувь" type="string" defaultValue="0">
+            <camunda:validation>
+              <camunda:constraint name="maxlength" config="11" />
+              <camunda:constraint name="readonly" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="collateralAssessment" label="Үнэлгээ" type="long">
+            <camunda:validation>
+              <camunda:constraint name="readonly" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="inspectorId" label="Хяналт хийсэн ажилтны ID" type="string">
+            <camunda:validation>
+              <camunda:constraint name="required" />
+              <camunda:constraint name="maxlength" config="6" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="inspectionDate" label="Үнэлгээ хийсэн огноо" type="date" />
+          <camunda:formField id="ownershipType" label="Өмчлөлийн хэлбэр" type="string" />
+          <camunda:formField id="ownerCifNumber" label="Өмчлөгчийн СИФ дугаар" type="string">
+            <camunda:validation>
+              <camunda:constraint name="maxlength" config="51" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="ownerName" label="Өмчлөгчийн нэр" type="string">
+            <camunda:validation>
+              <camunda:constraint name="required" />
+              <camunda:constraint name="maxlength" config="81" />
+            </camunda:validation>
+          </camunda:formField>
+        </camunda:formData>
+        <camunda:properties>
+          <camunda:property name="createImmovableCollParentTaskName" value="user_task_collateral_list" />
+        </camunda:properties>
+        <camunda:taskListener delegateExpression="${setParentTaskIdTaskListener}" event="create" />
+        <camunda:taskListener delegateExpression="${setRootParentIdTaskListener}" event="complete" />
+      </bpmn:extensionElements>
+      <bpmn:outgoing>SequenceFlow_0xp6176</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:serviceTask id="Task_0l7slu2" name="create machinery collateral to CBS" camunda:delegateExpression="${createMachineryCollateralTask}">
+      <bpmn:incoming>SequenceFlow_0xp6176</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_1y2rnez</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:userTask id="user_task_new_core_create_vehicle_collateral" name="14. Барьцаа хөрөнгө үүсгэх" camunda:formKey="14. Барьцаа үүсгэх -  Тээврийн хэрэгсэл">
+      <bpmn:extensionElements>
+        <camunda:formData>
+          <camunda:formField id="collateralCode" label="Барьцааны код" type="string">
+            <camunda:properties>
+              <camunda:property id="Property_0cd2uud" />
+            </camunda:properties>
+            <camunda:validation>
+              <camunda:constraint name="required" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="vehicleRegisterNumber" label="Тээврийн хэрэгслийн улсын дугаар" type="string">
+            <camunda:validation>
+              <camunda:constraint name="required" />
+              <camunda:constraint name="maxlength" config="21" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="formNumber" label="Моторын багтаамж" type="string">
+            <camunda:validation>
+              <camunda:constraint name="maxlength" config="21" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="chassisNumber" label="Гэрчилгээний дугаар" type="string">
+            <camunda:validation>
+              <camunda:constraint name="maxlength" config="21" />
+              <camunda:constraint name="required" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="engineNumber" label="Арлын дугаар" type="string">
+            <camunda:validation>
+              <camunda:constraint name="required" />
+              <camunda:constraint name="maxlength" config="21" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="manufactureYear" label=" Үйлдвэрлэсэн он сар" type="string">
+            <camunda:validation>
+              <camunda:constraint name="maxlength" config="7" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="vehicleModel" label="Марк" type="string">
+            <camunda:validation>
+              <camunda:constraint name="maxlength" config="16" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="financialLeasingSupplier" label="Санхүүгийн түрээс нийлүүлэгч 1" type="string">
+            <camunda:validation>
+              <camunda:constraint name="required" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="purposeOfUsage" label="Зориулалт" type="string" />
+          <camunda:formField id="remarks" label="Тайлбар" type="string">
+            <camunda:validation>
+              <camunda:constraint name="maxlength" config="241" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="address1" label="Хаяг1" type="string">
+            <camunda:validation>
+              <camunda:constraint name="maxlength" config="46" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="address2" label="Хаяг2" type="string">
+            <camunda:validation>
+              <camunda:constraint name="maxlength" config="46" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="address3" label="Хаяг3" type="string">
+            <camunda:validation>
+              <camunda:constraint name="maxlength" config="46" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="cifNumber" label="Хэрэглэгчийн CIF" type="string">
+            <camunda:validation>
+              <camunda:constraint name="maxlength" config="51" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="inspectionType" label="Үнэлгээний төрөл" type="string">
+            <camunda:properties>
+              <camunda:property id="Property_22g5hnu" />
+            </camunda:properties>
+            <camunda:validation>
+              <camunda:constraint name="required" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="inspectionAmountValue" label="Үнэлгээчний үнэлгээ" type="long">
+            <camunda:validation>
+              <camunda:constraint name="required" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="amountOfCollateral" label="Барьцааны дүн" type="long">
+            <camunda:validation>
+              <camunda:constraint name="required" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="deductionRate" label="Хасагдуулах хувь" type="string" defaultValue="0">
+            <camunda:validation>
+              <camunda:constraint name="readonly" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="collateralAssessment" label="Үнэлгээ" type="long">
+            <camunda:validation>
+              <camunda:constraint name="readonly" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="inspectorId" label="Хяналт хийсэн ажилтны ID" type="string">
+            <camunda:validation>
+              <camunda:constraint name="maxlength" config="5" />
+              <camunda:constraint name="required" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="inspectionDate" label="Үнэлгээ хийсэн огноо" type="date" />
+          <camunda:formField id="ownershipType" label="Өмчлөлийн хэлбэр" type="string" />
+          <camunda:formField id="ownerCifNumber" label="Өмчлөгчийн СИФ дугаар" type="string">
+            <camunda:validation>
+              <camunda:constraint name="maxlength" config="51" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="ownerName" label="Өмчлөгчийн нэр" type="string">
+            <camunda:validation>
+              <camunda:constraint name="required" />
+              <camunda:constraint name="maxlength" config="81" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="reviewDate" label="Нөхөн барьцаалсан огноо" type="date" />
+        </camunda:formData>
+        <camunda:properties>
+          <camunda:property name="createVehicleCollParentTaskName" value="user_task_collateral_list" />
+        </camunda:properties>
+        <camunda:taskListener delegateExpression="${setParentTaskIdTaskListener}" event="create" />
+        <camunda:taskListener delegateExpression="${setRootParentIdTaskListener}" event="complete" />
+      </bpmn:extensionElements>
+      <bpmn:incoming>SequenceFlow_0nc0yyd</bpmn:incoming>
+      <bpmn:outgoing>Flow_0i6p3xx</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:serviceTask id="Activity_0wd7c1s" name="create vehicle collateral to CBS" camunda:delegateExpression="${createVehicleCollateralServiceTask}">
+      <bpmn:incoming>Flow_0i6p3xx</bpmn:incoming>
+      <bpmn:outgoing>Flow_0f0yeh9</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:userTask id="user_task_new_core_create_other_collateral" name="14. Барьцаа хөрөнгө үүсгэх" camunda:formKey="14. Барьцаа үүсгэх - Бусад">
+      <bpmn:extensionElements>
+        <camunda:taskListener delegateExpression="${setParentTaskIdTaskListener}" event="create" />
+        <camunda:taskListener delegateExpression="${setRootParentIdTaskListener}" event="complete" />
+        <camunda:formData>
+          <camunda:formField id="collateralCode" label="Барьцааны код" type="string">
+            <camunda:validation>
+              <camunda:constraint name="required" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="formNumber" label="Барьцаалбарын дугаар" type="string">
+            <camunda:validation>
+              <camunda:constraint name="maxlength" config="21" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="cifNumber" label="Барьцаалагчийн дугаар" type="string">
+            <camunda:validation>
+              <camunda:constraint name="maxlength" config="51" />
+              <camunda:constraint name="required" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="receivedDate" label="Ашиглалтанд орсон огноо" type="date" />
+          <camunda:formField id="reviewDate" label="Нөхөн барьцаалсан огноо" type="date" />
+          <camunda:formField id="machineModel" label="Тоног төхөөрөмжийн загвар" type="string">
+            <camunda:validation>
+              <camunda:constraint name="maxlength" config="16" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="manufactureYear" label="Үйлдвэрлэсэн огноо" type="string">
+            <camunda:validation>
+              <camunda:constraint name="maxlength" config="7" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="remarks" label="Тайлбар" type="string">
+            <camunda:validation>
+              <camunda:constraint name="maxlength" config="241" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="inspectionType" label="Үнэлгээний төрөл" type="string">
+            <camunda:validation>
+              <camunda:constraint name="required" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="inspectionAmountValue" label="Үнэлгээчний үнэлгээ" type="long">
+            <camunda:validation>
+              <camunda:constraint name="required" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="amountOfCollateral" label="Барьцааны дүн" type="long">
+            <camunda:validation>
+              <camunda:constraint name="required" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="deductionRate" label="Хасагдуулах хувь" type="string" defaultValue="0">
+            <camunda:validation>
+              <camunda:constraint name="readonly" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="collateralAssessment" label="Үнэлгээ" type="long">
+            <camunda:validation>
+              <camunda:constraint name="readonly" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="inspectorId" label="Хяналт хийсэн ажилтны ID" type="string">
+            <camunda:validation>
+              <camunda:constraint name="maxlength" config="6" />
+              <camunda:constraint name="required" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="inspectionDate" label="Үнэлгээ хийсэн огноо" type="date" />
+          <camunda:formField id="ownershipType" label="Өмчлөлийн хэлбэр" type="string" />
+          <camunda:formField id="ownerCifNumber" label="Өмчлөгчийн СИФ дугаар" type="string">
+            <camunda:validation>
+              <camunda:constraint name="maxlength" config="51" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="ownerName" label="Өмчлөгчийн нэр" type="string">
+            <camunda:validation>
+              <camunda:constraint name="maxlength" config="81" />
+              <camunda:constraint name="required" />
+            </camunda:validation>
+          </camunda:formField>
+        </camunda:formData>
+        <camunda:properties>
+          <camunda:property name="createOtherCollParentTaskName" value="user_task_collateral_list" />
+        </camunda:properties>
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_1j5m0kh</bpmn:incoming>
+      <bpmn:outgoing>Flow_1j47gd7</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:serviceTask id="Activity_0pfkr3g" name="create other collateral to CBS" camunda:delegateExpression="${createOtherCollateralServiceTask}">
+      <bpmn:incoming>Flow_1j47gd7</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_1nxs7kt</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:startEvent id="StartEvent_1">
+      <bpmn:outgoing>SequenceFlow_0y6ecis</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:userTask id="user_task_create_collateral" name="14. Барьцаа хөрөнгө үүсгэх" camunda:formKey="14. Барьцаа үүсгэх">
+      <bpmn:extensionElements>
+        <camunda:formData>
+          <camunda:formField id="collateralType" label="Барьцааны үндсэн төрөл" type="string">
+            <camunda:properties>
+              <camunda:property id="immovableCollateral" value="Үл хөдлөхийн барьцаа хөрөнгө" />
+              <camunda:property id="vehicleCollateral" value="Тээврийн хэрэгсэлийн барьцаа хөрөнгө" />
+              <camunda:property id="machineryCollateral" value="Тоног төхөөрөмжийн барьцаа хөрөнгө" />
+              <camunda:property id="otherCollateral" value="Бусад барьцаа хөрөнгө" />
+            </camunda:properties>
+          </camunda:formField>
+        </camunda:formData>
+      </bpmn:extensionElements>
+      <bpmn:incoming>SequenceFlow_0y6ecis</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_0xn1s7o</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:serviceTask id="Task_1bm4c95" name="set create collateral related user task id" camunda:delegateExpression="${setCreateCollateralRelatedUserTaskIdTask}">
+      <bpmn:incoming>SequenceFlow_0xn1s7o</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_12lkp6t</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:sequenceFlow id="Flow_1j47gd7" sourceRef="user_task_new_core_create_other_collateral" targetRef="Activity_0pfkr3g" />
+    <bpmn:sequenceFlow id="Flow_1j5m0kh" sourceRef="ExclusiveGateway_1c8ttcf" targetRef="user_task_new_core_create_other_collateral">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${collateralType =="otherCollateral"}</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:sequenceFlow id="SequenceFlow_1y2rnez" sourceRef="Task_0l7slu2" targetRef="ExclusiveGateway_01f6rsl" />
+    <bpmn:sequenceFlow id="SequenceFlow_0xp6176" sourceRef="user_task_new_core_create_machinery_collateral" targetRef="Task_0l7slu2" />
+    <bpmn:sequenceFlow id="SequenceFlow_1ouu5j7" sourceRef="ExclusiveGateway_1c8ttcf" targetRef="user_task_new_core_create_machinery_collateral">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${collateralType =="machineryCollateral"}</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:sequenceFlow id="Flow_0f0yeh9" sourceRef="Activity_0wd7c1s" targetRef="ExclusiveGateway_01f6rsl" />
+    <bpmn:sequenceFlow id="Flow_0i6p3xx" sourceRef="user_task_new_core_create_vehicle_collateral" targetRef="Activity_0wd7c1s" />
+    <bpmn:sequenceFlow id="SequenceFlow_0nc0yyd" sourceRef="ExclusiveGateway_1c8ttcf" targetRef="user_task_new_core_create_vehicle_collateral">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${collateralType =="vehicleCollateral"}</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:sequenceFlow id="SequenceFlow_0ne0o89" sourceRef="ExclusiveGateway_1c8ttcf" targetRef="user_task_new_core_create_immovable_collateral">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${collateralType =="immovableCollateral"}</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:sequenceFlow id="SequenceFlow_1bf2frx" sourceRef="ExclusiveGateway_01f6rsl" targetRef="Task_041t02c" />
+    <bpmn:sequenceFlow id="SequenceFlow_0tujdiy" sourceRef="user_task_new_core_create_immovable_collateral" targetRef="Activity_15gkdvn" />
+    <bpmn:sequenceFlow id="Flow_1ddbfcr" sourceRef="Activity_15gkdvn" targetRef="ExclusiveGateway_01f6rsl" />
+    <bpmn:sequenceFlow id="SequenceFlow_0xn1s7o" sourceRef="user_task_create_collateral" targetRef="Task_1bm4c95" />
+    <bpmn:sequenceFlow id="SequenceFlow_0y6ecis" sourceRef="StartEvent_1" targetRef="user_task_create_collateral" />
+    <bpmn:sequenceFlow id="SequenceFlow_12lkp6t" sourceRef="Task_1bm4c95" targetRef="ExclusiveGateway_1c8ttcf" />
+    <bpmn:sequenceFlow id="SequenceFlow_0yua1yx" sourceRef="Task_041t02c" targetRef="EndEvent_18d071t" />
+    <bpmn:sequenceFlow id="SequenceFlow_1nxs7kt" sourceRef="Activity_0pfkr3g" targetRef="ExclusiveGateway_01f6rsl" />
+    <bpmn:exclusiveGateway id="ExclusiveGateway_01f6rsl">
+      <bpmn:incoming>Flow_1ddbfcr</bpmn:incoming>
+      <bpmn:incoming>SequenceFlow_1y2rnez</bpmn:incoming>
+      <bpmn:incoming>Flow_0f0yeh9</bpmn:incoming>
+      <bpmn:incoming>SequenceFlow_1nxs7kt</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_1bf2frx</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:serviceTask id="Task_041t02c" name="clear related user task id variable" camunda:delegateExpression="${clearRelatedUserTaskIdVariableTask}">
+      <bpmn:incoming>SequenceFlow_1bf2frx</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_0yua1yx</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:endEvent id="EndEvent_18d071t">
+      <bpmn:incoming>SequenceFlow_0yua1yx</bpmn:incoming>
+    </bpmn:endEvent>
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Collaboration_0qtiq96">
+      <bpmndi:BPMNShape id="Participant_00oufh1_di" bpmnElement="Participant_00oufh1" isHorizontal="true">
+        <dc:Bounds x="160" y="80" width="1290" height="460" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="SequenceFlow_1nxs7kt_di" bpmnElement="SequenceFlow_1nxs7kt">
+        <di:waypoint x="1030" y="340" />
+        <di:waypoint x="1140" y="340" />
+        <di:waypoint x="1140" y="325" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_0yua1yx_di" bpmnElement="SequenceFlow_0yua1yx">
+        <di:waypoint x="1310" y="300" />
+        <di:waypoint x="1362" y="300" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_12lkp6t_di" bpmnElement="SequenceFlow_12lkp6t">
+        <di:waypoint x="600" y="300" />
+        <di:waypoint x="675" y="300" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_0y6ecis_di" bpmnElement="SequenceFlow_0y6ecis">
+        <di:waypoint x="268" y="300" />
+        <di:waypoint x="350" y="300" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_0xn1s7o_di" bpmnElement="SequenceFlow_0xn1s7o">
+        <di:waypoint x="450" y="300" />
+        <di:waypoint x="500" y="300" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1ddbfcr_di" bpmnElement="Flow_1ddbfcr">
+        <di:waypoint x="1030" y="136" />
+        <di:waypoint x="1140" y="136" />
+        <di:waypoint x="1140" y="275" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_0tujdiy_di" bpmnElement="SequenceFlow_0tujdiy">
+        <di:waypoint x="857" y="138" />
+        <di:waypoint x="930" y="138" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_1bf2frx_di" bpmnElement="SequenceFlow_1bf2frx">
+        <di:waypoint x="1165" y="300" />
+        <di:waypoint x="1210" y="300" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_0ne0o89_di" bpmnElement="SequenceFlow_0ne0o89">
+        <di:waypoint x="700" y="275" />
+        <di:waypoint x="700" y="136" />
+        <di:waypoint x="760" y="136" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_0nc0yyd_di" bpmnElement="SequenceFlow_0nc0yyd">
+        <di:waypoint x="700" y="325" />
+        <di:waypoint x="700" y="450" />
+        <di:waypoint x="757" y="450" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0i6p3xx_di" bpmnElement="Flow_0i6p3xx">
+        <di:waypoint x="857" y="440" />
+        <di:waypoint x="930" y="440" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0f0yeh9_di" bpmnElement="Flow_0f0yeh9">
+        <di:waypoint x="1030" y="440" />
+        <di:waypoint x="1140" y="440" />
+        <di:waypoint x="1140" y="325" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_1ouu5j7_di" bpmnElement="SequenceFlow_1ouu5j7">
+        <di:waypoint x="700" y="275" />
+        <di:waypoint x="700" y="240" />
+        <di:waypoint x="757" y="240" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_0xp6176_di" bpmnElement="SequenceFlow_0xp6176">
+        <di:waypoint x="857" y="240" />
+        <di:waypoint x="930" y="240" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_1y2rnez_di" bpmnElement="SequenceFlow_1y2rnez">
+        <di:waypoint x="1030" y="240" />
+        <di:waypoint x="1140" y="240" />
+        <di:waypoint x="1140" y="275" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1j5m0kh_di" bpmnElement="Flow_1j5m0kh">
+        <di:waypoint x="700" y="325" />
+        <di:waypoint x="700" y="350" />
+        <di:waypoint x="757" y="350" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1j47gd7_di" bpmnElement="Flow_1j47gd7">
+        <di:waypoint x="857" y="340" />
+        <di:waypoint x="930" y="340" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="ExclusiveGateway_1c8ttcf_di" bpmnElement="ExclusiveGateway_1c8ttcf" isMarkerVisible="true">
+        <dc:Bounds x="675" y="275" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="UserTask_1rartx1_di" bpmnElement="user_task_new_core_create_immovable_collateral" bioc:stroke="rgb(67, 160, 71)" bioc:fill="rgb(200, 230, 201)">
+        <dc:Bounds x="757" y="98" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1wbq88r_di" bpmnElement="Activity_15gkdvn" bioc:stroke="rgb(251, 140, 0)" bioc:fill="rgb(255, 224, 178)">
+        <dc:Bounds x="930" y="96" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="UserTask_0domv1m_di" bpmnElement="user_task_new_core_create_machinery_collateral" bioc:stroke="rgb(67, 160, 71)" bioc:fill="rgb(200, 230, 201)">
+        <dc:Bounds x="757" y="200" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="ServiceTask_1tzge4t_di" bpmnElement="Task_0l7slu2" bioc:stroke="rgb(251, 140, 0)" bioc:fill="rgb(255, 224, 178)">
+        <dc:Bounds x="930" y="200" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0dcgh11_di" bpmnElement="user_task_new_core_create_vehicle_collateral" bioc:stroke="rgb(67, 160, 71)" bioc:fill="rgb(200, 230, 201)">
+        <dc:Bounds x="757" y="400" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1ofgicd_di" bpmnElement="Activity_0wd7c1s" bioc:stroke="rgb(251, 140, 0)" bioc:fill="rgb(255, 224, 178)">
+        <dc:Bounds x="930" y="400" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_13hz0sz_di" bpmnElement="user_task_new_core_create_other_collateral" bioc:stroke="rgb(67, 160, 71)" bioc:fill="rgb(200, 230, 201)">
+        <dc:Bounds x="757" y="300" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_16e9vm1_di" bpmnElement="Activity_0pfkr3g" bioc:stroke="rgb(251, 140, 0)" bioc:fill="rgb(255, 224, 178)">
+        <dc:Bounds x="930" y="300" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
+        <dc:Bounds x="232" y="282" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="UserTask_0t7to26_di" bpmnElement="user_task_create_collateral" bioc:stroke="rgb(67, 160, 71)" bioc:fill="rgb(200, 230, 201)">
+        <dc:Bounds x="350" y="260" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="ServiceTask_1fxrwg6_di" bpmnElement="Task_1bm4c95" bioc:stroke="rgb(251, 140, 0)" bioc:fill="rgb(255, 224, 178)">
+        <dc:Bounds x="500" y="260" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="ExclusiveGateway_01f6rsl_di" bpmnElement="ExclusiveGateway_01f6rsl" isMarkerVisible="true">
+        <dc:Bounds x="1115" y="275" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="ServiceTask_1uptqxb_di" bpmnElement="Task_041t02c" bioc:stroke="rgb(251, 140, 0)" bioc:fill="rgb(255, 224, 178)">
+        <dc:Bounds x="1210" y="260" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="EndEvent_18d071t_di" bpmnElement="EndEvent_18d071t">
+        <dc:Bounds x="1362" y="282" width="36" height="36" />
+      </bpmndi:BPMNShape>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>

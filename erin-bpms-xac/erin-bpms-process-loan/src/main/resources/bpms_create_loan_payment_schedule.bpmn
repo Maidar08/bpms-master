@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bioc="http://bpmn.io/schema/bpmn/biocolor/1.0" id="Definitions_0yflcr1" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="3.5.0">
+  <bpmn:collaboration id="Collaboration_12ltj31">
+    <bpmn:participant id="Participant_1jif76o" processRef="bpms_create_loan_payment_schedule" />
+  </bpmn:collaboration>
+  <bpmn:process id="bpms_create_loan_payment_schedule" isExecutable="true">
+    <bpmn:endEvent id="Event_0vpyfmz">
+      <bpmn:incoming>Flow_03tx5qw</bpmn:incoming>
+      <bpmn:incoming>Flow_1drplup</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:exclusiveGateway id="Gateway_067jxdk">
+      <bpmn:incoming>Flow_1e7z9wm</bpmn:incoming>
+      <bpmn:outgoing>Flow_1drplup</bpmn:outgoing>
+      <bpmn:outgoing>Flow_0dkemo1</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:serviceTask id="Activity_09wmw55" name="Зээлийн эргэн төлөлтийн хуваарь татах" camunda:delegateExpression="${createLoanPaymentScheduleTask}">
+      <bpmn:incoming>Flow_0dkemo1</bpmn:incoming>
+      <bpmn:outgoing>Flow_03tx5qw</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:startEvent id="StartEvent_1">
+      <bpmn:outgoing>Flow_1e7z9wm</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:sequenceFlow id="Flow_0dkemo1" name="Үндсэн төлбөр тэнцүү" sourceRef="Gateway_067jxdk" targetRef="Activity_09wmw55">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${repaymentType == "Үндсэн төлбөр тэнцүү"}</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:sequenceFlow id="Flow_1drplup" sourceRef="Gateway_067jxdk" targetRef="Event_0vpyfmz">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${repaymentType == "Нийт төлбөр тэнцүү"}</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:sequenceFlow id="Flow_03tx5qw" sourceRef="Activity_09wmw55" targetRef="Event_0vpyfmz" />
+    <bpmn:sequenceFlow id="Flow_1e7z9wm" sourceRef="StartEvent_1" targetRef="Gateway_067jxdk" />
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Collaboration_12ltj31">
+      <bpmndi:BPMNShape id="Participant_1jif76o_di" bpmnElement="Participant_1jif76o" isHorizontal="true">
+        <dc:Bounds x="160" y="60" width="710" height="250" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_03tx5qw_di" bpmnElement="Flow_03tx5qw">
+        <di:waypoint x="570" y="130" />
+        <di:waypoint x="730" y="130" />
+        <di:waypoint x="730" y="202" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1e7z9wm_di" bpmnElement="Flow_1e7z9wm">
+        <di:waypoint x="248" y="220" />
+        <di:waypoint x="315" y="220" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1drplup_di" bpmnElement="Flow_1drplup">
+        <di:waypoint x="365" y="220" />
+        <di:waypoint x="712" y="220" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0dkemo1_di" bpmnElement="Flow_0dkemo1">
+        <di:waypoint x="340" y="195" />
+        <di:waypoint x="340" y="130" />
+        <di:waypoint x="470" y="130" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="252" y="146" width="75" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
+        <dc:Bounds x="212" y="202" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_0vpyfmz_di" bpmnElement="Event_0vpyfmz">
+        <dc:Bounds x="712" y="202" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Gateway_067jxdk_di" bpmnElement="Gateway_067jxdk" isMarkerVisible="true" bioc:stroke="rgb(67, 160, 71)" bioc:fill="rgb(200, 230, 201)">
+        <dc:Bounds x="315" y="195" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1668irc_di" bpmnElement="Activity_09wmw55" bioc:stroke="rgb(67, 160, 71)" bioc:fill="rgb(200, 230, 201)">
+        <dc:Bounds x="470" y="90" width="100" height="80" />
+      </bpmndi:BPMNShape>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>

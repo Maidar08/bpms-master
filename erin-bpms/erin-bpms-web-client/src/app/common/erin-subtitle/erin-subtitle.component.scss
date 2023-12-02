@@ -1,0 +1,54 @@
+.title {
+  margin-top: 1vh;
+  display: flex;
+  flex-direction: row;
+  color: gray;
+  height: 20px;
+}
+
+.title-text {
+  font-size: 13px;
+}
+.line {
+  width: 75%;
+  height: 0.03px;
+}
+
+@media only screen and (max-width: 1290px) {
+  .title {
+    margin-top: 3%;
+    margin-bottom: 3%;
+  }
+  .title-text {
+    margin-left: 1% ;
+  }
+}
+@media (max-width: 910px) {
+  .line {
+    width: 50%
+  }
+  .title-text {
+    margin-left: 1.5% ;
+  }
+}
+@media only screen and (max-width: 1024px){
+  .separator-line {
+    margin-top: 3%;
+  }
+  .line {
+    width: 60%;
+  }
+}
+
+@media (min-width: 1300px) and (max-width: 1510px){
+  .separator-line {
+    margin-top: 3%;
+  }
+  .line {
+    width: 65%;
+  }
+  .title {
+    padding-bottom: 5px;
+  }
+}
+

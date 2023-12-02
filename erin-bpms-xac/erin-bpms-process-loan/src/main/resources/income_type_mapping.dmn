@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/DMN/20151101/dmn.xsd" xmlns:camunda="http://camunda.org/schema/1.0/dmn" id="Definitions_0uzfvbi" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="3.7.1">
+  <decision id="incomeTypeMapping" name="Income Type Mapping">
+    <decisionTable id="decisionTable_1">
+      <input id="input_1" label="Salary Info" camunda:inputVariable="incomeType">
+        <inputExpression id="inputExpression_1" typeRef="string">
+          <text></text>
+        </inputExpression>
+      </input>
+      <output id="output_1" label="Income Type" name="income_type" typeRef="string" />
+      <rule id="DecisionRule_19vo831">
+        <inputEntry id="UnaryTests_0vd119i">
+          <text>"Цалингийн орлого"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_17565ed">
+          <text>"A"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1tqijlj">
+        <inputEntry id="UnaryTests_13v9rx4">
+          <text>"Бизнесийн орлого"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1ipzei5">
+          <text>"B"</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+</definitions>

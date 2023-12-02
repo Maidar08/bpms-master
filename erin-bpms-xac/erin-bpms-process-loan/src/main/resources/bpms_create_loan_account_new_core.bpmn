@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bioc="http://bpmn.io/schema/bpmn/biocolor/1.0" id="Definitions_0hl5bab" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="3.7.3">
+  <bpmn:collaboration id="Collaboration_1cfzcwy">
+    <bpmn:participant id="Participant_1ntxd45" name="Зээлийн данс үүсгэх" processRef="bpms_create_loan_account_new_core" />
+  </bpmn:collaboration>
+  <bpmn:process id="bpms_create_loan_account_new_core" isExecutable="true">
+    <bpmn:sequenceFlow id="SequenceFlow_0rxseoc" sourceRef="Task_19k0hbu" targetRef="ExclusiveGateway_0rbae9o" />
+    <bpmn:sequenceFlow id="SequenceFlow_1f9o55s" sourceRef="ExclusiveGateway_0rbae9o" targetRef="Event_171gpnt" />
+    <bpmn:sequenceFlow id="SequenceFlow_13291i5" sourceRef="ExclusiveGateway_0ag605q" targetRef="Task_19k0hbu">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${isLoanAccountCreate == false}</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:sequenceFlow id="Flow_02cta66" sourceRef="StartEvent_1" targetRef="Activity_1q4p62z" />
+    <bpmn:sequenceFlow id="SequenceFlow_1dget4q" sourceRef="Activity_1na5uix" targetRef="ExclusiveGateway_0ag605q" />
+    <bpmn:sequenceFlow id="SequenceFlow_0j93n6z" sourceRef="ExclusiveGateway_0ag605q" targetRef="Activity_1ov6owd">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${isLoanAccountCreate == true}</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:sequenceFlow id="SequenceFlow_1v6cjpk" sourceRef="Activity_1ov6owd" targetRef="ExclusiveGateway_0rbae9o" />
+    <bpmn:serviceTask id="Activity_1ov6owd" name="Create Loan Account to CBS (Finacle)" camunda:delegateExpression="${createLoanAccountNewCoreTask}">
+      <bpmn:incoming>SequenceFlow_0j93n6z</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_1v6cjpk</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:serviceTask id="Task_19k0hbu" name="Disable enabled tasks" camunda:delegateExpression="${disableTasksAfterAccountCreationTask}">
+      <bpmn:incoming>SequenceFlow_13291i5</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_0rxseoc</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:exclusiveGateway id="ExclusiveGateway_0rbae9o">
+      <bpmn:incoming>SequenceFlow_1v6cjpk</bpmn:incoming>
+      <bpmn:incoming>SequenceFlow_0rxseoc</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_1f9o55s</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:endEvent id="Event_171gpnt">
+      <bpmn:incoming>SequenceFlow_1f9o55s</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:exclusiveGateway id="ExclusiveGateway_0ag605q">
+      <bpmn:incoming>SequenceFlow_1dget4q</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_0j93n6z</bpmn:outgoing>
+      <bpmn:outgoing>SequenceFlow_13291i5</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:startEvent id="StartEvent_1">
+      <bpmn:outgoing>Flow_02cta66</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:userTask id="Activity_1na5uix" name="17. Зээлийн данс үүсгэх" camunda:formKey="17. Зээлийн данс үүсгэх">
+      <bpmn:extensionElements>
+        <camunda:formData>
+          <camunda:formField id="loanProduct" label="Бүтээгдэхүүн" type="string">
+            <camunda:validation>
+              <camunda:constraint name="readonly" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="fixedAcceptedLoanAmountString" label="Баталсан зээлийн дүн" type="string">
+            <camunda:validation>
+              <camunda:constraint name="readonly" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="loanAccountNumber" label="Зээлийн данс" type="string">
+            <camunda:validation>
+              <camunda:constraint name="readonly" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="numberOfPayments" label="Эргэн төлөлтийн тоо" type="string">
+            <camunda:validation>
+              <camunda:constraint name="required" />
+              <camunda:constraint name="maxlength" config="3" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="yearlyInterestRateString" label="Зээлийн хүү" type="string">
+            <camunda:validation>
+              <camunda:constraint name="required" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="accountBranchNumber" label="Төлөлт хийх дансны салбар" type="string">
+            <camunda:validation>
+              <camunda:constraint name="readonly" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="frequency" label="Давтамж" type="string" defaultValue="1">
+            <camunda:validation>
+              <camunda:constraint name="readonly" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="depositInterestRateString" label="Нэмэгдүүлсэн хүү" type="string">
+            <camunda:validation>
+              <camunda:constraint name="readonly" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="currentAccountNumber" label="Дансны Дугаар" type="string">
+            <camunda:validation>
+              <camunda:constraint name="required" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="dayOfPayment" label="Төлөлт хийх өдөр" type="string">
+            <camunda:validation>
+              <camunda:constraint name="readonly" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="fees" label="Шимтгэл" type="string">
+            <camunda:validation>
+              <camunda:constraint name="required" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="firstPaymentDate" label="Төлөлт хийх эхний огноо" type="date">
+            <camunda:validation>
+              <camunda:constraint name="required" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="additionalSpecialCondition" label="Нэмэлт тусгай нөхцөл" type="string" />
+          <camunda:formField id="AccountFreeCode2" label="Хугацаа сунгасан тоо" type="string" />
+          <camunda:formField id="AccountFreeCode3" label="Зээлийн мөчлөг" type="string" />
+          <camunda:formField id="TypeOfAdvance" label="Даатгалын ком/нэр-хариуцсан ЗМ" type="string" />
+          <camunda:formField id="BorrowerCategoryCode" label="Зээлийн зориулалт" type="string" />
+          <camunda:formField id="FREE_CODE_4" label="Нөхцөл өөрчилсөн тоо" type="string" />
+          <camunda:formField id="FREE_CODE_5" label="ХХ шалтгаан &#38; анхаарал тат" type="string" />
+          <camunda:formField id="FREE_CODE_6" label="Анхаарал татсан зээл" type="string" />
+          <camunda:formField id="FREE_CODE_7" label="Анх олгосон валют" type="string" />
+          <camunda:formField id="FREE_CODE_8" label="Ногоон зээлийн ангилал" type="string" defaultValue="ХАМААРАЛГҮЙ">
+            <camunda:validation>
+              <camunda:constraint name="required" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="FREE_CODE_9" label="БОАЖЯ татаас" type="string" />
+          <camunda:formField id="FREE_CODE_10" label="Хураамжийн төрөл" type="string" />
+          <camunda:formField id="NatureOfAdvance" label="С/Т_Нийлүүлэгч/Сургууль" type="string" />
+          <camunda:formField id="CustomerIndustryType" label="Зориулалт/Биз_төрөл" type="string" />
+          <camunda:formField id="PurposeOfAdvance" label="Төслийн зээлүүд" type="string" />
+          <camunda:formField id="AccountFreeCode1" label="С/Т_Нийлүүлэгч2" type="string" />
+          <camunda:formField id="sanctionedBy" label="Зээлийн шийдвэр/тогтоол" type="string">
+            <camunda:validation>
+              <camunda:constraint name="required" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="FREE_TEXT_15" label="Ногоон санхүүжилтийн хувь" type="string" defaultValue="0">
+            <camunda:properties>
+              <camunda:property id="Property_1glaef3" value="0" />
+              <camunda:property id="Property_3rk6ckj" value="10" />
+              <camunda:property id="Property_320r7bo" value="20" />
+              <camunda:property id="Property_2l6epes" value="30" />
+              <camunda:property id="Property_0nkeeoe" value="40" />
+              <camunda:property id="Property_15lgam2" value="50" />
+              <camunda:property id="Property_2fnpmdt" value="60" />
+              <camunda:property id="Property_35lsi2o" value="70" />
+              <camunda:property id="Property_0qfn9rt" value="80" />
+              <camunda:property id="Property_0dufnlb" value="90" />
+              <camunda:property id="Property_257sol8" value="100" />
+            </camunda:properties>
+            <camunda:validation>
+              <camunda:constraint name="required" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="modeOfAdvance" label="Mode of Advance" type="string">
+            <camunda:validation>
+              <camunda:constraint name="required" />
+            </camunda:validation>
+          </camunda:formField>
+        </camunda:formData>
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_0494q2s</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_1dget4q</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:sequenceFlow id="Flow_0494q2s" sourceRef="Activity_1q4p62z" targetRef="Activity_1na5uix" />
+    <bpmn:serviceTask id="Activity_1q4p62z" name="Set created User" camunda:delegateExpression="${setCreatedUserBeforeLoanAccountTask}">
+      <bpmn:incoming>Flow_02cta66</bpmn:incoming>
+      <bpmn:outgoing>Flow_0494q2s</bpmn:outgoing>
+    </bpmn:serviceTask>
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Collaboration_1cfzcwy">
+      <bpmndi:BPMNShape id="Participant_1ntxd45_di" bpmnElement="Participant_1ntxd45" isHorizontal="true">
+        <dc:Bounds x="160" y="60" width="1050" height="290" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="SequenceFlow_1v6cjpk_di" bpmnElement="SequenceFlow_1v6cjpk">
+        <di:waypoint x="760" y="120" />
+        <di:waypoint x="820" y="120" />
+        <di:waypoint x="820" y="185" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_0j93n6z_di" bpmnElement="SequenceFlow_0j93n6z">
+        <di:waypoint x="600" y="185" />
+        <di:waypoint x="600" y="120" />
+        <di:waypoint x="660" y="120" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_1dget4q_di" bpmnElement="SequenceFlow_1dget4q">
+        <di:waypoint x="540" y="210" />
+        <di:waypoint x="575" y="210" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_02cta66_di" bpmnElement="Flow_02cta66">
+        <di:waypoint x="268" y="210" />
+        <di:waypoint x="300" y="210" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_13291i5_di" bpmnElement="SequenceFlow_13291i5">
+        <di:waypoint x="600" y="235" />
+        <di:waypoint x="600" y="290" />
+        <di:waypoint x="660" y="290" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_1f9o55s_di" bpmnElement="SequenceFlow_1f9o55s">
+        <di:waypoint x="845" y="210" />
+        <di:waypoint x="932" y="210" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_0rxseoc_di" bpmnElement="SequenceFlow_0rxseoc">
+        <di:waypoint x="760" y="290" />
+        <di:waypoint x="820" y="290" />
+        <di:waypoint x="820" y="235" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0494q2s_di" bpmnElement="Flow_0494q2s">
+        <di:waypoint x="400" y="210" />
+        <di:waypoint x="440" y="210" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="Activity_1vxpmkj_di" bpmnElement="Activity_1ov6owd">
+        <dc:Bounds x="660" y="80" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="ServiceTask_1fcj1r8_di" bpmnElement="Task_19k0hbu">
+        <dc:Bounds x="660" y="250" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="ExclusiveGateway_0rbae9o_di" bpmnElement="ExclusiveGateway_0rbae9o" isMarkerVisible="true">
+        <dc:Bounds x="795" y="185" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_171gpnt_di" bpmnElement="Event_171gpnt">
+        <dc:Bounds x="932" y="192" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="ExclusiveGateway_0ag605q_di" bpmnElement="ExclusiveGateway_0ag605q" isMarkerVisible="true">
+        <dc:Bounds x="575" y="185" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
+        <dc:Bounds x="232" y="192" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0yepw37_di" bpmnElement="Activity_1na5uix" bioc:stroke="rgb(67, 160, 71)" bioc:fill="rgb(200, 230, 201)">
+        <dc:Bounds x="440" y="170" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0ulmuli_di" bpmnElement="Activity_1q4p62z">
+        <dc:Bounds x="300" y="170" width="100" height="80" />
+      </bpmndi:BPMNShape>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>

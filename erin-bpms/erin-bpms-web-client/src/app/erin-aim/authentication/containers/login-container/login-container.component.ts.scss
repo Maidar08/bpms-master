@@ -1,0 +1,157 @@
+.default-login-mat-card {
+  opacity: 1;
+  border-radius: 20px !important;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  top: 20vh;
+  bottom: 10vh;
+
+}
+.width-full {
+  width: 90%;
+}
+
+.login-button {
+  width: 80%;
+  margin-top: 5vh !important;
+  height: 45px;
+  border-radius: 30px !important;
+}
+
+.initial.mat-input-element {
+  background-color: black !important;
+}
+
+.header-text {
+  color: rgba(0, 0, 0, .5);
+}
+
+.login-content {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.login-actions > * {
+  margin-bottom: var(--basic-margin);
+}
+
+
+#login-footer {
+  width: var(--fill-out);
+  bottom: var(--basic-margin);
+}
+
+#header-logo {
+  width: 65%;
+  margin-bottom: var(--basic-margin);
+  margin-top: var(--basic-margin);
+  height: var(--fill-quarterl);
+}
+
+@media only screen and (max-height: 500px) {
+  #login-illustration {
+    background-image: none !important;
+  }
+}
+
+@media only screen and (max-height: 500px) and (max-width: 768px) {
+  .default-login-mat-card {
+    height: 100%;
+    min-height: 400px;
+    width: 80vw;
+    top: 1vh !important;
+
+    .login-content {
+      margin-top: 0 !important;
+      margin-bottom: 0 !important;
+      width: 80%;
+    }
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .default-login-mat-card {
+    height: 65vh;
+    min-height: 400px;
+    width: 80vw;
+    top: 5vh;
+    bottom: 5vh;
+  }
+  .login-content {
+    margin-top: 3vh;
+    width: 80%;
+  }
+}
+
+@media only screen and (min-width: 600px) and (max-width: 1000px) {
+  .default-login-mat-card {
+    min-height: 400px;
+    height: 50vh;
+    width: 50vw;
+    top: 10vh;
+  }
+  .login-content {
+    margin-top: 3vh;
+    width: 80%;
+  }
+  .login-button {
+    margin-top: 2vh !important;
+  }
+}
+
+@media only screen and (min-width: 1000px) and (max-width: 1400px) {
+  .default-login-mat-card {
+    min-height: 400px;
+    height: 50vh;
+    width: 35vw;
+    top: 10vh;
+  }
+  .login-content {
+    margin-top: 3vh;
+    width: 80%;
+  }
+  .login-button {
+    margin-top: 2vh !important;
+  }
+}
+
+@media only screen and (min-width: 2280px) {
+  .login-button {
+    margin-top: 2vh !important;
+  }
+}
+
+@media only screen and (min-width: 1400px) {
+  .default-login-mat-card {
+    height: 469px;
+    width: 400px;
+  }
+
+  #login-wrapper {
+    vertical-align: middle;
+  }
+
+  .login-content {
+    margin-top: 2vh;
+    width: 80%;
+  }
+}
+
+@media only screen and (min-height: 2000px) {
+  .default-login-mat-card {
+    height: 650px;
+    width: 400px;
+  }
+}
+
+#login-illustration {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+  min-height: var(--min-size-pixels);
+  color: gray;
+}
+

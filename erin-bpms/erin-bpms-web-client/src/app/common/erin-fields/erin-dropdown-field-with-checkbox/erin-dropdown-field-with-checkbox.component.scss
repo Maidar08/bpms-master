@@ -1,0 +1,41 @@
+::ng-deep .mat-form-field-appearance-outline .mat-form-field-flex {
+  width: 188px;
+  height: 32px;
+  margin-top: -8px !important;
+  margin-left: 10px !important;
+}
+label{
+  margin-left: 13px;
+}
+
+::ng-deep .mat-form-field {
+  line-height: 0.5;
+}
+
+::ng-deep .mat-option-text{
+  font-size: 12px;
+  color: black;
+}
+::ng-deep .mat-select-value-text {
+  font-size: 12px;
+}
+
+:host ::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline {
+  color:var(--primary-color);
+  border: 0.5px none;
+}
+
+:host ::ng-deep .mat-form-field-appearance-outline.mat-focused .mat-form-field-outline {
+  color: var(--secondary-color);
+  border: 1px none;
+}
+
+:host ::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline:hover {
+  color: red;
+  border: 0.5px none;
+}
+
+.error-label {
+  color: var(--error-color);
+}
+

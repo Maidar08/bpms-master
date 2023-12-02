@@ -1,0 +1,633 @@
+{
+  "_comment": "TAX PAY",
+  "user_task_branch_banking_tax_pay": {
+    "fieldGroups": [
+      {
+        "title": "ТАТВАР ТӨЛӨХ",
+        "type": "default",
+        "column": 4,
+        "fieldIds": ["searchType", "searchValueTax", "taxPayerName", "searchButtonTax"],
+        "buttonIds": ["searchButtonTax"],
+        "fields": []
+      },
+      {
+        "title": null,
+        "type": "default",
+        "column": 4,
+        "fieldIds": ["taxNumber", "searchTtdButton"],
+        "buttonIds": ["searchTtdButton"],
+        "noSeparator": true
+      }
+    ],
+    "table": {
+      "tableHeader": "Нэхэмжлэхийн жагсаалт",
+      "tableColumns": [
+        {"columnDef": "invoiceNumber", "headerText": "Нэхэмжлэхийн дугаар", "type": "string", "separator": false, "edit": false, "percent": false},
+        {"columnDef": "invoiceYear", "headerText": "Нэхэмжлэхийн огноо", "type": "string"},
+        {"columnDef": "invoiceType", "headerText": "Нэхэмжлэхийн төрөл", "type": "string"},
+        {"columnDef": "invoiceAmount", "headerText": "Нийт төлөх дүн", "type": "string"}
+      ],
+      "tableDoubleClick": "toChildTask"
+    },
+    "buttons": {
+      "complete": false
+    }
+  },
+  "_comment": "TAX PAY CHILD TASK",
+  "user_task_branch_banking_tax_pay_child": {
+    "fieldGroups": [
+      {
+        "title": null,
+        "type": "default",
+        "column": 4,
+        "fieldIds": ["invoiceNumber", "invoiceType", "taxPayerName", "taxAccountName", "taxTypeCode", "period", "assetDetail" ],
+        "fields": []
+      },
+      {
+        "subtitle": "Гүйлгээний мэдээлэл",
+        "type": "default",
+        "column": 5,
+        "fieldIds": ["transactionType"],
+        "fields": []
+      },
+      {
+        "title": null,
+        "type": "default",
+        "column": 5,
+        "fieldIds": ["accountNumber", "accountName", "accountBalance", "accountCurrency", "payCutAmount",
+                      "registerNumber", "phoneNumber", "invoiceAmount", "currency", "transactionDesc"],
+        "fields": [],
+        "noSeparator": true
+      }
+    ],
+    "buttons": {
+      "cancel": false, "transaction": false
+    },
+    "fieldAction": {"accountNumber":  "getAccountInfo"}
+  },
+
+  "_comment": "CUSTOM PAY",
+  "user_task_branch_banking_custom_pay": {
+    "fieldGroups": [
+      {
+        "title": "ГААЛИЙН ТӨЛБӨР ТӨЛӨХ",
+        "type": "default",
+        "column": 3,
+        "fieldIds": ["searchType", "searchValueCustom", "searchButtonCustom"],
+        "fields": [],
+        "buttonIds": ["searchButtonCustom"]
+      }
+    ],
+    "table": {
+      "tableHeader": "Нэхэмжлэхийн жагсаалт",
+      "tableColumns": [
+        {"columnDef": "branchName", "headerText": "Гаалийн салбар", "type": "string", "separator": false, "edit": false, "percent": false},
+        {"columnDef": "invoiceNumber", "headerText": "Нэхэмжлэх №", "type": "string"},
+        {"columnDef": "taxPayerName", "headerText": "ТT нэр", "type": "string"},
+        {"columnDef": "registerId", "headerText": "Регистр", "type": "string"},
+        {"columnDef": "paymentAmount", "headerText": "Төлбөрийн дүн", "type": "string"},
+        {"columnDef": "charge", "headerText": "Шимтгэл хураамж", "type": "BigDecimal"},
+        {"columnDef": "declarationDate", "headerText": "Огноо", "type": "string"},
+        {"columnDef": "type", "headerText": "Төрөл", "type": "string"}
+      ],
+      "tableDoubleClick": "toChildTask"
+    },
+    "buttons": {
+      "complete": false
+    }
+  },
+
+  "_comment": "CUSTOM PAY CHILD TASK",
+  "user_task_branch_banking_custom_pay_child": {
+    "fieldGroups": [
+      {
+        "title": "ГААЛИЙН ТӨЛБӨР ТӨЛӨХ",
+        "type": "default",
+        "column": 3,
+        "fieldIds": ["invoiceNumber", "paymentAmount", "currencyType"],
+        "fields": []
+      },
+      {
+        "title": null,
+        "type": "table",
+        "fields": [],
+        "fieldIds" : []
+      },
+      {
+        "title": null,
+        "subtitle": "Гүйлгээний мэдээлэл",
+        "type": "default",
+        "column": 5,
+        "fieldIds": ["transactionType"],
+        "fields": []
+      },
+      {
+        "title": null,
+        "type": "default",
+        "column": 5,
+        "fieldIds": ["accountNumber", "accountName","accountBalance","accountCurrency","deductionAmount"],
+        "fields": [],
+        "noSeparator": true
+      },
+      {
+        "title": null,
+        "type": "default",
+        "column": 5,
+        "fieldIds": ["customerName","phoneNumber", "payAmount","transactionCurrency", "transactionDescription"],
+        "fields": [],
+        "noSeparator": true
+      }
+    ],
+    "buttons": {
+      "cancel": false, "transaction": false
+    },
+    "fieldAction": {"accountNumber":  "getAccountInfo"},
+    "table": {
+      "tableHeader": "Нэхэмжлэхийн дэлгэрэнгүй",
+      "tableColumns": [
+        {
+          "columnDef": "bankAccountNumber",
+          "headerText": "Банкны данс",
+          "type": "string",
+          "separator": false,
+          "edit": false,
+          "percent": false
+        },
+        {
+          "columnDef": "paymentAccountNumber",
+          "headerText": "Хүлээн авах данс",
+          "separator": false,
+          "type": "string"
+        },
+        {
+          "columnDef": "type",
+          "headerText": "Үйлчилгээний төрөл",
+          "type": "string"
+        },
+        {
+          "columnDef": "paymentAmount",
+          "headerText": "Төлбөрийн дүн",
+          "type": "string"
+        }
+      ],
+      "isFlexibleTable": true
+    }
+  },
+  "_comment": "CUSTOMER TRANSACTION FORM",
+  "user_task_branch_banking_customer_transaction_form": {
+    "fieldGroups": [
+      {
+        "title": "Харилцагчийн гүйлгээний маягт",
+        "type": "default",
+        "column": 4,
+        "fieldIds": [
+          "transactionDate",
+          "searchButtonCustomTran"
+        ],
+        "buttonIds": [
+          "searchButtonCustomTran"
+        ],
+        "fields": []
+      },
+      {
+        "type": "default",
+        "column": 4,
+        "fieldIds": [
+          "transactionFormType",
+          "customerName",
+          "registerId",
+          "transactionNo"
+        ],
+        "fields": [],
+        "noSeparator": true
+      }
+    ],
+    "table": {
+    "tableHeader": "Гүйлгээний жагсаалт",
+    "tableColumns": [
+      {"columnDef": "transactionId", "headerText": "Гүйлгээний дугаар", "type": "string", "separator": false, "edit": false, "percent": false},
+      {"columnDef": "transactionDate", "headerText": "Огноо", "type": "string"},
+      {"columnDef": "branchId", "headerText": "Салбар", "type": "string"},
+      {"columnDef": "accountId", "headerText": "Дебит данс", "type": "string"},
+      {"columnDef": "transactionCCY", "headerText": "Валют", "type": "string"},
+      {"columnDef": "transactionAmount", "headerText": "Гүйлгээний дүн", "type": "string"},
+      {"columnDef": "userId", "headerText": "Гүйлгээ хийсэн", "type": "string"},
+      {"columnDef": "type", "headerText": "Гүйлгээний төрөл", "type": "string"},
+      {"columnDef": "subType", "headerText": "Дэд төрөл", "type": "string"},
+      {"columnDef": "status", "headerText": "Төлөв", "type": "string"}
+    ],
+    "tableClick": "selectTableRow",
+    "hasPagination": true
+  },
+    "buttons": {
+      "print": false,
+      "download": false,
+      "complete": false
+    }
+  },
+  "_comment": "E TRANSACTION FORM",
+  "user_task_branch_banking_e_transaction": {
+    "fieldGroups": [
+      {
+        "title": "Цахим гүйлгээ",
+        "type": "default",
+        "column": 4,
+        "fieldIds": [
+          "accountId",
+          "transactionStartDate",
+          "transactionEndDate",
+          "searchButtonETran"
+        ],
+        "buttonIds": [
+          "searchButtonETran"
+        ],
+        "fields": []
+      },
+      {
+        "type": "default",
+        "column": 4,
+        "fieldIds": [
+          "transactionChannel",
+          "transactionFormType",
+          "transactionNo"
+        ],
+        "fields": [],
+        "noSeparator": true
+      }
+    ],
+    "table" : {
+      "tableHeader": "Гүйлгээний жагсаалт",
+      "tableColumns": [
+        {"columnDef": "transactionId", "headerText": "Гүйлгээний дугаар", "type": "string", "separator": false, "edit": false, "percent": false},
+        {"columnDef": "transactionDate", "headerText": "Огноо", "type": "string"},
+        {"columnDef": "channelId", "headerText": "Дижитал суваг", "type": "string"},
+        {"columnDef": "payerAccName", "headerText": "Харилцагчийн нэр", "type": "string"},
+        {"columnDef": "payerBranchId", "headerText": "Салбар", "type": "string"},
+        {"columnDef": "payerAccountId", "headerText": "Дансны дугаар", "type": "string"},
+        {"columnDef": "transactionAmount", "headerText": "Гүйлгээний дүн", "type": "string"},
+        {"columnDef": "transactionCcy", "headerText": "Валют", "type": "string"},
+        {"columnDef": "transactionDesc", "headerText": "Гүйлгээний утга", "type": "string"},
+        {"columnDef": "recipientBankName", "headerText": "Хүлээн авагчийн банк", "type": "string"},
+        {"columnDef": "recipientBranchName", "headerText": "Салбар", "type": "string"},
+        {"columnDef": "recipientAccountName", "headerText": "Хүлээн авагчийн нэр", "type": "string"},
+        {"columnDef": "recipientAccountId", "headerText": "Хүлээн авагчийн данс", "type": "string"},
+        {"columnDef": "recipientAmount", "headerText": "Гүйлгээний дүн", "type": "string"},
+        {"columnDef": "recipientCcy", "headerText": "Валют", "type": "string"},
+        {"columnDef": "rate", "headerText": "Ханш", "type": "string"},
+        {"columnDef": "fee", "headerText": "Шимтгэл", "type": "string"}
+      ],
+      "tableClick": "selectTableRow",
+      "hasPagination": true,
+      "tableHasScrollX": true
+    },
+    "buttons": {
+      "print": false,
+      "download": false,
+      "complete": false
+    }
+  },
+
+  "_comment": "DEPOSIT CONTRACT",
+  "user_task_branch_banking_deposit_contract": {
+    "fieldGroups": [
+      {
+        "title": null,
+        "type": "default",
+        "column": 5,
+        "fieldIds": ["contractType", "cifNumber" , "accountId", "attachmentNumber", "downloadDepositButton"],
+        "fields": [],
+        "buttonIds": ["downloadDepositButton"]
+      }
+    ],
+    "buttons": {"complete":  false}
+  },
+  "_comment": "FUTURE MILLIONAIRE CONTRACT",
+  "user_task_branch_banking_future_millionare": {
+    "fieldGroups": [
+      {
+        "title": null,
+        "type": "default",
+        "column": 3,
+        "fieldIds": ["contractType", "accountId", "downloadDepositButton"],
+        "fields": [],
+        "buttonIds": ["downloadDepositButton"]
+      },
+      {
+        "title": null,
+        "subtitle" : "Хууль ёсны эзэмшигчийн мэдээлэл",
+        "type": "default",
+        "column": 3,
+        "fieldIds": ["parentsName", "name", "registerId"],
+        "fields": []
+      }
+    ],
+    "buttons": {"complete":  false}
+  },
+  "_comment": "ACCOUNT REFERENCE",
+  "user_task_branch_banking_account_reference": {
+    "fieldGroups": [
+      {
+        "title": "Дансны тодорхойлолт",
+        "type": "default",
+        "column": 3,
+        "fieldIds": ["accountIdEnter", "language"],
+        "fields": []
+      },
+      {
+        "subtitle": "Мэдээлэл", "type": "default", "column": 3,
+        "fieldIds": ["customerFullName", "accountBalanceRef", "accountCcy"],
+        "fields": []
+      },
+      {
+        "title": null,
+        "type": "default",
+        "column": 3,
+        "fieldIds": ["accountCreatedDt", "accountCloseDt"],
+        "fields": [],
+        "noSeparator": true
+      },
+      {
+        "title": null,
+        "type": "table",
+        "fields": [],
+        "fieldIds" : []
+      },
+      {
+        "subtitle": "Тодорхойлолт авах мэдээлэл",
+        "type": "default",
+        "column": "3",
+        "fieldIds": ["printAverageAmount", "printBalanceAmount", "showAccountCreatedDt"],
+        "checkboxFieldIds": ["printAverageAmount", "printBalanceAmount", "showAccountCreatedDt"],
+        "fields": [],
+        "noSeparator": true
+      },
+      {
+        "type": "textarea",
+        "fieldIds": ["descriptionRecipient", "additionalInfo"],
+        "column": 1,
+        "fields": [],
+        "noSeparator": true
+      },
+      {
+        "subtitle": "Хураамж",
+        "type": "default",
+        "fieldIds": ["transactionType","accountNumber","accountName","accountBalance","accountCurrency"],
+        "column": 5,
+        "fields": [],
+        "noSeparator": true
+      },
+      {
+        "type": "default",
+        "fieldIds": ["feesAmount","exemptFromFees","reduceFees"],
+        "checkboxFieldIds": ["exemptFromFees", "reduceFees"],
+        "column": 3,
+        "fields": [],
+        "noSeparator": false
+      }
+    ],
+    "fieldAction": {"accountIdEnter": "getAccountReference", "accountNumber": "getAccountInfo", "exemptFromFees": "exemptFromFees", "reduceFees":  "reduceFees" },
+    "table" : {
+      "tableHeader": "Хамтран эзэмшигчийн жагсаалт",
+      "tableColumns": [
+        {"columnDef": "checkJointHolder", "headerText": "", "type": "checkbox", "separator": false, "edit": false, "percent": false, "hasCheckbox":  true},
+        {"columnDef": "jointHolderName", "headerText": "Хамтран эзэмшигчийн нэр", "type": "string"},
+        {"columnDef": "jointHolderId", "headerText": "Сиф дугаар", "type": "string"}
+
+      ],
+      "isFlexibleTable": true
+    },
+
+    "buttons": {
+      "transaction": false,
+      "showTemplate": false,
+      "download": false,
+      "complete": false
+    }
+  },
+  "_comment": "SALARY PACKAGE TRANSACTION",
+  "user_task_branch_banking_salary_package": {
+    "fieldGroups": [
+      {
+        "title": "Цалингийн багц гүйлгээ",
+        "type": "default",
+        "column": 4,
+        "fieldIds": ["accountIdEnter", "accountName", "accountCurrency", "accountBalance"],
+        "fields": []
+      },
+      {
+        "subtitle": "Цалингийн багц гүйлгээ хийх",
+        "type": "default",
+        "column": 4,
+        "fieldIds": ["uploadFile", "fileNameChips"],
+        "buttonIds": ["uploadFile"],
+        "chipFieldIds": ["fileNameChips"],
+        "fields": []
+      },
+      {
+        "title": null,
+        "type": "default",
+        "column": 4,
+        "fieldIds": ["transactionCount", "transactionTotalAmount", "hasFee", "checkNameAndAccountNo"],
+        "fields": [],
+        "buttonIds": ["checkNameAndAccountNo"],
+        "checkboxFieldIds": ["hasFee"],
+        "noSeparator": true
+      },
+      {
+        "title": null,
+        "type": "table",
+        "fields": [],
+        "fieldIds" : []
+      },
+      {
+        "type": "textarea",
+        "fieldIds": ["transactionDescription", "invalidAccounts"],
+        "column": 1,
+        "fields": [],
+        "noSeparator": true
+      },
+      {
+        "type": "default",
+        "fieldIds": ["transactionDt","transactionNumber"],
+        "column": 4,
+        "fields": [],
+        "noSeparator": true
+      }
+    ],
+    "fieldAction": {"accountIdEnter": "getAccountInfo"},
+    "table" : {
+      "tableHeader": "Гүйлгээний жагсаалт",
+      "tableColumns": [
+        {"columnDef": "no", "headerText": "№", "type": "string"},
+        {"columnDef": "customerName", "headerText": "Харилцагчийн нэр", "type": "string"},
+        {"columnDef": "accountId", "headerText": "Дансны дугаар", "type": "string"},
+        {"columnDef": "transactionCcy", "headerText": "Гүйлгээний валют", "type": "string"},
+        {"columnDef": "amount", "headerText": "Мөнгөн дүн", "type": "string"},
+        {"columnDef": "accountCcy", "headerText": "Дансны валют", "type": "string"}
+
+      ],
+      "isFlexibleTable": true
+    },
+
+    "buttons": {
+      "transaction": false,
+      "complete": false
+    },
+    "textMessage": {
+      "warning": "АНХААРУУЛГА: Гүйлгээ хийхээс өмнө “НЭР ДАНС ШАЛГАХ” товч дарж данс зөв эсэхийг шалгана уу!"
+    }
+  },
+  "_comment": "USSD",
+  "user_task_branch_banking_ussd": {
+    "fieldGroups": [
+      {
+        "title": "USSD үйлчилгээ",
+        "type": "default",
+        "column": 4,
+        "fieldIds": [
+          "customerId",
+          "ussdSearchPhoneNumber",
+          "searchButtonUSSD"
+        ],
+        "buttonIds": [
+          "searchButtonUSSD"
+        ],
+        "fields": []
+      },
+      {
+        "subtitle": "Үндсэн мэдээлэл",
+        "type": "default",
+        "column": 4,
+        "fieldIds": [
+          "customerFullName",
+          "coreNumber",
+          "customerIdTwo",
+          "customerRegister"
+        ]
+      },
+      {
+        "subtitle": "USSD мэдээлэл",
+        "type": "default",
+        "column": 5,
+        "checkboxFieldIds": ["checkRegistration"],
+        "fieldIds": [
+          "checkRegistration",
+          "spaceNull",
+          "spaceNull",
+          "spaceNull",
+          "editButton"
+        ],
+        "buttonIds": [
+          "editButton"
+        ],
+        "fields": [],
+        "noSeparator": true
+      },
+      {
+        "title": null,
+        "type": "default",
+        "column": 4,
+        "fieldIds": [
+          "ussdPhoneNumber",
+          "mainAccount",
+          "customerStatus",
+          "registeredBranch",
+          "failedLoginAttempt",
+          "lastLoggedDt",
+          "registeredDt",
+          "registeredEmployee"
+        ],
+        "noSeparator": true
+      }
+    ],
+    "table": null,
+    "buttons": {
+      "forgetPassword": false,
+      "unblock": true,
+      "removeRights": true,
+      "recoveryRights": true,
+      "saveUssd": false,
+      "complete": false,
+      "confirmUssd": false,
+      "refuseUssd": false
+    }
+  },
+  "_comment": "Зээлийн эргэн төлөлт",
+  "user_task_branch_banking_loan_repayment": {
+    "fieldGroups": [
+      {
+        "title": "Зээл төлөлт",
+        "type": "default",
+        "column": 5,
+        "fieldIds": [
+          "accountId",
+          "calculateButton"
+        ],
+        "buttonIds": [
+          "calculateButton"
+        ],
+        "fields": []
+      },
+      {
+        "subtitle": "Зээлийн мэдээлэл",
+        "type": "default",
+        "column": 5,
+        "fieldIds": [
+          "loanRepaymentType",
+          "loanBalance",
+          "currencyValue",
+          "customerFullName"
+        ]
+      },
+      {
+        "subtitle": null,
+        "type": "default",
+        "column": 5,
+        "fieldIds": [
+          "basicPayment",
+          "interestPayment",
+          "penaltyAmount",
+          "feePayment",
+          "totalAmount"
+        ],
+        "fields": [],
+        "noSeparator": true
+      },
+      {
+        "subtitle": "Гүйлгээний мэдээлэл",
+        "type": "default",
+        "column": 5,
+        "fieldIds": [
+          "transactionType"
+        ],
+        "noSeparator": true
+      },
+      {
+        "subtitle": null,
+        "type": "default",
+        "column": 5,
+        "fieldIds": [
+          "accountNumber",
+          "accountBalance",
+          "accountCurrency",
+          "accountName",
+          "payLoanAmount"
+        ],
+        "noSeparator": true
+      },
+      {
+        "type": "textarea",
+        "fieldIds": ["transactionDescription"],
+        "column": 1,
+        "fields": [],
+        "noSeparator": true
+      }
+    ],
+    "table": null,
+    "buttons": {
+      "transaction": false,
+      "complete": false
+    },
+    "fieldAction": {"loanRepaymentType":  "handleLoanInfoOnRepayment", "accountNumber": "getAccountInfo"}
+  }
+}

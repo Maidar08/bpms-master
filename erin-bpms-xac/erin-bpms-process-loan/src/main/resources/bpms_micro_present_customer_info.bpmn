@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" id="Definitions_1ton4px" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="4.0.0">
+  <bpmn:collaboration id="Collaboration_0gc14zp">
+    <bpmn:participant id="Participant_0iwgw4z" name="1. Харилцагчийн үндсэн мэдээлэл" processRef="bpms_micro_present_customer_info" />
+  </bpmn:collaboration>
+  <bpmn:process id="bpms_micro_present_customer_info" isExecutable="true">
+    <bpmn:startEvent id="StartEvent_1">
+      <bpmn:outgoing>Flow_0w111li</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:userTask id="user_task_micro_customer_info" name="01. Харилцагчийн үндсэн мэдээлэл" camunda:formKey="01. Харилцагчийн үндсэн мэдээлэл">
+      <bpmn:extensionElements>
+        <camunda:formData>
+          <camunda:formField id="fullName" label="Овог, нэр" type="string">
+            <camunda:validation>
+              <camunda:constraint name="readonly" />
+              <camunda:constraint name="required" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="cifNumber" label="CIF" type="string">
+            <camunda:validation>
+              <camunda:constraint name="readonly" />
+              <camunda:constraint name="required" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="borrowerType" label="Зээлдэгчийн төрөл" type="string">
+            <camunda:validation>
+              <camunda:constraint name="readonly" />
+              <camunda:constraint name="required" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="occupancy" label="Ажил эрхлэлт" type="string" />
+          <camunda:formField id="address" label="Хаяг" type="string">
+            <camunda:validation>
+              <camunda:constraint name="readonly" />
+              <camunda:constraint name="required" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="phoneNumber" label="Утасны дугаар" type="string">
+            <camunda:validation>
+              <camunda:constraint name="required" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="email" label="Цахим хаяг" type="string" />
+        </camunda:formData>
+        <camunda:taskListener delegateExpression="${setCaseInstanceIdListener}" event="create" />
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_0w111li</bpmn:incoming>
+      <bpmn:outgoing>Flow_0q5kup8</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:sequenceFlow id="Flow_0w111li" sourceRef="StartEvent_1" targetRef="user_task_micro_customer_info" />
+    <bpmn:endEvent id="Event_0obkki9">
+      <bpmn:incoming>Flow_0q5kup8</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_0q5kup8" sourceRef="user_task_micro_customer_info" targetRef="Event_0obkki9" />
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Collaboration_0gc14zp">
+      <bpmndi:BPMNShape id="Participant_0iwgw4z_di" bpmnElement="Participant_0iwgw4z" isHorizontal="true">
+        <dc:Bounds x="160" y="110" width="410" height="250" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_0q5kup8_di" bpmnElement="Flow_0q5kup8">
+        <di:waypoint x="410" y="230" />
+        <di:waypoint x="472" y="230" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0w111li_di" bpmnElement="Flow_0w111li">
+        <di:waypoint x="265" y="230" />
+        <di:waypoint x="310" y="230" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
+        <dc:Bounds x="229" y="212" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1az7wzz_di" bpmnElement="user_task_micro_customer_info">
+        <dc:Bounds x="310" y="190" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_0obkki9_di" bpmnElement="Event_0obkki9">
+        <dc:Bounds x="472" y="212" width="36" height="36" />
+      </bpmndi:BPMNShape>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>

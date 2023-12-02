@@ -1,0 +1,19 @@
+/*
+ * (C)opyright, 2020, ERIN SYSTEMS LLC
+ * The source code is protected by copyright laws and international copyright
+ * treaties, as well as other intellectual property laws and treaties.
+ * All rights reserved.
+ */
+
+dependencies {
+
+  compile project(':erin-bpms-base-domain')
+
+  compile 'ch.qos.logback:logback-classic:1.2.6'
+
+  compile lib.erin.cmn
+  compile lib.erin.cmn_rest
+
+  compile lib.spring.mvc
+  compile lib.javax.servlet
+}

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:bioc="http://bpmn.io/schema/bpmn/biocolor/1.0" id="Definitions_01mk83b" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="4.0.0">
+  <bpmn:collaboration id="Collaboration_1l6hoo1">
+    <bpmn:participant id="direct_online_elementary_criteria" name="Direct Online Salary - Elementary Criteria" processRef="bpms_direct_online_elementary_criteria" />
+  </bpmn:collaboration>
+  <bpmn:process id="bpms_direct_online_elementary_criteria" isExecutable="true">
+    <bpmn:startEvent id="StartEvent_1">
+      <bpmn:outgoing>Flow_1kgxgp9</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:sequenceFlow id="Flow_1kgxgp9" sourceRef="StartEvent_1" targetRef="Activity_1yo345e" />
+    <bpmn:sequenceFlow id="Flow_0kez2im" sourceRef="Activity_1yo345e" targetRef="Event_0oml0t4" />
+    <bpmn:serviceTask id="Activity_1yo345e" name="Elementary criteria" camunda:delegateExpression="${elementaryCriteriaTask}">
+      <bpmn:incoming>Flow_1kgxgp9</bpmn:incoming>
+      <bpmn:outgoing>Flow_0kez2im</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:endEvent id="Event_0oml0t4">
+      <bpmn:incoming>Flow_0kez2im</bpmn:incoming>
+    </bpmn:endEvent>
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Collaboration_1l6hoo1">
+      <bpmndi:BPMNShape id="Participant_0nkv02c_di" bpmnElement="direct_online_elementary_criteria" isHorizontal="true">
+        <dc:Bounds x="140" y="70" width="520" height="240" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_1kgxgp9_di" bpmnElement="Flow_1kgxgp9">
+        <di:waypoint x="248" y="187" />
+        <di:waypoint x="330" y="187" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0kez2im_di" bpmnElement="Flow_0kez2im">
+        <di:waypoint x="430" y="187" />
+        <di:waypoint x="502" y="187" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
+        <dc:Bounds x="212" y="169" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1prui29_di" bpmnElement="Activity_1yo345e" bioc:stroke="rgb(251, 140, 0)" bioc:fill="rgb(255, 224, 178)">
+        <dc:Bounds x="330" y="147" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_0oml0t4_di" bpmnElement="Event_0oml0t4">
+        <dc:Bounds x="502" y="169" width="36" height="36" />
+      </bpmndi:BPMNShape>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>

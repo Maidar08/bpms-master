@@ -1,0 +1,98 @@
+.card-container {
+  margin: 16px;
+  width: auto;
+  height: fit-content;
+  min-height: 150px;
+}
+
+.title {
+  display: flex;
+  flex-direction: row;
+  color: gray;
+}
+.line {
+  width: 30%;
+  background-color: gray;
+  border-top: 0.2px solid gray;
+  border-bottom: 0.2px solid gray;
+  height: 0.5px;
+}
+.contract-line {
+  margin-top: 20px;
+  width: 90%;
+}
+:host ::ng-deep  .col1  .form-field-container {
+  grid-template-columns: 1fr 3fr;
+}
+
+.co-Borrowers {
+  display: flex;
+  margin: 10px 0 0 0;
+  color: gray;
+  .text {
+    margin-top: 5px;
+    font-size: 13px
+  }
+}
+
+.remove-btn {
+  position: absolute;
+  padding-top: 20px;
+  right: 1vw;
+}
+
+
+.material-icons-outlined {
+  font-size: 36px;
+  color: var(--primary-color);
+}
+
+.material-icons:hover {cursor: default;}
+.material-icons-outlined:hover {cursor: pointer;}
+
+:host ::ng-deep .other-bank {
+  .form-fields:nth-of-type(1) {grid-column: 1 / span 3;}
+}
+
+.loan-info {
+  .sub-line {width: 70%}
+}
+.button-container {
+  margin-top: 10px;
+  height: 50px;
+}
+button {
+  float: right;
+  height: 37px !important;
+  color: white;
+  margin-right: 10px;
+  margin-top: 15px;
+}
+
+@media only screen and (max-width: 1024px){
+  .card-container{
+    width: 59vw;
+    margin: 16px 0 16px 10px;
+  }
+  .remove-btn {
+    position: absolute;
+    padding-top: 20px;
+    right: 5px;
+  }
+}
+
+@media (min-width: 790px) and (max-width: 910px){
+  .card-container{
+    width: auto;
+    margin: 16px;
+  }
+  .separator-line {
+    margin-top: 3%;
+  }
+  .remove-btn {
+    position: absolute;
+    padding-top: 20px;
+    right: 0;
+  }
+}
+

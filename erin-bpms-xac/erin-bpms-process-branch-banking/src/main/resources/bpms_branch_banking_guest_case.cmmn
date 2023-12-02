@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cmmn:definitions xmlns:dc="http://www.omg.org/spec/CMMN/20151109/DC" xmlns:cmmndi="http://www.omg.org/spec/CMMN/20151109/CMMNDI" xmlns:cmmn="http://www.omg.org/spec/CMMN/20151109/MODEL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="Definitions_0e6wu1f" targetNamespace="http://bpmn.io/schema/cmmn" exporter="Camunda Modeler" exporterVersion="3.5.0">
+  <cmmn:case id="branch_banking_guest_case">
+    <cmmn:casePlanModel id="bpms_branch_banking_guest_case" name="Зочин">
+      <cmmn:planItem id="PlanItem_0kxlv82" definitionRef="ProcessTask_0ny4t39">
+        <cmmn:itemControl id="PlanItemControl_0k4nglv">
+          <cmmn:repetitionRule id="RepetitionRule_0422bh8" />
+          <cmmn:manualActivationRule id="ManualActivationRule_18cmnv2" />
+        </cmmn:itemControl>
+      </cmmn:planItem>
+      <cmmn:processTask id="ProcessTask_0ny4t39" name="Зочин" processRef="bpms_branch_banking_guest_process_task" />
+    </cmmn:casePlanModel>
+  </cmmn:case>
+  <cmmndi:CMMNDI>
+    <cmmndi:CMMNDiagram id="CMMNDiagram_1xnfxy2">
+      <cmmndi:Size width="500" height="500" />
+      <cmmndi:CMMNShape id="DI_CasePlanModel_03x4b9s" cmmnElementRef="bpms_branch_banking_guest_case">
+        <dc:Bounds x="154" y="99" width="534" height="389" />
+        <cmmndi:CMMNLabel />
+      </cmmndi:CMMNShape>
+      <cmmndi:CMMNShape id="PlanItem_0pyfvye_di" cmmnElementRef="PlanItem_0kxlv82">
+        <dc:Bounds x="258" y="168" width="100" height="80" />
+        <cmmndi:CMMNLabel />
+      </cmmndi:CMMNShape>
+    </cmmndi:CMMNDiagram>
+  </cmmndi:CMMNDI>
+</cmmn:definitions>

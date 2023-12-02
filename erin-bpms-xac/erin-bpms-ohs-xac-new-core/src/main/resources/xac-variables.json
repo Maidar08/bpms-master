@@ -1,0 +1,457 @@
+[
+  {
+    "id": "processTypeName",
+    "label": "\u0417\u044d\u044d\u043b\u0438\u0439\u043d \u0442\u04e9\u0440\u04e9\u043b",
+    "type": "String",
+    "context": "loan-request",
+    "isLocalVariable": false
+  },
+  {
+    "id": "amount",
+    "label": "\u0425\u04af\u0441\u0441\u044d\u043d \u0437\u044d\u044d\u043b\u0438\u0439\u043d \u0445\u044d\u043c\u0436\u044d\u044d",
+    "type": "BigDecimal",
+    "context": "loan-request",
+    "isLocalVariable": false
+  },
+  {
+    "id": "term",
+    "label": "\u0425\u0443\u0433\u0430\u0446\u0430\u0430 \u0028\u0421\u0430\u0440\u0430\u0430\u0440\u0029",
+    "type": "Integer",
+    "context": "loan-request",
+    "isLocalVariable": false
+  },
+  {
+    "id": "salaryAmount",
+    "label": "\u0421\u0430\u0440\u044b\u043d \u0446\u0430\u043b\u0438\u043d",
+    "type": "BigDecimal",
+    "context": "scoring",
+    "isLocalVariable": false
+  },
+  {
+    "id": "hasMortgage",
+    "label": "\u041e\u0440\u043e\u043d \u0441\u0443\u0443\u0446\u043d\u044b \u0437\u044d\u044d\u043b\u0442\u044d\u0439 \u044d\u0441\u044d\u0445",
+    "type": "boolean",
+    "context": "scoring",
+    "isLocalVariable": false
+  },
+  {
+    "id": "monthPaymentActiveLoan",
+    "label": "\u0418\u0434\u044d\u0432\u0445\u0438\u0442\u044d\u0439 \u0437\u044d\u044d\u043b\u0438\u0439\u043d \u0441\u0430\u0440\u044b\u043d \u0442\u04e9\u043b\u0431\u04e9\u0440",
+    "type": "BigDecimal",
+    "context": "scoring",
+    "isLocalVariable": false
+  },
+  {
+    "id": "debtIncomeBalanceString",
+    "label": "\u04e8\u0440 \u043e\u0440\u043b\u043e\u0433\u044b\u043d \u0445\u0430\u0440\u044c\u0446\u0430\u0430",
+    "type": "String",
+    "context": "scoring",
+    "isLocalVariable": false
+  },
+  {
+    "id": "debtIncomeIssuanceString",
+    "label": "\u041e\u043b\u0433\u043e\u0445 \u04af\u0435\u0438\u0439\u043d \u04e9\u0440 \u043e\u0440\u043b\u043e\u0433\u044b\u043d \u0445\u0430\u0440\u044c\u0446\u0430\u0430",
+    "type": "String",
+    "context": "scoring",
+    "isLocalVariable": false
+  },
+  {
+    "id": "scoring_level_risk",
+    "label": "\u0043\u043a\u043e\u0440\u0438\u043d\u0433 \u0437\u044d\u0440\u044d\u0433\u043b\u044d\u043b",
+    "type": "String",
+    "context": "scoring",
+    "isLocalVariable": false
+  },
+  {
+    "id": "score",
+    "label": "\u0043\u043a\u043e\u0440\u0438\u043d\u0433 \u043e\u043d\u043e\u043e",
+    "type": "String",
+    "context": "scoring",
+    "isLocalVariable": false
+  },
+  {
+    "id": "fixedAcceptedLoanAmountString",
+    "label": "\u0411\u0430\u0442\u043b\u0430\u0445 \u0437\u044d\u044d\u043b\u0438\u0439\u043d \u0445\u044d\u043c\u0436\u044d\u044d",
+    "type": "String",
+    "context": "scoring",
+    "isLocalVariable": false
+  },
+  {
+    "id": "grantLoanAmountString",
+    "label": "\u041e\u043b\u0433\u043e\u0436 \u0431\u043e\u043b\u043e\u0445 \u0437\u044d\u044d\u043b\u0438\u0439\u043d \u0445\u044d\u043c\u0436\u044d\u044d",
+    "type": "String",
+    "context": "scoring",
+    "isLocalVariable": false
+  },
+  {
+    "id": "interest_rate_string",
+    "label": "\u0422\u043e\u043e\u0446\u043e\u043e\u043b\u043e\u043b \u0445\u0438\u0439\u0433\u0434\u0441\u044d\u043d \u0445\u04af\u04af",
+    "type": "String",
+    "context": "scoring",
+    "isLocalVariable": false
+  },
+  {
+    "id": "repaymentType",
+    "label": "\u042d\u0440\u0433\u044d\u043d \u0442\u04e9\u043b\u04e9\u043b\u0442\u0438\u0439\u043d \u0442\u04e9\u0440\u04e9\u043b",
+    "type": "String",
+    "context": "scoring",
+    "isLocalVariable": false
+  },
+  {
+    "id": "organization_cif",
+    "label": "\u0426\u0430\u043b\u0438\u043d\u0433\u0438\u0439\u043d \u0431\u0430\u0439\u0433\u0443\u0443\u043b\u043b\u0430\u0433\u044b\u043d \u0043\u0049\u0046",
+    "type": "String",
+    "context": "scoring",
+    "isLocalVariable": false
+  },
+  {
+    "id": "salaryOrganizationName",
+    "label": "\u0426\u0430\u043b\u0438\u043d\u0433\u0438\u0439\u043d \u0431\u0430\u0439\u0433\u0443\u0443\u043b\u043b\u0430\u0433\u044b\u043d \u043d\u044d\u0440",
+    "type": "String",
+    "context": "scoring",
+    "isLocalVariable": false
+  },
+  {
+    "id": "registerNumber",
+    "label": "\u0420\u0435\u0433\u0438\u0441\u0442\u0440",
+    "type": "String",
+    "context": "customer",
+    "isLocalVariable": false
+  },
+  {
+    "id": "cifNumber",
+    "label": "\u0425\u0430\u0440\u0438\u043b\u0446\u0430\u0433\u0447\u0438\u0439\u043d \u0043\u0049\u0046",
+    "type": "String",
+    "context": "customer",
+    "isLocalVariable": false
+  },
+  {
+    "id": "fullName",
+    "label": "\u041e\u0432\u043e\u0433\u002c \u043d\u044d\u0440",
+    "type": "String",
+    "context": "customer",
+    "isLocalVariable": false
+  },
+  {
+    "id": "email",
+    "label": "\u0418\u002d\u043c\u044d\u0439\u043b",
+    "type": "String",
+    "context": "customer",
+    "isLocalVariable": false
+  },
+  {
+    "id": "phoneNumber",
+    "label": "\u0423\u0442\u0430\u0441",
+    "type": "String",
+    "context": "customer",
+    "isLocalVariable": false
+  },
+  {
+    "id": "address",
+    "label": "\u0425\u0430\u044f\u0433",
+    "type": "String",
+    "context": "customer",
+    "isLocalVariable": false
+  },
+  {
+    "id": "occupancy",
+    "label": "\u0410\u0436\u0438\u043b \u044d\u0440\u0445\u043b\u044d\u043b\u0442",
+    "type": "String",
+    "context": "customer",
+    "isLocalVariable": false
+  },
+  {
+    "id": "borrowerType",
+    "label": "\u0417\u044d\u044d\u043b\u0434\u044d\u0433\u0447\u0438\u0439\u043d \u0442\u04e9\u0440\u04e9\u043b",
+    "type": "String",
+    "context": "customer",
+    "isLocalVariable": false
+  },
+  {
+    "id": "borrowerTypeCoBorrower",
+    "label": "\u0417\u044d\u044d\u043b\u0434\u044d\u0433\u0447\u0438\u0439\u043d \u0442\u04e9\u0440\u04e9\u043b",
+    "type": "String",
+    "context": "co-borrower",
+    "isLocalVariable": false
+  },
+  {
+    "id": "registerNumberCoBorrower",
+    "label": "\u0420\u0435\u0433\u0438\u0441\u0442\u0440",
+    "type": "String",
+    "context": "co-borrower",
+    "isLocalVariable": false
+  },
+  {
+    "id": "cifNumberCoBorrower",
+    "label": "\u0425\u0430\u043c\u0442\u0440\u0430\u043d\u0433\u0438\u0439\u043d \u0043\u0049\u0046",
+    "type": "String",
+    "context": "co-borrower",
+    "isLocalVariable": false
+  },
+  {
+    "id": "fullNameCoBorrower",
+    "label": "\u041e\u0432\u043e\u0433\u002c\u043d\u044d\u0440",
+    "type": "String",
+    "context": "co-borrower",
+    "isLocalVariable": false
+  },
+  {
+    "id": "emailCoBorrower",
+    "label": "\u0418\u002d\u043c\u044d\u0439\u043b",
+    "type": "String",
+    "context": "co-borrower",
+    "isLocalVariable": false
+  },
+  {
+    "id": "phoneNumberCoBorrower",
+    "label": "\u0423\u0442\u0430\u0441",
+    "type": "String",
+    "context": "co-borrower",
+    "isLocalVariable": false
+  },
+  {
+    "id": "addressCoBorrower",
+    "label": "\u0425\u0430\u044f\u0433",
+    "type": "String",
+    "context": "co-borrower",
+    "isLocalVariable": false
+  },
+  {
+    "id": "occupancyCoBorrower",
+    "label": "\u0410\u0436\u0438\u043b \u044d\u0440\u0445\u043b\u044d\u043b\u0442",
+    "type": "String",
+    "context": "co-borrower",
+    "isLocalVariable": false
+  },
+  {
+    "id": "borrowerTypeCoBorrower",
+    "label": "\u0417\u044d\u044d\u043b\u0434\u044d\u0433\u0447\u0438\u0439\u043d \u0442\u04e9\u0440\u04e9\u043b",
+    "type": "String",
+    "context": "co-borrower",
+    "isLocalVariable": false
+  },
+  {
+    "id": "loanProductDescription",
+    "label": "\u0411\u04af\u0442\u044d\u044d\u0433\u0434\u044d\u0445\u04af\u04af\u043d",
+    "type": "String",
+    "context": "loan-account",
+    "isLocalVariable": false
+  },
+  {
+    "id": "fixedAcceptedLoanAmount",
+    "label": "\u0411\u0430\u0442\u0430\u043b\u0441\u0430\u043d \u0437\u044d\u044d\u043b\u0438\u0439\u043d \u0434\u04af\u043d",
+    "type": "BigDecimal",
+    "context": "loan-account",
+    "isLocalVariable": false
+  },
+  {
+    "id": "loanAccountNumber",
+    "label":"\u0417\u044d\u044d\u043b\u0438\u0439\u043d \u0434\u0430\u043d\u0441",
+    "type": "String",
+    "context": "loan-account",
+    "isLocalVariable": false
+  },
+  {
+    "id": "numberOfPayments",
+    "label":"\u042d\u0440\u0433\u044d\u043d \u0442\u04e9\u043b\u04e9\u043b\u0442\u0438\u0439\u043d \u0442\u043e\u043e",
+    "type": "String",
+    "context": "loan-account",
+    "isLocalVariable": false
+  },
+  {
+    "id": "frequency",
+    "label": "\u0414\u0430\u0432\u0442\u0430\u043c\u0436",
+    "type": "String",
+    "context": "loan-account",
+    "isLocalVariable": false
+  },
+  {
+    "id": "firstPaymentDate",
+    "label": "\u0422\u04e9\u043b\u04e9\u043b\u0442 \u0445\u0438\u0439\u0445 \u044d\u0445\u043d\u0438\u0439 \u043e\u0433\u043d\u043e\u043e",
+    "type": "Date",
+    "context": "loan-account",
+    "isLocalVariable": false
+  },
+  {
+    "id": "dayOfPayment",
+    "label": "\u0422\u04e9\u043b\u04e9\u043b\u0442 \u0445\u0438\u0439\u0445 \u04e9\u0434\u04e9\u0440",
+    "type": "String",
+    "context": "loan-account",
+    "isLocalVariable": false
+  },
+  {
+    "id": "yearlyInterestRateStringPercentage",
+    "label": "\u0417\u044d\u044d\u043b\u0438\u0439\u043d \u0445\u04af\u04af",
+    "type": "String",
+    "context": "loan-account",
+    "isLocalVariable": false
+  },
+  {
+    "id": "depositInterestRateString",
+    "label": "\u041d\u044d\u043c\u044d\u0433\u0434\u04af\u04af\u043b\u0441\u044d\u043d \u0445\u04af\u04af",
+    "type": "String",
+    "context": "loan-account",
+    "isLocalVariable": false
+  },
+  {
+    "id": "feesPercentage",
+    "label": "\u0428\u0438\u043c\u0442\u0433\u044d\u043b",
+    "type": "String",
+    "context": "loan-account",
+    "isLocalVariable": false
+  },
+  {
+    "id": "accountBranchNumber",
+    "label": "\u0422\u04e9\u043b\u04e9\u043b\u0442 \u0445\u0438\u0439\u0445 \u0434\u0430\u043d\u0441\u043d\u044b \u0441\u0430\u043b\u0431\u0430\u0440",
+    "type": "String",
+    "context": "loan-account",
+    "isLocalVariable": false
+  },
+  {
+    "id": "currentAccountNumber",
+    "label": "\u0422\u04e9\u043b\u04e9\u043b\u0442 \u0445\u0438\u0439\u0445 \u0434\u0430\u043d\u0441",
+    "type": "String",
+    "context": "loan-account",
+    "isLocalVariable": false
+  },
+  {
+    "id": "loanPurpose",
+    "label": "\u0417\u044d\u044d\u043b\u0438\u0439\u043d \u0437\u043e\u0440\u0438\u0443\u043b\u0430\u043b\u0442",
+    "type": "String",
+    "context": "loan-account-udf",
+    "isLocalVariable": false
+  },
+  {
+    "id": "businessTypeReason",
+    "label": "\u0417\u043e\u0440\u0438\u0443\u043b\u0430\u043b\u0442\u002f\u0411\u0438\u0437\u005f\u0442\u04e9\u0440\u04e9\u043b",
+    "type": "String",
+    "context": "loan-account-udf",
+    "isLocalVariable": false
+  },
+  {
+    "id": "worker",
+    "label": "\u0425\u0430\u0440\u0438\u043b\u0446\u0430\u0433\u0447\u0438\u0439\u043d \u043c\u044d\u0440\u0433\u044d\u0436\u0438\u043b\u0442\u044d\u043d",
+    "type": "String",
+    "context": "loan-account-udf",
+    "isLocalVariable": false
+  },
+  {
+    "id": "sanctionedBy",
+    "label": "\u0417\u044d\u044d\u043b\u0438\u0439\u043d \u0448\u0438\u0439\u0434\u0432\u044d\u0440\u002f\u0442\u043e\u0433\u0442\u043e\u043e\u043b",
+    "type": "String",
+    "context": "loan-account-udf",
+    "isLocalVariable": false
+  },
+  {
+    "id": "subType",
+    "label": "\u0414\u044d\u0434 \u0442\u04e9\u0440\u04e9\u043b\u002f\u0426\u0430\u043b\u0438\u043d\u0433\u0438\u0439\u043d \u0437\u044d\u044d\u043b",
+    "type": "String",
+    "context": "loan-account-udf",
+    "isLocalVariable": false
+  },
+  {
+    "id": "insuranceCompanyInfo",
+    "label": "\u0414\u0430\u0430\u0442\u0433\u0430\u043b\u0438\u0439\u043d \u043a\u043e\u043c\u043f\u0430\u043d\u0438\u0439\u043d \u043c\u044d\u0434\u044d\u044d",
+    "type": "String",
+    "context": "loan-account-udf",
+    "isLocalVariable": false
+  },
+  {
+    "id": "supplier1",
+    "label": "\u0421\u002f\u0422 \u041d\u0438\u0439\u043b\u04af\u04af\u043b\u044d\u0433\u0447",
+    "type": "String",
+    "context": "loan-account-udf",
+    "isLocalVariable": false
+  },
+  {
+    "id": "supplier2",
+    "label": "\u0421\u002f\u0422 \u041d\u0438\u0439\u043b\u04af\u04af\u043b\u044d\u0433\u0447\u0031",
+    "type": "String",
+    "context": "loan-account-udf",
+    "isLocalVariable": false
+  },
+  {
+    "id": "supplier3",
+    "label": "\u0421\u002f\u0422 \u041d\u0438\u0439\u043b\u04af\u04af\u043b\u044d\u0433\u0447\u0032",
+    "type": "String",
+    "context": "loan-account-udf",
+    "isLocalVariable": false
+  },
+  {
+    "id": "attentiveLoan",
+    "label": "\u0410\u043d\u0445\u0430\u0430\u0440\u0430\u043b \u0442\u0430\u0442\u0441\u0430\u043d \u0437\u044d\u044d\u043b",
+    "type": "String",
+    "context": "loan-account-udf",
+    "isLocalVariable": false
+  },
+  {
+    "id": "loanCycle",
+    "label": "\u0417\u044d\u044d\u043b\u0438\u0439\u043d \u043c\u04e9\u0447\u043b\u04e9\u0433",
+    "type": "String",
+    "context": "loan-account-udf",
+    "isLocalVariable": false
+  },
+  {
+    "id": "scoring_level_risk",
+    "label": "\u041a\u0440\u0435\u0434\u0438\u0442 \u0441\u043a\u043e\u0440\u0438\u043d\u0433\u0438\u0439\u043d \u0049\u0044",
+    "type": "String",
+    "context": "loan-account-udf",
+    "isLocalVariable": false
+  },
+  {
+    "id": "score",
+    "label": "\u041a\u0440\u0435\u0434\u0438\u0442 \u0441\u043a\u043e\u0440\u0438\u043d\u0433\u0438\u0439\u043d \u043e\u043d\u043e\u043e",
+    "type": "String",
+    "context": "loan-account-udf",
+    "isLocalVariable": false
+  },
+  {
+    "id": "loanAccountNumber",
+    "label": "\u0417\u044d\u044d\u043b\u0438\u0439\u043d \u0434\u0430\u043d\u0441\u043d\u044b \u0434\u0443\u0433\u0430\u0430\u0440",
+    "type": "String",
+    "context": "loan-contract",
+    "isLocalVariable": false
+  },
+  {
+    "id": "numberOfContract",
+    "label": "\u0413\u044d\u0440\u044d\u044d\u043d\u0438\u0439 \u0445\u0443\u0432\u044c",
+    "type": "BigDecimal",
+    "context": "loan-contract",
+    "isLocalVariable": false
+  },
+  {
+    "id": "loanServiceFee",
+    "label": "\u0417\u044d\u044d\u043b\u0438\u0439\u043d \u04af\u0439\u043b\u0447\u0438\u043b\u0433\u044d\u044d\u043d\u0438\u0439 \u0448\u0438\u043c\u0442\u0433\u044d\u043b",
+    "type": "BigDecimal",
+    "context": "loan-contract",
+    "isLocalVariable": false
+  },
+  {
+    "id": "applicationFee",
+    "label": "\u04e8\u0440\u0433\u04e9\u0433\u0434\u043b\u0438\u0439\u043d \u0445\u0443\u0440\u0430\u0430\u043c\u0436",
+    "type": "BigDecimal",
+    "context": "loan-contract",
+    "isLocalVariable": false
+  },
+  {
+    "id": "fullName",
+    "label": "\u041e\u0432\u043e\u0433\u002c \u043d\u044d\u0440",
+    "type": "String",
+    "context": "active-request",
+    "isLocalVariable": false
+  },
+  {
+    "id": "cifNumber",
+    "label": "\u0425\u0430\u0440\u0438\u043b\u0446\u0430\u0433\u0447\u0438\u0439\u043d \u0043\u0049\u0046",
+    "type": "String",
+    "context": "active-request",
+    "isLocalVariable": false
+  },
+  {
+    "id": "processRequestId",
+    "label": "\u0425\u04af\u0441\u044d\u043b\u0442\u0438\u0439\u043d \u0434\u0443\u0433\u0430\u0430\u0440",
+    "type": "String",
+    "context": "active-request",
+    "isLocalVariable": false
+  }
+]

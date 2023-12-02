@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/DMN/20151101/dmn.xsd" xmlns:camunda="http://camunda.org/schema/1.0/dmn" id="Definitions_1nb3w5t" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="3.7.1">
+  <decision id="loan_period" name="Loan Period">
+    <decisionTable id="decisionTable_1">
+      <input id="InputClause_16a2ghy" label="Зээлийн мөчлөг" camunda:inputVariable="loan_period">
+        <inputExpression id="LiteralExpression_123vhlw" typeRef="integer">
+          <text></text>
+        </inputExpression>
+      </input>
+      <output id="OutputClause_16v7sub" label="Loan Period Score" name="loan_period_score" typeRef="integer" />
+      <rule id="DecisionRule_1yvui09">
+        <inputEntry id="UnaryTests_0gl28xi">
+          <text>0</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_157ggh0">
+          <text>0</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_00tl24r">
+        <inputEntry id="UnaryTests_0t0m3t6">
+          <text>[1..2]</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1d0y7uu">
+          <text>1</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0uc8uid">
+        <inputEntry id="UnaryTests_0gakf4a">
+          <text>]2..3]</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0byae5s">
+          <text>2</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_12t8p9n">
+        <inputEntry id="UnaryTests_199fc2f">
+          <text>[4..6]</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1v24yng">
+          <text>3</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0vlrlw2">
+        <inputEntry id="UnaryTests_1yhekpy">
+          <text>&gt;= 7</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0mvv8g8">
+          <text>4</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+</definitions>

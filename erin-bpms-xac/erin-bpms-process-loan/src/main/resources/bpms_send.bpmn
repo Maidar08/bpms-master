@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" id="Definitions_1o7a3q2" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="3.5.0">
+  <bpmn:collaboration id="Collaboration_1sv1nur">
+    <bpmn:participant id="Participant_1rr3lz2" processRef="bpms_send" />
+  </bpmn:collaboration>
+  <bpmn:process id="bpms_send" isExecutable="true">
+    <bpmn:startEvent id="StartEvent_1">
+      <bpmn:outgoing>Flow_1nu9bp7</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:endEvent id="Event_00rys7f">
+      <bpmn:incoming>Flow_03w60sn</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_0ww30fc" sourceRef="Activity_1hszg0z" targetRef="Activity_0t8v0ua" />
+    <bpmn:sequenceFlow id="Flow_1nu9bp7" sourceRef="StartEvent_1" targetRef="Activity_1hszg0z" />
+    <bpmn:sequenceFlow id="Flow_0zadgy1" sourceRef="Activity_0u7sau9" targetRef="sendEmail" />
+    <bpmn:sequenceFlow id="Flow_03w60sn" sourceRef="sendEmail" targetRef="Event_00rys7f" />
+    <bpmn:serviceTask id="sendEmail" name="Send Email" camunda:delegateExpression="${sendEmailTaskForSendLoanDecision}">
+      <bpmn:incoming>Flow_0zadgy1</bpmn:incoming>
+      <bpmn:outgoing>Flow_03w60sn</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:serviceTask id="Activity_0u7sau9" name="Set User Sent From" camunda:delegateExpression="${setSentUserTask}">
+      <bpmn:incoming>Flow_0nkwnv0</bpmn:incoming>
+      <bpmn:outgoing>Flow_0zadgy1</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:userTask id="Activity_1hszg0z" name="15. Зээл шийдвэрлүүлэхээр илгээх" camunda:formKey="15. Зээл шийдвэрлүүлэхээр илгээх - ZSI">
+      <bpmn:extensionElements>
+        <camunda:formData>
+          <camunda:formField id="receivers" label="Хүсэлт батлуулах" type="string">
+            <camunda:validation>
+              <camunda:constraint name="required" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="loanCommentExplanation" label="Тайлбар" type="string" />
+          <camunda:formField id="loanDecisionReason" label="Шалтгаан" type="string">
+            <camunda:validation>
+              <camunda:constraint name="readonly" />
+            </camunda:validation>
+          </camunda:formField>
+        </camunda:formData>
+        <camunda:taskListener delegateExpression="${saveDescriptionTaskListener}" event="complete" />
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_1nu9bp7</bpmn:incoming>
+      <bpmn:outgoing>Flow_0ww30fc</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:sequenceFlow id="Flow_0nkwnv0" sourceRef="Activity_0t8v0ua" targetRef="Activity_0u7sau9" />
+    <bpmn:serviceTask id="Activity_0t8v0ua" name="Log Variables" camunda:delegateExpression="${variableLoggerTask}">
+      <bpmn:incoming>Flow_0ww30fc</bpmn:incoming>
+      <bpmn:outgoing>Flow_0nkwnv0</bpmn:outgoing>
+    </bpmn:serviceTask>
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Collaboration_1sv1nur">
+      <bpmndi:BPMNShape id="Participant_1rr3lz2_di" bpmnElement="Participant_1rr3lz2" isHorizontal="true">
+        <dc:Bounds x="129" y="80" width="861" height="300" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_0nkwnv0_di" bpmnElement="Flow_0nkwnv0">
+        <di:waypoint x="530" y="220" />
+        <di:waypoint x="550" y="220" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_03w60sn_di" bpmnElement="Flow_03w60sn">
+        <di:waypoint x="790" y="220" />
+        <di:waypoint x="862" y="220" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0zadgy1_di" bpmnElement="Flow_0zadgy1">
+        <di:waypoint x="650" y="220" />
+        <di:waypoint x="690" y="220" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1nu9bp7_di" bpmnElement="Flow_1nu9bp7">
+        <di:waypoint x="228" y="220" />
+        <di:waypoint x="310" y="220" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0ww30fc_di" bpmnElement="Flow_0ww30fc">
+        <di:waypoint x="410" y="220" />
+        <di:waypoint x="430" y="220" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
+        <dc:Bounds x="192" y="202" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_00rys7f_di" bpmnElement="Event_00rys7f">
+        <dc:Bounds x="862" y="202" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_059wxlh_di" bpmnElement="sendEmail">
+        <dc:Bounds x="690" y="180" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1xna009_di" bpmnElement="Activity_0u7sau9">
+        <dc:Bounds x="550" y="180" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0ovsk1h_di" bpmnElement="Activity_1hszg0z">
+        <dc:Bounds x="310" y="180" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1udk7g9_di" bpmnElement="Activity_0t8v0ua">
+        <dc:Bounds x="430" y="180" width="100" height="80" />
+      </bpmndi:BPMNShape>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>

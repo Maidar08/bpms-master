@@ -1,0 +1,20 @@
+/*
+ * (C)opyright, 2019, ERIN SYSTEMS LLC
+ * The source code is protected by copyright laws and international copyright
+ * treaties, as well as other intellectual property laws and treaties.
+ * All rights reserved.
+ */
+
+dependencies {
+    compile project(':erin-aim-domain')
+
+    compile lib.spring.context
+
+    compile lib.javax.inject
+    compile lib.javax.servlet
+
+    compile lib.shiro.core
+    compile lib.shiro.web
+    compile lib.shiro.spring
+    compile lib.shiro.hazelcast
+}

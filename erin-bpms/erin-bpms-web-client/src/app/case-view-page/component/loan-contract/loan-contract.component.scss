@@ -1,0 +1,108 @@
+.card-container {
+  margin: 16px;
+  width: auto;
+  height: fit-content;
+  min-height: 150px;
+}
+
+.title {
+  display: flex;
+  flex-direction: row;
+  color: gray;
+}
+.line {
+  width: 30%;
+}
+.contract-line {
+  margin-top: 20px;
+  width: 90%;
+}
+:host ::ng-deep  .col1  .form-field-container {
+    grid-template-columns: 1fr 3fr;
+}
+
+.sub-title {
+  display: flex;
+  margin: 10px 0 0 0;
+  color: gray;
+  .text {
+    margin-top: 5px;
+    font-size: 13px
+  }
+  .material-icons {
+    margin-left: 10px;
+    font-size: 30px;
+  }
+  .material-icons-outlined {
+    font-size: 30px;
+    color: var(--primary-color);
+  }
+  .sub-line {
+    height: 0;
+    width: 80%;
+    margin: 15px 0 0 20px;
+  }
+}
+
+.remove-btn {
+  position: absolute;
+  right: 25px;
+}
+.add-btn {
+  position: absolute;
+  right: 60px;
+}
+.material-icons:hover {cursor: default;}
+.material-icons-outlined:hover {cursor: pointer;}
+
+:host ::ng-deep .other-bank {
+  .form-fields:nth-of-type(1) {grid-column: 1 / span 3;}
+}
+
+.loan-info {
+  .sub-line {width: 70%}
+}
+.button-container {
+  //display: flex;
+  //align-items: end;
+  margin-top: 10px;
+  height: 50px;
+}
+button {
+  float: right;
+  height: 37px !important;
+  color: white;
+  margin-right: 10px;
+  margin-top: 15px;
+}
+
+@media only screen and (max-width: 1024px){
+  .card-container{
+    width: 59vw;
+    margin: 16px 0 16px 10px;
+  }
+  .sub-title {
+    .sub-line {
+      width: 60%;
+    }
+  }
+  .loan-info {
+    .sub-line {width: 75%}
+  }
+}
+
+@media (min-width: 790px) and (max-width: 910px){
+  .card-container{
+    width: auto;
+    margin: 16px;
+  }
+  .separator-line {
+    margin-top: 3%;
+  }
+}
+
+@media (min-width: 1300px) and (max-width: 1520px){
+  .sub-line {
+    width: 70%!important;
+  }
+}

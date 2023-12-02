@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" id="Definitions_03bcov1" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="3.5.0">
+  <bpmn:collaboration id="Collaboration_0d2687s">
+    <bpmn:participant id="Participant_0gpvxum" processRef="bpms_direct_online_close_account_and_disburse" />
+  </bpmn:collaboration>
+  <bpmn:process id="bpms_direct_online_close_account_and_disburse" isExecutable="true">
+    <bpmn:startEvent id="StartEvent_1">
+      <bpmn:outgoing>SequenceFlow_0yp0vdj</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:endEvent id="EndEvent_0xamhm1">
+      <bpmn:incoming>SequenceFlow_1h0lkga</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="SequenceFlow_0yp0vdj" sourceRef="StartEvent_1" targetRef="user_task_close_account_and_disburse" />
+    <bpmn:sequenceFlow id="SequenceFlow_1h0lkga" sourceRef="user_task_close_account_and_disburse" targetRef="EndEvent_0xamhm1" />
+    <bpmn:userTask id="user_task_close_account_and_disburse" name="Зээл хаах, олголт хийх данс" camunda:formKey="Зээл хаах, олголт хийх данс">
+      <bpmn:extensionElements>
+        <camunda:formData>
+          <camunda:formField id="errorProcess" label="Алдаа гарсан таск" type="string">
+            <camunda:validation>
+              <camunda:constraint name="readonly" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="currentAccountNumber" label="Олголт хийх дансны дугаар" type="string">
+            <camunda:validation>
+              <camunda:constraint name="readonly" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="errorCause" label="Алдааны мэдээлэл" type="string">
+            <camunda:validation>
+              <camunda:constraint name="readonly" />
+            </camunda:validation>
+          </camunda:formField>
+        </camunda:formData>
+        <camunda:executionListener delegateExpression="${updateDisburseFailedStateListener}" event="end" />
+      </bpmn:extensionElements>
+      <bpmn:incoming>SequenceFlow_0yp0vdj</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_1h0lkga</bpmn:outgoing>
+    </bpmn:userTask>
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Collaboration_0d2687s">
+      <bpmndi:BPMNShape id="Participant_0gpvxum_di" bpmnElement="Participant_0gpvxum" isHorizontal="true">
+        <dc:Bounds x="129" y="80" width="600" height="250" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
+        <dc:Bounds x="179" y="202" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="EndEvent_0xamhm1_di" bpmnElement="EndEvent_0xamhm1">
+        <dc:Bounds x="622" y="202" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="SequenceFlow_0yp0vdj_di" bpmnElement="SequenceFlow_0yp0vdj">
+        <di:waypoint x="215" y="220" />
+        <di:waypoint x="310" y="220" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_1h0lkga_di" bpmnElement="SequenceFlow_1h0lkga">
+        <di:waypoint x="410" y="220" />
+        <di:waypoint x="622" y="220" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="UserTask_09b4tr3_di" bpmnElement="user_task_close_account_and_disburse">
+        <dc:Bounds x="310" y="180" width="100" height="80" />
+      </bpmndi:BPMNShape>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>

@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:bioc="http://bpmn.io/schema/bpmn/biocolor/1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="Definitions_01vttpq" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="4.0.0">
+  <bpmn:collaboration id="Collaboration_1mkxctx">
+    <bpmn:participant id="branch_banking_loan_repayment" name="Зээлийн эргэн төлөлт" processRef="bpms_branch_banking_loan_repayment" />
+  </bpmn:collaboration>
+  <bpmn:process id="bpms_branch_banking_loan_repayment" isExecutable="true">
+    <bpmn:sequenceFlow id="Flow_1kzdo0s" sourceRef="StartEvent_1" targetRef="user_task_branch_banking_loan_repayment" />
+    <bpmn:sequenceFlow id="SequenceFlow_0inuo7q" sourceRef="user_task_branch_banking_loan_repayment" targetRef="Gateway_05xv1km" />
+    <bpmn:sequenceFlow id="SequenceFlow_0s8j5fd" sourceRef="Task_115yzu4" targetRef="Gateway_0oejm9p" />
+    <bpmn:sequenceFlow id="SequenceFlow_14pukg2" sourceRef="Task_0v2ykhd" targetRef="Gateway_0oejm9p" />
+    <bpmn:sequenceFlow id="Flow_1r7qv2x" sourceRef="Gateway_0oejm9p" targetRef="Event_1ru2pjh" />
+    <bpmn:sequenceFlow id="Flow_0unbdrs" sourceRef="Gateway_05xv1km" targetRef="Event_1ru2pjh">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${action == "complete"}</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:serviceTask id="Task_115yzu4" name="Add Unscheduled Loan Repayment" camunda:delegateExpression="${addUnschLoanRepaymentTask}">
+      <bpmn:incoming>SequenceFlow_0mfs20c</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_0s8j5fd</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:userTask id="user_task_branch_banking_loan_repayment" name="Зээлийн эргэн төлөлт">
+      <bpmn:extensionElements>
+        <camunda:formData>
+          <camunda:formField id="accountId" label="Дансны дугаар" type="long" />
+          <camunda:formField id="calculateButton" label="ТООЦООЛОХ" type="string" defaultValue="calculateLoanRepayment" />
+          <camunda:formField id="loanRepaymentType" label="Зээл төлөх төрөл" type="string">
+            <camunda:properties>
+              <camunda:property id="onTime" value="Хуваарийн дагуу" />
+              <camunda:property id="overdue" value="Хуваарийн бус" />
+              <camunda:property id="closeLoan" value="Зээл хаах" />
+            </camunda:properties>
+          </camunda:formField>
+          <camunda:formField id="loanBalance" label="Зээлийн үлдэгдэл" type="long">
+            <camunda:validation>
+              <camunda:constraint name="readonly" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="currencyValue" label="Валют" type="string">
+            <camunda:validation>
+              <camunda:constraint name="readonly" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="customerFullName" label="Овог нэр" type="string">
+            <camunda:validation>
+              <camunda:constraint name="readonly" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="basicPayment" label="Үндсэн төлбөр" type="long">
+            <camunda:validation>
+              <camunda:constraint name="readonly" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="interestPayment" label="Хүүний төлбөр" type="long">
+            <camunda:validation>
+              <camunda:constraint name="readonly" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="penaltyAmount" label="Алданги" type="long">
+            <camunda:validation>
+              <camunda:constraint name="readonly" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="feePayment" label="Шимтгэлийн төлбөр" type="long">
+            <camunda:validation>
+              <camunda:constraint name="readonly" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="totalAmount" label="Нийт төлбөр" type="long">
+            <camunda:validation>
+              <camunda:constraint name="readonly" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="transactionType" label="Гүйлгээний төрөл" type="string" defaultValue="Бэлэн бус">
+            <camunda:validation>
+              <camunda:constraint name="readonly" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="accountNumber" label="Дансны дугаар" type="long">
+            <camunda:validation>
+              <camunda:constraint name="required" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="payLoanAmount" label="Зээл төлөх дүн" type="string" />
+          <camunda:formField id="transactionDescription" label="Гүйлгээний утга" type="string">
+            <camunda:validation>
+              <camunda:constraint name="maxlength" config="31" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="accountCurrency" label="Валют" type="string">
+            <camunda:validation>
+              <camunda:constraint name="readonly" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="tranExcgRateCode" type="string" />
+          <camunda:formField id="accountBalance" label="Дансны үлдэгдэл" type="long">
+            <camunda:validation>
+              <camunda:constraint name="readonly" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="accountName" label="Дансны нэр" type="string">
+            <camunda:validation>
+              <camunda:constraint name="readonly" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="blnc" label="noAccessAccBlnc" type="long">
+            <camunda:validation>
+              <camunda:constraint name="readonly" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="accountHasAccess" label="accountHasAccess" type="string" />
+        </camunda:formData>
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_1kzdo0s</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_0inuo7q</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:startEvent id="StartEvent_1">
+      <bpmn:outgoing>Flow_1kzdo0s</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:exclusiveGateway id="Gateway_05xv1km">
+      <bpmn:incoming>SequenceFlow_0inuo7q</bpmn:incoming>
+      <bpmn:outgoing>Flow_0unbdrs</bpmn:outgoing>
+      <bpmn:outgoing>Flow_06lv4e8</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:endEvent id="Event_1ru2pjh">
+      <bpmn:extensionElements>
+        <camunda:executionListener delegateExpression="${clearPreviousVariablesListener}" event="end" />
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_1r7qv2x</bpmn:incoming>
+      <bpmn:incoming>Flow_0unbdrs</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:serviceTask id="Task_0v2ykhd" name="Add Scheduled Loan Payment" camunda:delegateExpression="${scheduledLoanPayment}">
+      <bpmn:incoming>SequenceFlow_0p4tgas</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_14pukg2</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:serviceTask id="Activity_1vpsgul" name="SetPayOffTask" camunda:delegateExpression="${setPayOffProcTask}">
+      <bpmn:incoming>Flow_1dtyxch</bpmn:incoming>
+      <bpmn:outgoing>Flow_1gtiac0</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:exclusiveGateway id="ExclusiveGateway_15ahuf6">
+      <bpmn:incoming>Flow_06lv4e8</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_0p4tgas</bpmn:outgoing>
+      <bpmn:outgoing>SequenceFlow_0mfs20c</bpmn:outgoing>
+      <bpmn:outgoing>Flow_1dtyxch</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:sequenceFlow id="SequenceFlow_0p4tgas" sourceRef="ExclusiveGateway_15ahuf6" targetRef="Task_0v2ykhd">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${loanRepaymentType == "Хуваарийн дагуу"}</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:sequenceFlow id="SequenceFlow_0mfs20c" sourceRef="ExclusiveGateway_15ahuf6" targetRef="Task_115yzu4">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${loanRepaymentType == "Хуваарийн бус"}</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:sequenceFlow id="Flow_06lv4e8" sourceRef="Gateway_05xv1km" targetRef="ExclusiveGateway_15ahuf6">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${action ==  "continue"}</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:sequenceFlow id="Flow_1dtyxch" sourceRef="ExclusiveGateway_15ahuf6" targetRef="Activity_1vpsgul">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${loanRepaymentType == "Зээл хаах"}</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:sequenceFlow id="Flow_1gtiac0" sourceRef="Activity_1vpsgul" targetRef="Gateway_0oejm9p" />
+    <bpmn:exclusiveGateway id="Gateway_0oejm9p">
+      <bpmn:incoming>SequenceFlow_0s8j5fd</bpmn:incoming>
+      <bpmn:incoming>SequenceFlow_14pukg2</bpmn:incoming>
+      <bpmn:incoming>Flow_1gtiac0</bpmn:incoming>
+      <bpmn:outgoing>Flow_1r7qv2x</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Collaboration_1mkxctx">
+      <bpmndi:BPMNShape id="Participant_1wjsfmo_di" bpmnElement="branch_banking_loan_repayment" isHorizontal="true">
+        <dc:Bounds x="160" y="110" width="910" height="440" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_1gtiac0_di" bpmnElement="Flow_1gtiac0">
+        <di:waypoint x="780" y="290" />
+        <di:waypoint x="845" y="290" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1dtyxch_di" bpmnElement="Flow_1dtyxch">
+        <di:waypoint x="605" y="290" />
+        <di:waypoint x="680" y="290" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_06lv4e8_di" bpmnElement="Flow_06lv4e8">
+        <di:waypoint x="505" y="290" />
+        <di:waypoint x="555" y="290" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_0mfs20c_di" bpmnElement="SequenceFlow_0mfs20c">
+        <di:waypoint x="580" y="265" />
+        <di:waypoint x="580" y="170" />
+        <di:waypoint x="680" y="170" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_0p4tgas_di" bpmnElement="SequenceFlow_0p4tgas">
+        <di:waypoint x="580" y="315" />
+        <di:waypoint x="580" y="400" />
+        <di:waypoint x="680" y="400" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0unbdrs_di" bpmnElement="Flow_0unbdrs">
+        <di:waypoint x="480" y="315" />
+        <di:waypoint x="480" y="490" />
+        <di:waypoint x="1020" y="490" />
+        <di:waypoint x="1020" y="308" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1r7qv2x_di" bpmnElement="Flow_1r7qv2x">
+        <di:waypoint x="895" y="290" />
+        <di:waypoint x="1002" y="290" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_14pukg2_di" bpmnElement="SequenceFlow_14pukg2">
+        <di:waypoint x="780" y="400" />
+        <di:waypoint x="870" y="400" />
+        <di:waypoint x="870" y="315" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_0s8j5fd_di" bpmnElement="SequenceFlow_0s8j5fd">
+        <di:waypoint x="780" y="180" />
+        <di:waypoint x="870" y="180" />
+        <di:waypoint x="870" y="265" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_0inuo7q_di" bpmnElement="SequenceFlow_0inuo7q">
+        <di:waypoint x="400" y="290" />
+        <di:waypoint x="455" y="290" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1kzdo0s_di" bpmnElement="Flow_1kzdo0s">
+        <di:waypoint x="258" y="290" />
+        <di:waypoint x="300" y="290" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="ServiceTask_070xkg0_di" bpmnElement="Task_115yzu4">
+        <dc:Bounds x="680" y="140" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0qrttz5_di" bpmnElement="user_task_branch_banking_loan_repayment" bioc:stroke="rgb(67, 160, 71)" bioc:fill="rgb(200, 230, 201)">
+        <dc:Bounds x="300" y="250" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
+        <dc:Bounds x="222" y="272" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Gateway_05xv1km_di" bpmnElement="Gateway_05xv1km" isMarkerVisible="true">
+        <dc:Bounds x="455" y="265" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_1ru2pjh_di" bpmnElement="Event_1ru2pjh">
+        <dc:Bounds x="1002" y="272" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="ServiceTask_16j86be_di" bpmnElement="Task_0v2ykhd">
+        <dc:Bounds x="680" y="360" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_08o1zed_di" bpmnElement="Activity_1vpsgul">
+        <dc:Bounds x="680" y="250" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="ExclusiveGateway_15ahuf6_di" bpmnElement="ExclusiveGateway_15ahuf6" isMarkerVisible="true">
+        <dc:Bounds x="555" y="265" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Gateway_0oejm9p_di" bpmnElement="Gateway_0oejm9p" isMarkerVisible="true">
+        <dc:Bounds x="845" y="265" width="50" height="50" />
+      </bpmndi:BPMNShape>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>

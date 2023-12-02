@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/DMN/20151101/dmn.xsd" xmlns:camunda="http://camunda.org/schema/1.0/dmn" id="Definitions_1832exv" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="3.7.1">
+  <decision id="gender_mapping" name="Gender Mapping">
+    <decisionTable id="decisionTable_1">
+      <input id="input_1" label="Gender" camunda:inputVariable="gender_input">
+        <inputExpression id="inputExpression_1" typeRef="string">
+          <text></text>
+        </inputExpression>
+      </input>
+      <output id="output_1" label="Gender Output" name="gender" typeRef="string" />
+      <rule id="DecisionRule_0zcus28">
+        <inputEntry id="UnaryTests_0yzl8ss">
+          <text>"Эрэгтэй"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1l7wb2b">
+          <text>"M"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0xzmnh0">
+        <inputEntry id="UnaryTests_0plhk3t">
+          <text>"Эмэгтэй"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0tcu877">
+          <text>"F"</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+</definitions>

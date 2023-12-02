@@ -1,0 +1,158 @@
+.container {
+  background-color: white;
+  height: 74vh;
+  overflow: auto;
+}
+
+.mat-header-cell {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.mat-column-title,
+.mat-column-filtertitle {
+  flex: 0 0 40%;
+}
+
+.mat-column-branchNumber {
+  flex: 0 0 6% !important;
+}
+
+.mat-header-cell {
+  text-align: center;
+}
+
+.erin-table-header-cell {
+  display: block;
+}
+
+.selected-row {
+  .mat-row:hover {
+    background: #f2f5fa;
+    cursor: pointer;
+    -webkit-transition: background-color 500ms linear;
+    transition: background-color 500ms linear;
+  }
+}
+
+.selectedItemStyle {
+  background: #f2f5fa !important;
+
+  :hover {
+    text-decoration: underline;
+    color: cornflowerblue;
+  }
+}
+
+.filter-table-field {
+  width: 100%;
+  font-size: 14px;
+  text-align: left;
+  border: 1px solid gainsboro;
+  padding-left: 5px;
+  border-radius: 4px;
+  height: 20px;
+  outline: none;
+  margin-right: 16px;
+}
+
+input:focus {
+  border: 2px solid cornflowerblue;
+}
+
+input {
+  background-color: transparent;
+}
+
+.mat-column-requestId,
+.mat-column-filterrequestId {
+  flex: 0 0 15%;
+}
+
+.mat-column-customerName,
+.mat-column-filtercustomerName {
+  flex: 0 0 15%;
+}
+
+.context-menu {
+  visibility: hidden;
+  position: fixed;
+  text-align: center;
+}
+
+.table-header-cell_12{
+  max-width: 50px;
+}
+.mat-table-cell_12 {
+  max-width: 50px;
+}
+
+.threeDotButton{
+  padding: 0;
+}
+
+
+.mat-cell {
+  span {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+}
+mat-cell:last-of-type, mat-header-cell:last-of-type, mat-footer-cell:last-of-type{
+  padding-right: 0;
+}
+
+.tablet-button{
+  display: block;
+}
+
+.menuIcon{
+  color: var(--primary-color);
+}
+
+@media (min-width: 1300px) and (max-width: 1520px){
+  .table-header-cell_11 {
+    display: block;
+  }
+  .mat-table-cell_11 {
+    display: block;
+  }
+  ::-webkit-scrollbar {
+    -webkit-appearance: none;
+    width: 20px;
+  }
+  ::-webkit-scrollbar-thumb {
+    border-radius: 3px;
+    background-color: rgba(193, 193, 193);
+    -webkit-box-shadow: 0 0 1px rgba(255, 255, 255, .5);
+  }
+}
+
+@media (min-width: 790px) and (max-width: 910px){
+  .tablet-button{
+    display: block;
+  }
+  ::-webkit-scrollbar {
+    -webkit-appearance: none;
+    width: 20px;
+  }
+  ::-webkit-scrollbar-thumb {
+    border-radius: 3px;
+    background-color: rgba(193, 193, 193);
+    -webkit-box-shadow: 0 0 1px rgba(255, 255, 255, .5);
+  }
+}
+
+@media only screen and (max-width: 1025px) {
+  .mat-column-loanProduct {
+    flex: 0 0 10% !important;
+  }
+}
+
+@media only screen and (max-width: 801px) {
+  .mat-column-loanProduct {
+    flex: 0 0 11% !important;
+  }
+}
+

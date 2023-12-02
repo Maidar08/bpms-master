@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:bioc="http://bpmn.io/schema/bpmn/biocolor/1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="Definitions_1twq35s" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="4.0.0">
+  <bpmn:collaboration id="Collaboration_0z3o39w">
+    <bpmn:participant id="Participant_02rsc0c" name="Барьцаа хөрөнгийн жагсаалт харах" processRef="bpms_view_loan_collateral_process" />
+  </bpmn:collaboration>
+  <bpmn:process id="bpms_view_loan_collateral_process" isExecutable="true">
+    <bpmn:startEvent id="StartEvent_1">
+      <bpmn:outgoing>Flow_0x329jo</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:endEvent id="Event_12qm3hd">
+      <bpmn:incoming>Flow_1yfutv6</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:serviceTask id="Activity_1eobote" name="Download Collateral List Attachment Loan Contract" camunda:delegateExpression="${downloadCollateralListAttachmentLoanContract}">
+      <bpmn:incoming>Flow_0awrs0q</bpmn:incoming>
+      <bpmn:outgoing>Flow_1yfutv6</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:sequenceFlow id="Flow_0x329jo" sourceRef="StartEvent_1" targetRef="user_task_view_loan_collateral" />
+    <bpmn:sequenceFlow id="Flow_0awrs0q" sourceRef="user_task_view_loan_collateral" targetRef="Activity_1eobote" />
+    <bpmn:sequenceFlow id="Flow_1yfutv6" sourceRef="Activity_1eobote" targetRef="Event_12qm3hd" />
+    <bpmn:userTask id="user_task_view_loan_collateral" name="Барьцаа хөрөнгийн жагсаалт харах" camunda:formKey="Барьцаа хөрөнгийн жагсаалт харах">
+      <bpmn:extensionElements>
+        <camunda:formData>
+          <camunda:formField id="productDescription" label="Бүтээгдэхүүн" type="string">
+            <camunda:validation>
+              <camunda:constraint name="readonly" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="loanAmount" label="Зээлийн дүн" type="long">
+            <camunda:validation>
+              <camunda:constraint name="readonly" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="accountNumber" label="Зээлийн данс" type="string">
+            <camunda:validation>
+              <camunda:constraint name="readonly" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="typeOfCollateral" label="Барьцаа хөрөнгийн төрөл" type="string">
+            <camunda:properties>
+              <camunda:property id="Property_3men2qo" value="Үл хөдлөх хөрөнгө" />
+              <camunda:property id="Property_3u99t62" value="Хөдлөх хөрөнгө" />
+              <camunda:property id="Property_0ras14u" value="Тоног төхөөрөмж хөрөнгө" />
+            </camunda:properties>
+            <camunda:validation>
+              <camunda:constraint name="required" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="customerName" label="Харилцагчийн нэр" type="string">
+            <camunda:validation>
+              <camunda:constraint name="maxlength" config="51" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="attachmentType" label="Хавсралтын төрөл" type="string">
+            <camunda:properties>
+              <camunda:property id="Property_16jfh9t" value="Ипотекийн гэрээ" />
+              <camunda:property id="Property_1emk97o" value="Барьцааны гэрээ" />
+              <camunda:property id="Property_17c0i7h" value="Барьцаат зээлийн гэрээ" />
+            </camunda:properties>
+          </camunda:formField>
+          <camunda:formField id="choosingCollateral0" label="Барьцаа сонгох" type="string" />
+          <camunda:formField id="choosingCollateral1" label="Барьцаа сонгох" type="string" />
+          <camunda:formField id="choosingCollateral2" label="Барьцаа сонгох" type="string" />
+          <camunda:formField id="choosingCollateral3" label="Барьцаа сонгох" type="string" />
+          <camunda:formField id="choosingCollateral4" label="Барьцаа сонгох" type="string" />
+          <camunda:formField id="position" label="Албан тушаал" type="string">
+            <camunda:validation>
+              <camunda:constraint name="maxlength" config="51" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="dateOfContract" label="Гэрээний огноо" type="date" />
+          <camunda:formField id="loanAttachmentNumber" label="Хавсралт гэрээний дугаар" type="string">
+            <camunda:validation>
+              <camunda:constraint name="required" />
+              <camunda:constraint name="maxlength" config="16" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="interpretationOfTheSignature" label="Гарын үсгийн тайлал" type="string">
+            <camunda:validation>
+              <camunda:constraint name="maxlength" config="51" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="attachmentNumber" label="Хавсралтын дугаар" type="string">
+            <camunda:validation>
+              <camunda:constraint name="required" />
+              <camunda:constraint name="maxlength" config="16" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="downloadCollateralInfo" label="БАРЬЦАА ТАТАХ" type="string" defaultValue="getInquireCollateralInfo" />
+        </camunda:formData>
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_0x329jo</bpmn:incoming>
+      <bpmn:outgoing>Flow_0awrs0q</bpmn:outgoing>
+    </bpmn:userTask>
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Collaboration_0z3o39w">
+      <bpmndi:BPMNShape id="Participant_02rsc0c_di" bpmnElement="Participant_02rsc0c" isHorizontal="true">
+        <dc:Bounds x="160" y="40" width="800" height="250" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_1yfutv6_di" bpmnElement="Flow_1yfutv6">
+        <di:waypoint x="801" y="157" />
+        <di:waypoint x="873" y="157" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0awrs0q_di" bpmnElement="Flow_0awrs0q">
+        <di:waypoint x="591" y="157" />
+        <di:waypoint x="701" y="157" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0x329jo_di" bpmnElement="Flow_0x329jo">
+        <di:waypoint x="339" y="157" />
+        <di:waypoint x="491" y="157" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
+        <dc:Bounds x="303" y="139" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_12qm3hd_di" bpmnElement="Event_12qm3hd">
+        <dc:Bounds x="873" y="139" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0ta9ec5_di" bpmnElement="Activity_1eobote">
+        <dc:Bounds x="701" y="117" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1u8xs5x_di" bpmnElement="user_task_view_loan_collateral" bioc:stroke="rgb(67, 160, 71)" bioc:fill="rgb(200, 230, 201)">
+        <dc:Bounds x="491" y="117" width="100" height="80" />
+      </bpmndi:BPMNShape>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>

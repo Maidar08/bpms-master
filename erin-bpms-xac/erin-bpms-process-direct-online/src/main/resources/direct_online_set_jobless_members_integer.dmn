@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/DMN/20151101/dmn.xsd" id="Definitions_0jrqbep" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="3.5.0">
+  <decision id="setJoblessMembersInteger" name="Decision 1">
+    <decisionTable id="decisionTable_1">
+      <input id="input_1" label="jobless members">
+        <inputExpression id="inputExpression_1" typeRef="string">
+          <text>jobless_members_string</text>
+        </inputExpression>
+      </input>
+      <output id="output_1" label="jobless members" name="jobless_members" typeRef="integer" />
+      <rule id="DecisionRule_1dva7p8">
+        <inputEntry id="UnaryTests_0mekerl">
+          <text>"0"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0w5inye">
+          <text>0</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0i3d10j">
+        <inputEntry id="UnaryTests_1a1ye0c">
+          <text>"1"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_19vxcjt">
+          <text>1</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_19yh39d">
+        <inputEntry id="UnaryTests_02uv0bj">
+          <text>"2"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1dg8d00">
+          <text>2</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0n9815f">
+        <inputEntry id="UnaryTests_0f7hmst">
+          <text>"2-с их"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_02uvjb6">
+          <text>3</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+</definitions>

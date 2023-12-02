@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bioc="http://bpmn.io/schema/bpmn/biocolor/1.0" id="Definitions_13j2rag" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="3.5.0">
+  <bpmn:collaboration id="Collaboration_1s4vvv9">
+    <bpmn:participant id="Participant_0r6lkjm" processRef="bpms_loan_decision" />
+  </bpmn:collaboration>
+  <bpmn:process id="bpms_loan_decision" isExecutable="true">
+    <bpmn:sequenceFlow id="Flow_0zdapar" sourceRef="StartEvent_1" targetRef="Activity_1dcks6m" />
+    <bpmn:sequenceFlow id="Flow_1sm45fe" sourceRef="Activity_1dcks6m" targetRef="Activity_0cckn7z" />
+    <bpmn:userTask id="Activity_1dcks6m" name="16. Зээл шийдвэрлэх" camunda:formKey="16. Зээл шийдвэрлэх - ZSH">
+      <bpmn:extensionElements>
+        <camunda:formData>
+          <camunda:formField id="sentUser" label="Илгээсэн ажилтан" type="string">
+            <camunda:validation>
+              <camunda:constraint name="readonly" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="receivedUser" label="Илгээх ажилтан" type="string">
+            <camunda:validation>
+              <camunda:constraint name="required" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="loanDecision" label="Зээл шийдвэрлэх" type="string">
+            <camunda:properties>
+              <camunda:property id="Property_24c4fd8" value="Батлах" />
+              <camunda:property id="Property_0rd3mg8" value="Татгалзах" />
+              <camunda:property id="Property_1ksivi3" value="Буцаах" />
+            </camunda:properties>
+            <camunda:validation>
+              <camunda:constraint name="required" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="loanDecisionReason" label="Шалтгаан" type="string" />
+          <camunda:formField id="loanCommentExplanation" label="Тайлбар" type="string">
+            <camunda:validation>
+              <camunda:constraint name="readonly" />
+            </camunda:validation>
+          </camunda:formField>
+        </camunda:formData>
+        <camunda:taskListener delegateExpression="${saveReasonTaskListener}" event="complete" />
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_0zdapar</bpmn:incoming>
+      <bpmn:outgoing>Flow_1sm45fe</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:endEvent id="Event_1ucanv9" name="Finish Loan Decision">
+      <bpmn:incoming>Flow_0e73edy</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_1m38sk4" sourceRef="Activity_0cckn7z" targetRef="Activity_0mjrcr1" />
+    <bpmn:sequenceFlow id="Flow_0e73edy" sourceRef="Activity_0mjrcr1" targetRef="Event_1ucanv9" />
+    <bpmn:serviceTask id="Activity_0mjrcr1" name="Send Email Task" camunda:delegateExpression="${sendEmailTaskForLoanDecision}">
+      <bpmn:incoming>Flow_1m38sk4</bpmn:incoming>
+      <bpmn:outgoing>Flow_0e73edy</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:serviceTask id="Activity_0cckn7z" name="Loan Decision Task" camunda:delegateExpression="${loanDecisionTask}">
+      <bpmn:incoming>Flow_1sm45fe</bpmn:incoming>
+      <bpmn:outgoing>Flow_1m38sk4</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:startEvent id="StartEvent_1" name="Begin Loan Decision">
+      <bpmn:outgoing>Flow_0zdapar</bpmn:outgoing>
+    </bpmn:startEvent>
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Collaboration_1s4vvv9">
+      <bpmndi:BPMNShape id="Participant_0r6lkjm_di" bpmnElement="Participant_0r6lkjm" isHorizontal="true">
+        <dc:Bounds x="190" y="80" width="1020" height="270" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_0e73edy_di" bpmnElement="Flow_0e73edy">
+        <di:waypoint x="910" y="187" />
+        <di:waypoint x="1122" y="187" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1m38sk4_di" bpmnElement="Flow_1m38sk4">
+        <di:waypoint x="720" y="187" />
+        <di:waypoint x="810" y="187" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1sm45fe_di" bpmnElement="Flow_1sm45fe">
+        <di:waypoint x="530" y="187" />
+        <di:waypoint x="620" y="187" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0zdapar_di" bpmnElement="Flow_0zdapar">
+        <di:waypoint x="288" y="187" />
+        <di:waypoint x="430" y="187" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="Activity_1qo1t79_di" bpmnElement="Activity_1dcks6m" bioc:stroke="rgb(67, 160, 71)" bioc:fill="rgb(200, 230, 201)">
+        <dc:Bounds x="430" y="147" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_1ucanv9_di" bpmnElement="Event_1ucanv9">
+        <dc:Bounds x="1122" y="169" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1112" y="212" width="57" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0u039he_di" bpmnElement="Activity_0mjrcr1" bioc:stroke="rgb(251, 140, 0)" bioc:fill="rgb(255, 224, 178)">
+        <dc:Bounds x="810" y="147" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0keg1sg_di" bpmnElement="Activity_0cckn7z" bioc:stroke="rgb(229, 57, 53)" bioc:fill="rgb(255, 205, 210)">
+        <dc:Bounds x="620" y="147" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
+        <dc:Bounds x="252" y="169" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="242" y="212" width="56" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>

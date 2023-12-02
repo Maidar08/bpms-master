@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" xmlns:bioc="http://bpmn.io/schema/bpmn/biocolor/1.0" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" id="Definitions_1wbrom0" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="3.5.0">
+  <bpmn:collaboration id="Collaboration_0d7x5zk">
+    <bpmn:participant id="Participant_0mcg4ar" name="Харилцагчын зээлийн  хүсэлт баталгаажуулах" processRef="bpms_confirm_loan_request_process_by_cif" />
+  </bpmn:collaboration>
+  <bpmn:process id="bpms_confirm_loan_request_process_by_cif" isExecutable="true">
+    <bpmn:serviceTask id="ServiceTask_0jjjsmf" name="CIF-ээр харилцагчын мэдээлэл татах" camunda:delegateExpression="${directOnlineDownloadCustomerInfoByCifNo}">
+      <bpmn:incoming>SequenceFlow_0p80l54</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_0xx28sw</bpmn:outgoing>
+      <bpmn:property id="Property_028qs6x" name="__targetRef_placeholder" />
+      <bpmn:dataInputAssociation id="DataInputAssociation_08gnwmv">
+        <bpmn:sourceRef>DataStoreReference_0xckzx4</bpmn:sourceRef>
+        <bpmn:targetRef>Property_028qs6x</bpmn:targetRef>
+      </bpmn:dataInputAssociation>
+    </bpmn:serviceTask>
+    <bpmn:dataStoreReference id="DataStoreReference_0xckzx4" name="XAC CBS" />
+    <bpmn:startEvent id="StartEvent_0yat5ji" name="Зээлийн хүсэлт үүссэн">
+      <bpmn:extensionElements>
+        <camunda:properties>
+          <camunda:property />
+        </camunda:properties>
+        <camunda:formData>
+          <camunda:formField id="registerNumber" label="Регистр" type="string" />
+          <camunda:formField id="loanRequestType" label="Хүсэлтийн төрөл" type="string" />
+          <camunda:formField id="incomeType" label="Орлогын төрөл" type="string" />
+          <camunda:formField id="amount" label="Хүсч буй зээлийн хэмжээ" type="long" />
+          <camunda:formField id="purposal" label="Зээлийн зорилго" type="string" />
+          <camunda:formField id="phoneNumber" label="Утас" type="long" />
+          <camunda:formField id="email" label="И-мэйл" type="string" />
+        </camunda:formData>
+      </bpmn:extensionElements>
+      <bpmn:outgoing>SequenceFlow_0p80l54</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:sequenceFlow id="SequenceFlow_0hncmnb" sourceRef="ServiceTask_0crf8xs" targetRef="EndEvent_06wb37w" />
+    <bpmn:sequenceFlow id="SequenceFlow_0p80l54" sourceRef="StartEvent_0yat5ji" targetRef="ServiceTask_0jjjsmf" />
+    <bpmn:sequenceFlow id="SequenceFlow_0xx28sw" sourceRef="ServiceTask_0jjjsmf" targetRef="ServiceTask_0crf8xs" />
+    <bpmn:serviceTask id="ServiceTask_0crf8xs" name="Шаардлагатай variable-д утга оноох" camunda:delegateExpression="${setInitialVariablesTask}">
+      <bpmn:incoming>SequenceFlow_0xx28sw</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_0hncmnb</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:endEvent id="EndEvent_06wb37w" name="Хүсэлтийн бүртгэл баталгаажсан">
+      <bpmn:incoming>SequenceFlow_0hncmnb</bpmn:incoming>
+    </bpmn:endEvent>
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Collaboration_0d7x5zk">
+      <bpmndi:BPMNShape id="Participant_0mcg4ar_di" bpmnElement="Participant_0mcg4ar" isHorizontal="true">
+        <dc:Bounds x="160" y="70" width="710" height="270" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="DataStoreReference_0xckzx4_di" bpmnElement="DataStoreReference_0xckzx4" bioc:stroke="rgb(251, 140, 0)" bioc:fill="rgb(255, 224, 178)">
+        <dc:Bounds x="356" y="245" width="50" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="357" y="302" width="48" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="ServiceTask_0jjjsmf_di" bpmnElement="ServiceTask_0jjjsmf" bioc:stroke="rgb(251, 140, 0)" bioc:fill="rgb(255, 224, 178)">
+        <dc:Bounds x="331" y="137" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="ServiceTask_0crf8xs_di" bpmnElement="ServiceTask_0crf8xs" bioc:stroke="rgb(67, 160, 71)" bioc:fill="rgb(200, 230, 201)">
+        <dc:Bounds x="570" y="137" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="DataInputAssociation_08gnwmv_di" bpmnElement="DataInputAssociation_08gnwmv">
+        <di:waypoint x="381" y="245" />
+        <di:waypoint x="381" y="217" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="EndEvent_06wb37w_di" bpmnElement="EndEvent_06wb37w">
+        <dc:Bounds x="772" y="159" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="755" y="202" width="71" height="40" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="SequenceFlow_0hncmnb_di" bpmnElement="SequenceFlow_0hncmnb">
+        <di:waypoint x="670" y="177" />
+        <di:waypoint x="772" y="177" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="StartEvent_0yat5ji_di" bpmnElement="StartEvent_0yat5ji" bioc:stroke="black" bioc:fill="white">
+        <dc:Bounds x="222" y="159" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="201" y="202" width="80" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="SequenceFlow_0p80l54_di" bpmnElement="SequenceFlow_0p80l54">
+        <di:waypoint x="258" y="177" />
+        <di:waypoint x="331" y="177" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_0xx28sw_di" bpmnElement="SequenceFlow_0xx28sw">
+        <di:waypoint x="431" y="177" />
+        <di:waypoint x="570" y="177" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>

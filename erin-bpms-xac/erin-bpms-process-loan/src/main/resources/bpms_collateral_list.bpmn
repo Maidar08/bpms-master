@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" xmlns:bioc="http://bpmn.io/schema/bpmn/biocolor/1.0" id="Definitions_0oxh1kt" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="4.0.0">
+  <bpmn:collaboration id="Collaboration_1opvqih">
+    <bpmn:participant id="Participant_0hwv10s" name="13. Барьцаа хөрөнгийн жагсаалт" processRef="bpms_collateral_list" />
+  </bpmn:collaboration>
+  <bpmn:process id="bpms_collateral_list" isExecutable="true">
+    <bpmn:sequenceFlow id="Flow_0a8cpxy" sourceRef="StartEvent_1" targetRef="user_task_collateral_list" />
+    <bpmn:sequenceFlow id="Flow_18h8n5x" sourceRef="user_task_collateral_list" targetRef="Activity_0q5h8rr" />
+    <bpmn:userTask id="user_task_collateral_list" name="13. Барьцаа хөрөнгийн жагсаалт" camunda:formKey="10. Барьцаа хөрөнгийн жагсаалт">
+      <bpmn:incoming>Flow_0a8cpxy</bpmn:incoming>
+      <bpmn:outgoing>Flow_18h8n5x</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:startEvent id="StartEvent_1">
+      <bpmn:outgoing>Flow_0a8cpxy</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:endEvent id="Event_04v03e8">
+      <bpmn:incoming>Flow_1t982il</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_1t982il" sourceRef="Activity_0q5h8rr" targetRef="Event_04v03e8" />
+    <bpmn:serviceTask id="Activity_0q5h8rr" name="update collateral list" camunda:delegateExpression="${updateCollateralList}">
+      <bpmn:incoming>Flow_18h8n5x</bpmn:incoming>
+      <bpmn:outgoing>Flow_1t982il</bpmn:outgoing>
+    </bpmn:serviceTask>
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Collaboration_1opvqih">
+      <bpmndi:BPMNShape id="Participant_0hwv10s_di" bpmnElement="Participant_0hwv10s" isHorizontal="true">
+        <dc:Bounds x="160" y="110" width="600" height="257" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_1t982il_di" bpmnElement="Flow_1t982il">
+        <di:waypoint x="590" y="220" />
+        <di:waypoint x="662" y="220" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_18h8n5x_di" bpmnElement="Flow_18h8n5x">
+        <di:waypoint x="437" y="220" />
+        <di:waypoint x="490" y="220" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0a8cpxy_di" bpmnElement="Flow_0a8cpxy">
+        <di:waypoint x="268" y="220" />
+        <di:waypoint x="337" y="220" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="Activity_1krr67o_di" bpmnElement="user_task_collateral_list" bioc:stroke="rgb(67, 160, 71)" bioc:fill="rgb(200, 230, 201)">
+        <dc:Bounds x="337" y="180" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
+        <dc:Bounds x="232" y="202" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_04v03e8_di" bpmnElement="Event_04v03e8">
+        <dc:Bounds x="662" y="202" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_16xr4jd_di" bpmnElement="Activity_0q5h8rr" bioc:stroke="rgb(251, 140, 0)" bioc:fill="rgb(255, 224, 178)">
+        <dc:Bounds x="490" y="180" width="100" height="80" />
+      </bpmndi:BPMNShape>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>

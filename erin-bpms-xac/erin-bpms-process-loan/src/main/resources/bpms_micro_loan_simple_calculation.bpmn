@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:bioc="http://bpmn.io/schema/bpmn/biocolor/1.0" id="Definitions_1v7o9gw" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="4.4.0">
+  <bpmn:collaboration id="Collaboration_1id2744">
+    <bpmn:participant id="Participant_0k559us" name="Хялбар тооцоолол" processRef="bpms_micro_loan_simple_calculation" />
+  </bpmn:collaboration>
+  <bpmn:process id="bpms_micro_loan_simple_calculation" isExecutable="true">
+    <bpmn:startEvent id="StartEvent_1">
+      <bpmn:outgoing>Flow_12onm4r</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:sequenceFlow id="Flow_12onm4r" sourceRef="StartEvent_1" targetRef="user_task_micro_simple_calculation" />
+    <bpmn:sequenceFlow id="Flow_01t9j9x" sourceRef="user_task_micro_simple_calculation" targetRef="Task_1pcal7o" />
+    <bpmn:endEvent id="Event_0jkevqp">
+      <bpmn:incoming>SequenceFlow_15n1vtr</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="SequenceFlow_15n1vtr" sourceRef="Task_1pcal7o" targetRef="Event_0jkevqp" />
+    <bpmn:serviceTask id="Task_1pcal7o" name="Calculation" camunda:delegateExpression="${microSimpleCalculationTask}">
+      <bpmn:incoming>Flow_01t9j9x</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_15n1vtr</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:userTask id="user_task_micro_simple_calculation" name="08. Тооцоолол хийх" camunda:formKey="08. Тооцоолол хийх">
+      <bpmn:extensionElements>
+        <camunda:formData>
+          <camunda:formField id="reportingPeriodCash" label="Тайлант үеийн бэлэн мөнгө" type="long" />
+          <camunda:formField id="currentAssets" label="Эргэлтийн хөрөнгө" type="long" />
+          <camunda:formField id="fixedAssets" label="Үндсэн хөрөнгө" type="long" />
+          <camunda:formField id="supplierPay" label="Бэлтгэн нийлүүлэгчид өгөх өглөг" type="long" />
+          <camunda:formField id="shortTermPayment" label="Бусад БХӨТ" type="long" />
+          <camunda:formField id="longTermPayment" label="Урт хугацааны ӨТ" type="long" />
+          <camunda:formField id="totalAssetString" label="Нийт хөрөнгө" type="string" defaultValue="0">
+            <camunda:validation>
+              <camunda:constraint name="readonly" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="reportPeriod" label="Тайлан хамрах хугацаа" type="long">
+            <camunda:properties>
+              <camunda:property id="month1" value="1" />
+              <camunda:property id="month2" value="2" />
+              <camunda:property id="month3" value="3" />
+              <camunda:property id="month4" value="4" />
+              <camunda:property id="month5" value="5" />
+              <camunda:property id="month6" value="6" />
+              <camunda:property id="month7" value="7" />
+              <camunda:property id="month8" value="8" />
+              <camunda:property id="month9" value="9" />
+              <camunda:property id="month10" value="10" />
+              <camunda:property id="month11" value="11" />
+              <camunda:property id="month12" value="12" />
+            </camunda:properties>
+            <camunda:validation>
+              <camunda:constraint name="required" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="salesIncome" label="Борлуулалтын орлого" type="long" />
+          <camunda:formField id="otherIncome" label="Бусад Орлого" type="long" />
+          <camunda:formField id="costOfGoods" label="Борлуулсан барааны өртөг" type="long" />
+          <camunda:formField id="operatingExpenses" label="Үйл ажилгааны зардал" type="long" />
+          <camunda:formField id="taxCosts" label="Татварын зардал" type="long" />
+          <camunda:formField id="rentalExpenses" label="Түрээсийн зардал" type="long" />
+          <camunda:formField id="otherExpense" label="Бусад зардал" type="long" />
+          <camunda:formField id="netProfitString" label="Цэвэр ашиг" type="string" defaultValue="0">
+            <camunda:validation>
+              <camunda:constraint name="readonly" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="reCalculated" type="boolean" defaultValue="false" />
+          <camunda:formField id="businessCalculationCount" type="long" defaultValue="0" />
+        </camunda:formData>
+        <camunda:properties>
+          <camunda:property name="simpleCalculationParentTask" value="user_task_calculation_type" />
+        </camunda:properties>
+        <camunda:taskListener delegateExpression="${setParentTaskIdTaskListener}" event="create" />
+        <camunda:taskListener delegateExpression="${manuallyStartRelatedTaskListener}" event="complete" />
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_12onm4r</bpmn:incoming>
+      <bpmn:outgoing>Flow_01t9j9x</bpmn:outgoing>
+    </bpmn:userTask>
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Collaboration_1id2744">
+      <bpmndi:BPMNShape id="Participant_0k559us_di" bpmnElement="Participant_0k559us" isHorizontal="true">
+        <dc:Bounds x="129" y="52" width="600" height="250" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="SequenceFlow_15n1vtr_di" bpmnElement="SequenceFlow_15n1vtr">
+        <di:waypoint x="550" y="177" />
+        <di:waypoint x="622" y="177" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_01t9j9x_di" bpmnElement="Flow_01t9j9x">
+        <di:waypoint x="380" y="177" />
+        <di:waypoint x="450" y="177" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_12onm4r_di" bpmnElement="Flow_12onm4r">
+        <di:waypoint x="215" y="177" />
+        <di:waypoint x="280" y="177" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
+        <dc:Bounds x="179" y="159" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_0jkevqp_di" bpmnElement="Event_0jkevqp">
+        <dc:Bounds x="622" y="159" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="ServiceTask_0ty0642_di" bpmnElement="Task_1pcal7o" bioc:stroke="rgb(251, 140, 0)" bioc:fill="rgb(255, 224, 178)">
+        <dc:Bounds x="450" y="137" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0q4huui_di" bpmnElement="user_task_micro_simple_calculation" bioc:stroke="rgb(67, 160, 71)" bioc:fill="rgb(200, 230, 201)">
+        <dc:Bounds x="280" y="137" width="100" height="80" />
+      </bpmndi:BPMNShape>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>

@@ -1,0 +1,91 @@
+.card {
+  margin: 15px 50px 10px 30px;
+  overflow: hidden;
+}
+
+.user-card {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.each-user:active {
+  cursor: grabbing;
+}
+
+.each-user:hover {
+  cursor: grab;
+}
+
+.each-user {
+  display: flex;
+  height: 55px;
+  min-width: 230px;
+  max-width: 300px;
+  padding-left: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.card-icon {
+  height: 10px;
+  width: 10px;
+  background-color: gray;
+  border-radius: 50%;
+  margin: 18px;
+}
+
+.mat-h1 {
+  margin-left: 0;
+  color: #666666;
+}
+
+.mat-h3 {
+  font-weight: bold;
+  color: #535353;
+}
+
+.mat-h3, .mat-h5 {
+  width: 150px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  margin-bottom: -6px;
+}
+
+.mat-h4 {
+  margin: 20px 30px;
+  color: #7F7F7F;
+  font-weight: bold;
+}
+
+.mat-h5 {
+  color: #7F7F7F;
+  font-weight: bold;
+}
+
+.each-user:hover {
+  background-color: #f2f2f2;
+  border-radius: 10px !important;
+}
+.optionGray {
+  color: gray;
+}
+
+.optionWhite {
+  color: transparent;
+}
+
+.user-more-option {
+  border: none;
+  outline: inherit;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+@media only screen and (max-width: 1100px) {
+  ::ng-deep .mat-paginator-container {
+    flex-wrap: unset !important;
+  }
+}
+

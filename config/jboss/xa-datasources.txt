@@ -1,0 +1,45 @@
+<!--Camunda-->
+<xa-datasource jndi-name="java:/CamundaDS" pool-name="CamundaDS" enabled="true" use-ccm="true">
+  <xa-datasource-property name="URL">jdbc:oracle:thin:@172.25.0.103/aux12</xa-datasource-property>
+  <driver>oracle</driver>
+  <transaction-isolation>TRANSACTION_READ_COMMITTED</transaction-isolation>
+  <xa-pool>
+    <is-same-rm-override>false</is-same-rm-override>
+    <no-tx-separate-pools>true</no-tx-separate-pools>
+    <min-pool-size>0</min-pool-size>
+    <max-pool-size>20</max-pool-size>
+  </xa-pool>
+  <security>
+    <user-name>ERINCAMUNDA</user-name>
+    <password>ERINCAMUNDA</password>
+  </security>
+  <validation>
+    <background-validation>true</background-validation>
+    <valid-connection-checker class-name="org.jboss.jca.adapters.jdbc.extensions.oracle.OracleValidConnectionChecker"/>
+    <stale-connection-checker class-name="org.jboss.jca.adapters.jdbc.extensions.oracle.OracleStaleConnectionChecker"/>
+    <exception-sorter class-name="org.jboss.jca.adapters.jdbc.extensions.oracle.OracleExceptionSorter"/>
+  </validation>
+</xa-datasource>
+
+<!--BPMS-->
+<xa-datasource jndi-name="java:/BpmsDS" pool-name="BpmsDS" enabled="true" use-ccm="true">
+<xa-datasource-property name="URL">jdbc:oracle:thin:@172.25.0.103/aux12</xa-datasource-property>
+<driver>oracle</driver>
+<transaction-isolation>TRANSACTION_READ_COMMITTED</transaction-isolation>
+<xa-pool>
+  <is-same-rm-override>false</is-same-rm-override>
+  <no-tx-separate-pools>true</no-tx-separate-pools>
+  <min-pool-size>0</min-pool-size>
+  <max-pool-size>20</max-pool-size>
+</xa-pool>
+<security>
+  <user-name>bpms_dev</user-name>
+  <password>passwd</password>
+</security>
+<validation>
+  <background-validation>true</background-validation>
+  <valid-connection-checker class-name="org.jboss.jca.adapters.jdbc.extensions.oracle.OracleValidConnectionChecker"/>
+  <stale-connection-checker class-name="org.jboss.jca.adapters.jdbc.extensions.oracle.OracleStaleConnectionChecker"/>
+  <exception-sorter class-name="org.jboss.jca.adapters.jdbc.extensions.oracle.OracleExceptionSorter"/>
+</validation>
+</xa-datasource>

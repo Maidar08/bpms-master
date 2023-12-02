@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:bioc="http://bpmn.io/schema/bpmn/biocolor/1.0" id="Definitions_1ky2tke" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="4.0.0">
+  <bpmn:collaboration id="Collaboration_06wel4o">
+    <bpmn:participant id="Participant_1fytuit" name="Зээлийн эргэн төлөлтийн хуваарь (дараах)" processRef="bpms_loan_repayment_after_process" />
+  </bpmn:collaboration>
+  <bpmn:process id="bpms_loan_repayment_after_process" name="" isExecutable="true">
+    <bpmn:sequenceFlow id="Flow_0owu1pz" sourceRef="loan_repayment_after" targetRef="Event_1de17bn" />
+    <bpmn:sequenceFlow id="Flow_12qmu7p" sourceRef="StartEvent_1" targetRef="user_task_loan_repayment_after" />
+    <bpmn:endEvent id="Event_1de17bn">
+      <bpmn:incoming>Flow_0owu1pz</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_1x5mylc" sourceRef="user_task_loan_repayment_after" targetRef="loan_repayment_after" />
+    <bpmn:startEvent id="StartEvent_1">
+      <bpmn:outgoing>Flow_12qmu7p</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:userTask id="user_task_loan_repayment_after" name="Зээлийн эргэн төлөлтийн хуваарь (дараах)">
+      <bpmn:extensionElements>
+        <camunda:formData>
+          <camunda:formField id="productDescription" label="Бүтээгдэхүүн" type="string">
+            <camunda:validation>
+              <camunda:constraint name="readonly" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="loanAmount" label="Зээлийн дүн" type="long">
+            <camunda:validation>
+              <camunda:constraint name="readonly" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="accountNumber" label="Зээлийн дансны дугаар" type="string">
+            <camunda:validation>
+              <camunda:constraint name="maxlength" config="11" />
+              <camunda:constraint name="readonly" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="zetAttachmentNumber" label="Хавсралтын дугаар" type="string">
+            <camunda:validation>
+              <camunda:constraint name="required" />
+              <camunda:constraint name="maxlength" config="15" />
+            </camunda:validation>
+          </camunda:formField>
+        </camunda:formData>
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_12qmu7p</bpmn:incoming>
+      <bpmn:outgoing>Flow_1x5mylc</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:serviceTask id="loan_repayment_after" name="Эргэн төлөлтийн хуваарь татах" camunda:delegateExpression="${downloadLoanRepaymentAfterTask}">
+      <bpmn:incoming>Flow_1x5mylc</bpmn:incoming>
+      <bpmn:outgoing>Flow_0owu1pz</bpmn:outgoing>
+    </bpmn:serviceTask>
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Collaboration_06wel4o">
+      <bpmndi:BPMNShape id="Participant_1fytuit_di" bpmnElement="Participant_1fytuit" isHorizontal="true">
+        <dc:Bounds x="160" y="90" width="600" height="320" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_1x5mylc_di" bpmnElement="Flow_1x5mylc">
+        <di:waypoint x="430" y="200" />
+        <di:waypoint x="480" y="200" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_12qmu7p_di" bpmnElement="Flow_12qmu7p">
+        <di:waypoint x="278" y="200" />
+        <di:waypoint x="330" y="200" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0owu1pz_di" bpmnElement="Flow_0owu1pz">
+        <di:waypoint x="580" y="200" />
+        <di:waypoint x="622" y="200" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="Event_1de17bn_di" bpmnElement="Event_1de17bn">
+        <dc:Bounds x="622" y="182" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
+        <dc:Bounds x="242" y="182" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1835f07_di" bpmnElement="user_task_loan_repayment_after" bioc:stroke="rgb(67, 160, 71)" bioc:fill="rgb(200, 230, 201)">
+        <dc:Bounds x="330" y="160" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0ixdnw7_di" bpmnElement="loan_repayment_after" bioc:stroke="rgb(251, 140, 0)" bioc:fill="rgb(255, 224, 178)">
+        <dc:Bounds x="480" y="160" width="100" height="80" />
+      </bpmndi:BPMNShape>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>

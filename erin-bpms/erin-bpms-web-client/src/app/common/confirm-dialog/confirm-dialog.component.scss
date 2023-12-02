@@ -1,0 +1,16 @@
+.mat-dialog-actions {
+  float: right;
+}
+.mat-dialog-content{
+  display: flex;
+  flex-direction: row;
+}
+.taskName{
+  white-space: nowrap;
+}
+.message{
+ white-space: normal;
+}
+.mat-dialog-title{
+  margin: 0 0 0;
+}

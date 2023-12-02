@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:bioc="http://bpmn.io/schema/bpmn/biocolor/1.0" id="Definitions_1oobyxh" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="4.0.0">
+  <bpmn:collaboration id="Collaboration_1i3diku">
+    <bpmn:participant id="Participant_19zz536" name="Зээлийн шийдвэр үүсгэх" processRef="bpms_direct_online_generate_loan_decision" />
+  </bpmn:collaboration>
+  <bpmn:process id="bpms_direct_online_generate_loan_decision" isExecutable="true">
+    <bpmn:startEvent id="StartEvent_1">
+      <bpmn:outgoing>SequenceFlow_1ax472c</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:sequenceFlow id="SequenceFlow_1ax472c" sourceRef="StartEvent_1" targetRef="Activity_0zusvsi" />
+    <bpmn:sequenceFlow id="Flow_1sfkuy5" sourceRef="Activity_0zusvsi" targetRef="EndEvent_1pzyqnd" />
+    <bpmn:serviceTask id="Activity_0zusvsi" name="Generate Loan Decison" camunda:delegateExpression="${onlineSalaryGenerateLoanDecisionDocumentTask}">
+      <bpmn:incoming>SequenceFlow_1ax472c</bpmn:incoming>
+      <bpmn:outgoing>Flow_1sfkuy5</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:endEvent id="EndEvent_1pzyqnd">
+      <bpmn:incoming>Flow_1sfkuy5</bpmn:incoming>
+    </bpmn:endEvent>
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Collaboration_1i3diku">
+      <bpmndi:BPMNShape id="Participant_19zz536_di" bpmnElement="Participant_19zz536" isHorizontal="true">
+        <dc:Bounds x="129" y="70" width="541" height="260" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="SequenceFlow_1ax472c_di" bpmnElement="SequenceFlow_1ax472c">
+        <di:waypoint x="228" y="200" />
+        <di:waypoint x="360" y="200" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1sfkuy5_di" bpmnElement="Flow_1sfkuy5">
+        <di:waypoint x="460" y="200" />
+        <di:waypoint x="602" y="200" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
+        <dc:Bounds x="192" y="182" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0zusvsi_di" bpmnElement="Activity_0zusvsi" bioc:stroke="black" bioc:fill="white">
+        <dc:Bounds x="360" y="160" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="EndEvent_1pzyqnd_di" bpmnElement="EndEvent_1pzyqnd">
+        <dc:Bounds x="602" y="182" width="36" height="36" />
+      </bpmndi:BPMNShape>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>

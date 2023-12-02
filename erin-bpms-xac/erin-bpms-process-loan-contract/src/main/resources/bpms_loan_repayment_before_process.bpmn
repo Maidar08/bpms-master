@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:bioc="http://bpmn.io/schema/bpmn/biocolor/1.0" id="Definitions_018nqij" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="4.0.0">
+  <bpmn:collaboration id="Collaboration_0m2aud0">
+    <bpmn:participant id="Participant_1e38je1" name="ЗЭТ-ийн хуваарь (өмнөх) " processRef="bpms_loan_repayment_before_process" />
+  </bpmn:collaboration>
+  <bpmn:process id="bpms_loan_repayment_before_process" isExecutable="true">
+    <bpmn:startEvent id="StartEvent_1">
+      <bpmn:outgoing>Flow_1hyvyfe</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:sequenceFlow id="Flow_1hyvyfe" sourceRef="StartEvent_1" targetRef="Activity_0xchimo" />
+    <bpmn:endEvent id="Event_02da7cl">
+      <bpmn:incoming>Flow_0wioz7p</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_0wioz7p" sourceRef="Activity_0xchimo" targetRef="Event_02da7cl" />
+    <bpmn:serviceTask id="Activity_0xchimo" name="Эргэн төлөлтийн хуваарь татах" camunda:delegateExpression="${downloadLoanRepaymentBeforeTask}">
+      <bpmn:incoming>Flow_1hyvyfe</bpmn:incoming>
+      <bpmn:outgoing>Flow_0wioz7p</bpmn:outgoing>
+    </bpmn:serviceTask>
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Collaboration_0m2aud0">
+      <bpmndi:BPMNShape id="Participant_1e38je1_di" bpmnElement="Participant_1e38je1" isHorizontal="true">
+        <dc:Bounds x="160" y="70" width="560" height="240" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_0wioz7p_di" bpmnElement="Flow_0wioz7p">
+        <di:waypoint x="490" y="190" />
+        <di:waypoint x="632" y="190" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1hyvyfe_di" bpmnElement="Flow_1hyvyfe">
+        <di:waypoint x="265" y="190" />
+        <di:waypoint x="390" y="190" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
+        <dc:Bounds x="229" y="172" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_02da7cl_di" bpmnElement="Event_02da7cl">
+        <dc:Bounds x="632" y="172" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_06pknh0_di" bpmnElement="Activity_0xchimo" bioc:stroke="rgb(251, 140, 0)" bioc:fill="rgb(255, 224, 178)">
+        <dc:Bounds x="390" y="150" width="100" height="80" />
+      </bpmndi:BPMNShape>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>

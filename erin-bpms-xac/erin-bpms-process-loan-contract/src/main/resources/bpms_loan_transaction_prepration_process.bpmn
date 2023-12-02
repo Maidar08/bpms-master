@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:bioc="http://bpmn.io/schema/bpmn/biocolor/1.0" id="Definitions_0ygxbch" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="4.0.0">
+  <bpmn:collaboration id="Collaboration_1uuea25">
+    <bpmn:participant id="Participant_1czfj1k" name="Зээл олголтын зөвшөөрөл бэлтгэх" processRef="bpms_loan_transaction_prepration_process" />
+  </bpmn:collaboration>
+  <bpmn:process id="bpms_loan_transaction_prepration_process" isExecutable="true">
+    <bpmn:startEvent id="StartEvent_1">
+      <bpmn:outgoing>Flow_08k219w</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:sequenceFlow id="Flow_08k219w" sourceRef="StartEvent_1" targetRef="user_task_loan_transaction_permission_preparation" />
+    <bpmn:endEvent id="Event_0k2k8jt">
+      <bpmn:incoming>Flow_0yyio58</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_052e35j" sourceRef="user_task_loan_transaction_permission_preparation" targetRef="Activity_0g13njy" />
+    <bpmn:sequenceFlow id="Flow_0yyio58" sourceRef="Activity_0g13njy" targetRef="Event_0k2k8jt" />
+    <bpmn:serviceTask id="Activity_0g13njy" name="Download Loan Permission Contract" camunda:delegateExpression="${downloadLoanPermissionContractTask}">
+      <bpmn:incoming>Flow_052e35j</bpmn:incoming>
+      <bpmn:outgoing>Flow_0yyio58</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:userTask id="user_task_loan_transaction_permission_preparation" name="Зээлийн олголтын зөвшөөрөл бэлтгэх">
+      <bpmn:extensionElements>
+        <camunda:formData>
+          <camunda:formField id="preparationType" label="Хэвлэх зөвшөөрөл" type="string">
+            <camunda:properties>
+              <camunda:property id="disbursementPermission" value="Зээл олголтын зөвшөөрөл" />
+              <camunda:property id="loanPermission" value="Зээлийн эрх нээх зөвшөөрөл" />
+            </camunda:properties>
+            <camunda:validation>
+              <camunda:constraint name="required" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="accountNumber" label="Зээлийн дансны дугаар" type="long">
+            <camunda:validation>
+              <camunda:constraint name="readonly" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="loanContractTotalAmount" label="Зээлийн гэрээний нийт дүн" type="long" />
+          <camunda:formField id="currencyValue" label="Валют" type="string" />
+          <camunda:formField id="confirmedTotalAmount" label="Шийдвэрлэсэн эрхийн нийт дүн" type="long" />
+          <camunda:formField id="loanRepaymentFee" label="Зээл олголтын шимтгэл" type="long" />
+          <camunda:formField id="printCollateralList" label="Барьцаа хөрөнгийн жагсаалт хэвлэх" type="string" />
+          <camunda:formField id="currentTotalAmount" label="Одоо олгох нийт дүн" type="long" />
+          <camunda:formField id="closingAccountNumber" label="Хаах дансны дугаар" type="long" />
+          <camunda:formField id="checkboxPoll" label="Хэсэгчилсэн олголт байгаа эсэх" type="string">
+            <camunda:properties>
+              <camunda:property id="Property_095mdk3" value="Байгаа" />
+              <camunda:property id="Property_3nl2vj8" value="Байхгүй" />
+            </camunda:properties>
+          </camunda:formField>
+          <camunda:formField id="crossTrade" label="Огтлолцоо худалдаа" type="string" />
+          <camunda:formField id="buNe" label="Зээлийн шийдвэрийн зөвшөөрсөн дүн" type="long" />
+          <camunda:formField id="loanAccountFirstAmount" label="Зээлийн дансны эхний үлдэгдэл" type="long" />
+          <camunda:formField id="accountNumberTrans" label="Дансны дугаар" type="long" />
+          <camunda:formField id="accountName" label="Дансны нэр" type="string" />
+          <camunda:formField id="amount" label="Дүн" type="long" />
+          <camunda:formField id="spaceNull" type="string" />
+        </camunda:formData>
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_08k219w</bpmn:incoming>
+      <bpmn:outgoing>Flow_052e35j</bpmn:outgoing>
+    </bpmn:userTask>
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Collaboration_1uuea25">
+      <bpmndi:BPMNShape id="Participant_1czfj1k_di" bpmnElement="Participant_1czfj1k" isHorizontal="true">
+        <dc:Bounds x="160" y="90" width="800" height="250" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_0yyio58_di" bpmnElement="Flow_0yyio58">
+        <di:waypoint x="700" y="210" />
+        <di:waypoint x="792" y="210" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_052e35j_di" bpmnElement="Flow_052e35j">
+        <di:waypoint x="510" y="210" />
+        <di:waypoint x="600" y="210" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_08k219w_di" bpmnElement="Flow_08k219w">
+        <di:waypoint x="329" y="210" />
+        <di:waypoint x="410" y="210" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
+        <dc:Bounds x="293" y="192" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_0k2k8jt_di" bpmnElement="Event_0k2k8jt">
+        <dc:Bounds x="792" y="192" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_10lufjr_di" bpmnElement="Activity_0g13njy" bioc:stroke="rgb(251, 140, 0)" bioc:fill="rgb(255, 224, 178)">
+        <dc:Bounds x="600" y="170" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1wmx9rc_di" bpmnElement="user_task_loan_transaction_permission_preparation" bioc:stroke="rgb(67, 160, 71)" bioc:fill="rgb(200, 230, 201)">
+        <dc:Bounds x="410" y="170" width="100" height="80" />
+      </bpmndi:BPMNShape>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>

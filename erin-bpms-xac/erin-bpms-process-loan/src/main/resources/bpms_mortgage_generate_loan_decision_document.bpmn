@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:bioc="http://bpmn.io/schema/bpmn/biocolor/1.0" id="Definitions_0mhu6wg" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="3.5.0">
+  <bpmn:collaboration id="Collaboration_0xu278o">
+    <bpmn:participant id="Participant_1dvfhkc" name="Орон сууцны зээлийн шийдвэр generate хийх" processRef="bpms_mortgage_generate_loan_decision_document" />
+  </bpmn:collaboration>
+  <bpmn:process id="bpms_mortgage_generate_loan_decision_document" isExecutable="true">
+    <bpmn:startEvent id="StartEvent_1">
+      <bpmn:outgoing>SequenceFlow_0b2luxt</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:endEvent id="EndEvent_1ofzsnj">
+      <bpmn:incoming>SequenceFlow_1buolbl</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:userTask id="user_task_mortgage_generate_loan_decision" name="16. Зээлийн шийдвэр бэлдэх" camunda:formKey="16. Зээлийн шийдвэр бэлдэх">
+      <bpmn:extensionElements>
+        <camunda:formData>
+          <camunda:formField id="sanctionedBy" label="Зээлийн шийдвэр/тогтоол" type="string">
+            <camunda:validation>
+              <camunda:constraint name="required" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="workspaceName" label="Ажлын газрын нэр" type="string">
+            <camunda:validation>
+              <camunda:constraint name="required" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="borrowerMonthlyIncome" label="Зээлдэгчийн сарын орлого /төгрөг/" type="long">
+            <camunda:validation>
+              <camunda:constraint name="required" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="address" label="Оршин сууж байгаа хаяг" type="string">
+            <camunda:validation>
+              <camunda:constraint name="required" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="loanPurpose" label="Зээлийн зориулалт" type="string">
+            <camunda:properties>
+              <camunda:property id="Property_3rrcijl" value="Зардлын санхүүжилт" />
+              <camunda:property id="Property_3ioak54" value="Үндсэн хөрөнгө" />
+              <camunda:property id="Property_1lb6aj9" value="Эргэлтийн хөрөнгө" />
+              <camunda:property id="Property_11ed2t8" value="Холимог" />
+              <camunda:property id="Property_06kne8t" value="Өрхийн хэрэглээ" />
+            </camunda:properties>
+            <camunda:validation>
+              <camunda:constraint name="required" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="numberOfCoBorrowers" label="Хамтран зээлдэгчийн тоо" type="long">
+            <camunda:validation>
+              <camunda:constraint name="required" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="coBorrowerMonthlyIncome" label="Хамтрангийн сарын орлого /төгрөг/" type="long">
+            <camunda:validation>
+              <camunda:constraint name="required" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="requestDate" label="Зээл авах хүсэлт ирүүлсэн огноо" type="date">
+            <camunda:validation>
+              <camunda:constraint name="required" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="additionalSpecialCondition" label="Нэмэлт тусгай нөхцөл" type="string" />
+        </camunda:formData>
+      </bpmn:extensionElements>
+      <bpmn:incoming>SequenceFlow_0b2luxt</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_0hffgnu</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:sequenceFlow id="SequenceFlow_0hffgnu" sourceRef="user_task_mortgage_generate_loan_decision" targetRef="service_task_mortgage_generate_loan_decision" />
+    <bpmn:sequenceFlow id="SequenceFlow_1buolbl" sourceRef="service_task_mortgage_generate_loan_decision" targetRef="EndEvent_1ofzsnj" />
+    <bpmn:sequenceFlow id="SequenceFlow_0b2luxt" sourceRef="StartEvent_1" targetRef="user_task_mortgage_generate_loan_decision" />
+    <bpmn:serviceTask id="service_task_mortgage_generate_loan_decision" name="Орон сууцны зээлийн шийдвэр үүсгэх" camunda:delegateExpression="${generateMortgageLoanDecisionTask}">
+      <bpmn:incoming>SequenceFlow_0hffgnu</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_1buolbl</bpmn:outgoing>
+    </bpmn:serviceTask>
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Collaboration_0xu278o">
+      <bpmndi:BPMNShape id="Participant_1dvfhkc_di" bpmnElement="Participant_1dvfhkc" isHorizontal="true">
+        <dc:Bounds x="129" y="110" width="631" height="209" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="SequenceFlow_0b2luxt_di" bpmnElement="SequenceFlow_0b2luxt">
+        <di:waypoint x="215" y="200" />
+        <di:waypoint x="280" y="200" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_1buolbl_di" bpmnElement="SequenceFlow_1buolbl">
+        <di:waypoint x="570" y="200" />
+        <di:waypoint x="672" y="200" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_0hffgnu_di" bpmnElement="SequenceFlow_0hffgnu">
+        <di:waypoint x="380" y="200" />
+        <di:waypoint x="470" y="200" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
+        <dc:Bounds x="179" y="182" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="EndEvent_1ofzsnj_di" bpmnElement="EndEvent_1ofzsnj">
+        <dc:Bounds x="672" y="182" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="UserTask_0ciss2w_di" bpmnElement="user_task_mortgage_generate_loan_decision" bioc:stroke="rgb(67, 160, 71)" bioc:fill="rgb(200, 230, 201)">
+        <dc:Bounds x="280" y="160" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="ServiceTask_0qh599u_di" bpmnElement="service_task_mortgage_generate_loan_decision" bioc:stroke="rgb(67, 160, 71)" bioc:fill="rgb(200, 230, 201)">
+        <dc:Bounds x="470" y="160" width="100" height="80" />
+      </bpmndi:BPMNShape>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>

@@ -1,0 +1,66 @@
+package mn.erin.bpm.repository.jdbc.model;
+
+import org.springframework.data.annotation.Id;
+import org.springframework.data.relational.core.mapping.Table;
+
+/**
+ * @author Zorig
+ */
+@Table("PROCESS_PARAMETER")
+public class JdbcProcessParameter
+{
+  @Id
+  String processInstanceId;
+  String parameterDataType;
+  String parameterValue;
+  String parameterEntityType;
+  String parameterName;
+
+  public String getProcessInstanceId()
+  {
+    return processInstanceId;
+  }
+
+  public void setProcessInstanceId(String processInstanceId)
+  {
+    this.processInstanceId = processInstanceId;
+  }
+
+  public String getParameterDataType()
+  {
+    return parameterDataType;
+  }
+
+  public void setParameterDataType(String parameterDataType)
+  {
+    this.parameterDataType = parameterDataType;
+  }
+
+  public String getParameterValue()
+  {
+    return parameterValue;
+  }
+
+  public void setParameterValue(String parameterValue)
+  {
+    this.parameterValue = parameterValue;
+  }
+
+  public String getParameterEntityType()
+  {
+    return parameterEntityType;
+  }
+
+  public void setParameterEntityType(String parameterEntityType)
+  {
+    this.parameterEntityType = parameterEntityType;
+  }
+
+  public String getParameterName() {
+    return parameterName;
+  }
+
+  public void setParameterName(String parameterName) {
+    this.parameterName = parameterName;
+  }
+}

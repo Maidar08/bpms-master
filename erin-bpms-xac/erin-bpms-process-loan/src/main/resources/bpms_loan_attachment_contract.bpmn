@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" xmlns:bioc="http://bpmn.io/schema/bpmn/biocolor/1.0" id="Definitions_03d6fsu" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="4.4.0">
+  <bpmn:collaboration id="Collaboration_1s291yr">
+    <bpmn:participant id="Participant_00u3b3q" name="20. Зээлийн хавсралт гэрээ бэлтгэх" processRef="bpms_loan_attachment_contract" />
+  </bpmn:collaboration>
+  <bpmn:process id="bpms_loan_attachment_contract" isExecutable="true">
+    <bpmn:startEvent id="StartEvent_1">
+      <bpmn:outgoing>Flow_02xx0eh</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:userTask id="Activity_0ir3v23" name="20. Зээлийн хавсралт гэрээ бэлтгэх" camunda:formKey="20. Зээлийн хавсралт гэрээ бэлтгэх">
+      <bpmn:extensionElements>
+        <camunda:formData>
+          <camunda:formField id="loanProductDescription" label="Бүтээгдэхүүн" type="string">
+            <camunda:validation>
+              <camunda:constraint name="readonly" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="fixedAcceptedLoanAmount" label="Зээлийн дүн" type="long">
+            <camunda:validation>
+              <camunda:constraint name="readonly" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="loanAccountNumber" label="Зээлийн данс" type="string">
+            <camunda:validation>
+              <camunda:constraint name="readonly" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="contractID" label="Гэрээний дугаар" type="string" />
+          <camunda:formField id="isTestifyByCollateral" label="Барьцаалбараар гэрчлэгдэх эсэх" type="string">
+            <camunda:properties>
+              <camunda:property id="Property_2ibeu32" value="Тийм" />
+              <camunda:property id="Property_09du3qr" value="Үгүй" />
+            </camunda:properties>
+          </camunda:formField>
+          <camunda:formField id="rightsOfThirdPerson" label="Гуравдагч этгээдийн эрх" type="string">
+            <camunda:properties>
+              <camunda:property id="Property_1s6smab" value="Үгүй" />
+              <camunda:property id="Property_3n2flui" value="Тийм" />
+            </camunda:properties>
+          </camunda:formField>
+          <camunda:formField id="typeOfAttachment" label="Хавсралтын төрөл" type="string">
+            <camunda:properties>
+              <camunda:property id="Property_3egu0kd" value="Барьцааны гэрээ" />
+              <camunda:property id="Property_1eg4qdk" value="Ипотекийн гэрээ" />
+              <camunda:property id="Property_17c0i7h" value="Батлан даалтын гэрээ" />
+            </camunda:properties>
+          </camunda:formField>
+          <camunda:formField id="optionOfDutiesPerformance" label="Үүргийн гүйцэтгэл хангуулах сонголт" type="string">
+            <camunda:properties>
+              <camunda:property id="Property_302ihk7" value="4.2.1 Шүүхийн журмаар" />
+              <camunda:property id="Property_3adhhsd" value="4.2.2 Шүүхээс гадуур шууд худалдах" />
+              <camunda:property id="Property_0234ush" value="4.2.3 Шүүхээс гадуур дуудлага худалдаагаар худалдах" />
+            </camunda:properties>
+          </camunda:formField>
+          <camunda:formField id="noteRightsOfThirdPerson" label="Гуравдагч этгээдийн эрхийг тэмдэглэнэ" type="string" />
+          <camunda:formField id="fullNameOfМortgagor0" label="Овог, нэр" type="string" />
+          <camunda:formField id="fullNameOfМortgagor1" label="Овог, нэр" type="string" />
+          <camunda:formField id="fullNameOfМortgagor2" label="Овог, нэр" type="string" />
+          <camunda:formField id="fullNameOfМortgagor3" label="Овог, нэр" type="string" />
+          <camunda:formField id="fullNameOfМortgagor4" label="Овог, нэр" type="string" />
+          <camunda:formField id="registerNumberOfМortgagor0" label="Регистр/УБ дугаар" type="string" />
+          <camunda:formField id="registerNumberOfМortgagor1" label="Регистр/УБ дугаар" type="string" />
+          <camunda:formField id="registerNumberOfМortgagor2" label="Регистр/УБ дугаар" type="string" />
+          <camunda:formField id="registerNumberOfМortgagor3" label="Регистр/УБ дугаар" type="string" />
+          <camunda:formField id="registerNumberOfМortgagor4" label="Регистр/УБ дугаар" type="string" />
+          <camunda:formField id="ubIDOfМortgagor0" label="УБ дугаар" type="string" />
+          <camunda:formField id="ubIDOfМortgagor1" label="УБ дугаар" type="string" />
+          <camunda:formField id="ubIDOfМortgagor2" label="УБ дугаар" type="string" />
+          <camunda:formField id="ubIDOfМortgagor3" label="УБ дугаар" type="string" />
+          <camunda:formField id="ubIDOfМortgagor4" label="УБ дугаар" type="string" />
+          <camunda:formField id="addressOfМortgagor0" label="Хаяг" type="string" />
+          <camunda:formField id="addressOfМortgagor1" label="Хаяг" type="string" />
+          <camunda:formField id="addressOfМortgagor2" label="Хаяг" type="string" />
+          <camunda:formField id="addressOfМortgagor3" label="Хаяг" type="string" />
+          <camunda:formField id="addressOfМortgagor4" label="Хаяг" type="string" />
+          <camunda:formField id="phoneNumberOfМortgagor0" label="Утас" type="string" />
+          <camunda:formField id="phoneNumberOfМortgagor1" label="Утас" type="string" />
+          <camunda:formField id="phoneNumberOfМortgagor2" label="Утас" type="string" />
+          <camunda:formField id="phoneNumberOfМortgagor3" label="Утас" type="string" />
+          <camunda:formField id="phoneNumberOfМortgagor4" label="Утас" type="string" />
+          <camunda:formField id="emailAddressOfМortgagor0" label=" Цахим хаяг" type="string" />
+          <camunda:formField id="emailAddressOfМortgagor1" label=" Цахим хаяг" type="string" />
+          <camunda:formField id="emailAddressOfМortgagor2" label=" Цахим хаяг" type="string" />
+          <camunda:formField id="emailAddressOfМortgagor3" label=" Цахим хаяг" type="string" />
+          <camunda:formField id="emailAddressOfМortgagor4" label=" Цахим хаяг" type="string" />
+          <camunda:formField id="occupationOfМortgagor0" label="Ажил мэргэжил" type="string" />
+          <camunda:formField id="occupationOfМortgagor1" label="Ажил мэргэжил" type="string" />
+          <camunda:formField id="occupationOfМortgagor2" label="Ажил мэргэжил" type="string" />
+          <camunda:formField id="occupationOfМortgagor3" label="Ажил мэргэжил" type="string" />
+          <camunda:formField id="occupationOfМortgagor4" label="Ажил мэргэжил" type="string" />
+          <camunda:formField id="2008а0" label="2008а" type="string" />
+          <camunda:formField id="2008а1" label="2008а" type="string" />
+          <camunda:formField id="2008а2" label="2008а" type="string" />
+          <camunda:formField id="2008а3" label="2008а" type="string" />
+          <camunda:formField id="2008а4" label="2008а" type="string" />
+          <camunda:formField id="2008b0" label="2008б" type="string" />
+          <camunda:formField id="2008b1" label="2008б" type="string" />
+          <camunda:formField id="2008b2" label="2008б" type="string" />
+          <camunda:formField id="2008b3" label="2008б" type="string" />
+          <camunda:formField id="2008b4" label="2008б" type="string" />
+          <camunda:formField id="fullNameOfGuarantor0" label="Овог, нэр" type="string" />
+          <camunda:formField id="fullNameOfGuarantor1" label="Овог, нэр" type="string" />
+          <camunda:formField id="fullNameOfGuarantor2" label="Овог, нэр" type="string" />
+          <camunda:formField id="fullNameOfGuarantor3" label="Овог, нэр" type="string" />
+          <camunda:formField id="fullNameOfGuarantor4" label="Овог, нэр" type="string" />
+          <camunda:formField id="registerNumberOfGuarantor0" label="Регистр" type="string" />
+          <camunda:formField id="registerNumberOfGuarantor1" label="Регистр" type="string" />
+          <camunda:formField id="registerNumberOfGuarantor2" label="Регистр" type="string" />
+          <camunda:formField id="registerNumberOfGuarantor3" label="Регистр" type="string" />
+          <camunda:formField id="registerNumberOfGuarantor4" label="Регистр" type="string" />
+          <camunda:formField id="ubIDofGuarantor0" label="УБ дугаар" type="string" />
+          <camunda:formField id="ubIDofGuarantor1" label="УБ дугаар" type="string" />
+          <camunda:formField id="ubIDofGuarantor2" label="УБ дугаар" type="string" />
+          <camunda:formField id="ubIDofGuarantor3" label="УБ дугаар" type="string" />
+          <camunda:formField id="ubIDofGuarantor4" label="УБ дугаар" type="string" />
+          <camunda:formField id="addressOfGuarantor0" label="Хаяг" type="string" />
+          <camunda:formField id="addressOfGuarantor1" label="Хаяг" type="string" />
+          <camunda:formField id="addressOfGuarantor2" label="Хаяг" type="string" />
+          <camunda:formField id="addressOfGuarantor3" label="Хаяг" type="string" />
+          <camunda:formField id="addressOfGuarantor4" label="Хаяг" type="string" />
+          <camunda:formField id="businessAddressOfGuarantor0" label="Бизнесийн хаяг" type="string" />
+          <camunda:formField id="businessAddressOfGuarantor1" label="Бизнесийн хаяг" type="string" />
+          <camunda:formField id="businessAddressOfGuarantor2" label="Бизнесийн хаяг" type="string" />
+          <camunda:formField id="businessAddressOfGuarantor3" label="Бизнесийн хаяг" type="string" />
+          <camunda:formField id="businessAddressOfGuarantor4" label="Бизнесийн хаяг" type="string" />
+          <camunda:formField id="phoneNumberOfGuarantor0" label="Утас" type="string" />
+          <camunda:formField id="phoneNumberOfGuarantor1" label="Утас" type="string" />
+          <camunda:formField id="phoneNumberOfGuarantor2" label="Утас" type="string" />
+          <camunda:formField id="phoneNumberOfGuarantor3" label="Утас" type="string" />
+          <camunda:formField id="phoneNumberOfGuarantor4" label="Утас" type="string" />
+          <camunda:formField id="representiveLegalEntityName0" label="Төлөөлөх хуулийн этгээдийн нэр" type="string" />
+          <camunda:formField id="representiveLegalEntityName1" label="Төлөөлөх хуулийн этгээдийн нэр" type="string" />
+          <camunda:formField id="representiveLegalEntityName2" label="Төлөөлөх хуулийн этгээдийн нэр" type="string" />
+          <camunda:formField id="representiveLegalEntityName3" label="Төлөөлөх хуулийн этгээдийн нэр" type="string" />
+          <camunda:formField id="representiveLegalEntityName4" label="Төлөөлөх хуулийн этгээдийн нэр" type="string" />
+          <camunda:formField id="occupationOfGuarantor0" label="Ажил мэргэжил" type="string" />
+          <camunda:formField id="occupationOfGuarantor1" label="Ажил мэргэжил" type="string" />
+          <camunda:formField id="occupationOfGuarantor2" label="Ажил мэргэжил" type="string" />
+          <camunda:formField id="occupationOfGuarantor3" label="Ажил мэргэжил" type="string" />
+          <camunda:formField id="occupationOfGuarantor4" label="Ажил мэргэжил" type="string" />
+        </camunda:formData>
+        <camunda:taskListener delegateExpression="${updateContractParamsListener}" event="complete" />
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_02xx0eh</bpmn:incoming>
+    </bpmn:userTask>
+    <bpmn:sequenceFlow id="Flow_02xx0eh" sourceRef="StartEvent_1" targetRef="Activity_0ir3v23" />
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Collaboration_1s291yr">
+      <bpmndi:BPMNShape id="Participant_00u3b3q_di" bpmnElement="Participant_00u3b3q" isHorizontal="true">
+        <dc:Bounds x="160" y="79" width="600" height="250" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_02xx0eh_di" bpmnElement="Flow_02xx0eh">
+        <di:waypoint x="258" y="170" />
+        <di:waypoint x="330" y="170" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
+        <dc:Bounds x="222" y="152" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0n6jjgf_di" bpmnElement="Activity_0ir3v23" bioc:stroke="rgb(67, 160, 71)" bioc:fill="rgb(200, 230, 201)">
+        <dc:Bounds x="330" y="130" width="100" height="80" />
+      </bpmndi:BPMNShape>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>

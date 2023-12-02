@@ -1,0 +1,26 @@
+mat-tree {
+  height: 80%;
+}
+
+mat-tree-node {
+  //button:first-child {
+  //  width: 5%;
+  //}
+  font-size: 15px;
+  min-height: 20px;
+}
+
+.mat-tree-node.active{
+  color: var(--primary-color);
+  font-weight: 500;
+  background-color: #f0f0f0;
+}
+
+.text {
+  width: 100%;
+  text-align: start;
+}
+
+.child-node:hover {
+  background-color: #f0f0f0;
+}

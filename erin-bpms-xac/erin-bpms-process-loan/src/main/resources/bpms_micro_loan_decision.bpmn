@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" id="Definitions_0itclz8" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="3.5.0">
+  <bpmn:collaboration id="Collaboration_0k97qz0">
+    <bpmn:participant id="Participant_0dzwy2y" processRef="bpms_micro_loan_decision" />
+  </bpmn:collaboration>
+  <bpmn:process id="bpms_micro_loan_decision" isExecutable="true">
+    <bpmn:startEvent id="StartEvent_1">
+      <bpmn:outgoing>Flow_0kplydp</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:sequenceFlow id="Flow_0kplydp" name="Begin Loan Decision" sourceRef="StartEvent_1" targetRef="user_task_loan_decision" />
+    <bpmn:sequenceFlow id="Flow_1jl0kel" sourceRef="Activity_1w2xf75" targetRef="Event_0bab7yu" />
+    <bpmn:sequenceFlow id="Flow_0xojxe6" sourceRef="user_task_loan_decision" targetRef="Activity_09d4tki" />
+    <bpmn:sequenceFlow id="Flow_0z8j56u" sourceRef="Activity_09d4tki" targetRef="Activity_1w2xf75" />
+    <bpmn:endEvent id="Event_0bab7yu" name="Finish Loan Decision">
+      <bpmn:incoming>Flow_1jl0kel</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:serviceTask id="Activity_1w2xf75" name="Send Email Task" camunda:delegateExpression="${sendEmailTaskForLoanDecision}">
+      <bpmn:incoming>Flow_0z8j56u</bpmn:incoming>
+      <bpmn:outgoing>Flow_1jl0kel</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:userTask id="user_task_loan_decision" name="15. Зээл шийдвэрлэх" camunda:formKey="15. Зээл шийдвэрлэх - ZSH">
+      <bpmn:extensionElements>
+        <camunda:formData>
+          <camunda:formField id="sentUser" label="Илгээсэн ажилтан" type="string">
+            <camunda:validation>
+              <camunda:constraint name="readonly" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="receivedUser" label="Илгээх ажилтан" type="string">
+            <camunda:validation>
+              <camunda:constraint name="required" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="loanDecision" label="Зээл шийдвэрлэх" type="string">
+            <camunda:properties>
+              <camunda:property id="Property_24c4fd8" value="Батлах" />
+              <camunda:property id="Property_0rd3mg8" value="Татгалзах" />
+              <camunda:property id="Property_1ksivi3" value="Буцаах" />
+            </camunda:properties>
+            <camunda:validation>
+              <camunda:constraint name="required" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="loanDecisionReason" label="Шалтгаан" type="string" />
+          <camunda:formField id="loanCommentExplanation" label="Тайлбар" type="string">
+            <camunda:validation>
+              <camunda:constraint name="readonly" />
+            </camunda:validation>
+          </camunda:formField>
+        </camunda:formData>
+        <camunda:taskListener delegateExpression="${saveReasonTaskListener}" event="complete" />
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_0kplydp</bpmn:incoming>
+      <bpmn:outgoing>Flow_0xojxe6</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:serviceTask id="Activity_09d4tki" name="Loan Decision Task" camunda:delegateExpression="${microLoanDecisionTask}">
+      <bpmn:incoming>Flow_0xojxe6</bpmn:incoming>
+      <bpmn:outgoing>Flow_0z8j56u</bpmn:outgoing>
+    </bpmn:serviceTask>
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Collaboration_0k97qz0">
+      <bpmndi:BPMNShape id="Participant_0dzwy2y_di" bpmnElement="Participant_0dzwy2y" isHorizontal="true">
+        <dc:Bounds x="129" y="70" width="871" height="310" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_0z8j56u_di" bpmnElement="Flow_0z8j56u">
+        <di:waypoint x="600" y="210" />
+        <di:waypoint x="690" y="210" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0xojxe6_di" bpmnElement="Flow_0xojxe6">
+        <di:waypoint x="400" y="210" />
+        <di:waypoint x="500" y="210" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1jl0kel_di" bpmnElement="Flow_1jl0kel">
+        <di:waypoint x="790" y="210" />
+        <di:waypoint x="882" y="210" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0kplydp_di" bpmnElement="Flow_0kplydp">
+        <di:waypoint x="215" y="210" />
+        <di:waypoint x="300" y="210" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="172" y="236" width="56" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
+        <dc:Bounds x="179" y="192" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0jvlf0j_di" bpmnElement="Activity_09d4tki">
+        <dc:Bounds x="500" y="170" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_0bab7yu_di" bpmnElement="Event_0bab7yu">
+        <dc:Bounds x="882" y="192" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="872" y="235" width="57" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0wezfas_di" bpmnElement="Activity_1w2xf75">
+        <dc:Bounds x="690" y="170" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0et6din_di" bpmnElement="user_task_loan_decision">
+        <dc:Bounds x="300" y="170" width="100" height="80" />
+      </bpmndi:BPMNShape>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>

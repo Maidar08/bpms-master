@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" id="Definitions_1mtw6jx" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="3.7.3">
+  <bpmn:process id="loan_interest_rate" name="Loan Interest Rate" isExecutable="true">
+    <bpmn:startEvent id="StartEvent_1" name="Begin Interest Rate Calculation">
+      <bpmn:outgoing>Flow_00xn415</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:userTask id="Activity_192yt6k" name="10. Хүү тооцоолох" camunda:formKey="10. Хүү тооцоолох">
+      <bpmn:extensionElements>
+        <camunda:formData>
+          <camunda:formField id="total_years_worked" label="Тухайн байгууллагад ажилласан жил" type="string">
+            <camunda:properties>
+              <camunda:property id="Property_1jhs6cq" value="0-1" />
+              <camunda:property id="Property_2r854mv" value="1-7" />
+              <camunda:property id="Property_0q7i3h6" value="8-12" />
+              <camunda:property id="Property_37crtvq" value="13-20" />
+              <camunda:property id="Property_0g162aa" value="21+" />
+            </camunda:properties>
+            <camunda:validation>
+              <camunda:constraint name="required" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="organization_cif" label="Байгууллагын CIF" type="string">
+            <camunda:validation>
+              <camunda:constraint name="required" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="key_worker" label="Түлхүүр ажилтан эсэх" type="string" defaultValue="Үгүй">
+            <camunda:properties>
+              <camunda:property id="Property_08jovd9" value="Тийм" />
+              <camunda:property id="Property_0j76rf8" value="Үгүй" />
+            </camunda:properties>
+            <camunda:validation>
+              <camunda:constraint name="required" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="loan_period_string" label="Зээлийн мөчлөг" type="string">
+            <camunda:validation>
+              <camunda:constraint name="readonly" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="resourceString" label="Эх үүсвэрийн дүн" type="string">
+            <camunda:validation>
+              <camunda:constraint name="readonly" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="interest_rate_string" label="Тооцоолсон хүү" type="string">
+            <camunda:validation>
+              <camunda:constraint name="readonly" />
+            </camunda:validation>
+          </camunda:formField>
+        </camunda:formData>
+        <camunda:inputOutput>
+          <camunda:outputParameter name="loanClassName">Хэвийн</camunda:outputParameter>
+        </camunda:inputOutput>
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_099nwyu</bpmn:incoming>
+      <bpmn:outgoing>Flow_0919q6q</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:businessRuleTask id="Activity_1n5u71c" name="Loan Period" camunda:resultVariable="loan_period_score" camunda:decisionRef="loan_period" camunda:mapDecisionResult="singleEntry">
+      <bpmn:incoming>Flow_06ama54</bpmn:incoming>
+      <bpmn:outgoing>Flow_0ybocpm</bpmn:outgoing>
+    </bpmn:businessRuleTask>
+    <bpmn:businessRuleTask id="Activity_0a8gl2t" name="Loan History" camunda:resultVariable="loan_history_score" camunda:decisionRef="loan_history" camunda:mapDecisionResult="singleEntry">
+      <bpmn:incoming>Flow_19y56gx</bpmn:incoming>
+      <bpmn:outgoing>Flow_1wp30f6</bpmn:outgoing>
+    </bpmn:businessRuleTask>
+    <bpmn:sequenceFlow id="Flow_0ybocpm" sourceRef="Activity_1n5u71c" targetRef="Activity_0imt54f" />
+    <bpmn:sequenceFlow id="Flow_1wp30f6" sourceRef="Activity_0a8gl2t" targetRef="Activity_16pjkyr" />
+    <bpmn:businessRuleTask id="Activity_16pjkyr" name="Resources" camunda:resultVariable="resource_score" camunda:decisionRef="resource" camunda:mapDecisionResult="singleEntry">
+      <bpmn:incoming>Flow_1wp30f6</bpmn:incoming>
+      <bpmn:outgoing>Flow_0zlwsvg</bpmn:outgoing>
+    </bpmn:businessRuleTask>
+    <bpmn:sequenceFlow id="Flow_0zlwsvg" sourceRef="Activity_16pjkyr" targetRef="Activity_0s4jo6s" />
+    <bpmn:businessRuleTask id="Activity_0s4jo6s" name="Total Years Worked" camunda:resultVariable="total_years_worked_score" camunda:decisionRef="total_years_worked" camunda:mapDecisionResult="singleEntry">
+      <bpmn:incoming>Flow_0zlwsvg</bpmn:incoming>
+      <bpmn:outgoing>Flow_14ti37b</bpmn:outgoing>
+    </bpmn:businessRuleTask>
+    <bpmn:sequenceFlow id="Flow_14ti37b" sourceRef="Activity_0s4jo6s" targetRef="Activity_1q0jh85" />
+    <bpmn:sequenceFlow id="Flow_0cba3ck" sourceRef="Activity_1q0jh85" targetRef="Activity_0alffl8" />
+    <bpmn:businessRuleTask id="Activity_1q0jh85" name="Years Worked At Current Company" camunda:resultVariable="workspan_score" camunda:decisionRef="years_worked_company" camunda:mapDecisionResult="singleEntry">
+      <bpmn:incoming>Flow_14ti37b</bpmn:incoming>
+      <bpmn:outgoing>Flow_0cba3ck</bpmn:outgoing>
+    </bpmn:businessRuleTask>
+    <bpmn:businessRuleTask id="Activity_0alffl8" name="Organization Level" camunda:resultVariable="organization_level_scores" camunda:decisionRef="organization_level" camunda:mapDecisionResult="singleResult">
+      <bpmn:incoming>Flow_0cba3ck</bpmn:incoming>
+      <bpmn:outgoing>Flow_19vmpur</bpmn:outgoing>
+    </bpmn:businessRuleTask>
+    <bpmn:sequenceFlow id="Flow_00xn415" sourceRef="StartEvent_1" targetRef="Activity_01qhv88" />
+    <bpmn:sequenceFlow id="Flow_06ama54" sourceRef="Activity_173kdcl" targetRef="Activity_1n5u71c" />
+    <bpmn:serviceTask id="Activity_173kdcl" name="Get Organization Level" camunda:delegateExpression="${downloadOrganizationLevelTask}">
+      <bpmn:incoming>Flow_1tces75</bpmn:incoming>
+      <bpmn:outgoing>Flow_06ama54</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:serviceTask id="Activity_1aojz1k" name="Calculate Interest Rate" camunda:delegateExpression="${calculateInterestRateTask}">
+      <bpmn:incoming>Flow_0uzdprh</bpmn:incoming>
+      <bpmn:outgoing>Flow_1jsgrjh</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:businessRuleTask id="Activity_05sxdiq" name="Importance Level" camunda:resultVariable="importance_level" camunda:decisionRef="importance_level" camunda:mapDecisionResult="singleResult">
+      <bpmn:incoming>Flow_19vmpur</bpmn:incoming>
+      <bpmn:outgoing>Flow_0uor7p1</bpmn:outgoing>
+    </bpmn:businessRuleTask>
+    <bpmn:sequenceFlow id="Flow_19vmpur" sourceRef="Activity_0alffl8" targetRef="Activity_05sxdiq" />
+    <bpmn:sequenceFlow id="Flow_0uor7p1" sourceRef="Activity_05sxdiq" targetRef="Activity_0gagu9d" />
+    <bpmn:businessRuleTask id="Activity_0gagu9d" name="Max Possible Scores" camunda:resultVariable="max_scores" camunda:decisionRef="max_scores" camunda:mapDecisionResult="singleResult">
+      <bpmn:incoming>Flow_0uor7p1</bpmn:incoming>
+      <bpmn:outgoing>Flow_0uzdprh</bpmn:outgoing>
+    </bpmn:businessRuleTask>
+    <bpmn:sequenceFlow id="Flow_0uzdprh" sourceRef="Activity_0gagu9d" targetRef="Activity_1aojz1k" />
+    <bpmn:serviceTask id="Activity_0bpdiuo" name="Get Resource To Loan Amount Ratio" camunda:delegateExpression="${getResourceToLoanAmountRatioTask}">
+      <bpmn:incoming>Flow_0919q6q</bpmn:incoming>
+      <bpmn:outgoing>Flow_1tces75</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:sequenceFlow id="Flow_1tces75" sourceRef="Activity_0bpdiuo" targetRef="Activity_173kdcl" />
+    <bpmn:sequenceFlow id="Flow_1sht9p3" sourceRef="Activity_01qhv88" targetRef="Activity_11w8v1a" />
+    <bpmn:serviceTask id="Activity_01qhv88" name="Get Resource from Xac" camunda:delegateExpression="${getResourceFromXacTask}">
+      <bpmn:incoming>Flow_00xn415</bpmn:incoming>
+      <bpmn:outgoing>Flow_1sht9p3</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:serviceTask id="Activity_11w8v1a" name="Get Loan Period from Xac" camunda:delegateExpression="${getLoanPeriodFromXacTask}">
+      <bpmn:incoming>Flow_1sht9p3</bpmn:incoming>
+      <bpmn:outgoing>Flow_099nwyu</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:businessRuleTask id="Activity_0imt54f" name="Loan History Mapping" camunda:resultVariable="loan_history" camunda:decisionRef="loan_history_mapping" camunda:mapDecisionResult="singleEntry">
+      <bpmn:incoming>Flow_0ybocpm</bpmn:incoming>
+      <bpmn:outgoing>Flow_19y56gx</bpmn:outgoing>
+    </bpmn:businessRuleTask>
+    <bpmn:sequenceFlow id="Flow_099nwyu" sourceRef="Activity_11w8v1a" targetRef="Activity_192yt6k" />
+    <bpmn:sequenceFlow id="Flow_0919q6q" sourceRef="Activity_192yt6k" targetRef="Activity_0bpdiuo" />
+    <bpmn:sequenceFlow id="Flow_19y56gx" sourceRef="Activity_0imt54f" targetRef="Activity_0a8gl2t" />
+    <bpmn:endEvent id="Event_0qb6mvr" name="End Interest Rate Calculation">
+      <bpmn:incoming>Flow_1jsgrjh</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_1jsgrjh" sourceRef="Activity_1aojz1k" targetRef="Event_0qb6mvr" />
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="loan_interest_rate">
+      <bpmndi:BPMNEdge id="Flow_1jsgrjh_di" bpmnElement="Flow_1jsgrjh">
+        <di:waypoint x="1420" y="930" />
+        <di:waypoint x="1552" y="930" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_19y56gx_di" bpmnElement="Flow_19y56gx">
+        <di:waypoint x="1120" y="260" />
+        <di:waypoint x="1120" y="280" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0919q6q_di" bpmnElement="Flow_0919q6q">
+        <di:waypoint x="720" y="469" />
+        <di:waypoint x="735" y="469" />
+        <di:waypoint x="735" y="470" />
+        <di:waypoint x="750" y="470" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_099nwyu_di" bpmnElement="Flow_099nwyu">
+        <di:waypoint x="570" y="470" />
+        <di:waypoint x="595" y="470" />
+        <di:waypoint x="595" y="469" />
+        <di:waypoint x="620" y="469" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1sht9p3_di" bpmnElement="Flow_1sht9p3">
+        <di:waypoint x="420" y="470" />
+        <di:waypoint x="470" y="470" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1tces75_di" bpmnElement="Flow_1tces75">
+        <di:waypoint x="850" y="470" />
+        <di:waypoint x="890" y="470" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0uzdprh_di" bpmnElement="Flow_0uzdprh">
+        <di:waypoint x="1170" y="930" />
+        <di:waypoint x="1320" y="930" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0uor7p1_di" bpmnElement="Flow_0uor7p1">
+        <di:waypoint x="1120" y="860" />
+        <di:waypoint x="1120" y="890" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_19vmpur_di" bpmnElement="Flow_19vmpur">
+        <di:waypoint x="1120" y="760" />
+        <di:waypoint x="1120" y="780" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_06ama54_di" bpmnElement="Flow_06ama54">
+        <di:waypoint x="990" y="470" />
+        <di:waypoint x="1035" y="470" />
+        <di:waypoint x="1035" y="120" />
+        <di:waypoint x="1070" y="120" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_00xn415_di" bpmnElement="Flow_00xn415">
+        <di:waypoint x="218" y="470" />
+        <di:waypoint x="320" y="470" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0cba3ck_di" bpmnElement="Flow_0cba3ck">
+        <di:waypoint x="1120" y="660" />
+        <di:waypoint x="1120" y="680" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_14ti37b_di" bpmnElement="Flow_14ti37b">
+        <di:waypoint x="1120" y="560" />
+        <di:waypoint x="1120" y="580" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0zlwsvg_di" bpmnElement="Flow_0zlwsvg">
+        <di:waypoint x="1120" y="460" />
+        <di:waypoint x="1120" y="480" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1wp30f6_di" bpmnElement="Flow_1wp30f6">
+        <di:waypoint x="1120" y="360" />
+        <di:waypoint x="1120" y="380" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0ybocpm_di" bpmnElement="Flow_0ybocpm">
+        <di:waypoint x="1120" y="160" />
+        <di:waypoint x="1120" y="180" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
+        <dc:Bounds x="182" y="452" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="160" y="495" width="81" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0icmin0_di" bpmnElement="Activity_1n5u71c">
+        <dc:Bounds x="1070" y="80" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1t9ny13_di" bpmnElement="Activity_0a8gl2t">
+        <dc:Bounds x="1070" y="280" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1qv0ty6_di" bpmnElement="Activity_16pjkyr">
+        <dc:Bounds x="1070" y="380" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0qixw9v_di" bpmnElement="Activity_0s4jo6s">
+        <dc:Bounds x="1070" y="480" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0qimlfc_di" bpmnElement="Activity_1q0jh85">
+        <dc:Bounds x="1070" y="580" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0m5w4o2_di" bpmnElement="Activity_0alffl8">
+        <dc:Bounds x="1070" y="680" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1e4jnmq_di" bpmnElement="Activity_173kdcl">
+        <dc:Bounds x="890" y="430" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_00bvywa_di" bpmnElement="Activity_1aojz1k">
+        <dc:Bounds x="1320" y="890" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1aff0xo_di" bpmnElement="Activity_05sxdiq">
+        <dc:Bounds x="1070" y="780" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0se5wyy_di" bpmnElement="Activity_0gagu9d">
+        <dc:Bounds x="1070" y="890" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0xnwisw_di" bpmnElement="Activity_0bpdiuo">
+        <dc:Bounds x="750" y="430" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0o7lf9r_di" bpmnElement="Activity_01qhv88">
+        <dc:Bounds x="320" y="430" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_13v6vdw_di" bpmnElement="Activity_11w8v1a">
+        <dc:Bounds x="470" y="430" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1v8a4ur_di" bpmnElement="Activity_0imt54f">
+        <dc:Bounds x="1070" y="180" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_0qb6mvr_di" bpmnElement="Event_0qb6mvr">
+        <dc:Bounds x="1552" y="912" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1527" y="955" width="86" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0n595um_di" bpmnElement="Activity_192yt6k">
+        <dc:Bounds x="620" y="429" width="100" height="80" />
+      </bpmndi:BPMNShape>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>

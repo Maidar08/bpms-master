@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" xmlns:bioc="http://bpmn.io/schema/bpmn/biocolor/1.0" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="Definitions_1k1a8s6" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="4.4.0">
+  <bpmn:collaboration id="Collaboration_065s679">
+    <bpmn:participant id="Participant_1qgy2aw" name="11. Зээлийн хэмжээ тооцох" processRef="bpms_calculate_loan_amount" />
+  </bpmn:collaboration>
+  <bpmn:process id="bpms_calculate_loan_amount" isExecutable="true">
+    <bpmn:sequenceFlow id="SequenceFlow_0hnjeqq" sourceRef="StartEvent_1" targetRef="Task_02drrbk" />
+    <bpmn:sequenceFlow id="SequenceFlow_13mn33o" sourceRef="Task_02drrbk" targetRef="UserTask_0r0le5y" />
+    <bpmn:exclusiveGateway id="ExclusiveGateway_0ccul13">
+      <bpmn:incoming>SequenceFlow_17dac4t</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_0vgmlr9</bpmn:outgoing>
+      <bpmn:outgoing>SequenceFlow_1ya4vfs</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:sequenceFlow id="SequenceFlow_17dac4t" sourceRef="UserTask_0r0le5y" targetRef="ExclusiveGateway_0ccul13" />
+    <bpmn:sequenceFlow id="SequenceFlow_0vgmlr9" sourceRef="ExclusiveGateway_0ccul13" targetRef="Task_13kwe5v">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${calculateLoanAmount == true}</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:exclusiveGateway id="ExclusiveGateway_08vcoam">
+      <bpmn:incoming>SequenceFlow_0h2xmmb</bpmn:incoming>
+      <bpmn:incoming>SequenceFlow_1aaqge7</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_07xpd10</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:sequenceFlow id="SequenceFlow_0h2xmmb" sourceRef="Task_13kwe5v" targetRef="ExclusiveGateway_08vcoam" />
+    <bpmn:sequenceFlow id="SequenceFlow_1ya4vfs" sourceRef="ExclusiveGateway_0ccul13" targetRef="Task_02595bh">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${calculateLoanAmount == false}</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:serviceTask id="Task_13kwe5v" name="Тооцоолол хийх" camunda:delegateExpression="${calculateLoanAmountTask}">
+      <bpmn:incoming>SequenceFlow_0vgmlr9</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_0h2xmmb</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:sequenceFlow id="SequenceFlow_1aaqge7" sourceRef="Task_02595bh" targetRef="ExclusiveGateway_08vcoam" />
+    <bpmn:sequenceFlow id="SequenceFlow_07xpd10" sourceRef="ExclusiveGateway_08vcoam" targetRef="service_task_set_consumption_loan_account_variables" />
+    <bpmn:endEvent id="EndEvent_0hebj5p" name="Дууссан">
+      <bpmn:incoming>SequenceFlow_00pp8lh</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="SequenceFlow_00pp8lh" sourceRef="service_task_set_consumption_loan_account_variables" targetRef="EndEvent_0hebj5p" />
+    <bpmn:serviceTask id="service_task_set_consumption_loan_account_variables" name="Хэрэглээний зээлийн дансны variable set хийх" camunda:delegateExpression="${setFieldsAfterLoanAmountCalculationTask}">
+      <bpmn:incoming>SequenceFlow_07xpd10</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_00pp8lh</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:serviceTask id="Task_02595bh" name="Validation хийх" camunda:delegateExpression="${loanAmountValidationTask}">
+      <bpmn:incoming>SequenceFlow_1ya4vfs</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_1aaqge7</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:serviceTask id="Task_02drrbk" name="Шаардлагатай field-үүдийг бөглөх" camunda:delegateExpression="${setLoanAmountCalculationData}">
+      <bpmn:incoming>SequenceFlow_0hnjeqq</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_13mn33o</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:startEvent id="StartEvent_1" name="11. Зээлийн хэмжээ тооцох">
+      <bpmn:outgoing>SequenceFlow_0hnjeqq</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:userTask id="UserTask_0r0le5y" name="11. Зээлийн хэмжээ тооцох" camunda:formKey="11. Зээлийн хэмжээ тооцох">
+      <bpmn:extensionElements>
+        <camunda:formData>
+          <camunda:formField id="incomeType" label="Орлогын төрөл" type="string">
+            <camunda:validation>
+              <camunda:constraint name="required" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="amount" label="Хүссэн зээлийн хэмжээ" type="long">
+            <camunda:validation>
+              <camunda:constraint name="required" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="monthPaymentActiveLoan" label="Идэвхитэй зээлийн сарын төлбөр" type="long" defaultValue="0">
+            <camunda:validation>
+              <camunda:constraint name="required" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="processTypeName" label="Зээлийн төрөл" type="string">
+            <camunda:validation>
+              <camunda:constraint name="required" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="term" label="Хугацаа (сар)" type="long">
+            <camunda:validation>
+              <camunda:constraint name="required" />
+              <camunda:constraint name="max" config="31" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="loanGrantDate" label="Олгох огноо" type="date">
+            <camunda:validation>
+              <camunda:constraint name="required" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="loanProduct" label="Зээлийн бүтээгдэхүүн" type="string">
+            <camunda:properties>
+              <camunda:property id="EB50" value="EB50-365-Цалингийн зээл - Иргэн" />
+              <camunda:property id="EF50" value="EF50-365-Ажиллагсадын хэрэглээний зээл" />
+              <camunda:property id="EA50" value="EA50-365-Өрхийн зээл - Иргэн" />
+              <camunda:property id="EH53" value="EH53-365-Хэрэглээний худалдан авалтын зээл - Иргэн" />
+              <camunda:property id="EG50" value="EG50-365- Сургалтын төлбөрийн зээл" />
+              <camunda:property id="EA52" value="EA52-Эко хэрэглээний зээл -дулаалга" />
+              <camunda:property id="EH90" value="EH90-Автомашины зээл-Иргэн" />
+              <camunda:property id="EH83" value="EH83-Хаслизинг санхүү түрээс-Иргэн" />
+              <camunda:property id="EH88" value="EH88-Дугаартай автомашины зээл-Иргэн" />
+              <camunda:property id="DJ83" value="DJ83-Хаслизинг санхүү түрээс-ААН" />
+              <camunda:property id="EH56" value="EH56-Эко хэрэглээний зээл /халаагуур/" />
+              <camunda:property id="EB51" value="EB51-365-Цалингийн зээл -Иргэн –EMI" />
+              <camunda:property id="EA51" value="EA51-365-Өрхийн зээл - Иргэн-EMI" />
+              <camunda:property id="EH54" value="EH54-365-Хэрэглээний ХАЗ-EMI" />
+              <camunda:property id="EH89" value="EH89-EMI-Автомашины зээл-Иргэн" />
+              <camunda:property id="DJ87" value="DJ87-EMI-Автомашины зээл-ААН" />
+              <camunda:property id="EA53" value="EA53-Эко хэрэглээний зээл-EMI /дулаалга/" />
+              <camunda:property id="EH57" value="EH57-Эко хэрэглээний зээл-EMI/халаагуур/" />
+              <camunda:property id="EB71" value="EB71-Онлайн цалингийн зээл" />
+              <camunda:property id="EB60" value="EB60-Эко хэрэглээний зээл" />
+              <camunda:property id="EB61" value="EB61-Эко хэрэглээний зээл - EMI" />
+              <camunda:property id="EH15" value="EH15-Худалдан авалтын зээл - Сайн1" />
+              <camunda:property id="EH16" value="EH16-Худалдан авалтын зээл - Сайн2" />
+            </camunda:properties>
+            <camunda:validation>
+              <camunda:constraint name="required" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="interestRate" label="Хүү (сараар)" type="string">
+            <camunda:validation>
+              <camunda:constraint name="required" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="firstPaymentDate" label="Төлөх эхний өдөр" type="date">
+            <camunda:validation>
+              <camunda:constraint name="required" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="repaymentType" label="Эргэн төлөлт" type="string" defaultValue="Үндсэн төлбөр тэнцүү">
+            <camunda:properties>
+              <camunda:property id="equatedMonthlyInstallment" value="Нийт төлбөр тэнцүү" />
+              <camunda:property id="equalPrinciplePayment" value="Үндсэн төлбөр тэнцүү" />
+            </camunda:properties>
+            <camunda:validation>
+              <camunda:constraint name="readonly" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="incomeAmountCoBorrower" label="Хамтран зээлдэгчийн орлого" type="long" />
+          <camunda:formField id="debtIncomeBalanceString" label="Өр орлогын харьцаа" type="string">
+            <camunda:validation>
+              <camunda:constraint name="readonly" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="hasCollateral" label="Барьцаатай эсэх" type="string" defaultValue="Тийм">
+            <camunda:properties>
+              <camunda:property id="hasCollateral" value="Тийм" />
+              <camunda:property id="hasNotCollateral" value="Үгүй" />
+            </camunda:properties>
+          </camunda:formField>
+          <camunda:formField id="collateralAmount" label="Барьцааны дүн" type="long">
+            <camunda:validation>
+              <camunda:constraint name="readonly" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="loanApprovalAmount" label="Зээл зөвшөөрөх дүн" type="long">
+            <camunda:validation>
+              <camunda:constraint name="readonly" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="salaryAmountString" label="Сарын цалин" type="string">
+            <camunda:validation>
+              <camunda:constraint name="readonly" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="totalIncomeAmountString" label="Нийт орлого" type="string">
+            <camunda:validation>
+              <camunda:constraint name="readonly" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="debtIncomeIssuanceString" label="Олгох үеийн өр орлогын харьцаа" type="string">
+            <camunda:validation>
+              <camunda:constraint name="readonly" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="grantLoanAmountString" label="Олгож болох зээлийн хэмжээ" type="string">
+            <camunda:validation>
+              <camunda:constraint name="readonly" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="fixedAcceptedLoanAmount" label="Батлах зээлийн хэмжээ" type="long">
+            <camunda:validation>
+              <camunda:constraint name="required" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="confirmLoanAmount" label="Зөвшөөрөх эсэх" type="string">
+            <camunda:properties>
+              <camunda:property id="customerApprovedLoanAmount" value="Зөвшөөрсөн" />
+              <camunda:property id="customerRejectedLoanAmount" value="Зөвшөөрөөгүй" />
+            </camunda:properties>
+          </camunda:formField>
+          <camunda:formField id="reCalculated" type="boolean" />
+          <camunda:formField id="amountCalculationCount" type="long" defaultValue="0" />
+        </camunda:formData>
+        <camunda:taskListener delegateExpression="${updateLoanAmountTaskListener}" event="complete" />
+        <camunda:taskListener delegateExpression="${manuallyStartRelatedTaskListener}" event="complete" />
+      </bpmn:extensionElements>
+      <bpmn:incoming>SequenceFlow_13mn33o</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_17dac4t</bpmn:outgoing>
+    </bpmn:userTask>
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Collaboration_065s679">
+      <bpmndi:BPMNShape id="Participant_1qgy2aw_di" bpmnElement="Participant_1qgy2aw" isHorizontal="true">
+        <dc:Bounds x="160" y="70" width="1170" height="330" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="SequenceFlow_00pp8lh_di" bpmnElement="SequenceFlow_00pp8lh">
+        <di:waypoint x="1170" y="210" />
+        <di:waypoint x="1242" y="210" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_07xpd10_di" bpmnElement="SequenceFlow_07xpd10">
+        <di:waypoint x="1015" y="210" />
+        <di:waypoint x="1070" y="210" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_1aaqge7_di" bpmnElement="SequenceFlow_1aaqge7">
+        <di:waypoint x="860" y="280" />
+        <di:waypoint x="990" y="280" />
+        <di:waypoint x="990" y="235" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_1ya4vfs_di" bpmnElement="SequenceFlow_1ya4vfs">
+        <di:waypoint x="660" y="235" />
+        <di:waypoint x="660" y="280" />
+        <di:waypoint x="760" y="280" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_0h2xmmb_di" bpmnElement="SequenceFlow_0h2xmmb">
+        <di:waypoint x="860" y="140" />
+        <di:waypoint x="990" y="140" />
+        <di:waypoint x="990" y="185" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_0vgmlr9_di" bpmnElement="SequenceFlow_0vgmlr9">
+        <di:waypoint x="660" y="185" />
+        <di:waypoint x="660" y="140" />
+        <di:waypoint x="760" y="140" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_17dac4t_di" bpmnElement="SequenceFlow_17dac4t">
+        <di:waypoint x="510" y="210" />
+        <di:waypoint x="635" y="210" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_13mn33o_di" bpmnElement="SequenceFlow_13mn33o">
+        <di:waypoint x="320" y="210" />
+        <di:waypoint x="410" y="210" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_0hnjeqq_di" bpmnElement="SequenceFlow_0hnjeqq">
+        <di:waypoint x="270" y="128" />
+        <di:waypoint x="270" y="170" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="ExclusiveGateway_0ccul13_di" bpmnElement="ExclusiveGateway_0ccul13" isMarkerVisible="true">
+        <dc:Bounds x="635" y="185" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="ExclusiveGateway_08vcoam_di" bpmnElement="ExclusiveGateway_08vcoam" isMarkerVisible="true">
+        <dc:Bounds x="965" y="185" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="ServiceTask_0ne85u4_di" bpmnElement="Task_13kwe5v" bioc:stroke="rgb(142, 36, 170)" bioc:fill="rgb(225, 190, 231)">
+        <dc:Bounds x="760" y="100" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="EndEvent_0hebj5p_di" bpmnElement="EndEvent_0hebj5p">
+        <dc:Bounds x="1242" y="192" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1241" y="235" width="41" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="ServiceTask_1ivanbv_di" bpmnElement="service_task_set_consumption_loan_account_variables" bioc:stroke="rgb(67, 160, 71)" bioc:fill="rgb(200, 230, 201)">
+        <dc:Bounds x="1070" y="170" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="ServiceTask_1q90nj2_di" bpmnElement="Task_02595bh" bioc:stroke="rgb(142, 36, 170)" bioc:fill="rgb(225, 190, 231)">
+        <dc:Bounds x="760" y="240" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="ServiceTask_0ahu4w5_di" bpmnElement="Task_02drrbk" bioc:stroke="rgb(251, 140, 0)" bioc:fill="rgb(255, 224, 178)">
+        <dc:Bounds x="220" y="170" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
+        <dc:Bounds x="252" y="92" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="292" y="95.5" width="75" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="UserTask_0r0le5y_di" bpmnElement="UserTask_0r0le5y" bioc:stroke="rgb(67, 160, 71)" bioc:fill="rgb(200, 230, 201)">
+        <dc:Bounds x="410" y="170" width="100" height="80" />
+      </bpmndi:BPMNShape>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>

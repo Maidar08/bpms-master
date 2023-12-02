@@ -1,0 +1,21 @@
+.mat-dialog-title {
+  margin-left: 2vw;
+}
+.mat-dialog-actions {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+.workspace-actions {
+  display: flex;
+  flex-direction: row-reverse;
+  margin-top: 4vh;
+  height: 50px;
+}
+
+.dialog-container {
+  overflow-x: hidden;
+}
+
+

@@ -1,0 +1,78 @@
+.sidenav-container {
+  height: calc(100% - 64px);
+}
+
+.sidenav {
+  top: 64px;
+  width: 200px;
+}
+
+.sidenav .mat-toolbar {
+  background: inherit;
+}
+
+.mat-toolbar.mat-primary {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.spacer {
+  flex-grow: 1;
+}
+
+.active-link {
+  color: #322663!important;
+  background-color: gainsboro;
+}
+
+.content {
+  background-color: #efefef;
+}
+.item{
+  color: #757575;
+}
+.originalMain{
+  margin-left: 0!important;
+}
+mat-sidenav:not(.mat-drawer-opened) {
+  transform: translate3d(0, 0, 0) !important;
+  visibility: visible !important;
+  width: 73px !important;
+  overflow: hidden;
+}
+
+
+//large- handset
+@media only screen and (max-width: 959px) {
+  mat-sidenav:not(.mat-drawer-opened) {
+    width: 0px !important;
+  }
+
+}
+//larger- than - handset
+@media only screen and (min-width: 959px) {
+  mat-sidenav:not(.mat-drawer-opened) {
+    width: 73px !important;
+  }
+}
+
+.pushMainArea{
+  $sidenav : 72px;
+  margin-left: #{$sidenav + 5px};
+}
+.collapseMain{
+  margin-left: 72px!important;
+}
+
+.mat-tree-node{
+  padding-left: 16px!important;
+  padding-right: 16px;
+  padding-top: 16px;
+}
+.mat-tree-node:hover{
+  cursor: pointer;
+}
+.child-tree{
+  padding-left: 56px!important;
+}

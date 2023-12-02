@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:bioc="http://bpmn.io/schema/bpmn/biocolor/1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="Definitions_0gw4k5j" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="3.5.0">
+  <bpmn:collaboration id="Collaboration_16y75ri">
+    <bpmn:participant id="Participant_1vx3rpg" name="12. Хамтран хасах" processRef="bpms_remove_coborrower" />
+  </bpmn:collaboration>
+  <bpmn:process id="bpms_remove_coborrower" isExecutable="true">
+    <bpmn:endEvent id="Event_07q09nu">
+      <bpmn:incoming>SequenceFlow_14zuvqp</bpmn:incoming>
+      <bpmn:incoming>SequenceFlow_1wsaq9z</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:exclusiveGateway id="ExclusiveGateway_1srj8jx">
+      <bpmn:incoming>SequenceFlow_19fmtn6</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_12pe0r5</bpmn:outgoing>
+      <bpmn:outgoing>SequenceFlow_1wsaq9z</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:serviceTask id="Task_1r5ibgm" name="Хамтран дууссах эсэхийг шалгах" camunda:delegateExpression="${verifyCoBoRemovedServiceTask}">
+      <bpmn:incoming>SequenceFlow_12pe0r5</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_01xfbkj</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:serviceTask id="Task_08jvvgq" name="Хамтрангын Xyp, Монгол банк user таскууд active эсэхийг шалгах" camunda:delegateExpression="${terminateCoBoActiveEnquireTask}">
+      <bpmn:incoming>SequenceFlow_01xfbkj</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_14zuvqp</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:startEvent id="StartEvent_1">
+      <bpmn:outgoing>Flow_1gm1vch</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:userTask id="Activity_0288zmt" name="12. Хамтран хасах" camunda:formKey="12. Хамтран хасах">
+      <bpmn:extensionElements>
+        <camunda:formData>
+          <camunda:formField id="fullName" label="Үндсэн зээлдэгч" type="string">
+            <camunda:validation>
+              <camunda:constraint name="readonly" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="riskyCustomerValue" label="Эрсдэлтэй харилцагч " type="string" defaultValue="Эрсдэлгүй">
+            <camunda:validation>
+              <camunda:constraint name="readonly" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="loanClassName" label="Зээлийн ангилал" type="string">
+            <camunda:validation>
+              <camunda:constraint name="readonly" />
+            </camunda:validation>
+          </camunda:formField>
+        </camunda:formData>
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_1gm1vch</bpmn:incoming>
+      <bpmn:outgoing>Flow_1o75afp</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:sequenceFlow id="SequenceFlow_1wsaq9z" sourceRef="ExclusiveGateway_1srj8jx" targetRef="Event_07q09nu">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${indexCoBorrower &gt;= 1}</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:sequenceFlow id="SequenceFlow_12pe0r5" name="Бүх хамтранг хассан" sourceRef="ExclusiveGateway_1srj8jx" targetRef="Task_1r5ibgm">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${indexCoBorrower == 0}</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:sequenceFlow id="SequenceFlow_14zuvqp" sourceRef="Task_08jvvgq" targetRef="Event_07q09nu" />
+    <bpmn:sequenceFlow id="SequenceFlow_01xfbkj" sourceRef="Task_1r5ibgm" targetRef="Task_08jvvgq" />
+    <bpmn:sequenceFlow id="Flow_1gm1vch" sourceRef="StartEvent_1" targetRef="Activity_0288zmt" />
+    <bpmn:sequenceFlow id="Flow_0e7z7fh" sourceRef="Activity_1i2xe38" targetRef="Task_00hykef" />
+    <bpmn:sequenceFlow id="Flow_1o75afp" sourceRef="Activity_0288zmt" targetRef="Activity_12fjslo" />
+    <bpmn:sequenceFlow id="Flow_0najuq3" sourceRef="Activity_12fjslo" targetRef="Activity_1i2xe38" />
+    <bpmn:sequenceFlow id="SequenceFlow_19fmtn6" sourceRef="Task_00hykef" targetRef="ExclusiveGateway_1srj8jx" />
+    <bpmn:serviceTask id="Task_00hykef" name="Хэмжээ тооцох үе шатыг гараар эхлүүлэх" camunda:delegateExpression="${manuallyStartCalculateLoanAmountStage}">
+      <bpmn:incoming>Flow_0e7z7fh</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_19fmtn6</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:serviceTask id="Activity_1i2xe38" name="Delete co-borrower" camunda:delegateExpression="${deleteCoBorrowerVariablesTask}">
+      <bpmn:incoming>Flow_0najuq3</bpmn:incoming>
+      <bpmn:outgoing>Flow_0e7z7fh</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:serviceTask id="Activity_12fjslo" name="Update co-borrower" camunda:delegateExpression="${updateCoBorrowerVariablesTask}">
+      <bpmn:incoming>Flow_1o75afp</bpmn:incoming>
+      <bpmn:outgoing>Flow_0najuq3</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:textAnnotation id="TextAnnotation_1e8wrgu">
+      <bpmn:text>Хэрэв дууссан бол хамтрангын ХУР, Монгол банк execution-ийг disabled болгоно.</bpmn:text>
+    </bpmn:textAnnotation>
+    <bpmn:textAnnotation id="TextAnnotation_0osjui6">
+      <bpmn:text>Хэрэв active байвал suspend хийнэ.</bpmn:text>
+    </bpmn:textAnnotation>
+    <bpmn:association id="Association_1q2ysqt" sourceRef="Task_1r5ibgm" targetRef="TextAnnotation_1e8wrgu" />
+    <bpmn:association id="Association_0srasay" sourceRef="Task_08jvvgq" targetRef="TextAnnotation_0osjui6" />
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Collaboration_16y75ri">
+      <bpmndi:BPMNShape id="Participant_1vx3rpg_di" bpmnElement="Participant_1vx3rpg" isHorizontal="true">
+        <dc:Bounds x="160" y="80" width="1290" height="370" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_0najuq3_di" bpmnElement="Flow_0najuq3">
+        <di:waypoint x="530" y="240" />
+        <di:waypoint x="600" y="240" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1o75afp_di" bpmnElement="Flow_1o75afp">
+        <di:waypoint x="360" y="240" />
+        <di:waypoint x="430" y="240" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0e7z7fh_di" bpmnElement="Flow_0e7z7fh">
+        <di:waypoint x="700" y="240" />
+        <di:waypoint x="770" y="240" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1gm1vch_di" bpmnElement="Flow_1gm1vch">
+        <di:waypoint x="228" y="240" />
+        <di:waypoint x="260" y="240" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
+        <dc:Bounds x="192" y="222" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1ry10r9_di" bpmnElement="Activity_0288zmt" bioc:stroke="rgb(67, 160, 71)" bioc:fill="rgb(200, 230, 201)">
+        <dc:Bounds x="260" y="200" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_07q09nu_di" bpmnElement="Event_07q09nu">
+        <dc:Bounds x="1332" y="222" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0tnufj1_di" bpmnElement="Activity_1i2xe38" bioc:stroke="rgb(229, 57, 53)" bioc:fill="rgb(255, 205, 210)">
+        <dc:Bounds x="600" y="200" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1aowrux_di" bpmnElement="Activity_12fjslo" bioc:stroke="rgb(251, 140, 0)" bioc:fill="rgb(255, 224, 178)">
+        <dc:Bounds x="430" y="200" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="SequenceFlow_01xfbkj_di" bpmnElement="SequenceFlow_01xfbkj">
+        <di:waypoint x="1110" y="310" />
+        <di:waypoint x="1160" y="310" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="TextAnnotation_1e8wrgu_di" bpmnElement="TextAnnotation_1e8wrgu">
+        <dc:Bounds x="830" y="380" width="278" height="60" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Association_1q2ysqt_di" bpmnElement="Association_1q2ysqt">
+        <di:waypoint x="1024" y="350" />
+        <di:waypoint x="996" y="380" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="ServiceTask_1c6sc58_di" bpmnElement="Task_1r5ibgm" bioc:stroke="rgb(67, 160, 71)" bioc:fill="rgb(200, 230, 201)">
+        <dc:Bounds x="1010" y="270" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="SequenceFlow_14zuvqp_di" bpmnElement="SequenceFlow_14zuvqp">
+        <di:waypoint x="1260" y="310" />
+        <di:waypoint x="1350" y="310" />
+        <di:waypoint x="1350" y="258" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="ServiceTask_05dg76a_di" bpmnElement="Task_08jvvgq" bioc:stroke="rgb(67, 160, 71)" bioc:fill="rgb(200, 230, 201)">
+        <dc:Bounds x="1160" y="270" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="TextAnnotation_0osjui6_di" bpmnElement="TextAnnotation_0osjui6">
+        <dc:Bounds x="1130" y="380" width="180" height="40" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Association_0srasay_di" bpmnElement="Association_0srasay">
+        <di:waypoint x="1214" y="350" />
+        <di:waypoint x="1218" y="380" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="ExclusiveGateway_1srj8jx_di" bpmnElement="ExclusiveGateway_1srj8jx" isMarkerVisible="true">
+        <dc:Bounds x="915" y="215" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="SequenceFlow_12pe0r5_di" bpmnElement="SequenceFlow_12pe0r5">
+        <di:waypoint x="940" y="265" />
+        <di:waypoint x="940" y="310" />
+        <di:waypoint x="1010" y="310" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="905" y="316" width="69" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_1wsaq9z_di" bpmnElement="SequenceFlow_1wsaq9z">
+        <di:waypoint x="940" y="215" />
+        <di:waypoint x="940" y="180" />
+        <di:waypoint x="1350" y="180" />
+        <di:waypoint x="1350" y="222" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_19fmtn6_di" bpmnElement="SequenceFlow_19fmtn6">
+        <di:waypoint x="870" y="240" />
+        <di:waypoint x="915" y="240" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="ServiceTask_1je99cj_di" bpmnElement="Task_00hykef" bioc:stroke="rgb(251, 140, 0)" bioc:fill="rgb(255, 224, 178)">
+        <dc:Bounds x="770" y="200" width="100" height="80" />
+      </bpmndi:BPMNShape>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>

@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bioc="http://bpmn.io/schema/bpmn/biocolor/1.0" id="Definitions_0e0qphw" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="3.5.0" xsi:schemaLocation="http://camunda.org/schema/1.0/bpmn ">
+  <bpmn:collaboration id="Collaboration_18bh9n9">
+    <bpmn:participant id="Participant_1e4djxj" name="Онлайн цалингийн зээлийн гэрээ бэлтгэх процесс" processRef="bpms_online_salary_loan_contract_preparation" />
+  </bpmn:collaboration>
+  <bpmn:process id="bpms_online_salary_loan_contract_preparation" isExecutable="true">
+    <bpmn:startEvent id="StartEvent_1" name="Begin Loan Contract Preparation">
+      <bpmn:outgoing>Flow_10250ia</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:userTask id="user_task_online_salary_loan_contract" name="18. Зээлийн гэрээ бэлтгэх" camunda:formKey="18. Зээлийн гэрээ бэлтгэх">
+      <bpmn:extensionElements>
+        <camunda:formData>
+          <camunda:formField id="loanProduct" label="Бүтээгдэхүүн" type="string">
+            <camunda:validation>
+              <camunda:constraint name="readonly" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="fixedAcceptedLoanAmount" label="Зээлийн дүн" type="long">
+            <camunda:validation>
+              <camunda:constraint name="readonly" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="loanAccountNumber" label="Зээлийн дансны дугаар" type="string">
+            <camunda:validation>
+              <camunda:constraint name="readonly" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="rateChange" label="Зээлийн хүүгийн өөрчлөлт" type="string" />
+          <camunda:formField id="mortgageContract" label="Ипотекийн гэрээ" type="string" />
+          <camunda:formField id="loanServiceFee" label="Зээлийн үйлчилгээний шимтгэл" type="long" />
+          <camunda:formField id="fiduciaryContract" label="Фидуцийн гэрээ" type="string" />
+          <camunda:formField id="applicationFee" label="Өргөдлийн хураамж" type="long" />
+          <camunda:formField id="collateralContract" label="Барьцааны гэрээ" type="string" />
+          <camunda:formField id="numberOfContract" label="Гэрээний хувь" type="long" />
+          <camunda:formField id="warrantyContract" label="Батлан даалтын гэрээ" type="string" />
+          <camunda:formField id="serviceFee" label="Үйлчилгээний шимтгэл" type="long" />
+          <camunda:formField id="supplierFee" label="Нийлүүлэгчийн шимтгэл" type="long" />
+          <camunda:formField id="otherFee" label="Бусад Шимтгэл /ЦМСан/" type="long" />
+          <camunda:formField id="propertyInsurance" label="Эд хөрөнгийн даатгал" type="long" />
+          <camunda:formField id="accidentInsurance" label="Гэнэтийн ослын даатгал" type="long" />
+          <camunda:formField id="currentAccount0" label="Харилцах данс" type="string" />
+          <camunda:formField id="currentAccount1" label="Харилцах данс" type="string" defaultValue="empty" />
+          <camunda:formField id="currentAccount2" label="Харилцах данс" type="string" defaultValue="empty" />
+          <camunda:formField id="currentAccount3" label="Харилцах данс" type="string" defaultValue="empty" />
+          <camunda:formField id="currentAccount4" label="Харилцах данс" type="string" defaultValue="empty" />
+          <camunda:formField id="savingAccount0" label="Хадгаламжийн данс" type="string" />
+          <camunda:formField id="savingAccount1" label="Хадгаламжийн данс" type="string" />
+          <camunda:formField id="savingAccount2" label="Хадгаламжийн данс" type="string" />
+          <camunda:formField id="savingAccount3" label="Хадгаламжийн данс" type="string" />
+          <camunda:formField id="savingAccount4" label="Хадгаламжийн данс" type="string" />
+          <camunda:formField id="cardAccount0" label="Картын данс" type="string" />
+          <camunda:formField id="cardAccount1" label="Картын данс" type="string" />
+          <camunda:formField id="cardAccount2" label="Картын данс" type="string" />
+          <camunda:formField id="cardAccount3" label="Картын данс" type="string" />
+          <camunda:formField id="cardAccount4" label="Картын данс" type="string" />
+          <camunda:formField id="otherBankName0" label="Банкны нэр" type="string">
+            <camunda:properties>
+              <camunda:property id="Property_228l13v" value="Ариг банк" />
+              <camunda:property id="Property_03lge1s" value="Богд банк" />
+              <camunda:property id="Property_1pf039f" value="Голомт банк" />
+              <camunda:property id="Property_3q9s047" value="Капитрон банк" />
+              <camunda:property id="Property_1rf9m5k" value="Кредит банк" />
+              <camunda:property id="Property_13biuge" value="Төрийн банк" />
+              <camunda:property id="Property_350944g" value="Төрийн сан" />
+              <camunda:property id="Property_1jrbg73" value="Тээвэр хөгжлийн банк" />
+              <camunda:property id="Property_3o95nu0" value="Улаанбаатар хотын банк" />
+              <camunda:property id="Property_0u1pb91" value="Үндэсний хөрөнгө оруулалтын банк" />
+              <camunda:property id="Property_247s3ob" value="Хаан банк" />
+              <camunda:property id="Property_0chrfj8" value="Худалдаа хөгжлийн банк" />
+              <camunda:property id="Property_169bb85" value="Чингис хаан банк" />
+            </camunda:properties>
+          </camunda:formField>
+          <camunda:formField id="otherBankName1" label="Банкны нэр" type="string">
+            <camunda:properties>
+              <camunda:property id="Property_10da044" value="ХасБанк" />
+              <camunda:property id="Property_1upjagg" value="Ариг банк" />
+              <camunda:property id="Property_1felt24" value="Богд банк" />
+              <camunda:property id="Property_0d22icq" value="Голомт банк" />
+              <camunda:property id="Property_2t7lpeo" value="Капитрон банк" />
+              <camunda:property id="Property_2bnisjv" value="Кредит банк" />
+              <camunda:property id="Property_198u8kl" value="Төрийн банк" />
+              <camunda:property id="Property_00eq208" value="Төрийн сан" />
+              <camunda:property id="Property_2og3v4t" value="Тээвэр хөгжлийн банк" />
+              <camunda:property id="Property_0138efu" value="Улаанбаатар хотын банк" />
+              <camunda:property id="Property_2jv83ha" value="Үндэсний хөрөнгө оруулалтын банк" />
+              <camunda:property id="Property_3j5qv2r" value="Хаан банк" />
+              <camunda:property id="Property_19fdlfs" value="Худалдаа хөгжлийн банк" />
+              <camunda:property id="Property_1c7sim3" value="Чингис хаан банк" />
+            </camunda:properties>
+          </camunda:formField>
+          <camunda:formField id="otherBankName2" label="Банкны нэр" type="string">
+            <camunda:properties>
+              <camunda:property id="Property_03e63gi" value="ХасБанк" />
+              <camunda:property id="Property_2f4msks" value="Ариг банк" />
+              <camunda:property id="Property_2rbo6bi" value="Богд банк" />
+              <camunda:property id="Property_3993k6l" value="Голомт банк" />
+              <camunda:property id="Property_0k5t42q" value="Капитрон банк" />
+              <camunda:property id="Property_010nduk" value="Кредит банк" />
+              <camunda:property id="Property_2ti2p7e" value="Төрийн банк" />
+              <camunda:property id="Property_1hirtnu" value="Төрийн сан" />
+              <camunda:property id="Property_0270atd" value="Тээвэр хөгжлийн банк" />
+              <camunda:property id="Property_2bcr4q7" value="Улаанбаатар хотын банк" />
+              <camunda:property id="Property_3sil102" value="Үндэсний хөрөнгө оруулалтын банк" />
+              <camunda:property id="Property_2kuoe44" value="Хаан банк" />
+              <camunda:property id="Property_2f4h360" value="Худалдаа хөгжлийн банк" />
+              <camunda:property id="Property_17u0vp3" value="Чингис хаан банк" />
+            </camunda:properties>
+          </camunda:formField>
+          <camunda:formField id="otherBankName3" label="Банкны нэр" type="string">
+            <camunda:properties>
+              <camunda:property id="Property_0qt3dn6" value="ХасБанк" />
+              <camunda:property id="Property_3g88l87" value="Ариг банк" />
+              <camunda:property id="Property_3lmmbrh" value="Богд банк" />
+              <camunda:property id="Property_0s0e2a1" value="Голомт банк" />
+              <camunda:property id="Property_0evdiqs" value="Капитрон банк" />
+              <camunda:property id="Property_2v6udtb" value="Кредит банк" />
+              <camunda:property id="Property_3rgf80o" value="Төрийн банк" />
+              <camunda:property id="Property_3or09c3" value="Төрийн сан" />
+              <camunda:property id="Property_2onlod5" value="Тээвэр хөгжлийн банк" />
+              <camunda:property id="Property_1trnte9" value="Улаанбаатар хотын банк" />
+              <camunda:property id="Property_111co4h" value="Үндэсний хөрөнгө оруулалтын банк" />
+              <camunda:property id="Property_0akp4e5" value="Хаан банк" />
+              <camunda:property id="Property_0tc7tge" value="Худалдаа хөгжлийн банк" />
+              <camunda:property id="Property_3scvvfv" value="Чингис хаан банк" />
+            </camunda:properties>
+          </camunda:formField>
+          <camunda:formField id="otherBankName4" label="Банкны нэр" type="string">
+            <camunda:properties>
+              <camunda:property id="Property_3evl0pk" value="ХасБанк" />
+              <camunda:property id="Property_3uvhojg" value="Ариг банк" />
+              <camunda:property id="Property_1v04aa9" value="Богд банк" />
+              <camunda:property id="Property_1cu0epa" value="Голомт банк" />
+              <camunda:property id="Property_2gt0jfl" value="Капитрон банк" />
+              <camunda:property id="Property_20hh29j" value="Кредит банк" />
+              <camunda:property id="Property_38c9brd" value="Төрийн банк" />
+              <camunda:property id="Property_1um7i83" value="Төрийн сан" />
+              <camunda:property id="Property_29iuvu8" value="Тээвэр хөгжлийн банк" />
+              <camunda:property id="Property_11irlv6" value="Улаанбаатар хотын банк" />
+              <camunda:property id="Property_15u286n" value="Үндэсний хөрөнгө оруулалтын банк" />
+              <camunda:property id="Property_27b8goe" value="Хаан банк" />
+              <camunda:property id="Property_39ctsmr" value="Худалдаа хөгжлийн банк" />
+              <camunda:property id="Property_3imaogn" value="Чингис хаан банк" />
+            </camunda:properties>
+          </camunda:formField>
+          <camunda:formField id="otherCurrentAccount0" label="Харилцах данс" type="string" />
+          <camunda:formField id="otherCurrentAccount1" label="Харилцах данс" type="string" defaultValue="empty" />
+          <camunda:formField id="otherCurrentAccount2" label="Харилцах данс" type="string" defaultValue="empty" />
+          <camunda:formField id="otherCurrentAccount3" label="Харилцах данс" type="string" defaultValue="empty" />
+          <camunda:formField id="otherCurrentAccount4" label="Харилцах данс" type="string" defaultValue="empty" />
+          <camunda:formField id="otherSavingAccount0" label="Хадгаламжийн данс" type="string" />
+          <camunda:formField id="otherSavingAccount1" label="Хадгаламжийн данс" type="string" />
+          <camunda:formField id="otherSavingAccount2" label="Хадгаламжийн данс" type="string" />
+          <camunda:formField id="otherSavingAccount3" label="Хадгаламжийн данс" type="string" />
+          <camunda:formField id="otherSavingAccount4" label="Хадгаламжийн данс" type="string" />
+          <camunda:formField id="otherCardAccount0" label="Картын данс" type="string" />
+          <camunda:formField id="otherCardAccount1" label="Картын данс" type="string" />
+          <camunda:formField id="otherCardAccount2" label="Картын данс" type="string" />
+          <camunda:formField id="otherCardAccount3" label="Картын данс" type="string" />
+          <camunda:formField id="otherCardAccount4" label="Картын данс" type="string" />
+					<camunda:formField id="dummy1" label="dummy" type="string" />
+          <camunda:formField id="dummy2" label="dummy" type="string" />
+          <camunda:formField id="dummy3" label="dummy" type="string" />
+          <camunda:formField id="dummy4" label="dummy" type="string" />
+          <camunda:formField id="dummy5" label="dummy" type="string" />
+          <camunda:formField id="dummy40" label="dummy" type="string" defaultValue="empty" />
+          <camunda:formField id="dummy41" label="dummy" type="string" />
+          <camunda:formField id="dummy42" label="dummy" type="string" />
+          <camunda:formField id="dummy43" label="dummy" type="string" />
+          <camunda:formField id="dummy44" label="dummy" type="string" />
+          <camunda:formField id="dummy50" label="dummy" type="string" defaultValue="empty" />
+          <camunda:formField id="dummy51" label="dummy" type="string" />
+          <camunda:formField id="dummy52" label="dummy" type="string" />
+          <camunda:formField id="dummy53" label="dummy" type="string" />
+          <camunda:formField id="dummy54" label="dummy" type="string" />
+        </camunda:formData>
+        <camunda:taskListener delegateExpression="${updateContractParamsListener}" event="complete" />
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_10250ia</bpmn:incoming>
+      <bpmn:outgoing>Flow_0geem47</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:serviceTask id="service_task_online_salary_loan_contract_persist" name="Онлайн цалингийн  гэрээ ББ фолдерт хадгалах" camunda:delegateExpression="${createOnlineSalaryLoanContractTask}">
+      <bpmn:incoming>Flow_0geem47</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_14w9a4t</bpmn:outgoing>
+      <bpmn:dataOutputAssociation id="DataOutputAssociation_1cq9wax">
+        <bpmn:targetRef>DataStoreReference_1kkfnhx</bpmn:targetRef>
+      </bpmn:dataOutputAssociation>
+    </bpmn:serviceTask>
+    <bpmn:dataStoreReference id="DataStoreReference_1kkfnhx" name="BPMS database (DOCUMENT table)" />
+    <bpmn:serviceTask id="service_task_set_loan_contract_is_completed" name="Set Loan Preparation Boolean" camunda:delegateExpression="${setLoanPreparationBoolean}">
+      <bpmn:incoming>SequenceFlow_14w9a4t</bpmn:incoming>
+      <bpmn:outgoing>Flow_03bjsii</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:endEvent id="Event_0hg5r70">
+      <bpmn:incoming>Flow_03bjsii</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_03bjsii" sourceRef="service_task_set_loan_contract_is_completed" targetRef="Event_0hg5r70" />
+    <bpmn:sequenceFlow id="Flow_10250ia" sourceRef="StartEvent_1" targetRef="user_task_online_salary_loan_contract" />
+    <bpmn:sequenceFlow id="Flow_0geem47" sourceRef="user_task_online_salary_loan_contract" targetRef="service_task_online_salary_loan_contract_persist" />
+    <bpmn:sequenceFlow id="SequenceFlow_14w9a4t" sourceRef="service_task_online_salary_loan_contract_persist" targetRef="service_task_set_loan_contract_is_completed" />
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Collaboration_18bh9n9">
+      <bpmndi:BPMNShape id="Participant_1e4djxj_di" bpmnElement="Participant_1e4djxj" isHorizontal="true">
+        <dc:Bounds x="160" y="80" width="750" height="280" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_03bjsii_di" bpmnElement="Flow_03bjsii">
+        <di:waypoint x="760" y="180" />
+        <di:waypoint x="822" y="180" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_10250ia_di" bpmnElement="Flow_10250ia">
+        <di:waypoint x="246" y="180" />
+        <di:waypoint x="350" y="180" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0geem47_di" bpmnElement="Flow_0geem47">
+        <di:waypoint x="450" y="180" />
+        <di:waypoint x="510" y="180" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
+        <dc:Bounds x="210" y="162" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="201" y="205" width="57" height="40" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0w02xyn_di" bpmnElement="user_task_online_salary_loan_contract" bioc:stroke="rgb(67, 160, 71)" bioc:fill="rgb(200, 230, 201)">
+        <dc:Bounds x="350" y="140" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="ServiceTask_068zmym_di" bpmnElement="service_task_online_salary_loan_contract_persist" bioc:stroke="rgb(251, 140, 0)" bioc:fill="rgb(255, 224, 178)">
+        <dc:Bounds x="510" y="140" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="DataStoreReference_1kkfnhx_di" bpmnElement="DataStoreReference_1kkfnhx" bioc:stroke="rgb(251, 140, 0)" bioc:fill="rgb(255, 224, 178)">
+        <dc:Bounds x="535" y="265" width="50" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="600" y="270" width="80" height="40" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_01bexxp_di" bpmnElement="service_task_set_loan_contract_is_completed" bioc:stroke="rgb(67, 160, 71)" bioc:fill="rgb(200, 230, 201)">
+        <dc:Bounds x="660" y="140" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_0hg5r70_di" bpmnElement="Event_0hg5r70">
+        <dc:Bounds x="822" y="162" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="DataOutputAssociation_1cq9wax_di" bpmnElement="DataOutputAssociation_1cq9wax">
+        <di:waypoint x="565" y="220" />
+        <di:waypoint x="565" y="265" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_14w9a4t_di" bpmnElement="SequenceFlow_14w9a4t">
+        <di:waypoint x="610" y="180" />
+        <di:waypoint x="660" y="180" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>

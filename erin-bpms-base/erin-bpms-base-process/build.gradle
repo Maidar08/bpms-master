@@ -1,0 +1,18 @@
+/*
+ * (C)opyright, 2020, ERIN SYSTEMS LLC
+ * The source code is protected by copyright laws and international copyright
+ * treaties, as well as other intellectual property laws and treaties.
+ * All rights reserved.
+ */
+
+dependencies {
+
+  compile project(':erin-bpms-base-domain')
+  compile project(':erin-bpms-ohs-camunda')
+
+  compile('org.camunda.bpm:camunda-engine-spring:7.12.0') {
+    exclude group: 'org.camunda.bpm', module: 'camunda-engine'
+  }
+
+  compileOnly lib.camunda.process_engine
+}

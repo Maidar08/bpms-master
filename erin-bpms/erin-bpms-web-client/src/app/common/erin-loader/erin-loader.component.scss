@@ -1,0 +1,48 @@
+.loader-container {
+  width: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.loader-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: #ffffff;
+}
+
+.dot-1 {
+  animation-name: flow;
+  animation-duration: .4s;
+  animation-timing-function: ease;
+  animation-delay: 0s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+.dot-2 {
+  animation: flow .4s ease .2s infinite alternate;
+}
+
+.dot-3 {
+  animation: flow .4s ease .4s infinite alternate;
+}
+
+p {
+  color: #f0f0f0;
+  margin-left: -12px;
+  font-size: 15px;
+}
+
+@keyframes flow {
+  from {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+  to {
+    opacity: .20;
+    transform: scale(.75);
+  }
+}
+

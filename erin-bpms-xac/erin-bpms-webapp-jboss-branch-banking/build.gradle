@@ -1,0 +1,40 @@
+/*
+ * (C)opyright, 2020, ERIN SYSTEMS LLC
+ * The source code is protected by copyright laws and international copyright
+ * treaties, as well as other intellectual property laws and treaties.
+ * All rights reserved.
+ */
+apply plugin: 'war'
+
+dependencies {
+
+  compile project(':erin-bpms-base-repository-jdbc')
+  compile project(':erin-bpms-webapp')
+
+  compile project(':erin-bpms-process-branch-banking')
+  compile project(':erin-bpms-branch-banking-rest')
+
+  compile project(':erin-aim-repository-jdbc')
+  compile project(':erin-aim-repository-ldap')
+
+  compile project(':erin-bpms-custom-log')
+
+  compile files('libs/ojdbc8.jar')
+
+  compile lib.erin.cmn_jdbc
+
+  compile lib.erin.dms_alfresco
+
+  compile lib.spring.web
+  compile lib.spring.context
+  compile lib.javax.servlet
+
+  compileOnly lib.camunda.process_engine
+  compile('org.camunda.bpm:camunda-engine-spring:7.12.0') {
+    exclude group: 'org.camunda.bpm', module: 'camunda-engine'
+  }
+
+  compile 'ch.qos.logback:logback-classic:1.2.6'
+  compile group: 'com.mchange', name: 'c3p0', version: '0.9.5.4'
+}
+

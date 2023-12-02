@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="Definitions_0h20d79" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="3.5.0">
+  <bpmn:collaboration id="Collaboration_11ewvsb">
+    <bpmn:participant id="Participant_1r472i4" processRef="bpms_direct_online_salary_calculate_loan_amount" />
+  </bpmn:collaboration>
+  <bpmn:process id="bpms_direct_online_salary_calculate_loan_amount" isExecutable="true">
+    <bpmn:startEvent id="StartEvent_1">
+      <bpmn:outgoing>SequenceFlow_1a4kqvg</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:sequenceFlow id="SequenceFlow_0r2dzvl" sourceRef="Task_0sep8j2" targetRef="Task_034dgxp" />
+    <bpmn:serviceTask id="Task_0sep8j2" name="Шаардлагатай field-үүдийг бөглөх" camunda:delegateExpression="${setLoanAmountCalculationData}">
+      <bpmn:incoming>SequenceFlow_1a4kqvg</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_0r2dzvl</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:serviceTask id="Task_034dgxp" name="Тооцоолол хийх" camunda:delegateExpression="${directOnlineCalculateLoanAmount}">
+      <bpmn:incoming>SequenceFlow_0r2dzvl</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_025xb6n</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:sequenceFlow id="SequenceFlow_025xb6n" sourceRef="Task_034dgxp" targetRef="ExclusiveGateway_07gmpx2" />
+    <bpmn:endEvent id="EndEvent_0rpr8y7">
+      <bpmn:incoming>SequenceFlow_1wokhey</bpmn:incoming>
+      <bpmn:incoming>SequenceFlow_04jaesz</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="SequenceFlow_1wokhey" sourceRef="Task_1lsua8y" targetRef="EndEvent_0rpr8y7" />
+    <bpmn:sequenceFlow id="SequenceFlow_1a4kqvg" sourceRef="StartEvent_1" targetRef="Task_0sep8j2" />
+    <bpmn:serviceTask id="Task_1lsua8y" name="Зээлийн мэдээлэл авах" camunda:delegateExpression="${directOnlineGetLoanInfo}">
+      <bpmn:incoming>SequenceFlow_1uq9hr2</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_1wokhey</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:exclusiveGateway id="ExclusiveGateway_07gmpx2">
+      <bpmn:incoming>SequenceFlow_025xb6n</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_1uq9hr2</bpmn:outgoing>
+      <bpmn:outgoing>SequenceFlow_04jaesz</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:sequenceFlow id="SequenceFlow_1uq9hr2" sourceRef="ExclusiveGateway_07gmpx2" targetRef="Task_1lsua8y">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${state != "AMOUNT_REJECTED" &amp;&amp; state != "REJECTED"}</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:sequenceFlow id="SequenceFlow_04jaesz" sourceRef="ExclusiveGateway_07gmpx2" targetRef="EndEvent_0rpr8y7">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${state == "AMOUNT_REJECTED" || state == "REJECTED"}</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Collaboration_11ewvsb">
+      <bpmndi:BPMNShape id="Participant_1r472i4_di" bpmnElement="Participant_1r472i4" isHorizontal="true">
+        <dc:Bounds x="129" y="79" width="1021" height="341" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="SequenceFlow_025xb6n_di" bpmnElement="SequenceFlow_025xb6n">
+        <di:waypoint x="690" y="210" />
+        <di:waypoint x="715" y="210" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_0r2dzvl_di" bpmnElement="SequenceFlow_0r2dzvl">
+        <di:waypoint x="530" y="210" />
+        <di:waypoint x="590" y="210" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
+        <dc:Bounds x="179" y="192" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="ServiceTask_0stq1rk_di" bpmnElement="Task_0sep8j2">
+        <dc:Bounds x="430" y="170" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="ServiceTask_0w7hmzd_di" bpmnElement="Task_034dgxp">
+        <dc:Bounds x="590" y="170" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="EndEvent_0rpr8y7_di" bpmnElement="EndEvent_0rpr8y7">
+        <dc:Bounds x="1012" y="192" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="SequenceFlow_1wokhey_di" bpmnElement="SequenceFlow_1wokhey">
+        <di:waypoint x="930" y="320" />
+        <di:waypoint x="951" y="320" />
+        <di:waypoint x="951" y="210" />
+        <di:waypoint x="1012" y="210" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="ServiceTask_05mn19a_di" bpmnElement="Task_1lsua8y">
+        <dc:Bounds x="830" y="280" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="SequenceFlow_1a4kqvg_di" bpmnElement="SequenceFlow_1a4kqvg">
+        <di:waypoint x="215" y="210" />
+        <di:waypoint x="430" y="210" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="ExclusiveGateway_07gmpx2_di" bpmnElement="ExclusiveGateway_07gmpx2" isMarkerVisible="true">
+        <dc:Bounds x="715" y="185" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="SequenceFlow_1uq9hr2_di" bpmnElement="SequenceFlow_1uq9hr2">
+        <di:waypoint x="740" y="235" />
+        <di:waypoint x="740" y="320" />
+        <di:waypoint x="830" y="320" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_04jaesz_di" bpmnElement="SequenceFlow_04jaesz">
+        <di:waypoint x="765" y="210" />
+        <di:waypoint x="1012" y="210" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>

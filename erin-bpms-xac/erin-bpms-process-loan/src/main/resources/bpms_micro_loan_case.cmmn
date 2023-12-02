@@ -1,0 +1,1448 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cmmn:definitions xmlns:dc="http://www.omg.org/spec/CMMN/20151109/DC" xmlns:cmmndi="http://www.omg.org/spec/CMMN/20151109/CMMNDI" xmlns:cmmn="http://www.omg.org/spec/CMMN/20151109/MODEL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:camunda="http://camunda.org/schema/1.0/cmmn" xmlns:di="http://www.omg.org/spec/CMMN/20151109/DI" id="Definitions_19by9yy" targetNamespace="http://bpmn.io/schema/cmmn" exporter="Camunda Modeler" exporterVersion="3.5.0">
+  <cmmn:case id="bpms_micro_loan_case">
+    <cmmn:casePlanModel id="micro_loan" name="Бизнесийн зээл олголтын кэйс">
+      <cmmn:documentation id="Documentation_0nzqxav">BPMS v2.2</cmmn:documentation>
+      <cmmn:planItem id="bpms_micro_customer_information_process_task" definitionRef="ProcessTask_04bf30q">
+        <cmmn:entryCriterion id="EntryCriterion_1jo3jse" sentryRef="Sentry_1c72yfb" />
+      </cmmn:planItem>
+      <cmmn:planItem id="stage_micro_loan_calculation" definitionRef="Stage_1i76x7v">
+        <cmmn:entryCriterion id="EntryCriterion_1e13wxc" sentryRef="Sentry_1hfdaga" />
+      </cmmn:planItem>
+      <cmmn:planItem id="process_task_micro_loan_update_coborrower" name="04. Хамтран зээлдэгч нэмэх" definitionRef="ProcessTask_19zoh70">
+        <cmmn:itemControl id="PlanItemControl_1it0mlp">
+          <cmmn:repetitionRule id="RepetitionRule_0f5knym">
+            <cmmn:condition id="Expression_1cwgbh0">${isLoanAccountCreate == false}</cmmn:condition>
+          </cmmn:repetitionRule>
+          <cmmn:manualActivationRule id="ManualActivationRule_068ubsi" />
+        </cmmn:itemControl>
+      </cmmn:planItem>
+      <cmmn:planItem id="PlanItem_165b58i" name="Анхан шат идэвхитэй болгох" definitionRef="Milestone_1r6ntc2">
+        <cmmn:itemControl id="PlanItemControl_15xew4j">
+          <cmmn:repetitionRule id="RepetitionRule_08zu8vp" />
+        </cmmn:itemControl>
+        <cmmn:entryCriterion id="EntryCriterion_0aofihw" sentryRef="Sentry_0wpxqzj" />
+        <cmmn:entryCriterion id="EntryCriterion_125urkf" sentryRef="Sentry_1lnass5" />
+      </cmmn:planItem>
+      <cmmn:planItem id="bpms_request_confirm_process_process_task" name="Хүсэлт баталгаажуулах процесс" definitionRef="ProcessTask_0v6eiz8" />
+      <cmmn:planItem id="process_task_micro_loan_download_from_khur" name="03. ХУР лавлагаа" definitionRef="ProcessTask_11xq6mx">
+        <cmmn:itemControl id="PlanItemControl_1e11xwk">
+          <cmmn:repetitionRule id="RepetitionRule_0wq65qu">
+            <cmmn:condition id="Expression_15r52de">${isCompletedElementaryCriteria== false}</cmmn:condition>
+          </cmmn:repetitionRule>
+          <cmmn:manualActivationRule id="ManualActivationRule_0lwa872" />
+        </cmmn:itemControl>
+      </cmmn:planItem>
+      <cmmn:planItem id="PlanItem_0kctick" name="07. Анхан шатны шалгуур" definitionRef="ProcessTask_0viwa16">
+        <cmmn:itemControl id="PlanItemControl_1nnsyo7">
+          <cmmn:repetitionRule id="RepetitionRule_0qeyiyf" />
+          <cmmn:manualActivationRule id="ManualActivationRule_0mnm9hk" />
+        </cmmn:itemControl>
+        <cmmn:entryCriterion id="EntryCriterion_1ivrml4" sentryRef="Sentry_1gds26s" />
+      </cmmn:planItem>
+      <cmmn:planItem id="PlanItem_1jrex1e" name="Хамтрангын нэмэлт таскууд" definitionRef="Stage_0m2amlc">
+        <cmmn:itemControl id="PlanItemControl_0bkn0ji">
+          <cmmn:repetitionRule id="RepetitionRule_1o425bw" />
+        </cmmn:itemControl>
+        <cmmn:entryCriterion id="EntryCriterion_142xh49" sentryRef="Sentry_1b5zq0c" />
+      </cmmn:planItem>
+      <cmmn:planItem id="milestone_micro_loan_remove_coborrower" name="Таск давхцал шалгах" definitionRef="Milestone_0sqdr4d">
+        <cmmn:itemControl id="PlanItemControl_1o231e3">
+          <cmmn:repetitionRule id="RepetitionRule_09d7njr" />
+        </cmmn:itemControl>
+        <cmmn:entryCriterion id="EntryCriterion_0dbot7k" sentryRef="Sentry_1y4iscd" />
+      </cmmn:planItem>
+      <cmmn:planItem id="stage_create_loan_account_with_collateral" name="Барьцаатай зээлийн данс үүсгэх үе шат" definitionRef="Stage_0drxov3">
+        <cmmn:itemControl id="PlanItemControl_03pyqtj">
+          <cmmn:repetitionRule id="RepetitionRule_1bgmf1v" />
+        </cmmn:itemControl>
+        <cmmn:entryCriterion id="EntryCriterion_0xylspj" sentryRef="Sentry_0iak4ah" />
+        <cmmn:entryCriterion id="EntryCriterion_0h4a7i3" sentryRef="Sentry_0t215ot" />
+      </cmmn:planItem>
+      <cmmn:planItem id="stage_collateral_list" name="Барьцаа хөрөнгийн жагсаалт" definitionRef="Stage_0skrouf">
+        <cmmn:itemControl id="PlanItemControl_01139l0">
+          <cmmn:repetitionRule id="RepetitionRule_0hs730b" />
+          <cmmn:manualActivationRule id="ManualActivationRule_0nswjfq" />
+        </cmmn:itemControl>
+      </cmmn:planItem>
+      <cmmn:planItem id="PlanItem_1lengg7">
+        <cmmn:itemControl id="PlanItemControl_043f2wj">
+          <cmmn:repetitionRule id="RepetitionRule_0evm8hl" />
+          <cmmn:manualActivationRule id="ManualActivationRule_1hwqem4" />
+        </cmmn:itemControl>
+      </cmmn:planItem>
+      <cmmn:planItem id="PlanItem_1obur9g" definitionRef="Milestone_1fgr3vm">
+        <cmmn:itemControl id="PlanItemControl_1uhfusl">
+          <cmmn:repetitionRule id="RepetitionRule_0ajipg2" />
+        </cmmn:itemControl>
+        <cmmn:entryCriterion id="EntryCriterion_06qp6lk" sentryRef="Sentry_0l2omf9" />
+      </cmmn:planItem>
+      <cmmn:planItem id="PlanItem_1a7us14" name="Буцаасан" definitionRef="Milestone_13plct4">
+        <cmmn:itemControl id="PlanItemControl_06ahvyh">
+          <cmmn:repetitionRule id="RepetitionRule_0v52b02">
+            <cmmn:condition id="Expression_03wttyp">${loanDecision == "Буцаах"}</cmmn:condition>
+          </cmmn:repetitionRule>
+        </cmmn:itemControl>
+        <cmmn:entryCriterion id="EntryCriterion_0afcrli" sentryRef="Sentry_0o6b4wo" />
+      </cmmn:planItem>
+      <cmmn:planItem id="PlanItem_1siea7r" definitionRef="Milestone_0arnobf">
+        <cmmn:itemControl id="PlanItemControl_0xps3o8">
+          <cmmn:repetitionRule id="RepetitionRule_0jsetob" />
+        </cmmn:itemControl>
+        <cmmn:entryCriterion id="EntryCriterion_0foima2" sentryRef="Sentry_0hibr2m" />
+      </cmmn:planItem>
+      <cmmn:planItem id="process_task_micro_loan_decision" name="15. Зээл шийдвэрлэх" definitionRef="ProcessTask_1yak0wq">
+        <cmmn:itemControl id="PlanItemControl_1y68c73">
+          <cmmn:repetitionRule id="RepetitionRule_0k4xe5g">
+            <cmmn:condition id="Expression_1hord98">${loanDecision== "Буцаах" || loanDecision==""}</cmmn:condition>
+          </cmmn:repetitionRule>
+          <cmmn:manualActivationRule id="ManualActivationRule_04hvuus" />
+        </cmmn:itemControl>
+      </cmmn:planItem>
+      <cmmn:planItem id="PlanItem_0lfxsx5" definitionRef="Milestone_0apxhph">
+        <cmmn:itemControl id="PlanItemControl_11g2rje">
+          <cmmn:repetitionRule id="RepetitionRule_1hgt43e" />
+        </cmmn:itemControl>
+        <cmmn:entryCriterion id="EntryCriterion_02pcu8o" sentryRef="Sentry_0tzdc0x" />
+      </cmmn:planItem>
+      <cmmn:planItem id="process_task_micro_loan_send" name="14. Зээл шийдвэрлүүлэхээр илгээх" definitionRef="ProcessTask_04uaxrg">
+        <cmmn:itemControl id="PlanItemControl_0h41rn6">
+          <cmmn:repetitionRule id="RepetitionRule_1blte3i">
+            <cmmn:condition id="Expression_0ctfqhu">${loanDecision== "Буцаах" || loanDecision==""}</cmmn:condition>
+          </cmmn:repetitionRule>
+          <cmmn:manualActivationRule id="ManualActivationRule_0g4xpqt" />
+        </cmmn:itemControl>
+        <cmmn:entryCriterion id="EntryCriterion_1ael1qx" sentryRef="Sentry_1q5q6ul" />
+      </cmmn:planItem>
+      <cmmn:planItem id="micro_calculation_stage" name="Тооцол үе шат" definitionRef="Stage_0ww13x5">
+        <cmmn:itemControl id="PlanItemControl_1cj170a">
+          <cmmn:manualActivationRule id="ManualActivationRule_18io9bn" />
+        </cmmn:itemControl>
+        <cmmn:exitCriterion id="EntryCriterion_0i5k95u" sentryRef="Sentry_01gvrld" />
+      </cmmn:planItem>
+      <cmmn:planItem id="PlanItem_0v7y0hm" name="Зээл шийдвэрлүүлэхээр илгээх" definitionRef="Stage_1htceue">
+        <cmmn:entryCriterion id="EntryCriterion_1m5jyr7" sentryRef="Sentry_1xmgeym" />
+      </cmmn:planItem>
+      <cmmn:planItem id="PlanItem_1uwn99o" name="Холбогдолгүй таскуудыг нуух" definitionRef="Milestone_0jo1tns">
+        <cmmn:itemControl id="PlanItemControl_0i33o9w">
+          <cmmn:repetitionRule id="RepetitionRule_03jcec7" />
+        </cmmn:itemControl>
+        <cmmn:entryCriterion id="EntryCriterion_0maminb" sentryRef="Sentry_0nzv48d" />
+      </cmmn:planItem>
+      <cmmn:planItem id="PlanItem_1tky3ap" definitionRef="Stage_0eedc6b">
+        <cmmn:itemControl id="PlanItemControl_1ds31gf">
+          <cmmn:repetitionRule id="RepetitionRule_0hymk2w" />
+        </cmmn:itemControl>
+        <cmmn:entryCriterion id="EntryCriterion_00qtwmm" sentryRef="Sentry_127qc6b" />
+      </cmmn:planItem>
+      <cmmn:planItem id="PlanItem_17yit51" definitionRef="Stage_0tiak6e">
+        <cmmn:itemControl id="PlanItemControl_1ehoe01">
+          <cmmn:repetitionRule id="RepetitionRule_0cge9x8" />
+        </cmmn:itemControl>
+        <cmmn:entryCriterion id="EntryCriterion_0dxq2sp" sentryRef="Sentry_0wto65c" />
+      </cmmn:planItem>
+      <cmmn:sentry id="Sentry_1hfdaga">
+        <cmmn:planItemOnPart id="PlanItemOnPart_0rltxwg" sourceRef="bpms_micro_customer_information_process_task">
+          <cmmn:standardEvent>complete</cmmn:standardEvent>
+        </cmmn:planItemOnPart>
+      </cmmn:sentry>
+      <cmmn:sentry id="Sentry_0wpxqzj">
+        <cmmn:planItemOnPart id="PlanItemOnPart_1ck7fsu" sourceRef="bpms_micro_customer_information_process_task">
+          <cmmn:standardEvent>complete</cmmn:standardEvent>
+        </cmmn:planItemOnPart>
+      </cmmn:sentry>
+      <cmmn:sentry id="Sentry_1lnass5">
+        <cmmn:planItemOnPart id="PlanItemOnPart_0dlv4t2" sourceRef="process_task_micro_loan_update_coborrower">
+          <cmmn:standardEvent>complete</cmmn:standardEvent>
+        </cmmn:planItemOnPart>
+      </cmmn:sentry>
+      <cmmn:sentry id="Sentry_1c72yfb">
+        <cmmn:planItemOnPart id="PlanItemOnPart_1vprqsv" sourceRef="bpms_request_confirm_process_process_task">
+          <cmmn:standardEvent>complete</cmmn:standardEvent>
+        </cmmn:planItemOnPart>
+      </cmmn:sentry>
+      <cmmn:sentry id="Sentry_1gds26s">
+        <cmmn:planItemOnPart id="PlanItemOnPart_1vu4xjs" sourceRef="PlanItem_165b58i">
+          <cmmn:standardEvent>occur</cmmn:standardEvent>
+        </cmmn:planItemOnPart>
+      </cmmn:sentry>
+      <cmmn:sentry id="Sentry_1b5zq0c">
+        <cmmn:planItemOnPart id="PlanItemOnPart_1qvbufm" sourceRef="milestone_micro_loan_remove_coborrower">
+          <cmmn:standardEvent>occur</cmmn:standardEvent>
+        </cmmn:planItemOnPart>
+      </cmmn:sentry>
+      <cmmn:sentry id="Sentry_1y4iscd">
+        <cmmn:planItemOnPart id="PlanItemOnPart_0l7yyry" sourceRef="process_task_micro_loan_update_coborrower">
+          <cmmn:standardEvent>complete</cmmn:standardEvent>
+        </cmmn:planItemOnPart>
+      </cmmn:sentry>
+      <cmmn:sentry id="Sentry_0hibr2m">
+        <cmmn:planItemOnPart id="PlanItemOnPart_1co8ls7" sourceRef="process_task_micro_loan_decision">
+          <cmmn:standardEvent>complete</cmmn:standardEvent>
+        </cmmn:planItemOnPart>
+        <cmmn:ifPart id="IfPart_00xn9hi">
+          <cmmn:condition id="Expression_0o0xia5">${loanDecision == "Батлах"}</cmmn:condition>
+        </cmmn:ifPart>
+      </cmmn:sentry>
+      <cmmn:sentry id="Sentry_0o6b4wo">
+        <cmmn:planItemOnPart id="PlanItemOnPart_1eta2s3" sourceRef="process_task_micro_loan_decision">
+          <cmmn:standardEvent>complete</cmmn:standardEvent>
+        </cmmn:planItemOnPart>
+        <cmmn:ifPart id="IfPart_153ku2x">
+          <cmmn:condition id="Expression_1yi909t">${loanDecision == "Буцаах"}</cmmn:condition>
+        </cmmn:ifPart>
+      </cmmn:sentry>
+      <cmmn:sentry id="Sentry_0l2omf9">
+        <cmmn:planItemOnPart id="PlanItemOnPart_0sqtd1d" sourceRef="process_task_micro_loan_decision">
+          <cmmn:standardEvent>complete</cmmn:standardEvent>
+        </cmmn:planItemOnPart>
+        <cmmn:ifPart id="IfPart_0ue7c7j">
+          <cmmn:condition id="Expression_1xly9fl">${loanDecision == "Татгалзах"}</cmmn:condition>
+        </cmmn:ifPart>
+      </cmmn:sentry>
+      <cmmn:sentry id="Sentry_0tzdc0x">
+        <cmmn:planItemOnPart id="PlanItemOnPart_0rtws3l" sourceRef="PlanItem_1a7us14">
+          <cmmn:standardEvent>occur</cmmn:standardEvent>
+        </cmmn:planItemOnPart>
+      </cmmn:sentry>
+      <cmmn:sentry id="Sentry_0qi6aj0">
+        <cmmn:planItemOnPart id="PlanItemOnPart_081ah83" sourceRef="PlanItem_1obur9g">
+          <cmmn:standardEvent>occur</cmmn:standardEvent>
+        </cmmn:planItemOnPart>
+        <cmmn:ifPart id="IfPart_06d00am">
+          <cmmn:condition id="Expression_0ku8og8">${loanDecision == "Татгалзах"}</cmmn:condition>
+        </cmmn:ifPart>
+      </cmmn:sentry>
+      <cmmn:sentry id="Sentry_01gvrld">
+        <cmmn:planItemOnPart id="PlanItemOnPart_1blcxr4" sourceRef="process_task_loan_amount">
+          <cmmn:standardEvent>complete</cmmn:standardEvent>
+        </cmmn:planItemOnPart>
+      </cmmn:sentry>
+      <cmmn:sentry id="Sentry_0iak4ah">
+        <cmmn:planItemOnPart id="PlanItemOnPart_0dxily3" sourceRef="PlanItem_1siea7r">
+          <cmmn:standardEvent>occur</cmmn:standardEvent>
+        </cmmn:planItemOnPart>
+      </cmmn:sentry>
+      <cmmn:sentry id="Sentry_0t215ot">
+        <cmmn:planItemOnPart id="PlanItemOnPart_16qx28w" sourceRef="PlanItem_1siea7r">
+          <cmmn:standardEvent>occur</cmmn:standardEvent>
+        </cmmn:planItemOnPart>
+        <cmmn:ifPart id="IfPart_1x9b3be">
+          <cmmn:condition id="Expression_1qoob78">${loanDecision == "Батлах"}</cmmn:condition>
+        </cmmn:ifPart>
+      </cmmn:sentry>
+      <cmmn:sentry id="Sentry_1xmgeym">
+        <cmmn:planItemOnPart id="PlanItemOnPart_04xyvg7" sourceRef="micro_calculation_stage">
+          <cmmn:standardEvent>complete</cmmn:standardEvent>
+        </cmmn:planItemOnPart>
+      </cmmn:sentry>
+      <cmmn:sentry id="Sentry_0nzv48d">
+        <cmmn:planItemOnPart id="PlanItemOnPart_0dl2lw6" sourceRef="PlanItem_1a7us14">
+          <cmmn:standardEvent>occur</cmmn:standardEvent>
+        </cmmn:planItemOnPart>
+      </cmmn:sentry>
+      <cmmn:sentry id="Sentry_1q5q6ul">
+        <cmmn:planItemOnPart id="PlanItemOnPart_12w4acw" sourceRef="PlanItem_0lfxsx5">
+          <cmmn:standardEvent>occur</cmmn:standardEvent>
+        </cmmn:planItemOnPart>
+      </cmmn:sentry>
+      <cmmn:sentry id="Sentry_0vh6eue">
+        <cmmn:planItemOnPart id="PlanItemOnPart_1l17g7e" sourceRef="stage_create_loan_account_with_collateral">
+          <cmmn:standardEvent>complete</cmmn:standardEvent>
+        </cmmn:planItemOnPart>
+        <cmmn:ifPart id="IfPart_1nzxpkt">
+          <cmmn:condition id="Expression_02w1ku9">${loanAccountNumber != null}</cmmn:condition>
+        </cmmn:ifPart>
+      </cmmn:sentry>
+      <cmmn:sentry id="Sentry_127qc6b">
+        <cmmn:planItemOnPart id="PlanItemOnPart_0hskxlb" sourceRef="bpms_request_confirm_process_process_task">
+          <cmmn:standardEvent>complete</cmmn:standardEvent>
+        </cmmn:planItemOnPart>
+        <cmmn:ifPart id="IfPart_0zyfkwp">
+          <cmmn:condition id="Expression_04t5f9x">${borrowerType=="Иргэн"}</cmmn:condition>
+        </cmmn:ifPart>
+      </cmmn:sentry>
+      <cmmn:sentry id="Sentry_0wto65c">
+        <cmmn:planItemOnPart id="PlanItemOnPart_0pvtjjj" sourceRef="bpms_request_confirm_process_process_task">
+          <cmmn:standardEvent>complete</cmmn:standardEvent>
+        </cmmn:planItemOnPart>
+        <cmmn:ifPart id="IfPart_0mut6gz">
+          <cmmn:condition id="Expression_0gme8hx">${borrowerType=="Аж ахуй нэгж"}</cmmn:condition>
+        </cmmn:ifPart>
+      </cmmn:sentry>
+      <cmmn:processTask id="ProcessTask_04bf30q" name="01. Харилцагчийн үндсэн мэдээлэл" processRef="bpms_micro_present_customer_info">
+        <cmmn:extensionElements>
+          <camunda:in variables="all" />
+          <camunda:out variables="all" />
+        </cmmn:extensionElements>
+      </cmmn:processTask>
+      <cmmn:stage id="Stage_1i76x7v" name="">
+        <cmmn:planItem id="process_task_calculation_type" name="08. Тооцоолол хийх" definitionRef="ProcessTask_1xi6pte">
+          <cmmn:itemControl id="PlanItemControl_1nt3fbm">
+            <cmmn:manualActivationRule id="ManualActivationRule_023r8n2" />
+          </cmmn:itemControl>
+        </cmmn:planItem>
+        <cmmn:planItem id="PlanItem_14gav23" name="Баланс тооцоолол" definitionRef="Stage_0984b8b">
+          <cmmn:itemControl id="PlanItemControl_0yhvjv7">
+            <cmmn:repetitionRule id="RepetitionRule_1fcextv" />
+          </cmmn:itemControl>
+          <cmmn:entryCriterion id="EntryCriterion_0ljngwt" sentryRef="Sentry_0qthfll" />
+          <cmmn:entryCriterion id="EntryCriterion_064px1d" sentryRef="Sentry_0utzyms" />
+          <cmmn:exitCriterion id="EntryCriterion_1nzo2cf" sentryRef="Sentry_06gtlrg" />
+        </cmmn:planItem>
+        <cmmn:planItem id="PlanItem_19zzzn8" name="Хялбар тооцоолол" definitionRef="Stage_0vklwxi">
+          <cmmn:itemControl id="PlanItemControl_1py2m0o">
+            <cmmn:repetitionRule id="RepetitionRule_10dueut" />
+          </cmmn:itemControl>
+          <cmmn:entryCriterion id="EntryCriterion_16ws5xc" sentryRef="Sentry_0y6cgib" />
+          <cmmn:entryCriterion id="EntryCriterion_0071xup" sentryRef="Sentry_1j02ftd" />
+          <cmmn:exitCriterion id="EntryCriterion_1facexp" sentryRef="Sentry_0bvgb0h" />
+        </cmmn:planItem>
+        <cmmn:planItem id="process_task_calculation_type_2" name="08. Тооцоолол хийх" definitionRef="ProcessTask_0qnuskj">
+          <cmmn:itemControl id="PlanItemControl_07z854l">
+            <cmmn:repetitionRule id="RepetitionRule_0thdyts" />
+            <cmmn:manualActivationRule id="ManualActivationRule_0v9c902" />
+          </cmmn:itemControl>
+          <cmmn:entryCriterion id="EntryCriterion_0lyngzm" sentryRef="Sentry_0svhhrd" />
+          <cmmn:entryCriterion id="EntryCriterion_0pxukby" sentryRef="Sentry_1v7oqm5" />
+        </cmmn:planItem>
+        <cmmn:sentry id="Sentry_0y6cgib">
+          <cmmn:planItemOnPart id="PlanItemOnPart_0c1lv9c" sourceRef="process_task_calculation_type">
+            <cmmn:standardEvent>complete</cmmn:standardEvent>
+          </cmmn:planItemOnPart>
+          <cmmn:ifPart id="IfPart_0b9rlpm">
+            <cmmn:condition id="Expression_1by5pf2">${calculationType  != null &amp;&amp; calculationType == "Хялбар тооцоолол"}</cmmn:condition>
+          </cmmn:ifPart>
+        </cmmn:sentry>
+        <cmmn:sentry id="Sentry_0qthfll">
+          <cmmn:planItemOnPart id="PlanItemOnPart_0xwts4i" sourceRef="process_task_calculation_type">
+            <cmmn:standardEvent>complete</cmmn:standardEvent>
+          </cmmn:planItemOnPart>
+          <cmmn:ifPart id="IfPart_1ohb063">
+            <cmmn:condition id="Expression_08q7nio">${calculationType  != null &amp;&amp; calculationType == "Баланс тооцоолол"}</cmmn:condition>
+          </cmmn:ifPart>
+        </cmmn:sentry>
+        <cmmn:sentry id="Sentry_0bvgb0h">
+          <cmmn:planItemOnPart id="PlanItemOnPart_040dy7g" sourceRef="process_task_simple_calculation">
+            <cmmn:standardEvent>complete</cmmn:standardEvent>
+          </cmmn:planItemOnPart>
+          <cmmn:ifPart id="IfPart_0jhocrp">
+            <cmmn:condition id="Expression_0e64o9w">${calculateSimpleCalculation == false}</cmmn:condition>
+          </cmmn:ifPart>
+        </cmmn:sentry>
+        <cmmn:sentry id="Sentry_0svhhrd">
+          <cmmn:planItemOnPart id="PlanItemOnPart_07s04lv" sourceRef="PlanItem_19zzzn8">
+            <cmmn:standardEvent>complete</cmmn:standardEvent>
+          </cmmn:planItemOnPart>
+        </cmmn:sentry>
+        <cmmn:sentry id="Sentry_1j02ftd">
+          <cmmn:planItemOnPart id="PlanItemOnPart_1i0npmb" sourceRef="process_task_calculation_type_2">
+            <cmmn:standardEvent>complete</cmmn:standardEvent>
+          </cmmn:planItemOnPart>
+          <cmmn:planItemOnPart id="PlanItemOnPart_1xoaoln" sourceRef="process_task_calculation_type_2">
+            <cmmn:standardEvent>complete</cmmn:standardEvent>
+          </cmmn:planItemOnPart>
+          <cmmn:ifPart id="IfPart_1syx66i">
+            <cmmn:condition id="Expression_1quv341">${calculationType  != null &amp;&amp; calculationType == "Хялбар тооцоолол"}</cmmn:condition>
+          </cmmn:ifPart>
+        </cmmn:sentry>
+        <cmmn:sentry id="Sentry_1v7oqm5">
+          <cmmn:planItemOnPart id="PlanItemOnPart_1djlapk" sourceRef="PlanItem_14gav23">
+            <cmmn:standardEvent>complete</cmmn:standardEvent>
+          </cmmn:planItemOnPart>
+        </cmmn:sentry>
+        <cmmn:sentry id="Sentry_06gtlrg">
+          <cmmn:planItemOnPart id="PlanItemOnPart_1j8l324" sourceRef="process_task_balance_calculation">
+            <cmmn:standardEvent>complete</cmmn:standardEvent>
+          </cmmn:planItemOnPart>
+          <cmmn:ifPart id="IfPart_0onv8e8">
+            <cmmn:condition id="Expression_0prrmjl">${calculateBalanceCalculation == false}</cmmn:condition>
+          </cmmn:ifPart>
+        </cmmn:sentry>
+        <cmmn:sentry id="Sentry_0utzyms">
+          <cmmn:planItemOnPart id="PlanItemOnPart_0pf5ato" sourceRef="process_task_calculation_type_2">
+            <cmmn:standardEvent>complete</cmmn:standardEvent>
+          </cmmn:planItemOnPart>
+          <cmmn:ifPart id="IfPart_13rjxcv">
+            <cmmn:condition id="Expression_1d1hkgl">${calculationType  != null &amp;&amp; calculationType == "Баланс тооцоолол"}</cmmn:condition>
+          </cmmn:ifPart>
+        </cmmn:sentry>
+        <cmmn:processTask id="ProcessTask_1xi6pte" name="08. Тооцоолол хийх" processRef="bpms_micro_loan_calculation_type">
+          <cmmn:extensionElements>
+            <camunda:in variables="all" />
+            <camunda:out variables="all" />
+          </cmmn:extensionElements>
+        </cmmn:processTask>
+        <cmmn:stage id="Stage_0vklwxi" name="">
+          <cmmn:extensionElements>
+            <camunda:caseExecutionListener event="complete" delegateExpression="${manuallyStartMicroCalculationStageListener}" />
+          </cmmn:extensionElements>
+          <cmmn:planItem id="process_task_simple_calculation" name="08. Тооцоолол хийх" definitionRef="ProcessTask_078vqvn">
+            <cmmn:itemControl id="PlanItemControl_050qu45">
+              <cmmn:repetitionRule id="RepetitionRule_0veapu3">
+                <cmmn:condition id="Expression_1vts9x2">${calculateSimpleCalculation == true}</cmmn:condition>
+              </cmmn:repetitionRule>
+            </cmmn:itemControl>
+          </cmmn:planItem>
+          <cmmn:processTask id="ProcessTask_078vqvn" processRef="bpms_micro_loan_simple_calculation">
+            <cmmn:extensionElements>
+              <camunda:in variables="all" />
+              <camunda:out variables="all" />
+            </cmmn:extensionElements>
+          </cmmn:processTask>
+        </cmmn:stage>
+        <cmmn:stage id="Stage_0984b8b" name="">
+          <cmmn:extensionElements>
+            <camunda:caseExecutionListener event="complete" delegateExpression="${manuallyStartMicroCalculationStageListener}" />
+          </cmmn:extensionElements>
+          <cmmn:planItem id="process_task_balance_calculation" name="08. Тооцоолол хийх" definitionRef="ProcessTask_13d0tq1">
+            <cmmn:itemControl id="PlanItemControl_0uh93dn">
+              <cmmn:repetitionRule id="RepetitionRule_1n159nz">
+                <cmmn:condition id="Expression_07nevr1">${calculateBalanceCalculation == true}</cmmn:condition>
+              </cmmn:repetitionRule>
+            </cmmn:itemControl>
+          </cmmn:planItem>
+          <cmmn:processTask id="ProcessTask_13d0tq1" processRef="bpms_micro_loan_balance_calculation">
+            <cmmn:extensionElements>
+              <camunda:in variables="all" />
+              <camunda:out variables="all" />
+            </cmmn:extensionElements>
+          </cmmn:processTask>
+        </cmmn:stage>
+        <cmmn:processTask id="ProcessTask_0qnuskj" name="08. Тооцоолол хийх" processRef="bpms_micro_loan_calculation_type">
+          <cmmn:extensionElements>
+            <camunda:in variables="all" />
+            <camunda:out variables="all" />
+          </cmmn:extensionElements>
+        </cmmn:processTask>
+      </cmmn:stage>
+      <cmmn:processTask id="ProcessTask_19zoh70" name="04. Хамтран зээлдэгч нэмэх" processRef="bpms_micro_loan_update_coBorrower">
+        <cmmn:extensionElements>
+          <camunda:in variables="all" />
+          <camunda:out variables="all" />
+        </cmmn:extensionElements>
+      </cmmn:processTask>
+      <cmmn:milestone id="Milestone_1r6ntc2" name="Анхан шат идэвхитэй болгох">
+        <cmmn:extensionElements>
+          <camunda:caseExecutionListener event="occur" delegateExpression="${disableElementaryCriteriaListener}" />
+        </cmmn:extensionElements>
+      </cmmn:milestone>
+      <cmmn:processTask id="ProcessTask_0v6eiz8" processRef="bpms_confirm_loan_request_process">
+        <cmmn:extensionElements>
+          <camunda:in variables="all" />
+          <camunda:out variables="all" />
+        </cmmn:extensionElements>
+      </cmmn:processTask>
+      <cmmn:processTask id="ProcessTask_11xq6mx" name="03. ХУР лавлагаа" processRef="bpms_micro_loan_download_from_xyp">
+        <cmmn:extensionElements>
+          <camunda:in variables="all" />
+          <camunda:out variables="all" />
+        </cmmn:extensionElements>
+      </cmmn:processTask>
+      <cmmn:processTask id="ProcessTask_0viwa16" name="07. Анхан шатны шалгуур - EC" processRef="bpms_micro_loan_elementary_criterian">
+        <cmmn:extensionElements>
+          <camunda:in variables="all" />
+          <camunda:out variables="all" />
+        </cmmn:extensionElements>
+      </cmmn:processTask>
+      <cmmn:stage id="Stage_0m2amlc" name="Хамтран хасах үе шат">
+        <cmmn:planItem id="process_task_micro_loan_remove_coborrower" name="12. Хамтран хасах" definitionRef="ProcessTask_1jbglac">
+          <cmmn:itemControl id="PlanItemControl_1edzogr">
+            <cmmn:repetitionRule id="RepetitionRule_1kcj6h6" camunda:repeatOnStandardEvent="complete">
+              <cmmn:condition id="Expression_1ulpj1w">${indexCoBorrower &gt;= 1}</cmmn:condition>
+            </cmmn:repetitionRule>
+            <cmmn:manualActivationRule id="ManualActivationRule_1y5zk7q" />
+          </cmmn:itemControl>
+        </cmmn:planItem>
+        <cmmn:planItem id="process_task_micro_coborrower_mongol_bank_enquire" name="05. (Хамтран) Монгол банк лавлагаа" definitionRef="ProcessTask_1fph78r">
+          <cmmn:itemControl id="PlanItemControl_0j25pqi">
+            <cmmn:repetitionRule id="RepetitionRule_06kv0zh" camunda:repeatOnStandardEvent="complete">
+              <cmmn:condition id="Expression_0bprdjj">${indexCoBorrower &gt;= 1}</cmmn:condition>
+            </cmmn:repetitionRule>
+            <cmmn:manualActivationRule id="ManualActivationRule_0btkz5n" />
+          </cmmn:itemControl>
+        </cmmn:planItem>
+        <cmmn:planItem id="process_task_micro_loan_download_from_khur_coborrower" name="06. (Хамтран) ХУР лавлагаа" definitionRef="ProcessTask_18dm4ci">
+          <cmmn:itemControl id="PlanItemControl_1w9mr9i">
+            <cmmn:repetitionRule id="RepetitionRule_0cpifil" camunda:repeatOnStandardEvent="complete">
+              <cmmn:condition id="Expression_1vbvaa2">${indexCoBorrower &gt;= 1}</cmmn:condition>
+            </cmmn:repetitionRule>
+            <cmmn:manualActivationRule id="ManualActivationRule_05ukjmc" />
+          </cmmn:itemControl>
+        </cmmn:planItem>
+        <cmmn:processTask id="ProcessTask_1jbglac" name="12. Хамтран хасах" processRef="bpms_micro_loan_remove_coborrower">
+          <cmmn:extensionElements>
+            <camunda:in variables="all" />
+            <camunda:out variables="all" />
+          </cmmn:extensionElements>
+        </cmmn:processTask>
+        <cmmn:processTask id="ProcessTask_1fph78r" name="05. (Хамтран) Монгол банк лавлагаа" processRef="bpms_micro_mongol_bank_co_borrower">
+          <cmmn:extensionElements>
+            <camunda:in variables="all" />
+            <camunda:out variables="all" />
+          </cmmn:extensionElements>
+        </cmmn:processTask>
+        <cmmn:processTask id="ProcessTask_18dm4ci" name="06. (Хамтран) ХУР лавлагаа" processRef="bpms_micro_loan_download_from_xyp_coBorrower">
+          <cmmn:extensionElements>
+            <camunda:in variables="all" />
+            <camunda:out variables="all" />
+          </cmmn:extensionElements>
+        </cmmn:processTask>
+      </cmmn:stage>
+      <cmmn:milestone id="Milestone_0sqdr4d" name="Хамтран хасах таск эхлүүлэх">
+        <cmmn:extensionElements>
+          <camunda:caseExecutionListener event="occur" delegateExpression="${disableCoBorrowerProcessesListener}" />
+        </cmmn:extensionElements>
+      </cmmn:milestone>
+      <cmmn:stage id="Stage_0drxov3">
+        <cmmn:extensionElements>
+          <camunda:caseExecutionListener event="start" delegateExpression="${setCollAccountStageStartedListener}" />
+        </cmmn:extensionElements>
+        <cmmn:planItem id="process_task_micro_loan_account" name="16. Зээлийн данс үүсгэх" definitionRef="ProcessTask_0re6322">
+          <cmmn:itemControl id="PlanItemControl_1v2lo9p">
+            <cmmn:repetitionRule id="RepetitionRule_0ljlaot">
+              <cmmn:condition id="Expression_1i0thvf">${isLoanAccountCreate == true}</cmmn:condition>
+            </cmmn:repetitionRule>
+            <cmmn:manualActivationRule id="ManualActivationRule_1xepaq4" />
+          </cmmn:itemControl>
+        </cmmn:planItem>
+        <cmmn:planItem id="PlanItem_1ujqpni" definitionRef="Milestone_0lps4cx">
+          <cmmn:itemControl id="PlanItemControl_0bzn4aq">
+            <cmmn:repetitionRule id="RepetitionRule_0bb6o5o" />
+          </cmmn:itemControl>
+          <cmmn:entryCriterion id="EntryCriterion_0m4qd1k" sentryRef="Sentry_12wqf7l" />
+        </cmmn:planItem>
+        <cmmn:planItem id="process_task_micro_loan_decision_generation" name="17. Зээлийн шийдвэр үүсгэх" definitionRef="ProcessTask_1dg2blc">
+          <cmmn:itemControl id="PlanItemControl_04i3acb">
+            <cmmn:repetitionRule id="RepetitionRule_1i8skav" />
+          </cmmn:itemControl>
+          <cmmn:entryCriterion id="EntryCriterion_02qx64f" sentryRef="Sentry_0j3jvtn" />
+        </cmmn:planItem>
+        <cmmn:planItem id="process_task_micro_loan_decision_generation_manual" name="17. Зээлийн шийдвэр үүсгэх" definitionRef="ProcessTask_0ey6dio">
+          <cmmn:itemControl id="PlanItemControl_1cu33xx">
+            <cmmn:repetitionRule id="RepetitionRule_0cdy9b9" />
+            <cmmn:manualActivationRule id="ManualActivationRule_1p8kura" />
+          </cmmn:itemControl>
+          <cmmn:entryCriterion id="EntryCriterion_1raxeyr" sentryRef="Sentry_0kxfhs6" />
+        </cmmn:planItem>
+        <cmmn:sentry id="Sentry_12wqf7l">
+          <cmmn:planItemOnPart id="PlanItemOnPart_0c1wsv5" sourceRef="process_task_micro_loan_account">
+            <cmmn:standardEvent>complete</cmmn:standardEvent>
+          </cmmn:planItemOnPart>
+          <cmmn:ifPart id="IfPart_0i7ntge">
+            <cmmn:condition id="Expression_1nhxiqk">${isLoanAccountCreate == false &amp;&amp; loanAccountNumber != null}</cmmn:condition>
+          </cmmn:ifPart>
+        </cmmn:sentry>
+        <cmmn:sentry id="Sentry_0j3jvtn">
+          <cmmn:planItemOnPart id="PlanItemOnPart_1cnea80" sourceRef="PlanItem_1ujqpni">
+            <cmmn:standardEvent>occur</cmmn:standardEvent>
+          </cmmn:planItemOnPart>
+          <cmmn:ifPart id="IfPart_0583acr">
+            <cmmn:condition id="Expression_01bbbt1">${isLoanAccountCreate == false &amp;&amp; loanAccountNumber != null}</cmmn:condition>
+          </cmmn:ifPart>
+        </cmmn:sentry>
+        <cmmn:sentry id="Sentry_0kxfhs6">
+          <cmmn:planItemOnPart id="PlanItemOnPart_14wkztq" sourceRef="PlanItem_1ujqpni">
+            <cmmn:standardEvent>occur</cmmn:standardEvent>
+          </cmmn:planItemOnPart>
+          <cmmn:ifPart id="IfPart_0ljd3b8">
+            <cmmn:condition id="Expression_17wi6zw">${isLoanAccountCreate == false &amp;&amp; loanAccountNumber != null}</cmmn:condition>
+          </cmmn:ifPart>
+        </cmmn:sentry>
+        <cmmn:processTask id="ProcessTask_0re6322" name="16. Зээлийн данс үүсгэх" processRef="bpms_create_loan_account_with_collateral_new_core">
+          <cmmn:extensionElements>
+            <camunda:in variables="all" />
+            <camunda:out variables="all" />
+            <camunda:caseExecutionListener event="complete" delegateExpression="${setCollAccountStageStartedListener}" />
+            <camunda:caseExecutionListener event="complete" delegateExpression="${disableCollateralExecutionsListener}" />
+          </cmmn:extensionElements>
+        </cmmn:processTask>
+        <cmmn:processTask id="ProcessTask_1dg2blc" processRef="bpms_micro_generate_loan_decision_document">
+          <cmmn:extensionElements>
+            <camunda:in variables="all" />
+            <camunda:out variables="all" />
+          </cmmn:extensionElements>
+        </cmmn:processTask>
+        <cmmn:milestone id="Milestone_0lps4cx" name="Данс үүссэн" />
+        <cmmn:processTask id="ProcessTask_0ey6dio" processRef="bpms_micro_generate_loan_decision_document">
+          <cmmn:extensionElements>
+            <camunda:in variables="all" />
+            <camunda:out variables="all" />
+          </cmmn:extensionElements>
+        </cmmn:processTask>
+      </cmmn:stage>
+      <cmmn:stage id="Stage_0skrouf" name="">
+        <cmmn:planItem id="PlanItem_0285kqx" name="Барьцаа үүсгэх идэвхгүй болгох" definitionRef="Milestone_1bfwbz2">
+          <cmmn:itemControl id="PlanItemControl_02ius53">
+            <cmmn:repetitionRule id="RepetitionRule_0l13oel" />
+          </cmmn:itemControl>
+          <cmmn:entryCriterion id="EntryCriterion_07pbefu" sentryRef="Sentry_0u7il5u" />
+        </cmmn:planItem>
+        <cmmn:planItem id="PlanItem_12k03k1" name="Барьцаа үүсгэх" definitionRef="Stage_1jmxxdf">
+          <cmmn:itemControl id="PlanItemControl_0o5zsdz">
+            <cmmn:repetitionRule id="RepetitionRule_065aejh" />
+          </cmmn:itemControl>
+          <cmmn:entryCriterion id="EntryCriterion_0ur7byo" sentryRef="Sentry_1p6kfpv" />
+          <cmmn:exitCriterion id="EntryCriterion_1uhvf3c" sentryRef="Sentry_0tyvvrl" />
+        </cmmn:planItem>
+        <cmmn:planItem id="process_task_collateral_list" name="10. Барьцаа хөрөнгийн жагсаалт" definitionRef="ProcessTask_1gotglg">
+          <cmmn:itemControl id="PlanItemControl_1to0fuw">
+            <cmmn:repetitionRule id="RepetitionRule_1fam5a6" camunda:repeatOnStandardEvent="complete" />
+            <cmmn:manualActivationRule id="ManualActivationRule_05i7zd7" />
+          </cmmn:itemControl>
+        </cmmn:planItem>
+        <cmmn:planItem id="stage_calculate_loan_amount_after_account_creation" name="Зээлийн хэмжээг дахин тооцох" definitionRef="Stage_0jtfn5v">
+          <cmmn:itemControl id="PlanItemControl_1ywh4hs">
+            <cmmn:repetitionRule id="RepetitionRule_042f62z" />
+          </cmmn:itemControl>
+          <cmmn:entryCriterion id="EntryCriterion_1enh31s" sentryRef="Sentry_0j2htcq" />
+        </cmmn:planItem>
+        <cmmn:planItem id="PlanItem_02pdked" name="Check If Loan Amount Calculation Is Active" definitionRef="Milestone_1m9bsft">
+          <cmmn:entryCriterion id="EntryCriterion_1cjnli2" sentryRef="Sentry_0vjvkm8" />
+        </cmmn:planItem>
+        <cmmn:sentry id="Sentry_0tyvvrl">
+          <cmmn:planItemOnPart id="PlanItemOnPart_0xp5h6i" sourceRef="PlanItem_0285kqx">
+            <cmmn:standardEvent>occur</cmmn:standardEvent>
+          </cmmn:planItemOnPart>
+        </cmmn:sentry>
+        <cmmn:sentry id="Sentry_1p6kfpv">
+          <cmmn:planItemOnPart id="PlanItemOnPart_0r024yg" sourceRef="process_task_collateral_list">
+            <cmmn:standardEvent>manualStart</cmmn:standardEvent>
+          </cmmn:planItemOnPart>
+        </cmmn:sentry>
+        <cmmn:sentry id="Sentry_0j2htcq">
+          <cmmn:planItemOnPart id="PlanItemOnPart_11z4i2q" sourceRef="PlanItem_02pdked">
+            <cmmn:standardEvent>occur</cmmn:standardEvent>
+          </cmmn:planItemOnPart>
+          <cmmn:ifPart id="IfPart_1gewntx">
+            <cmmn:condition id="Expression_1732t1l">${loanDecision != "Батлах" &amp;&amp; isLoanAmountCalculationActive == false}</cmmn:condition>
+          </cmmn:ifPart>
+        </cmmn:sentry>
+        <cmmn:sentry id="Sentry_0u7il5u">
+          <cmmn:planItemOnPart id="PlanItemOnPart_00qj9kz" sourceRef="process_task_collateral_list">
+            <cmmn:standardEvent>complete</cmmn:standardEvent>
+          </cmmn:planItemOnPart>
+        </cmmn:sentry>
+        <cmmn:sentry id="Sentry_0vjvkm8">
+          <cmmn:planItemOnPart id="PlanItemOnPart_01zkr3q" sourceRef="process_task_collateral_list">
+            <cmmn:standardEvent>complete</cmmn:standardEvent>
+          </cmmn:planItemOnPart>
+        </cmmn:sentry>
+        <cmmn:processTask id="ProcessTask_1gotglg" processRef="bpms_micro_collateral_list">
+          <cmmn:extensionElements>
+            <camunda:caseExecutionListener event="manualStart" delegateExpression="${downloadCollateralInfoByCifListener}" />
+            <camunda:in variables="all" />
+            <camunda:out variables="all" />
+          </cmmn:extensionElements>
+        </cmmn:processTask>
+        <cmmn:stage id="Stage_1jmxxdf" name="Барьцаа үүсгэх">
+          <cmmn:planItem id="process_task_create_collateral" name="11. Барьцаа хөрөнгө үүсгэх" definitionRef="ProcessTask_0lmta38">
+            <cmmn:itemControl id="PlanItemControl_10az74p">
+              <cmmn:repetitionRule id="RepetitionRule_1tg78de" camunda:repeatOnStandardEvent="complete" />
+              <cmmn:manualActivationRule id="ManualActivationRule_131ypnw" />
+            </cmmn:itemControl>
+          </cmmn:planItem>
+          <cmmn:processTask id="ProcessTask_0lmta38" name="11. Барьцаа хөрөнгө үүсгэх" processRef="bpms_create_collateral_new_core">
+            <cmmn:extensionElements>
+              <camunda:in variables="all" />
+              <camunda:out variables="all" />
+              <camunda:caseExecutionListener event="complete" delegateExpression="${setCollateralRelatedVariablesListener}" />
+              <camunda:caseExecutionListener event="complete" delegateExpression="${downloadCollateralInfoByCifListener}" />
+            </cmmn:extensionElements>
+          </cmmn:processTask>
+        </cmmn:stage>
+        <cmmn:stage id="Stage_0jtfn5v" name="">
+          <cmmn:planItem id="process_task_calculate_loan_amount_after_account_creation" name="09. Зээлийн хэмжээ тооцох" definitionRef="process_task_calculate_loan_amount_after_loan_account_creation">
+            <cmmn:itemControl id="PlanItemControl_1esq7ec">
+              <cmmn:repetitionRule id="RepetitionRule_1gf2c87" camunda:repeatOnStandardEvent="complete">
+                <cmmn:condition id="Expression_1q61y5k">${calculateLoanAmount == true}</cmmn:condition>
+              </cmmn:repetitionRule>
+              <cmmn:manualActivationRule id="ManualActivationRule_05gc8lz" />
+            </cmmn:itemControl>
+          </cmmn:planItem>
+          <cmmn:processTask id="process_task_calculate_loan_amount_after_loan_account_creation" name="09. Зээлийн хэмжээ тооцох" processRef="bpms_calculate_micro_loan_amount">
+            <cmmn:extensionElements>
+              <camunda:in variables="all" />
+              <camunda:out variables="all" />
+            </cmmn:extensionElements>
+          </cmmn:processTask>
+        </cmmn:stage>
+        <cmmn:milestone id="Milestone_1bfwbz2">
+          <cmmn:extensionElements>
+            <camunda:caseExecutionListener event="occur" delegateExpression="${terminateCreateCollateralListener}" />
+          </cmmn:extensionElements>
+        </cmmn:milestone>
+        <cmmn:milestone id="Milestone_1m9bsft">
+          <cmmn:extensionElements>
+            <camunda:caseExecutionListener event="occur" delegateExpression="${checkIfAmountCalculationIsActiveListener}" />
+          </cmmn:extensionElements>
+        </cmmn:milestone>
+      </cmmn:stage>
+      <cmmn:processTask id="ProcessTask_1vc4qdi" name="Зээлийн хэмжээ тооцох" processRef="bpms_calculate_micro_loan_amount" />
+      <cmmn:processTask id="ProcessTask_1mi9zj4" processRef="bpms_calculate_micro_loan_amount" />
+      <cmmn:milestone id="Milestone_1fgr3vm" name="Татгалзсан" />
+      <cmmn:milestone id="Milestone_13plct4" />
+      <cmmn:milestone id="Milestone_0arnobf" name="Баталсан">
+        <cmmn:extensionElements />
+      </cmmn:milestone>
+      <cmmn:processTask id="ProcessTask_1yak0wq" processRef="bpms_micro_loan_decision">
+        <cmmn:extensionElements>
+          <camunda:in variables="all" />
+          <camunda:out variables="all" />
+        </cmmn:extensionElements>
+      </cmmn:processTask>
+      <cmmn:milestone id="Milestone_0apxhph" name="Зээл шийдвэрлүүл идэвхитэй болгох" />
+      <cmmn:processTask id="ProcessTask_04uaxrg" processRef="bpms_micro_loan_send">
+        <cmmn:extensionElements>
+          <camunda:in variables="all" />
+          <camunda:out variables="all" />
+        </cmmn:extensionElements>
+      </cmmn:processTask>
+      <cmmn:stage id="Stage_0ww13x5" name="Тооцол үе шат">
+        <cmmn:planItem id="process_task_loan_amount" definitionRef="ProcessTask_1rl8r0u">
+          <cmmn:itemControl id="PlanItemControl_1h45nhi">
+            <cmmn:repetitionRule id="RepetitionRule_0gu4jin">
+              <cmmn:condition id="Expression_0oh1old">${calculateLoanAmount == true}</cmmn:condition>
+            </cmmn:repetitionRule>
+            <cmmn:manualActivationRule id="ManualActivationRule_09pfxly" />
+          </cmmn:itemControl>
+        </cmmn:planItem>
+        <cmmn:processTask id="ProcessTask_1rl8r0u" name="09. Зээлийн хэмжээ тооцох" processRef="bpms_calculate_micro_loan_amount">
+          <cmmn:extensionElements>
+            <camunda:in variables="all" />
+            <camunda:out variables="all" />
+            <camunda:caseExecutionListener event="complete" delegateExpression="${triggerCollateralListAfterSalaryListener}" />
+          </cmmn:extensionElements>
+        </cmmn:processTask>
+      </cmmn:stage>
+      <cmmn:stage id="Stage_1htceue" name="Зээл шийдвэрлүүлэхээр илгээх">
+        <cmmn:planItem id="process_task_loan_amount_2" name="09. Зээлийн хэмжээ тооцох" definitionRef="ProcessTask_0jq5jx6">
+          <cmmn:itemControl id="PlanItemControl_1qqyf60">
+            <cmmn:repetitionRule id="RepetitionRule_1xfnc8x" />
+            <cmmn:manualActivationRule id="ManualActivationRule_05bsam8" />
+          </cmmn:itemControl>
+        </cmmn:planItem>
+        <cmmn:planItem id="process_task_loan_send" name="14. Зээл шийдвэрлүүлэхээр илгээх" definitionRef="ProcessTask_145tdp7">
+          <cmmn:itemControl id="PlanItemControl_0z8fngb">
+            <cmmn:repetitionRule id="RepetitionRule_1rr7f03" />
+            <cmmn:manualActivationRule id="ManualActivationRule_0dp8asm" />
+          </cmmn:itemControl>
+        </cmmn:planItem>
+        <cmmn:planItem id="PlanItem_1npacy6" name="13. Скоринг хийх" definitionRef="ProcessTask_10orh5k">
+          <cmmn:itemControl id="PlanItemControl_0gyncpj">
+            <cmmn:repetitionRule id="RepetitionRule_1l21xr4" />
+            <cmmn:manualActivationRule id="ManualActivationRule_0fjcw0r" />
+          </cmmn:itemControl>
+        </cmmn:planItem>
+        <cmmn:processTask id="ProcessTask_145tdp7" name="14. Зээл шийдвэрлүүлэхээр илгээх" processRef="bpms_micro_loan_send">
+          <cmmn:extensionElements>
+            <camunda:in variables="all" />
+            <camunda:out variables="all" />
+            <camunda:caseExecutionListener event="complete" delegateExpression="${terminateAndDisableTasksListener}" />
+          </cmmn:extensionElements>
+        </cmmn:processTask>
+        <cmmn:processTask id="ProcessTask_10orh5k" name="13. Скоринг хийх" processRef="bpms_micro_loan_scoring">
+          <cmmn:extensionElements>
+            <camunda:in variables="all" />
+            <camunda:out variables="all" />
+          </cmmn:extensionElements>
+        </cmmn:processTask>
+        <cmmn:processTask id="ProcessTask_0jq5jx6" name="09. Зээлийн хэмжээ тооцох" processRef="bpms_calculate_micro_loan_amount">
+          <cmmn:extensionElements>
+            <camunda:in variables="all" />
+            <camunda:out variables="all" />
+          </cmmn:extensionElements>
+        </cmmn:processTask>
+      </cmmn:stage>
+      <cmmn:milestone id="Milestone_0jo1tns">
+        <cmmn:extensionElements>
+          <camunda:caseExecutionListener event="occur" delegateExpression="${terminateAndDisableTasksListener}" />
+        </cmmn:extensionElements>
+      </cmmn:milestone>
+      <cmmn:stage id="Stage_0eedc6b" name="">
+        <cmmn:planItem id="process_task_micro_mongol_bank_enquire_extended" name="02. Монгол банк лавлагаа" definitionRef="ProcessTask_0stmgqj">
+          <cmmn:itemControl id="PlanItemControl_10igrzi">
+            <cmmn:repetitionRule id="RepetitionRule_0daexho">
+              <cmmn:condition id="Expression_0gcmaqc">${isCompletedElementaryCriteria== false}</cmmn:condition>
+            </cmmn:repetitionRule>
+            <cmmn:manualActivationRule id="ManualActivationRule_0dp4dp7" />
+          </cmmn:itemControl>
+        </cmmn:planItem>
+        <cmmn:processTask id="ProcessTask_0stmgqj" name="02. Монгол банк лавлагаа" processRef="bpms_micro_mongol_bank_extended">
+          <cmmn:extensionElements>
+            <camunda:in variables="all" />
+            <camunda:out variables="all" />
+          </cmmn:extensionElements>
+        </cmmn:processTask>
+      </cmmn:stage>
+      <cmmn:stage id="Stage_0tiak6e" name="">
+        <cmmn:planItem id="process_task_micro_mongol_bank_new_core" name="02. Монгол банк лавлагаа" definitionRef="ProcessTask_0owe1l6">
+          <cmmn:itemControl id="PlanItemControl_0gjot0v">
+            <cmmn:repetitionRule id="RepetitionRule_0l9xln3">
+              <cmmn:condition id="Expression_1u9wvmg">${isCompletedElementaryCriteria== false}</cmmn:condition>
+            </cmmn:repetitionRule>
+            <cmmn:manualActivationRule id="ManualActivationRule_19a59it" />
+          </cmmn:itemControl>
+        </cmmn:planItem>
+        <cmmn:processTask id="ProcessTask_0owe1l6" name="02. Монгол банк лавлагаа" processRef="bpms_micro_mongol_bank_new_core">
+          <cmmn:extensionElements>
+            <camunda:in variables="all" />
+            <camunda:out variables="all" />
+          </cmmn:extensionElements>
+        </cmmn:processTask>
+      </cmmn:stage>
+      <cmmn:exitCriterion id="ExitCriterion_1hpczdx" sentryRef="Sentry_0qi6aj0" />
+      <cmmn:exitCriterion id="ExitCriterion_18qfar1" sentryRef="Sentry_0vh6eue" />
+    </cmmn:casePlanModel>
+  </cmmn:case>
+  <cmmndi:CMMNDI>
+    <cmmndi:CMMNDiagram id="CMMNDiagram_1u9jc9g" name="Хамтран хасах үе шат">
+      <cmmndi:Size width="500" height="500" />
+      <cmmndi:CMMNShape id="DI_CasePlanModel_127tgh2" cmmnElementRef="micro_loan">
+        <dc:Bounds x="156" y="97" width="2342" height="1064" />
+        <cmmndi:CMMNLabel />
+      </cmmndi:CMMNShape>
+      <cmmndi:CMMNShape id="PlanItem_0ifqvoz_di" cmmnElementRef="bpms_micro_customer_information_process_task">
+        <dc:Bounds x="638" y="193" width="100" height="80" />
+        <cmmndi:CMMNLabel />
+      </cmmndi:CMMNShape>
+      <cmmndi:CMMNShape id="PlanItem_0uhoxvx_di" cmmnElementRef="stage_micro_loan_calculation">
+        <dc:Bounds x="982" y="117" width="661" height="361" />
+        <cmmndi:CMMNLabel />
+      </cmmndi:CMMNShape>
+      <cmmndi:CMMNShape id="PlanItem_06keuyl_di" cmmnElementRef="process_task_calculation_type">
+        <dc:Bounds x="1007" y="258" width="100" height="80" />
+        <cmmndi:CMMNLabel />
+      </cmmndi:CMMNShape>
+      <cmmndi:CMMNShape id="EntryCriterion_1e13wxc_di" cmmnElementRef="EntryCriterion_1e13wxc">
+        <dc:Bounds x="972" y="219" width="20" height="28" />
+        <cmmndi:CMMNLabel />
+      </cmmndi:CMMNShape>
+      <cmmndi:CMMNEdge id="PlanItemOnPart_0rltxwg_di" cmmnElementRef="PlanItemOnPart_0rltxwg" targetCMMNElementRef="EntryCriterion_1e13wxc" isStandardEventVisible="true">
+        <di:waypoint x="738" y="233" />
+        <di:waypoint x="855" y="233" />
+        <di:waypoint x="855" y="233" />
+        <di:waypoint x="972" y="233" />
+        <cmmndi:CMMNLabel>
+          <dc:Bounds x="849" y="209" width="52" height="13" />
+        </cmmndi:CMMNLabel>
+      </cmmndi:CMMNEdge>
+      <cmmndi:CMMNShape id="PlanItem_06cyus3_di" cmmnElementRef="process_task_micro_loan_update_coborrower">
+        <dc:Bounds x="637" y="516" width="100" height="80" />
+        <cmmndi:CMMNLabel />
+      </cmmndi:CMMNShape>
+      <cmmndi:CMMNShape id="PlanItem_165b58i_di" cmmnElementRef="PlanItem_165b58i">
+        <dc:Bounds x="638" y="423" width="100" height="40" />
+        <cmmndi:CMMNLabel />
+      </cmmndi:CMMNShape>
+      <cmmndi:CMMNShape id="EntryCriterion_0aofihw_di" cmmnElementRef="EntryCriterion_0aofihw">
+        <dc:Bounds x="677" y="409" width="20" height="28" />
+        <cmmndi:CMMNLabel />
+      </cmmndi:CMMNShape>
+      <cmmndi:CMMNEdge id="PlanItemOnPart_1ck7fsu_di" cmmnElementRef="PlanItemOnPart_1ck7fsu" targetCMMNElementRef="EntryCriterion_0aofihw" isStandardEventVisible="true">
+        <di:waypoint x="688" y="273" />
+        <di:waypoint x="688" y="341" />
+        <di:waypoint x="687" y="341" />
+        <di:waypoint x="687" y="409" />
+        <cmmndi:CMMNLabel>
+          <dc:Bounds x="662" y="312" width="52" height="13" />
+        </cmmndi:CMMNLabel>
+      </cmmndi:CMMNEdge>
+      <cmmndi:CMMNShape id="EntryCriterion_125urkf_di" cmmnElementRef="EntryCriterion_125urkf">
+        <dc:Bounds x="677" y="449" width="20" height="28" />
+        <cmmndi:CMMNLabel />
+      </cmmndi:CMMNShape>
+      <cmmndi:CMMNShape id="PlanItem_1kg358b_di" cmmnElementRef="bpms_request_confirm_process_process_task">
+        <dc:Bounds x="288" y="193" width="100" height="80" />
+        <cmmndi:CMMNLabel />
+      </cmmndi:CMMNShape>
+      <cmmndi:CMMNShape id="EntryCriterion_1jo3jse_di" cmmnElementRef="EntryCriterion_1jo3jse">
+        <dc:Bounds x="628" y="222" width="20" height="28" />
+        <cmmndi:CMMNLabel />
+      </cmmndi:CMMNShape>
+      <cmmndi:CMMNEdge id="PlanItemOnPart_1vprqsv_di" cmmnElementRef="PlanItemOnPart_1vprqsv" targetCMMNElementRef="EntryCriterion_1jo3jse" isStandardEventVisible="true">
+        <di:waypoint x="388" y="233" />
+        <di:waypoint x="599" y="233" />
+        <di:waypoint x="599" y="236" />
+        <di:waypoint x="628" y="236" />
+        <cmmndi:CMMNLabel>
+          <dc:Bounds x="564" y="210" width="52" height="13" />
+        </cmmndi:CMMNLabel>
+      </cmmndi:CMMNEdge>
+      <cmmndi:CMMNShape id="PlanItem_0tlu3f9_di" cmmnElementRef="process_task_simple_calculation">
+        <dc:Bounds x="1222" y="167" width="100" height="80" />
+        <cmmndi:CMMNLabel />
+      </cmmndi:CMMNShape>
+      <cmmndi:CMMNShape id="EntryCriterion_1ivrml4_di" cmmnElementRef="EntryCriterion_1ivrml4">
+        <dc:Bounds x="823" y="429" width="20" height="28" />
+        <cmmndi:CMMNLabel />
+      </cmmndi:CMMNShape>
+      <cmmndi:CMMNShape id="PlanItem_1n2r2rj_di" cmmnElementRef="PlanItem_0kctick">
+        <dc:Bounds x="834" y="405" width="100" height="80" />
+        <cmmndi:CMMNLabel />
+      </cmmndi:CMMNShape>
+      <cmmndi:CMMNShape id="PlanItem_1h2u9k1_di" cmmnElementRef="process_task_micro_loan_download_from_khur">
+        <dc:Bounds x="489" y="639" width="100" height="80" />
+        <cmmndi:CMMNLabel />
+      </cmmndi:CMMNShape>
+      <cmmndi:CMMNEdge id="PlanItemOnPart_1vu4xjs_di" cmmnElementRef="PlanItemOnPart_1vu4xjs" targetCMMNElementRef="EntryCriterion_1ivrml4" isStandardEventVisible="true">
+        <di:waypoint x="738" y="443" />
+        <di:waypoint x="823" y="443" />
+        <cmmndi:CMMNLabel>
+          <dc:Bounds x="764" y="432" width="34" height="13" />
+        </cmmndi:CMMNLabel>
+      </cmmndi:CMMNEdge>
+      <cmmndi:CMMNShape id="PlanItem_1jrex1e_di" cmmnElementRef="PlanItem_1jrex1e">
+        <dc:Bounds x="426" y="779" width="432" height="192" />
+        <cmmndi:CMMNLabel />
+      </cmmndi:CMMNShape>
+      <cmmndi:CMMNShape id="EntryCriterion_142xh49_di" cmmnElementRef="EntryCriterion_142xh49">
+        <dc:Bounds x="678" y="765" width="20" height="28" />
+        <cmmndi:CMMNLabel />
+      </cmmndi:CMMNShape>
+      <cmmndi:CMMNEdge id="PlanItemOnPart_0dlv4t2_di" cmmnElementRef="PlanItemOnPart_0dlv4t2" targetCMMNElementRef="EntryCriterion_125urkf" isStandardEventVisible="true">
+        <di:waypoint x="687" y="516" />
+        <di:waypoint x="687" y="477" />
+        <cmmndi:CMMNLabel>
+          <dc:Bounds x="661" y="487" width="52" height="13" />
+        </cmmndi:CMMNLabel>
+      </cmmndi:CMMNEdge>
+      <cmmndi:CMMNShape id="PlanItem_0dmkgh7_di" cmmnElementRef="process_task_micro_loan_remove_coborrower">
+        <dc:Bounds x="703" y="816" width="100" height="80" />
+        <cmmndi:CMMNLabel />
+      </cmmndi:CMMNShape>
+      <cmmndi:CMMNShape id="PlanItem_19zzzn8_di" cmmnElementRef="PlanItem_19zzzn8">
+        <dc:Bounds x="1187" y="137" width="210" height="133" />
+        <cmmndi:CMMNLabel />
+      </cmmndi:CMMNShape>
+      <cmmndi:CMMNShape id="EntryCriterion_16ws5xc_di" cmmnElementRef="EntryCriterion_16ws5xc">
+        <dc:Bounds x="1177" y="162" width="20" height="28" />
+        <cmmndi:CMMNLabel />
+      </cmmndi:CMMNShape>
+      <cmmndi:CMMNShape id="PlanItem_14gav23_di" cmmnElementRef="PlanItem_14gav23">
+        <dc:Bounds x="1187" y="330" width="212" height="130" />
+        <cmmndi:CMMNLabel />
+      </cmmndi:CMMNShape>
+      <cmmndi:CMMNShape id="EntryCriterion_0ljngwt_di" cmmnElementRef="EntryCriterion_0ljngwt">
+        <dc:Bounds x="1177" y="383" width="20" height="28" />
+        <cmmndi:CMMNLabel />
+      </cmmndi:CMMNShape>
+      <cmmndi:CMMNShape id="PlanItem_09ukn7m_di" cmmnElementRef="process_task_balance_calculation">
+        <dc:Bounds x="1220" y="357" width="100" height="80" />
+        <cmmndi:CMMNLabel />
+      </cmmndi:CMMNShape>
+      <cmmndi:CMMNShape id="PlanItem_0v7y0hm_di" cmmnElementRef="PlanItem_0v7y0hm">
+        <dc:Bounds x="1274" y="521" width="421" height="197" />
+        <cmmndi:CMMNLabel />
+      </cmmndi:CMMNShape>
+      <cmmndi:CMMNShape id="PlanItem_0n2vwoq_di" cmmnElementRef="stage_create_loan_account_with_collateral">
+        <dc:Bounds x="2036" y="435" width="406" height="455" />
+        <cmmndi:CMMNLabel />
+      </cmmndi:CMMNShape>
+      <cmmndi:CMMNShape id="PlanItem_05cycm3_di" cmmnElementRef="process_task_micro_loan_account">
+        <dc:Bounds x="2164" y="495" width="100" height="80" />
+        <cmmndi:CMMNLabel />
+      </cmmndi:CMMNShape>
+      <cmmndi:CMMNShape id="PlanItem_0tw0bhw_di" cmmnElementRef="milestone_micro_loan_remove_coborrower">
+        <dc:Bounds x="638" y="650" width="100" height="40" />
+        <cmmndi:CMMNLabel />
+      </cmmndi:CMMNShape>
+      <cmmndi:CMMNEdge id="PlanItemOnPart_1qvbufm_di" cmmnElementRef="PlanItemOnPart_1qvbufm" targetCMMNElementRef="EntryCriterion_142xh49" isStandardEventVisible="true">
+        <di:waypoint x="688" y="690" />
+        <di:waypoint x="688" y="728" />
+        <di:waypoint x="688" y="728" />
+        <di:waypoint x="688" y="765" />
+        <cmmndi:CMMNLabel>
+          <dc:Bounds x="671" y="718" width="34" height="13" />
+        </cmmndi:CMMNLabel>
+      </cmmndi:CMMNEdge>
+      <cmmndi:CMMNShape id="EntryCriterion_0dbot7k_di" cmmnElementRef="EntryCriterion_0dbot7k">
+        <dc:Bounds x="678" y="636" width="20" height="28" />
+        <cmmndi:CMMNLabel />
+      </cmmndi:CMMNShape>
+      <cmmndi:CMMNEdge id="PlanItemOnPart_0l7yyry_di" cmmnElementRef="PlanItemOnPart_0l7yyry" targetCMMNElementRef="EntryCriterion_0dbot7k" isStandardEventVisible="true">
+        <di:waypoint x="687" y="596" />
+        <di:waypoint x="687" y="616" />
+        <di:waypoint x="688" y="616" />
+        <di:waypoint x="688" y="636" />
+        <cmmndi:CMMNLabel>
+          <dc:Bounds x="662" y="606" width="52" height="13" />
+        </cmmndi:CMMNLabel>
+      </cmmndi:CMMNEdge>
+      <cmmndi:CMMNShape id="PlanItem_18aroqk_di" cmmnElementRef="process_task_micro_coborrower_mongol_bank_enquire">
+        <dc:Bounds x="447" y="816" width="100" height="80" />
+        <cmmndi:CMMNLabel />
+      </cmmndi:CMMNShape>
+      <cmmndi:CMMNShape id="PlanItem_0zpf7br_di" cmmnElementRef="process_task_collateral_list">
+        <dc:Bounds x="1011" y="803" width="100" height="80" />
+        <cmmndi:CMMNLabel />
+      </cmmndi:CMMNShape>
+      <cmmndi:CMMNShape id="PlanItem_10tdrxq_di" cmmnElementRef="process_task_create_collateral">
+        <dc:Bounds x="1363" y="816" width="100" height="80" />
+        <cmmndi:CMMNLabel />
+      </cmmndi:CMMNShape>
+      <cmmndi:CMMNShape id="PlanItem_1x5199h_di" cmmnElementRef="stage_collateral_list">
+        <dc:Bounds x="990" y="770" width="586" height="356" />
+        <cmmndi:CMMNLabel />
+      </cmmndi:CMMNShape>
+      <cmmndi:CMMNShape id="PlanItem_12k03k1_di" cmmnElementRef="PlanItem_12k03k1">
+        <dc:Bounds x="1319" y="790" width="175" height="133" />
+        <cmmndi:CMMNLabel />
+      </cmmndi:CMMNShape>
+      <cmmndi:CMMNShape id="ExitCriterion_0tydsmd_di" cmmnElementRef="EntryCriterion_1uhvf3c">
+        <dc:Bounds x="1309" y="876" width="20" height="28" />
+        <cmmndi:CMMNLabel />
+      </cmmndi:CMMNShape>
+      <cmmndi:CMMNShape id="PlanItem_013t5l2_di" cmmnElementRef="process_task_loan_amount">
+        <dc:Bounds x="993" y="576" width="100" height="80" />
+        <cmmndi:CMMNLabel />
+      </cmmndi:CMMNShape>
+      <cmmndi:CMMNShape id="PlanItem_1rc1sqx_di" cmmnElementRef="process_task_micro_loan_download_from_khur_coborrower">
+        <dc:Bounds x="574" y="816" width="100" height="80" />
+        <cmmndi:CMMNLabel />
+      </cmmndi:CMMNShape>
+      <cmmndi:CMMNShape id="EntryCriterion_0ur7byo_di" cmmnElementRef="EntryCriterion_0ur7byo">
+        <dc:Bounds x="1309" y="816" width="20" height="28" />
+        <cmmndi:CMMNLabel />
+      </cmmndi:CMMNShape>
+      <cmmndi:CMMNEdge id="PlanItemOnPart_0r024yg_di" cmmnElementRef="PlanItemOnPart_0r024yg" targetCMMNElementRef="EntryCriterion_0ur7byo" isStandardEventVisible="true">
+        <di:waypoint x="1111" y="843" />
+        <di:waypoint x="1204" y="843" />
+        <di:waypoint x="1204" y="830" />
+        <di:waypoint x="1309" y="830" />
+        <cmmndi:CMMNLabel>
+          <dc:Bounds x="1139" y="824" width="67" height="13" />
+        </cmmndi:CMMNLabel>
+      </cmmndi:CMMNEdge>
+      <cmmndi:CMMNShape id="PlanItem_0ylsj6x_di" cmmnElementRef="process_task_loan_send">
+        <dc:Bounds x="1427" y="577" width="100" height="80" />
+        <cmmndi:CMMNLabel />
+      </cmmndi:CMMNShape>
+      <cmmndi:CMMNEdge id="PlanItemOnPart_0c1lv9c_di" cmmnElementRef="PlanItemOnPart_0c1lv9c" targetCMMNElementRef="EntryCriterion_16ws5xc" isStandardEventVisible="true">
+        <di:waypoint x="1111" y="298" />
+        <di:waypoint x="1142" y="298" />
+        <di:waypoint x="1142" y="176" />
+        <di:waypoint x="1177" y="176" />
+        <cmmndi:CMMNLabel>
+          <dc:Bounds x="1116" y="227" width="52" height="13" />
+        </cmmndi:CMMNLabel>
+      </cmmndi:CMMNEdge>
+      <cmmndi:CMMNEdge id="PlanItemOnPart_0xwts4i_di" cmmnElementRef="PlanItemOnPart_0xwts4i" targetCMMNElementRef="EntryCriterion_0ljngwt" isStandardEventVisible="true">
+        <di:waypoint x="1107" y="298" />
+        <di:waypoint x="1142" y="298" />
+        <di:waypoint x="1142" y="397" />
+        <di:waypoint x="1177" y="397" />
+        <cmmndi:CMMNLabel>
+          <dc:Bounds x="1116" y="338" width="52" height="13" />
+        </cmmndi:CMMNLabel>
+      </cmmndi:CMMNEdge>
+      <cmmndi:CMMNShape id="ExitCriterion_194m5hk_di" cmmnElementRef="EntryCriterion_1facexp">
+        <dc:Bounds x="1387" y="193" width="20" height="28" />
+        <cmmndi:CMMNLabel />
+      </cmmndi:CMMNShape>
+      <cmmndi:CMMNShape id="PlanItem_1ub9y2y_di" cmmnElementRef="process_task_calculation_type_2">
+        <dc:Bounds x="1442" y="258" width="100" height="80" />
+        <cmmndi:CMMNLabel />
+      </cmmndi:CMMNShape>
+      <cmmndi:CMMNShape id="EntryCriterion_0lyngzm_di" cmmnElementRef="EntryCriterion_0lyngzm">
+        <dc:Bounds x="1432" y="270" width="20" height="28" />
+        <cmmndi:CMMNLabel />
+      </cmmndi:CMMNShape>
+      <cmmndi:CMMNEdge id="PlanItemOnPart_07s04lv_di" cmmnElementRef="PlanItemOnPart_07s04lv" targetCMMNElementRef="EntryCriterion_0lyngzm" isStandardEventVisible="true">
+        <di:waypoint x="1314" y="270" />
+        <di:waypoint x="1314" y="284" />
+        <di:waypoint x="1432" y="284" />
+        <cmmndi:CMMNLabel>
+          <dc:Bounds x="1338" y="269" width="52" height="13" />
+        </cmmndi:CMMNLabel>
+      </cmmndi:CMMNEdge>
+      <cmmndi:CMMNShape id="EntryCriterion_0071xup_di" cmmnElementRef="EntryCriterion_0071xup">
+        <dc:Bounds x="1387" y="155" width="20" height="28" />
+        <cmmndi:CMMNLabel />
+      </cmmndi:CMMNShape>
+      <cmmndi:CMMNEdge id="PlanItemOnPart_040dy7g_di" cmmnElementRef="PlanItemOnPart_040dy7g" targetCMMNElementRef="EntryCriterion_1facexp" isStandardEventVisible="true">
+        <di:waypoint x="1322" y="207" />
+        <di:waypoint x="1387" y="207" />
+        <cmmndi:CMMNLabel>
+          <dc:Bounds x="1332" y="185" width="52" height="13" />
+        </cmmndi:CMMNLabel>
+      </cmmndi:CMMNEdge>
+      <cmmndi:CMMNShape id="EntryCriterion_1m5jyr7_di" cmmnElementRef="EntryCriterion_1m5jyr7">
+        <dc:Bounds x="1264" y="558" width="20" height="28" />
+        <cmmndi:CMMNLabel />
+      </cmmndi:CMMNShape>
+      <cmmndi:CMMNEdge id="PlanItemOnPart_1xoaoln_di" cmmnElementRef="PlanItemOnPart_1xoaoln" targetCMMNElementRef="EntryCriterion_0071xup" isStandardEventVisible="true">
+        <di:waypoint x="1492" y="258" />
+        <di:waypoint x="1492" y="169" />
+        <di:waypoint x="1407" y="169" />
+        <cmmndi:CMMNLabel>
+          <dc:Bounds x="1432" y="180" width="52" height="13" />
+        </cmmndi:CMMNLabel>
+      </cmmndi:CMMNEdge>
+      <cmmndi:CMMNShape id="EntryCriterion_0pxukby_di" cmmnElementRef="EntryCriterion_0pxukby">
+        <dc:Bounds x="1432" y="302" width="20" height="28" />
+        <cmmndi:CMMNLabel />
+      </cmmndi:CMMNShape>
+      <cmmndi:CMMNShape id="ExitCriterion_0mg6pi1_di" cmmnElementRef="EntryCriterion_1nzo2cf">
+        <dc:Bounds x="1389" y="382" width="20" height="28" />
+        <cmmndi:CMMNLabel />
+      </cmmndi:CMMNShape>
+      <cmmndi:CMMNEdge id="PlanItemOnPart_1j8l324_di" cmmnElementRef="PlanItemOnPart_1j8l324" targetCMMNElementRef="EntryCriterion_1nzo2cf" isStandardEventVisible="true">
+        <di:waypoint x="1320" y="397" />
+        <di:waypoint x="1355" y="397" />
+        <di:waypoint x="1355" y="396" />
+        <di:waypoint x="1389" y="396" />
+        <cmmndi:CMMNLabel>
+          <dc:Bounds x="1331" y="376" width="52" height="13" />
+        </cmmndi:CMMNLabel>
+      </cmmndi:CMMNEdge>
+      <cmmndi:CMMNEdge id="PlanItemOnPart_1djlapk_di" cmmnElementRef="PlanItemOnPart_1djlapk" targetCMMNElementRef="EntryCriterion_0pxukby" isStandardEventVisible="true">
+        <di:waypoint x="1314" y="330" />
+        <di:waypoint x="1314" y="316" />
+        <di:waypoint x="1432" y="316" />
+        <cmmndi:CMMNLabel>
+          <dc:Bounds x="1337" y="319" width="52" height="13" />
+        </cmmndi:CMMNLabel>
+      </cmmndi:CMMNEdge>
+      <cmmndi:CMMNShape id="EntryCriterion_064px1d_di" cmmnElementRef="EntryCriterion_064px1d">
+        <dc:Bounds x="1389" y="419" width="20" height="28" />
+        <cmmndi:CMMNLabel />
+      </cmmndi:CMMNShape>
+      <cmmndi:CMMNEdge id="PlanItemOnPart_0pf5ato_di" cmmnElementRef="PlanItemOnPart_0pf5ato" targetCMMNElementRef="EntryCriterion_064px1d" isStandardEventVisible="true">
+        <di:waypoint x="1492" y="338" />
+        <di:waypoint x="1492" y="433" />
+        <di:waypoint x="1409" y="433" />
+        <cmmndi:CMMNLabel>
+          <dc:Bounds x="1433" y="413" width="52" height="13" />
+        </cmmndi:CMMNLabel>
+      </cmmndi:CMMNEdge>
+      <cmmndi:CMMNShape id="PlanItem_1obur9g_di" cmmnElementRef="PlanItem_1obur9g">
+        <dc:Bounds x="1909" y="145" width="100" height="40" />
+        <cmmndi:CMMNLabel />
+      </cmmndi:CMMNShape>
+      <cmmndi:CMMNShape id="PlanItem_1a7us14_di" cmmnElementRef="PlanItem_1a7us14">
+        <dc:Bounds x="1910" y="221" width="100" height="40" />
+        <cmmndi:CMMNLabel />
+      </cmmndi:CMMNShape>
+      <cmmndi:CMMNShape id="PlanItem_1siea7r_di" cmmnElementRef="PlanItem_1siea7r">
+        <dc:Bounds x="1909" y="302" width="100" height="40" />
+        <cmmndi:CMMNLabel />
+      </cmmndi:CMMNShape>
+      <cmmndi:CMMNShape id="EntryCriterion_0foima2_di" cmmnElementRef="EntryCriterion_0foima2">
+        <dc:Bounds x="1899" y="309" width="20" height="28" />
+        <cmmndi:CMMNLabel />
+      </cmmndi:CMMNShape>
+      <cmmndi:CMMNShape id="EntryCriterion_0afcrli_di" cmmnElementRef="EntryCriterion_0afcrli">
+        <dc:Bounds x="1900" y="229" width="20" height="28" />
+        <cmmndi:CMMNLabel />
+      </cmmndi:CMMNShape>
+      <cmmndi:CMMNShape id="EntryCriterion_06qp6lk_di" cmmnElementRef="EntryCriterion_06qp6lk">
+        <dc:Bounds x="1899" y="150" width="20" height="28" />
+        <cmmndi:CMMNLabel />
+      </cmmndi:CMMNShape>
+      <cmmndi:CMMNShape id="PlanItem_1lq8d99_di" cmmnElementRef="process_task_micro_loan_decision">
+        <dc:Bounds x="1734" y="206" width="100" height="80" />
+        <cmmndi:CMMNLabel />
+      </cmmndi:CMMNShape>
+      <cmmndi:CMMNEdge id="PlanItemOnPart_0sqtd1d_di" cmmnElementRef="PlanItemOnPart_0sqtd1d" targetCMMNElementRef="EntryCriterion_06qp6lk" isStandardEventVisible="true">
+        <di:waypoint x="1784" y="206" />
+        <di:waypoint x="1784" y="164" />
+        <di:waypoint x="1899" y="164" />
+        <cmmndi:CMMNLabel>
+          <dc:Bounds x="1841" y="150" width="52" height="13" />
+        </cmmndi:CMMNLabel>
+      </cmmndi:CMMNEdge>
+      <cmmndi:CMMNEdge id="PlanItemOnPart_1eta2s3_di" cmmnElementRef="PlanItemOnPart_1eta2s3" targetCMMNElementRef="EntryCriterion_0afcrli" isStandardEventVisible="true">
+        <di:waypoint x="1834" y="246" />
+        <di:waypoint x="1867" y="246" />
+        <di:waypoint x="1867" y="243" />
+        <di:waypoint x="1900" y="243" />
+        <cmmndi:CMMNLabel>
+          <dc:Bounds x="1840" y="224" width="52" height="13" />
+        </cmmndi:CMMNLabel>
+      </cmmndi:CMMNEdge>
+      <cmmndi:CMMNEdge id="PlanItemOnPart_1co8ls7_di" cmmnElementRef="PlanItemOnPart_1co8ls7" targetCMMNElementRef="EntryCriterion_0foima2" isStandardEventVisible="true">
+        <di:waypoint x="1784" y="286" />
+        <di:waypoint x="1784" y="323" />
+        <di:waypoint x="1899" y="323" />
+        <cmmndi:CMMNLabel>
+          <dc:Bounds x="1841" y="303" width="52" height="13" />
+        </cmmndi:CMMNLabel>
+      </cmmndi:CMMNEdge>
+      <cmmndi:CMMNShape id="PlanItem_0lfxsx5_di" cmmnElementRef="PlanItem_0lfxsx5">
+        <dc:Bounds x="2096" y="156" width="100" height="40" />
+        <cmmndi:CMMNLabel />
+      </cmmndi:CMMNShape>
+      <cmmndi:CMMNShape id="EntryCriterion_02pcu8o_di" cmmnElementRef="EntryCriterion_02pcu8o">
+        <dc:Bounds x="2086" y="164" width="20" height="28" />
+        <cmmndi:CMMNLabel />
+      </cmmndi:CMMNShape>
+      <cmmndi:CMMNEdge id="PlanItemOnPart_0rtws3l_di" cmmnElementRef="PlanItemOnPart_0rtws3l" targetCMMNElementRef="EntryCriterion_02pcu8o" isStandardEventVisible="true">
+        <di:waypoint x="2010" y="241" />
+        <di:waypoint x="2050" y="241" />
+        <di:waypoint x="2050" y="178" />
+        <di:waypoint x="2086" y="178" />
+        <cmmndi:CMMNLabel>
+          <dc:Bounds x="2018" y="209" width="34" height="13" />
+        </cmmndi:CMMNLabel>
+      </cmmndi:CMMNEdge>
+      <cmmndi:CMMNShape id="PlanItem_0drg3oi_di" cmmnElementRef="process_task_micro_loan_send">
+        <dc:Bounds x="2295" y="138" width="100" height="80" />
+        <cmmndi:CMMNLabel />
+      </cmmndi:CMMNShape>
+      <cmmndi:CMMNShape id="ExitCriterion_1hpczdx_di" cmmnElementRef="ExitCriterion_1hpczdx">
+        <dc:Bounds x="1906" y="83" width="20" height="28" />
+        <cmmndi:CMMNLabel />
+      </cmmndi:CMMNShape>
+      <cmmndi:CMMNEdge id="PlanItemOnPart_081ah83_di" cmmnElementRef="PlanItemOnPart_081ah83" targetCMMNElementRef="ExitCriterion_1hpczdx" isStandardEventVisible="true">
+        <di:waypoint x="1978" y="145" />
+        <di:waypoint x="1978" y="111" />
+        <di:waypoint x="1926" y="111" />
+        <cmmndi:CMMNLabel>
+          <dc:Bounds x="1934" y="113" width="34" height="13" />
+        </cmmndi:CMMNLabel>
+      </cmmndi:CMMNEdge>
+      <cmmndi:CMMNShape id="PlanItem_0dcjk60_di" cmmnElementRef="micro_calculation_stage">
+        <dc:Bounds x="950" y="532" width="211" height="146" />
+        <cmmndi:CMMNLabel />
+      </cmmndi:CMMNShape>
+      <cmmndi:CMMNShape id="ExitCriterion_0zzdx78_di" cmmnElementRef="EntryCriterion_0i5k95u">
+        <dc:Bounds x="1151" y="591" width="20" height="28" />
+        <cmmndi:CMMNLabel />
+      </cmmndi:CMMNShape>
+      <cmmndi:CMMNEdge id="PlanItemOnPart_1blcxr4_di" cmmnElementRef="PlanItemOnPart_1blcxr4" targetCMMNElementRef="EntryCriterion_0i5k95u" isStandardEventVisible="true">
+        <di:waypoint x="1093" y="607" />
+        <di:waypoint x="1122" y="607" />
+        <di:waypoint x="1122" y="605" />
+        <di:waypoint x="1151" y="605" />
+        <cmmndi:CMMNLabel>
+          <dc:Bounds x="1098" y="582" width="52" height="13" />
+        </cmmndi:CMMNLabel>
+      </cmmndi:CMMNEdge>
+      <cmmndi:CMMNEdge id="PlanItemOnPart_04xyvg7_di" cmmnElementRef="PlanItemOnPart_04xyvg7" targetCMMNElementRef="EntryCriterion_1m5jyr7" isStandardEventVisible="true">
+        <di:waypoint x="1161" y="570" />
+        <di:waypoint x="1213" y="570" />
+        <di:waypoint x="1213" y="572" />
+        <di:waypoint x="1264" y="572" />
+        <cmmndi:CMMNLabel>
+          <dc:Bounds x="1178" y="549" width="52" height="13" />
+        </cmmndi:CMMNLabel>
+      </cmmndi:CMMNEdge>
+      <cmmndi:CMMNShape id="PlanItem_0yjm135_di" cmmnElementRef="PlanItem_1npacy6">
+        <dc:Bounds x="1305" y="577" width="100" height="80" />
+        <cmmndi:CMMNLabel />
+      </cmmndi:CMMNShape>
+      <cmmndi:CMMNShape id="EntryCriterion_0h4a7i3_di" cmmnElementRef="EntryCriterion_0h4a7i3">
+        <dc:Bounds x="2026" y="665" width="20" height="28" />
+        <cmmndi:CMMNLabel />
+      </cmmndi:CMMNShape>
+      <cmmndi:CMMNEdge id="PlanItemOnPart_16qx28w_di" cmmnElementRef="PlanItemOnPart_16qx28w" targetCMMNElementRef="EntryCriterion_0h4a7i3" isStandardEventVisible="true">
+        <di:waypoint x="1959" y="342" />
+        <di:waypoint x="1959" y="679" />
+        <di:waypoint x="2026" y="679" />
+        <cmmndi:CMMNLabel>
+          <dc:Bounds x="1970" y="391" width="34" height="13" />
+        </cmmndi:CMMNLabel>
+      </cmmndi:CMMNEdge>
+      <cmmndi:CMMNShape id="PlanItem_1k8wtfc_di" cmmnElementRef="stage_calculate_loan_amount_after_account_creation">
+        <dc:Bounds x="1315" y="949" width="208" height="143" />
+        <cmmndi:CMMNLabel />
+      </cmmndi:CMMNShape>
+      <cmmndi:CMMNShape id="EntryCriterion_1enh31s_di" cmmnElementRef="EntryCriterion_1enh31s">
+        <dc:Bounds x="1305" y="1006" width="20" height="28" />
+        <cmmndi:CMMNLabel />
+      </cmmndi:CMMNShape>
+      <cmmndi:CMMNShape id="PlanItem_090yn4c_di" cmmnElementRef="process_task_calculate_loan_amount_after_account_creation">
+        <dc:Bounds x="1352" y="980" width="100" height="80" />
+        <cmmndi:CMMNLabel />
+      </cmmndi:CMMNShape>
+      <cmmndi:CMMNShape id="PlanItem_1uwn99o_di" cmmnElementRef="PlanItem_1uwn99o">
+        <dc:Bounds x="2096" y="308" width="100" height="40" />
+        <cmmndi:CMMNLabel />
+      </cmmndi:CMMNShape>
+      <cmmndi:CMMNShape id="EntryCriterion_0maminb_di" cmmnElementRef="EntryCriterion_0maminb">
+        <dc:Bounds x="2086" y="314" width="20" height="28" />
+        <cmmndi:CMMNLabel />
+      </cmmndi:CMMNShape>
+      <cmmndi:CMMNEdge id="PlanItemOnPart_0dl2lw6_di" cmmnElementRef="PlanItemOnPart_0dl2lw6" targetCMMNElementRef="EntryCriterion_0maminb" isStandardEventVisible="true">
+        <di:waypoint x="2010" y="241" />
+        <di:waypoint x="2050" y="241" />
+        <di:waypoint x="2050" y="328" />
+        <di:waypoint x="2086" y="328" />
+        <cmmndi:CMMNLabel>
+          <dc:Bounds x="2018" y="278" width="34" height="13" />
+        </cmmndi:CMMNLabel>
+      </cmmndi:CMMNEdge>
+      <cmmndi:CMMNShape id="PlanItem_1yz85wq_di" cmmnElementRef="process_task_loan_amount_2">
+        <dc:Bounds x="1544" y="577" width="100" height="80" />
+        <cmmndi:CMMNLabel />
+      </cmmndi:CMMNShape>
+      <cmmndi:CMMNShape id="EntryCriterion_1ael1qx_di" cmmnElementRef="EntryCriterion_1ael1qx">
+        <dc:Bounds x="2286" y="162" width="20" height="28" />
+        <cmmndi:CMMNLabel />
+      </cmmndi:CMMNShape>
+      <cmmndi:CMMNEdge id="PlanItemOnPart_12w4acw_di" cmmnElementRef="PlanItemOnPart_12w4acw" targetCMMNElementRef="EntryCriterion_1ael1qx" isStandardEventVisible="true">
+        <di:waypoint x="2196" y="176" />
+        <di:waypoint x="2243" y="176" />
+        <di:waypoint x="2243" y="176" />
+        <di:waypoint x="2286" y="176" />
+        <cmmndi:CMMNLabel>
+          <dc:Bounds x="2226" y="159" width="34" height="13" />
+        </cmmndi:CMMNLabel>
+      </cmmndi:CMMNEdge>
+      <cmmndi:CMMNShape id="PlanItem_0285kqx_di" cmmnElementRef="PlanItem_0285kqx">
+        <dc:Bounds x="1133" y="907" width="100" height="40" />
+        <cmmndi:CMMNLabel />
+      </cmmndi:CMMNShape>
+      <cmmndi:CMMNEdge id="PlanItemOnPart_0xp5h6i_di" cmmnElementRef="PlanItemOnPart_0xp5h6i" targetCMMNElementRef="EntryCriterion_1uhvf3c" isStandardEventVisible="true">
+        <di:waypoint x="1233" y="927" />
+        <di:waypoint x="1260" y="927" />
+        <di:waypoint x="1260" y="890" />
+        <di:waypoint x="1309" y="890" />
+        <cmmndi:CMMNLabel>
+          <dc:Bounds x="1268" y="901" width="34" height="13" />
+        </cmmndi:CMMNLabel>
+      </cmmndi:CMMNEdge>
+      <cmmndi:CMMNShape id="EntryCriterion_07pbefu_di" cmmnElementRef="EntryCriterion_07pbefu">
+        <dc:Bounds x="1123" y="913" width="20" height="28" />
+        <cmmndi:CMMNLabel />
+      </cmmndi:CMMNShape>
+      <cmmndi:CMMNEdge id="PlanItemOnPart_00qj9kz_di" cmmnElementRef="PlanItemOnPart_00qj9kz" targetCMMNElementRef="EntryCriterion_07pbefu" isStandardEventVisible="true">
+        <di:waypoint x="1061" y="883" />
+        <di:waypoint x="1061" y="927" />
+        <di:waypoint x="1123" y="927" />
+        <cmmndi:CMMNLabel>
+          <dc:Bounds x="1069" y="911" width="52" height="13" />
+        </cmmndi:CMMNLabel>
+      </cmmndi:CMMNEdge>
+      <cmmndi:CMMNEdge id="PlanItemOnPart_01zkr3q_di" cmmnElementRef="PlanItemOnPart_01zkr3q" targetCMMNElementRef="EntryCriterion_1cjnli2" isStandardEventVisible="true">
+        <di:waypoint x="1039" y="883" />
+        <di:waypoint x="1039" y="1019" />
+        <di:waypoint x="1094" y="1019" />
+        <cmmndi:CMMNLabel>
+          <dc:Bounds x="1048" y="973" width="52" height="13" />
+        </cmmndi:CMMNLabel>
+      </cmmndi:CMMNEdge>
+      <cmmndi:CMMNShape id="PlanItem_1btg0x0_di" cmmnElementRef="process_task_micro_loan_decision_generation">
+        <dc:Bounds x="2251" y="728" width="100" height="80" />
+        <cmmndi:CMMNLabel />
+      </cmmndi:CMMNShape>
+      <cmmndi:CMMNShape id="EntryCriterion_0m4qd1k_di" cmmnElementRef="EntryCriterion_0m4qd1k">
+        <dc:Bounds x="2241" y="632" width="20" height="28" />
+        <cmmndi:CMMNLabel />
+      </cmmndi:CMMNShape>
+      <cmmndi:CMMNEdge id="PlanItemOnPart_0c1wsv5_di" cmmnElementRef="PlanItemOnPart_0c1wsv5" targetCMMNElementRef="EntryCriterion_0m4qd1k" isStandardEventVisible="true">
+        <di:waypoint x="2214" y="575" />
+        <di:waypoint x="2214" y="604" />
+        <di:waypoint x="2251" y="604" />
+        <di:waypoint x="2251" y="632" />
+        <cmmndi:CMMNLabel>
+          <dc:Bounds x="2189" y="588" width="52" height="13" />
+        </cmmndi:CMMNLabel>
+      </cmmndi:CMMNEdge>
+      <cmmndi:CMMNShape id="PlanItem_1ujqpni_di" cmmnElementRef="PlanItem_1ujqpni">
+        <dc:Bounds x="2251" y="628" width="100" height="40" />
+        <cmmndi:CMMNLabel />
+      </cmmndi:CMMNShape>
+      <cmmndi:CMMNShape id="EntryCriterion_02qx64f_di" cmmnElementRef="EntryCriterion_02qx64f">
+        <dc:Bounds x="2291" y="714" width="20" height="28" />
+        <cmmndi:CMMNLabel />
+      </cmmndi:CMMNShape>
+      <cmmndi:CMMNEdge id="PlanItemOnPart_1cnea80_di" cmmnElementRef="PlanItemOnPart_1cnea80" targetCMMNElementRef="EntryCriterion_02qx64f" isStandardEventVisible="true">
+        <di:waypoint x="2301" y="668" />
+        <di:waypoint x="2301" y="714" />
+        <cmmndi:CMMNLabel>
+          <dc:Bounds x="2312" y="687" width="34" height="13" />
+        </cmmndi:CMMNLabel>
+      </cmmndi:CMMNEdge>
+      <cmmndi:CMMNShape id="ExitCriterion_18qfar1_di" cmmnElementRef="ExitCriterion_18qfar1">
+        <dc:Bounds x="2488" y="582" width="20" height="28" />
+        <cmmndi:CMMNLabel />
+      </cmmndi:CMMNShape>
+      <cmmndi:CMMNEdge id="PlanItemOnPart_1l17g7e_di" cmmnElementRef="PlanItemOnPart_1l17g7e" targetCMMNElementRef="ExitCriterion_18qfar1" isStandardEventVisible="true">
+        <di:waypoint x="2442" y="663" />
+        <di:waypoint x="2464" y="663" />
+        <di:waypoint x="2464" y="596" />
+        <di:waypoint x="2488" y="596" />
+        <cmmndi:CMMNLabel>
+          <dc:Bounds x="2432" y="599" width="52" height="13" />
+        </cmmndi:CMMNLabel>
+      </cmmndi:CMMNEdge>
+      <cmmndi:CMMNShape id="PlanItem_02pdked_di" cmmnElementRef="PlanItem_02pdked">
+        <dc:Bounds x="1104" y="1001" width="100" height="40" />
+        <cmmndi:CMMNLabel />
+      </cmmndi:CMMNShape>
+      <cmmndi:CMMNShape id="EntryCriterion_1cjnli2_di" cmmnElementRef="EntryCriterion_1cjnli2">
+        <dc:Bounds x="1094" y="1005" width="20" height="28" />
+        <cmmndi:CMMNLabel />
+      </cmmndi:CMMNShape>
+      <cmmndi:CMMNEdge id="PlanItemOnPart_11z4i2q_di" cmmnElementRef="PlanItemOnPart_11z4i2q" targetCMMNElementRef="EntryCriterion_1enh31s" isStandardEventVisible="true">
+        <di:waypoint x="1204" y="1021" />
+        <di:waypoint x="1255" y="1021" />
+        <di:waypoint x="1255" y="1020" />
+        <di:waypoint x="1305" y="1020" />
+        <cmmndi:CMMNLabel>
+          <dc:Bounds x="1238" y="1011" width="34" height="13" />
+        </cmmndi:CMMNLabel>
+      </cmmndi:CMMNEdge>
+      <cmmndi:CMMNShape id="PlanItem_0zz00bb_di" cmmnElementRef="process_task_micro_loan_decision_generation_manual">
+        <dc:Bounds x="2092" y="728" width="100" height="80" />
+        <cmmndi:CMMNLabel />
+      </cmmndi:CMMNShape>
+      <cmmndi:CMMNShape id="EntryCriterion_1raxeyr_di" cmmnElementRef="EntryCriterion_1raxeyr">
+        <dc:Bounds x="2135" y="714" width="20" height="28" />
+        <cmmndi:CMMNLabel />
+      </cmmndi:CMMNShape>
+      <cmmndi:CMMNEdge id="PlanItemOnPart_14wkztq_di" cmmnElementRef="PlanItemOnPart_14wkztq" targetCMMNElementRef="EntryCriterion_1raxeyr" isStandardEventVisible="true">
+        <di:waypoint x="2251" y="648" />
+        <di:waypoint x="2145" y="648" />
+        <di:waypoint x="2145" y="714" />
+        <cmmndi:CMMNLabel>
+          <dc:Bounds x="2099" y="678" width="34" height="13" />
+        </cmmndi:CMMNLabel>
+      </cmmndi:CMMNEdge>
+      <cmmndi:CMMNShape id="PlanItem_08q3llx_di" cmmnElementRef="process_task_micro_mongol_bank_enquire_extended">
+        <dc:Bounds x="252" y="449" width="100" height="80" />
+        <cmmndi:CMMNLabel />
+      </cmmndi:CMMNShape>
+      <cmmndi:CMMNShape id="PlanItem_1tky3ap_di" cmmnElementRef="PlanItem_1tky3ap">
+        <dc:Bounds x="196" y="394" width="212" height="165" />
+        <cmmndi:CMMNLabel />
+      </cmmndi:CMMNShape>
+      <cmmndi:CMMNShape id="PlanItem_17yit51_di" cmmnElementRef="PlanItem_17yit51">
+        <dc:Bounds x="456" y="391" width="165" height="176" />
+        <cmmndi:CMMNLabel />
+      </cmmndi:CMMNShape>
+      <cmmndi:CMMNShape id="EntryCriterion_00qtwmm_di" cmmnElementRef="EntryCriterion_00qtwmm">
+        <dc:Bounds x="287" y="380" width="20" height="28" />
+        <cmmndi:CMMNLabel />
+      </cmmndi:CMMNShape>
+      <cmmndi:CMMNEdge id="PlanItemOnPart_0hskxlb_di" cmmnElementRef="PlanItemOnPart_0hskxlb" targetCMMNElementRef="EntryCriterion_00qtwmm" isStandardEventVisible="true">
+        <di:waypoint x="338" y="273" />
+        <di:waypoint x="338" y="329" />
+        <di:waypoint x="297" y="329" />
+        <di:waypoint x="297" y="380" />
+        <cmmndi:CMMNLabel>
+          <dc:Bounds x="265" y="303" width="52" height="13" />
+        </cmmndi:CMMNLabel>
+      </cmmndi:CMMNEdge>
+      <cmmndi:CMMNShape id="EntryCriterion_0dxq2sp_di" cmmnElementRef="EntryCriterion_0dxq2sp">
+        <dc:Bounds x="528" y="377" width="20" height="28" />
+        <cmmndi:CMMNLabel />
+      </cmmndi:CMMNShape>
+      <cmmndi:CMMNEdge id="PlanItemOnPart_0pvtjjj_di" cmmnElementRef="PlanItemOnPart_0pvtjjj" targetCMMNElementRef="EntryCriterion_0dxq2sp" isStandardEventVisible="true">
+        <di:waypoint x="365" y="273" />
+        <di:waypoint x="365" y="328" />
+        <di:waypoint x="538" y="328" />
+        <di:waypoint x="538" y="377" />
+        <cmmndi:CMMNLabel>
+          <dc:Bounds x="432" y="302" width="52" height="13" />
+        </cmmndi:CMMNLabel>
+      </cmmndi:CMMNEdge>
+      <cmmndi:CMMNShape id="PlanItem_08evvx9_di" cmmnElementRef="process_task_micro_mongol_bank_new_core">
+        <dc:Bounds x="487" y="444" width="100" height="80" />
+        <cmmndi:CMMNLabel />
+      </cmmndi:CMMNShape>
+    </cmmndi:CMMNDiagram>
+  </cmmndi:CMMNDI>
+</cmmn:definitions>

@@ -1,0 +1,61 @@
+.container {
+  margin: 2.5vh 0 0 0.9vw;
+  display: flex;
+  flex-direction: column;
+  width: 95%;
+  height: fit-content;
+}
+
+.action-buttons:last-of-type {
+  align-self: flex-end;
+}
+
+.head-section {
+  margin: 0 0 0.5vh 0;
+
+  #title {
+    font-size: 20px;
+    font-weight: 500;
+  }
+}
+
+hr {
+  width: 100%;
+  float: left;
+  margin: 0 0 3vh 0;
+}
+
+erin-search-field {
+  margin-bottom: 2.5vh;
+}
+
+.collateral-fields {
+  display: flex;
+  flex-direction: row;
+  margin-top: 3vh;
+
+  .ltv-field {
+    display: flex;
+    flex-direction: column;
+    span{
+      color: red;
+      font-size: 11px;
+    }
+  }
+
+  erin-number-input-field, erin-simple-input-field {
+    margin-right: 1.5vw;
+  }
+}
+
+collateral-table{
+  width: 100%;
+}
+.action-buttons {
+  margin: 7vh 1.5vw 0 0;
+
+  #calculate {
+    margin-right: 1vw;
+  }
+}
+

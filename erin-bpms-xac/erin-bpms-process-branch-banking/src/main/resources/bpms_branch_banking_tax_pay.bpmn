@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bioc="http://bpmn.io/schema/bpmn/biocolor/1.0" id="Definitions_08n27g4" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="4.0.0">
+  <bpmn:collaboration id="Collaboration_04t4653">
+    <bpmn:participant id="branch_banking_tax_pay" name="Татвар төлөх" processRef="bpms_branch_banking_tax_pay" />
+  </bpmn:collaboration>
+  <bpmn:process id="bpms_branch_banking_tax_pay" isExecutable="true">
+    <bpmn:startEvent id="StartEvent_1">
+      <bpmn:outgoing>SequenceFlow_1fsi79f</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:sequenceFlow id="SequenceFlow_1fsi79f" sourceRef="StartEvent_1" targetRef="user_task_branch_banking_tax_pay" />
+    <bpmn:sequenceFlow id="SequenceFlow_1g47npn" sourceRef="user_task_branch_banking_tax_pay" targetRef="Gateway_09h7qgp" />
+    <bpmn:userTask id="user_task_branch_banking_tax_pay" name="Татвар төлөх" camunda:formKey="Татвар төлөх">
+      <bpmn:extensionElements>
+        <camunda:formData>
+          <camunda:formField id="searchType" label="Нэхэмжлэх хайх төрөл" type="string">
+            <camunda:properties>
+              <camunda:property id="propertyNumber" value="Хөрөнгийн дугаар" />
+              <camunda:property id="invoiceNumber" value="Нэхэмжлэхийн дугаар" />
+              <camunda:property id="ttdOption" value="ТТД" />
+              <camunda:property id="registerNumber" value="Регистрийн дугаар" />
+            </camunda:properties>
+            <camunda:validation>
+              <camunda:constraint name="required" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="searchValueTax" label="Утга" type="string">
+            <camunda:validation>
+              <camunda:constraint name="required" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="taxNumber" label="ТТД" type="string">
+            <camunda:validation>
+              <camunda:constraint name="readonly" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="searchTtdButton" label="ТТД ТАТАХ" type="string" defaultValue="getTtdOptions" />
+          <camunda:formField id="searchButtonTax" label="ХАЙХ" type="string" defaultValue="getTaxInvoiceList" />
+          <camunda:formField id="taxPayerName" label="Татвар төлөгчийн нэр" type="string">
+            <camunda:validation>
+              <camunda:constraint name="readonly" />
+            </camunda:validation>
+          </camunda:formField>
+        </camunda:formData>
+        <camunda:taskListener delegateExpression="${setInvoiceAmountToPreviousListener}" event="complete" />
+        <camunda:taskListener delegateExpression="${setParentTaskIdTaskListener}" event="create" />
+        <camunda:properties>
+          <camunda:property name="taxPayChildTask" value="user_task_branch_banking_tax_pay_child" />
+        </camunda:properties>
+      </bpmn:extensionElements>
+      <bpmn:incoming>SequenceFlow_1fsi79f</bpmn:incoming>
+      <bpmn:incoming>SequenceFlow_1lk0pmh</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_1g47npn</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:sequenceFlow id="SequenceFlow_0wmj10b" sourceRef="user_task_branch_banking_tax_pay_child" targetRef="ExclusiveGateway_0st7s7m" />
+    <bpmn:sequenceFlow id="SequenceFlow_0bp6dnx" sourceRef="ExclusiveGateway_0st7s7m" targetRef="Task_1euextz">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${action == "continue"}</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:sequenceFlow id="SequenceFlow_1lk0pmh" sourceRef="ExclusiveGateway_0st7s7m" targetRef="user_task_branch_banking_tax_pay">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${action == "back"}</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:sequenceFlow id="SequenceFlow_1fb097o" sourceRef="Task_1euextz" targetRef="EndEvent_1h00o5u" />
+    <bpmn:sequenceFlow id="Flow_01highi" sourceRef="Gateway_09h7qgp" targetRef="EndEvent_1h00o5u">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${action == "complete"}</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:exclusiveGateway id="Gateway_09h7qgp">
+      <bpmn:incoming>SequenceFlow_1g47npn</bpmn:incoming>
+      <bpmn:outgoing>Flow_01highi</bpmn:outgoing>
+      <bpmn:outgoing>Flow_0g94k3z</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:exclusiveGateway id="ExclusiveGateway_0st7s7m">
+      <bpmn:incoming>SequenceFlow_0wmj10b</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_0bp6dnx</bpmn:outgoing>
+      <bpmn:outgoing>SequenceFlow_1lk0pmh</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:serviceTask id="Task_1euextz" name="Make Tansaction" camunda:delegateExpression="${makeTaxTransactionTask}">
+      <bpmn:incoming>SequenceFlow_0bp6dnx</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_1fb097o</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:endEvent id="EndEvent_1h00o5u">
+      <bpmn:extensionElements>
+        <camunda:executionListener delegateExpression="${clearTaxVariablesListener}" event="end" />
+      </bpmn:extensionElements>
+      <bpmn:incoming>SequenceFlow_1fb097o</bpmn:incoming>
+      <bpmn:incoming>Flow_01highi</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:userTask id="user_task_branch_banking_tax_pay_child" name="Татвар төлөх" camunda:formKey=" Татвар төлөх">
+      <bpmn:extensionElements>
+        <camunda:formData>
+          <camunda:formField id="invoiceNumber" label="Нэхэмжлэхийн дугаар" type="string">
+            <camunda:validation>
+              <camunda:constraint name="readonly" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="invoiceType" label="Нэхэмжлэхийн төрөл" type="string">
+            <camunda:validation>
+              <camunda:constraint name="readonly" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="taxPayerName" label="Татвар төлөгчийн нэр" type="string">
+            <camunda:validation>
+              <camunda:constraint name="readonly" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="taxAccountName" label="Татварын дансны нэр" type="string">
+            <camunda:validation>
+              <camunda:constraint name="readonly" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="assetDetail" label="Хөрөнгийн мэдээлэл" type="string">
+            <camunda:validation>
+              <camunda:constraint name="readonly" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="taxTypeCode" label="Татвар төрөл код" type="string">
+            <camunda:validation>
+              <camunda:constraint name="readonly" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="period" label="Тайлан хугацаа" type="string">
+            <camunda:validation>
+              <camunda:constraint name="readonly" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="transactionType" label="Гүйлгээний төрөл" type="string" defaultValue="Бэлэн">
+            <camunda:properties>
+              <camunda:property id="cash" value="Бэлэн" />
+              <camunda:property id="nonCash" value="Бэлэн бус" />
+            </camunda:properties>
+            <camunda:validation>
+              <camunda:constraint name="required" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="accountNumber" label="Дансны дугаар" type="long">
+            <camunda:validation>
+              <camunda:constraint name="readonly" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="accountName" label="Дансны нэр" type="string">
+            <camunda:validation>
+              <camunda:constraint name="readonly" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="accountBalance" label="Дансны үлдэгдэл" type="long">
+            <camunda:validation>
+              <camunda:constraint name="readonly" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="accountCurrency" label="Дансны валют" type="string">
+            <camunda:validation>
+              <camunda:constraint name="readonly" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="payCutAmount" label="Данснаас хасагдах дүн" type="string">
+            <camunda:validation>
+              <camunda:constraint name="readonly" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="invoiceAmount" label="Төлөх дүн" type="string" />
+          <camunda:formField id="currency" label="Гүйлгээний валют" type="string" defaultValue="MNT">
+            <camunda:validation>
+              <camunda:constraint name="readonly" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="payFull" label="payFull" type="long" />
+          <camunda:formField id="transactionDesc" label="Гүйлгээний утга" type="string" />
+          <camunda:formField id="registerNumber" label="Харилцагчийн регистр" type="string" />
+          <camunda:formField id="phoneNumber" label="Утасны дугаар" type="string" />
+          <camunda:formField id="accountBranch" type="string" />
+          <camunda:formField id="accountHasAccess" label="accountHasAccess" type="string" />
+          <camunda:formField id="blnc" label="balance" type="long">
+            <camunda:validation>
+              <camunda:constraint name="readonly" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="payMore" label="payMore" type="string" />
+        </camunda:formData>
+        <camunda:taskListener delegateExpression="${setParentTaskIdTaskListener}" event="create" />
+        <camunda:properties>
+          <camunda:property name="taxPayParentTask" value="user_task_branch_banking_tax_pay" />
+        </camunda:properties>
+        <camunda:executionListener delegateExpression="${clearVariablesToBackListener}" event="end" />
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_0g94k3z</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_0wmj10b</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:sequenceFlow id="Flow_0g94k3z" sourceRef="Gateway_09h7qgp" targetRef="user_task_branch_banking_tax_pay_child">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${action == "toChildTask"}</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Collaboration_04t4653">
+      <bpmndi:BPMNShape id="Participant_0ms95fd_di" bpmnElement="branch_banking_tax_pay" isHorizontal="true">
+        <dc:Bounds x="180" y="90" width="980" height="300" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_0g94k3z_di" bpmnElement="Flow_0g94k3z">
+        <di:waypoint x="535" y="210" />
+        <di:waypoint x="600" y="210" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_01highi_di" bpmnElement="Flow_01highi">
+        <di:waypoint x="510" y="235" />
+        <di:waypoint x="510" y="340" />
+        <di:waypoint x="1070" y="340" />
+        <di:waypoint x="1070" y="228" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_1fb097o_di" bpmnElement="SequenceFlow_1fb097o">
+        <di:waypoint x="980" y="210" />
+        <di:waypoint x="1052" y="210" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_1lk0pmh_di" bpmnElement="SequenceFlow_1lk0pmh">
+        <di:waypoint x="780" y="185" />
+        <di:waypoint x="780" y="120" />
+        <di:waypoint x="380" y="120" />
+        <di:waypoint x="380" y="170" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_0bp6dnx_di" bpmnElement="SequenceFlow_0bp6dnx">
+        <di:waypoint x="805" y="210" />
+        <di:waypoint x="880" y="210" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_0wmj10b_di" bpmnElement="SequenceFlow_0wmj10b">
+        <di:waypoint x="700" y="210" />
+        <di:waypoint x="755" y="210" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_1g47npn_di" bpmnElement="SequenceFlow_1g47npn">
+        <di:waypoint x="430" y="210" />
+        <di:waypoint x="485" y="210" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_1fsi79f_di" bpmnElement="SequenceFlow_1fsi79f">
+        <di:waypoint x="268" y="210" />
+        <di:waypoint x="330" y="210" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
+        <dc:Bounds x="232" y="192" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="UserTask_1bvdf7v_di" bpmnElement="user_task_branch_banking_tax_pay" bioc:stroke="rgb(67, 160, 71)" bioc:fill="rgb(200, 230, 201)">
+        <dc:Bounds x="330" y="170" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Gateway_09h7qgp_di" bpmnElement="Gateway_09h7qgp" isMarkerVisible="true">
+        <dc:Bounds x="485" y="185" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="ExclusiveGateway_02gyky4_di" bpmnElement="ExclusiveGateway_0st7s7m" isMarkerVisible="true">
+        <dc:Bounds x="755" y="185" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="ServiceTask_11ph93o_di" bpmnElement="Task_1euextz" bioc:stroke="rgb(251, 140, 0)" bioc:fill="rgb(255, 224, 178)">
+        <dc:Bounds x="880" y="170" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="EndEvent_1h00o5u_di" bpmnElement="EndEvent_1h00o5u">
+        <dc:Bounds x="1052" y="192" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="UserTask_0p83jcx_di" bpmnElement="user_task_branch_banking_tax_pay_child" bioc:stroke="rgb(67, 160, 71)" bioc:fill="rgb(200, 230, 201)">
+        <dc:Bounds x="600" y="170" width="100" height="80" />
+      </bpmndi:BPMNShape>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>

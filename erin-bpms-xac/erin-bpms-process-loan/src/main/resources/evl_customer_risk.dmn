@@ -1,0 +1,383 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/DMN/20151101/dmn.xsd" xmlns:camunda="http://camunda.org/schema/1.0/dmn" id="Definitions_0ezni3i" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="3.7.1">
+  <decision id="DecOnApproval" name="Decision 1">
+    <decisionTable id="decisionTable_1">
+      <input id="input_1" label="Score" camunda:inputVariable="score">
+        <inputExpression id="inputExpression_1" typeRef="double">
+          <text></text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_0rfbd56" label="Income type" camunda:inputVariable="income_type">
+        <inputExpression id="LiteralExpression_1ngudo4" typeRef="string">
+          <text></text>
+        </inputExpression>
+      </input>
+      <output id="output_1" label="Risk Group" name="risk" typeRef="string" />
+      <output id="OutputClause_1gnj2ft" label="Decision" name="pApprove" typeRef="string" />
+      <rule id="DecisionRule_05yu35p">
+        <inputEntry id="UnaryTests_1qoeelj">
+          <text>[761..800]</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_17buvgx">
+          <text>"A"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0367xl5">
+          <text>"1"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1qn5pbr">
+          <text>"AUTO"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_09gbq09">
+        <inputEntry id="UnaryTests_1i5cmzc">
+          <text>[701..760]</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1cvq6wz">
+          <text>"A"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1ru4kr4">
+          <text>"2"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_10z82sm">
+          <text>"AUTO"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_019sk5s">
+        <inputEntry id="UnaryTests_0neqz77">
+          <text>[651..700]</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1ppii2c">
+          <text>"A"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0khtu93">
+          <text>"3"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1t23o4f">
+          <text>"AUTO"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1ofg20j">
+        <inputEntry id="UnaryTests_0granq3">
+          <text>[601..650]</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_174hkip">
+          <text>"A"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_12yv0ni">
+          <text>"4"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_19s3olo">
+          <text>"AUTO"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0u5l7f2">
+        <inputEntry id="UnaryTests_0ofrk3w">
+          <text>[571..600]</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_08s81ua">
+          <text>"A"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0zwzm3f">
+          <text>"5"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_09jph3k">
+          <text>"AUTO"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0ym3ikz">
+        <inputEntry id="UnaryTests_1t6phn8">
+          <text>[521..570]</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1sfzy9s">
+          <text>"A"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1jlyn0f">
+          <text>"6"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0uhqbg4">
+          <text>"AUTO"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0crt2qb">
+        <inputEntry id="UnaryTests_11d6may">
+          <text>[461..520]</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_102y4na">
+          <text>"A"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0mj3erx">
+          <text>"7"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1aa4gaa">
+          <text>"DIRECTOR"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0prqq5z">
+        <inputEntry id="UnaryTests_1s6s25v">
+          <text>[421..460]</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0p43b1p">
+          <text>"A"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1swuglx">
+          <text>"8"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0su7ht0">
+          <text>"DIRECTOR"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1lcdgp3">
+        <inputEntry id="UnaryTests_1orlz61">
+          <text>[351..420]</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0ip8a8x">
+          <text>"A"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0tmx0tf">
+          <text>"9"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1ennf8o">
+          <text>"DIRECTOR"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1bygsy0">
+        <inputEntry id="UnaryTests_1wer1vm">
+          <text>[311..350]</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1o02ft2">
+          <text>"A"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1y1ic6p">
+          <text>"10"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0t7f4dk">
+          <text>"DIRECTOR"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_11aoqjh">
+        <inputEntry id="UnaryTests_0sbikdv">
+          <text>[221..310]</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0x8263m">
+          <text>"A"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0gmzmub">
+          <text>"11"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0ev0kzy">
+          <text>"REJECTED"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1ev3o34">
+        <inputEntry id="UnaryTests_1ivjy3k">
+          <text>[0..220]</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0b57sdt">
+          <text>"A"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_11ydg9d">
+          <text>"12"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0jv4uo1">
+          <text>"REJECTED"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1c7dnfk">
+        <inputEntry id="UnaryTests_1bj3zqz">
+          <text>&gt;800</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1dxph8v">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0qxazzp">
+          <text>"1"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_10dsyc5">
+          <text>"AUTO"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_09o7x0r">
+        <inputEntry id="UnaryTests_1ovatl3">
+          <text>&lt;0</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0fiuew0">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0pld5rv">
+          <text>"0"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0yplwhw">
+          <text>"REJECTED"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1olv4cl">
+        <inputEntry id="UnaryTests_154u5ca">
+          <text>[761..800]</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1r75cp8">
+          <text>"B"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1ovjsjk">
+          <text>"1"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0vzxpds">
+          <text>"AUTO"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0jqe4gp">
+        <inputEntry id="UnaryTests_1d72doo">
+          <text>[701..760]</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1mg44v8">
+          <text>"B"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0d2sx6n">
+          <text>"2"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0ai1qin">
+          <text>"AUTO"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1yz7fj3">
+        <inputEntry id="UnaryTests_167r3ux">
+          <text>[651..700]</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1wglcj4">
+          <text>"B"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1sro08a">
+          <text>"3"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0i3pcox">
+          <text>"AUTO"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0kbcgyj">
+        <inputEntry id="UnaryTests_1sauirs">
+          <text>[601..650]</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_06yjzcg">
+          <text>"B"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0b4f5ky">
+          <text>"4"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1gu5l0h">
+          <text>"AUTO"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0lux5j7">
+        <inputEntry id="UnaryTests_0lhomce">
+          <text>[571..600]</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1tiznai">
+          <text>"B"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0zf1jx6">
+          <text>"5"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_00uhmn6">
+          <text>"AUTO"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0lf9unh">
+        <inputEntry id="UnaryTests_1phxn23">
+          <text>[521..570]</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1li1lm6">
+          <text>"B"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1ks2f8k">
+          <text>"6"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0gbo91j">
+          <text>"AUTO"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1797ebw">
+        <inputEntry id="UnaryTests_17e30z6">
+          <text>[461..520]</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_18sgbzk">
+          <text>"B"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1702v0k">
+          <text>"7"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0d49i73">
+          <text>"DIRECTOR"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_03v6fs4">
+        <inputEntry id="UnaryTests_0bumt58">
+          <text>[421..460]</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1h8nl4q">
+          <text>"B"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0v9bzja">
+          <text>"8"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0hcm51y">
+          <text>"DIRECTOR"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_11ha5fw">
+        <inputEntry id="UnaryTests_1oe3cgo">
+          <text>[351..420]</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_15j9gun">
+          <text>"B"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1lyptzw">
+          <text>"9"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0rmefso">
+          <text>"DIRECTOR"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1et4lpm">
+        <inputEntry id="UnaryTests_1l2w128">
+          <text>[311..350]</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_16gytml">
+          <text>"B"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1ipnask">
+          <text>"10"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1fmrl15">
+          <text>"DIRECTOR"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0vyi2e2">
+        <inputEntry id="UnaryTests_0cy48ew">
+          <text>[221..310]</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1lpx6fe">
+          <text>"B"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0fu2fv2">
+          <text>"11"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1x1z0x9">
+          <text>"REJECTED"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0mszg6y">
+        <inputEntry id="UnaryTests_1fs99p1">
+          <text>[0..220]</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1xap5e9">
+          <text>"B"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0lkfkfo">
+          <text>"12"</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0wcwe5k">
+          <text>"REJECTED"</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+</definitions>

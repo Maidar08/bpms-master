@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/DMN/20151101/dmn.xsd" xmlns:camunda="http://camunda.org/schema/1.0/dmn" id="Definitions_0thtvp7" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="3.5.0">
+  <decision id="resource" name="Resources">
+    <decisionTable id="decisionTable_1">
+      <input id="input_1" label="Эх үүсвэр/Зээлийн харьцаа" camunda:inputVariable="resource_loan_amount_ratio">
+        <inputExpression id="inputExpression_1" typeRef="double">
+          <text></text>
+        </inputExpression>
+      </input>
+      <output id="output_1" label="Resource Score" name="resource_score" typeRef="integer" />
+      <rule id="DecisionRule_1v8a6oj">
+        <inputEntry id="UnaryTests_1rveww3">
+          <text>[0..0.03]</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0fa9y2v">
+          <text>0</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0lyepok">
+        <inputEntry id="UnaryTests_16pmiyi">
+          <text>]0.03..0.1]</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0ppacmc">
+          <text>1</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1eg9lwm">
+        <inputEntry id="UnaryTests_08hhb0e">
+          <text>]0.1..0.15]</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_05lh975">
+          <text>2</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0cv1eyt">
+        <inputEntry id="UnaryTests_12bq8bf">
+          <text>]0.15..0.2]</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1pqx7jf">
+          <text>3</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_065dbob">
+        <inputEntry id="UnaryTests_0mtqtsb">
+          <text>]0.2..0.25]</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0p87axs">
+          <text>4</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0m88fmk">
+        <inputEntry id="UnaryTests_15ngj3l">
+          <text>&gt;0.25</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_038if7f">
+          <text>5</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+</definitions>

@@ -1,0 +1,62 @@
+name: Build Client
+run-name: Build Client from branch `${{ inputs.branch }}` by @${{ github.actor }}
+on:   
+  workflow_dispatch:
+    inputs: 
+      branch:
+        description: 'The branch to build'
+        required: true
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          ref: "${{ github.event.inputs.branch }}"
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '14.20.1'
+          cache: 'yarn'
+          cache-dependency-path: erin-bpms/erin-bpms-web-client/yarn.lock
+      - run: |
+          yarn install --frozen-lockfile
+          npm run build-prod
+        working-directory: erin-bpms/erin-bpms-web-client
+      - uses: actions/setup-java@v2
+        with:
+          java-version: 11
+          distribution: "adopt"
+          cache: gradle
+      - uses: gradle/gradle-build-action@v2
+        with:
+          gradle-version: 5.2
+          arguments: clean war 
+      - uses: actions/upload-artifact@v3
+        with:
+          name: client-artifacts
+          path: | 
+            erin-bpms/erin-bpms-web-client/build/libs/*
+          retention-days: 5
+      - name: Copy war files to server over ssh
+        uses: appleboy/scp-action@v0.1.3
+        with:
+          host: ${{ vars.BPMS_TEST_SERVER_HOST }}
+          username: ${{ secrets.BPMS_TEST_SERVER_USER }}
+          key: ${{ secrets.BPMS_TEST_SERVER_KEY }}
+          source: erin-bpms/erin-bpms-web-client/build/libs/*
+          target: ~/bpms/tmp/deployments-client/
+          strip_components: 4
+          rm: true
+      - name: Rename war file and restart docker container 
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ vars.BPMS_TEST_SERVER_HOST }}
+          username: ${{ secrets.BPMS_TEST_SERVER_USER }}
+          key: ${{ secrets.BPMS_TEST_SERVER_KEY }}
+          script: |
+            cd ~/bpms  
+            docker compose stop jboss
+            mv tmp/deployments-client/erin-bpms-web-client-* deployments-client/erin-bpms-web-client.war
+            docker compose up -d
+

@@ -1,0 +1,75 @@
+@media only screen and (min-width: 1556px){
+  .parent{
+    width: 900px;
+  }
+}
+@media (min-width: 920px) and (max-width: 1030px){
+  .parent{
+    margin-left: 16px!important;
+    margin-right: 16px!important;
+    width: auto;
+  }
+}
+
+@media (min-width: 1300px) and (max-width: 1520px){
+  .parent{
+    margin-left: 16px!important;
+    margin-right: 16px!important;
+    width: auto;
+  }
+}
+
+@media (max-width: 910px){
+  .parent{
+    margin-left: 16px!important;
+    margin-right: 16px!important;
+    width: auto;
+  }
+}
+.parent{
+  margin-left: 100px;
+}
+.title-container{
+  margin-top: 1vh;
+  .title{
+    font-size: 3vh;
+  }
+}
+.result-container{
+  float: right;
+  display: flex;
+  height: auto;
+  padding-top: 10px;
+  span{
+    flex-basis: 20%;
+  }
+}
+.result{
+  padding-top: 10px;
+  flex-basis: 80%;
+    div{
+      display: flex;
+      flex-direction: row-reverse;
+    }
+}
+.result-buttons{
+  padding-top: 10px;
+}
+
+mat-card{
+  height: auto;
+  width: auto;
+  display: flex;
+  span{
+    width: 170px;
+    margin-top: 20px;
+  }
+  erin-number-input-field{
+    margin-left: 10px;
+  }
+}
+
+button{
+  margin-left: 10px;
+}
+

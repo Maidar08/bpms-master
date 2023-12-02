@@ -1,0 +1,63 @@
+<configuration debug="true">
+  <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+    <!-- encoders are assigned the type
+         ch.qos.logback.classic.encoder.PatternLayoutEncoder by default -->
+    <encoder>
+      <pattern>%d{HH:mm:ss.SSS} [%thread] [%-5level] %logger - %msg -%n</pattern>
+    </encoder>
+  </appender>
+
+  <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+    <file>${CATALINA_HOME}\test-logs\server.log</file>
+    <encoder>
+      <pattern>%-4relative [%d{HH:mm:ss.SSS}] [%thread] [%-5level] %logger - %msg%n</pattern>
+      <charset>UTF-8</charset>
+      <outputPatternAsHeader>true</outputPatternAsHeader>
+    </encoder>
+  </appender>
+
+  // THIS MIGHT BE USED DO NOT DELETE!!!
+<!--  <appender name="DB" class="ch.qos.logback.classic.db.DBAppender">-->
+<!--    <connectionSource-->
+<!--        class="ch.qos.logback.core.db.DataSourceConnectionSource">-->
+<!--      <dataSource-->
+<!--          class="com.mchange.v2.c3p0.ComboPooledDataSource">-->
+<!--        <driverClass>oracle.jdbc.driver.OracleDriver</driverClass>-->
+<!--        <jdbcUrl>jdbc:oracle:thin:@localhost:1521:xe</jdbcUrl>-->
+<!--        <user>lkhagva</user>-->
+<!--        <password>${dbAppender.password}</password>-->
+<!--      </dataSource>-->
+<!--    </connectionSource>-->
+<!--  </appender>-->
+
+<!--  <logger name="mn.erin" level="INFO">-->
+<!--    <appender-ref ref="DB"/>-->
+<!--  </logger>-->
+
+<!--  <appender name="DB" class="log.db.ErinBpmsLogDbAppender">-->
+<!--    <connectionSource-->
+<!--        class="ch.qos.logback.core.db.DataSourceConnectionSource">-->
+<!--      <dataSource-->
+<!--          class="com.mchange.v2.c3p0.ComboPooledDataSource">-->
+<!--        <driverClass>oracle.jdbc.driver.OracleDriver</driverClass>-->
+<!--        <jdbcUrl>jdbc:oracle:thin:@localhost:1521:xe</jdbcUrl>-->
+<!--        <user>lkhagva</user>-->
+<!--        <password>${dbAppender.password}</password>-->
+<!--      </dataSource>-->
+<!--    </connectionSource>-->
+<!--  </appender>-->
+
+<!--  <appender name="Async-auditLogDBAppender4All"-->
+<!--            class="ch.qos.logback.classic.AsyncAppender">-->
+<!--    <appender-ref ref="accessAuditLogDBAppender" />-->
+<!--  </appender>-->
+
+<!--  <logger name="mn.erin" level="INFO" additivity="false">-->
+<!--        <appender-ref ref="DB"/>-->
+<!--  </logger>-->
+
+  <root level="INFO">
+    <appender-ref ref="STDOUT" />
+    <appender-ref ref="FILE" />
+  </root>
+</configuration>

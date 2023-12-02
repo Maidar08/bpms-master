@@ -1,0 +1,432 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/DMN/20151101/dmn.xsd" xmlns:camunda="http://camunda.org/schema/1.0/dmn" id="Definitions_0fuyoea" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="3.5.0">
+  <decision id="mortgage_loan_decision" name="Mortgage Loan Decision">
+    <decisionTable id="decisionTable_1">
+      <input id="input_1" label="product code" camunda:inputVariable="loanProduct">
+        <inputExpression id="inputExpression_1" typeRef="string">
+          <text></text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_1g611lz" label="product name" camunda:inputVariable="loanProductName">
+        <inputExpression id="LiteralExpression_1uufbt7" typeRef="string">
+          <text></text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_0f6ucg7" label="property location" camunda:inputVariable="propertyLocation">
+        <inputExpression id="LiteralExpression_1lore5v" typeRef="string">
+          <text></text>
+        </inputExpression>
+      </input>
+      <output id="output_1" label="maxLoanAmount" name="maxLoanAmount" typeRef="integer" />
+      <output id="OutputClause_1271dqz" label="maxLoanTerm" name="maxLoanTerm" typeRef="integer" />
+      <rule id="DecisionRule_02k7o0c">
+        <inputEntry id="UnaryTests_1hpxbb9">
+          <text>"ED15"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1gofwmk">
+          <text>"EMI-Орон сууцны зээл ЗГ хөтөлбөр"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0bitl41">
+          <text>"Улаанбаатар"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_140gylh">
+          <text>200000000</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1o7fnys">
+          <text>360</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0s9v6a6">
+        <inputEntry id="UnaryTests_1y38506">
+          <text>"ED15"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0zol55o">
+          <text>"EMI-Орон сууцны зээл ЗГ хөтөлбөр"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_151eboi">
+          <text>"Орон нутаг"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1wlq0hc">
+          <text>100000000</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0mfcf6x">
+          <text>360</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_12f3r42">
+        <inputEntry id="UnaryTests_1eh4dfi">
+          <text>"ED16"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1al8w3q">
+          <text>"EMI-Шилжүүлсэн орон сууцнызээл ЗГ"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0v1t8ih">
+          <text>"Улаанбаатар"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1jryhu7">
+          <text>200000000</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1747h2q">
+          <text>360</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0w7b9zc">
+        <inputEntry id="UnaryTests_0214npl">
+          <text>"ED16"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0msm6a8">
+          <text>"EMI-Шилжүүлсэн орон сууцнызээл ЗГ"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_07r05eo">
+          <text>"Орон нутаг"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1gurh2k">
+          <text>100000000</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1qatpbw">
+          <text>360</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0vykr9c">
+        <inputEntry id="UnaryTests_1jei9g9">
+          <text>"ED17"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0hu0as3">
+          <text>"АОСХА зээл ЗГ хөтөлбөр-МБ"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0p0dvrd">
+          <text>"Улаанбаатар"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0g395wh">
+          <text>60000000</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0rs3yfe">
+          <text>360</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_186vq8d">
+        <inputEntry id="UnaryTests_17ombf3">
+          <text>"ED17"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1jpg62f">
+          <text>"АОСХА зээл ЗГ хөтөлбөр-МБ"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0csebcw">
+          <text>"Орон нутаг"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1f7u6jk">
+          <text>60000000</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_15qphvk">
+          <text>360</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0abd7aw">
+        <inputEntry id="UnaryTests_179mk3f">
+          <text>"ED18"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1c1j3k2">
+          <text>"АОСХА зээл ЗГ хөтөлбөр-Банк"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0rq5m49">
+          <text>"Улаанбаатар"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0bsedt2">
+          <text>60000000</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0fm0cm3">
+          <text>360</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0o2eyy9">
+        <inputEntry id="UnaryTests_1xow6as">
+          <text>"ED18"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0ww0vun">
+          <text>"АОСХА зээл ЗГ хөтөлбөр-Банк"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1526sgm">
+          <text>"Орон нутаг"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0j60156">
+          <text>60000000</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_02x9w9k">
+          <text>360</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1kqohw7">
+        <inputEntry id="UnaryTests_1qfvphd">
+          <text>"ED24"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0ubg2cw">
+          <text>"Хашаа, АОС худалдан авах зээл /хувьсаххүүтэй/"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1m1i9r0">
+          <text>"Улаанбаатар"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0h3gy1s">
+          <text>120000000</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1elvjij">
+          <text>180</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1beqke0">
+        <inputEntry id="UnaryTests_0ci8kdh">
+          <text>"ED24"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0da7v56">
+          <text>"Хашаа, АОС худалдан авах зээл /хувьсаххүүтэй/"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_071pa9z">
+          <text>"Орон нутаг"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0e8uhue">
+          <text>100000000</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0h3rakr">
+          <text>180</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0195fh2">
+        <inputEntry id="UnaryTests_1mq4hqx">
+          <text>"ED28"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1xgj4lu">
+          <text>"Орон сууцны зээл ЗГ хөтөлбөр /Банк/"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1hthxdb">
+          <text>"Улаанбаатар"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_00wr6jb">
+          <text>200000000</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1jux0s3">
+          <text>360</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1equ16l">
+        <inputEntry id="UnaryTests_1fjdl4h">
+          <text>"ED28"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_18qb3se">
+          <text>"Орон сууцны зээл ЗГ хөтөлбөр /Банк/"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0fcmlrl">
+          <text>"Орон нутаг"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_07q82lo">
+          <text>100000000</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1263nem">
+          <text>360</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0nb9z1n">
+        <inputEntry id="UnaryTests_138qim0">
+          <text>"ED34"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_16trpxo">
+          <text>"Хашаа, АОС барих зээл /хувьсах хүүтэй/"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1mxb2sy">
+          <text>"Улаанбаатар"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_169vn1i">
+          <text>200000000</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_11vdm3d">
+          <text>180</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1aq4kzv">
+        <inputEntry id="UnaryTests_1aeri66">
+          <text>"ED34"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1kvdocy">
+          <text>"Хашаа, АОС барих зээл /хувьсах хүүтэй/"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0wnlnm2">
+          <text>"Орон нутаг"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0doby4l">
+          <text>100000000</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_07jr8lr">
+          <text>180</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1die5ag">
+        <inputEntry id="UnaryTests_0l8l4xb">
+          <text>"ED36"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1trb18b">
+          <text>"Эко амины орон сууц барих зээл"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1x6s99l">
+          <text>"Улаанбаатар"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1p6texy">
+          <text>200000000</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0fdhcme">
+          <text>240</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0e5eb7m">
+        <inputEntry id="UnaryTests_0b6ihv3">
+          <text>"ED36"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1f0m6yw">
+          <text>"Эко амины орон сууц барих зээл"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1g2bs8k">
+          <text>"Орон нутаг"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_046edqx">
+          <text>200000000</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_19wogpv">
+          <text>240</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0nrag3e">
+        <inputEntry id="UnaryTests_083lrc2">
+          <text>"ED52"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_18mmnz3">
+          <text>"Нийтийн ОС худалдан авах зээл/хувьсах хүүтэй/"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_07c1ahb">
+          <text>"Улаанбаатар"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_11lhv0l">
+          <text>500000000</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_14t5h0c">
+          <text>240</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0xt1tjf">
+        <inputEntry id="UnaryTests_1rsorrb">
+          <text>"ED52"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_068tcm5">
+          <text>"Нийтийн ОС худалдан авах зээл/хувьсах хүүтэй/"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1xbvog4">
+          <text>"Орон нутаг"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0ounobc">
+          <text>200000000</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_17ssnsb">
+          <text>240</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1axn3hk">
+        <inputEntry id="UnaryTests_1u0jpdz">
+          <text>"EF21"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0m7jjah">
+          <text>"Ажиллагсадын ОС-ны зээл /Тогтмол хүүтэй/"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0zbptzd">
+          <text>"Улаанбаатар"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_12ogc0o">
+          <text>180000000</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1srwip1">
+          <text>240</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_02uzb3i">
+        <inputEntry id="UnaryTests_0c2svcp">
+          <text>"EF21"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1hma1id">
+          <text>"Ажиллагсадын ОС-ны зээл /Тогтмол хүүтэй/"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_11lhm1e">
+          <text>"Орон нутаг"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0t0pjf7">
+          <text>180000000</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0d79r94">
+          <text>240</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0uwsdyh">
+        <inputEntry id="UnaryTests_0r2for7">
+          <text>"ED11"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1lm1ny4">
+          <text>"EMI-орон сууцны зээл ЗГ-ОРОН НУТАГ ХӨТӨЛБӨР-МБ"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1eh9ydx">
+          <text>"Орон нутаг"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1il0fk3">
+          <text>100000000</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1el1rf4">
+          <text>360</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_13czmzi">
+        <inputEntry id="UnaryTests_174o8s6">
+          <text>"ED12"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_08mkkil">
+          <text>"EMI-орон сууцны зээл ЗГ-ОРОН НУТАГ ХӨТӨЛБӨР-БАНК"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0hb7i20">
+          <text>"Орон нутаг"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_06y6e57">
+          <text>100000000</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1jpc1k9">
+          <text>360</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_09k8ojb">
+        <inputEntry id="UnaryTests_074d6fx">
+          <text>"ED13"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1r0czq3">
+          <text>"АОСХА ЗЭЭЛ ЗГ–ОРОН НУТАГ ХӨТӨЛБӨР–МБ"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1wzugp9">
+          <text>"Орон нутаг"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_191jcv2">
+          <text>100000000</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0aaeg9q">
+          <text>360</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0b9kisk">
+        <inputEntry id="UnaryTests_1qmf5aa">
+          <text>"ED14"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0havovl">
+          <text>"АОСХА ЗЭЭЛ ЗГ–ОРОН НУТАГ ХӨТӨЛБӨР-БАНК"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0aso3pc">
+          <text>"Орон нутаг"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_13pcper">
+          <text>100000000</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0rafpee">
+          <text>360</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+</definitions>

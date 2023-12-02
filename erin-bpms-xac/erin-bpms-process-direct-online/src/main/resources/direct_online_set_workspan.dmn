@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/DMN/20151101/dmn.xsd" id="Definitions_0emozp2" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="3.5.0">
+  <decision id="setWorkspan" name="Decision 1">
+    <decisionTable id="decisionTable_1">
+      <input id="input_1" label="work span string">
+        <inputExpression id="inputExpression_1" typeRef="string">
+          <text>workspan_string</text>
+        </inputExpression>
+      </input>
+      <output id="output_1" label="work span" name="workspan" typeRef="double" />
+      <rule id="DecisionRule_0ytycmd">
+        <inputEntry id="UnaryTests_03mcf21">
+          <text>"0"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1wglq3m">
+          <text>0</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_156ja32">
+        <inputEntry id="UnaryTests_0g6bv0j">
+          <text>"1"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0y3ko7n">
+          <text>1</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0yd8uey">
+        <inputEntry id="UnaryTests_0414t5u">
+          <text>"2"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1sku632">
+          <text>2</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_190c542">
+        <inputEntry id="UnaryTests_0dsksen">
+          <text>"3"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0y7z2vw">
+          <text>3</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1j728hb">
+        <inputEntry id="UnaryTests_1w0qv68">
+          <text>"4"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1ptfh1s">
+          <text>4</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0bf7tfx">
+        <inputEntry id="UnaryTests_1i44bgj">
+          <text>"5"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_17z88qe">
+          <text>5</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_151mgi0">
+        <inputEntry id="UnaryTests_0xyr448">
+          <text>"6"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_07461pc">
+          <text>6</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1j3stfp">
+        <inputEntry id="UnaryTests_1bjk1kt">
+          <text>"7"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1o3y773">
+          <text>7</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0j3sqas">
+        <inputEntry id="UnaryTests_08ft2ee">
+          <text>"8"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1p71y6e">
+          <text>8</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0o7saxy">
+        <inputEntry id="UnaryTests_1omok6s">
+          <text>"9"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1mcw76h">
+          <text>9</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0qf1mxp">
+        <inputEntry id="UnaryTests_0jgbo8a">
+          <text>"10"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0zatx9u">
+          <text>10</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1wmpacj">
+        <inputEntry id="UnaryTests_0wvorx6">
+          <text>"10-с их"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0levxuq">
+          <text>11</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+</definitions>

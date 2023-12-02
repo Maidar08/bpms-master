@@ -1,0 +1,10 @@
+dependencies {
+    compile project(':erin-bpms-base-repository-jdbc')
+
+    testCompile lib.spring.test
+    testCompile files('libs/ojdbc8.jar')
+    testCompile lib.erin.cmn_jdbc
+}
+
+// exclude skip module test from build
+build.dependsOn.remove('check')

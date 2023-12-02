@@ -1,0 +1,53 @@
+.column-title{
+  font-size: 12.5px;
+  margin: 25px;
+  color: dimgrey;
+  font-weight: 500;
+}
+
+.two-column{
+  display: grid;
+  grid-template-columns: repeat(2, calc(45vw /2));
+}
+
+.three-column{
+  display: grid;
+  grid-template-columns: repeat(3, calc(45vw /3));
+  margin-left: 25px;
+}
+
+@media (min-width: 680px) and (max-width: 910px) {
+  .two-column{
+    display: grid;
+    grid-template-columns: repeat(2, calc(85vw /2));
+  }
+  .three-column{
+    display: grid;
+    grid-template-columns: repeat(3, calc(85vw /3));
+  }
+}
+
+@media (min-width: 920px) and (max-width: 1100px) {
+  .column-title{
+    margin: 3px;
+  }
+  .two-column{
+    display: grid;
+    grid-template-columns: repeat(2, calc(55vw /2));
+  }
+  .three-column{
+    display: grid;
+    grid-template-columns: repeat(3, calc(55vw /3));
+  }
+}
+
+@media (min-width: 1110px) and (max-width: 1660px) {
+  .two-column{
+    display: grid;
+    grid-template-columns: repeat(2, calc(56vw /2));
+  }
+  .three-column{
+    display: grid;
+    grid-template-columns: repeat(3, calc(56vw /3));
+  }
+}

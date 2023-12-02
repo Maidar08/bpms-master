@@ -1,0 +1,154 @@
+.card-container, .full-card-container {
+  margin: 16px 0 16px 10px;
+  width: auto;
+  height: fit-content;
+  min-height: 150px;
+  display: flex;
+  flex-direction: column;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+.separator-line {
+  width: 90%;
+  margin: 1% 0 1% 5%;
+}
+
+.textFieldWarn {
+  width: 350px;
+  white-space: normal;
+  font-size: 12px;
+  color: red;
+  margin: 1px auto auto 0;
+}
+
+.workspace-actions {
+  display: flex;
+  flex-direction: row-reverse;
+  margin-top: 4vh;
+  height: 50px;
+}
+
+.collateralAssets{
+  display: flex;
+  margin: 10px 0 0 0;
+  color: gray;
+  .text {
+    margin-top: 5px;
+    font-size: 14px
+  }
+}
+
+.add-remove-box {
+  display: flex;
+  justify-content: flex-end;
+  .add-btn, .remove-btn {
+    cursor: pointer;
+  }
+  .remove-btn {
+    padding-top: 0;
+  }
+}
+
+.remove-button {
+  position: absolute;
+  padding-top: 20px;
+  right: 2vw;
+  cursor: pointer;
+}
+
+.mat-stroked-button {
+  border-color: var(--primary-color);
+  padding: 0 9px 0 4px;
+  font-size: 12px;
+}
+.mat-stroked-button:disabled{
+  border-color: grey;
+}
+.column-title{
+  font-size: 12.5px;
+  margin: 25px;
+  color: dimgrey;
+  font-weight: 500;
+}
+
+.two-column{
+  display: grid;
+  grid-template-columns: repeat(2, var(--two-column-width));
+}
+
+.three-column{
+  display: grid;
+  grid-template-columns: repeat(3, var(--three-column-width));
+  margin-left: 25px;
+}
+
+@media (min-width: 920px) and (max-width: 1300px){
+  .card-container{
+    width: 59vw;
+    margin: 16px 0 16px 10px;
+  }
+  .separator-line {
+    margin-top: 3%;
+  }
+}
+
+@media (max-width: 910px){
+  .card-container{
+    width: auto;
+    margin: 16px;
+  }
+  .separator-line {
+    margin-top: 3%;
+  }
+}
+
+@media (min-width: 680px) and (max-width: 910px) {
+  .two-column{
+    --two-col-width: calc(85vw /2);
+    display: grid;
+    grid-template-columns: repeat(2, var(--two-col-width));
+  }
+  .three-column{
+    --three-col-width: calc(85vw /3);
+    display: grid;
+    grid-template-columns: repeat(3, var(--three-col-width));
+  }
+}
+
+@media (min-width: 920px) and (max-width: 1100px) {
+  .column-title{
+    margin: 3px;
+  }
+  .two-column{
+    --two-col-width: calc(55vw /2);
+    display: grid;
+    grid-template-columns: repeat(2, var(--two-col-width));
+  }
+  .three-column{
+    --three-col-width: calc(55vw /3);
+    display: grid;
+    grid-template-columns: repeat(3, var(--three-col-width));
+  }
+}
+
+@media (min-width: 1110px) and (max-width: 1660px) {
+  .two-column{
+    --two-col-width: calc(56vw /2);
+    display: grid;
+    grid-template-columns: repeat(2, var(--two-col-width));
+  }
+  .three-column{
+    --three-col-width: calc(56vw /3);
+    display: grid;
+    grid-template-columns: repeat(3, var(--three-col-width));
+  }
+}
+
+@media (min-width: 1100px) and (max-height: 1600px) {
+  .card-container, .full-card-container {
+    margin: 16px 14px 16px 10px;
+  }
+}

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" id="Definitions_0uespix" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="3.7.3">
+  <bpmn:collaboration id="Collaboration_0vnzhiw">
+    <bpmn:participant id="branch_banking_foreign_customer_process_task" processRef="bpms_branch_banking_foreign_customer_process_task" />
+  </bpmn:collaboration>
+  <bpmn:process id="bpms_branch_banking_foreign_customer_process_task" isExecutable="true">
+    <bpmn:startEvent id="StartEvent_1">
+      <bpmn:outgoing>SequenceFlow_003t1vh</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:endEvent id="EndEvent_1px3nxp">
+      <bpmn:incoming>SequenceFlow_08g54po</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:userTask id="Task_0f48s1m" name="Гадаад иргэн">
+      <bpmn:incoming>SequenceFlow_003t1vh</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_08g54po</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:sequenceFlow id="SequenceFlow_003t1vh" sourceRef="StartEvent_1" targetRef="Task_0f48s1m" />
+    <bpmn:sequenceFlow id="SequenceFlow_08g54po" sourceRef="Task_0f48s1m" targetRef="EndEvent_1px3nxp" />
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Collaboration_0vnzhiw">
+      <bpmndi:BPMNShape id="Participant_109oxhe_di" bpmnElement="branch_banking_foreign_customer_process_task" isHorizontal="true">
+        <dc:Bounds x="152" y="82" width="600" height="250" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="SequenceFlow_08g54po_di" bpmnElement="SequenceFlow_08g54po">
+        <di:waypoint x="390" y="180" />
+        <di:waypoint x="442" y="180" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_003t1vh_di" bpmnElement="SequenceFlow_003t1vh">
+        <di:waypoint x="238" y="180" />
+        <di:waypoint x="290" y="180" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
+        <dc:Bounds x="202" y="162" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="EndEvent_1px3nxp_di" bpmnElement="EndEvent_1px3nxp">
+        <dc:Bounds x="442" y="162" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="UserTask_069genh_di" bpmnElement="Task_0f48s1m">
+        <dc:Bounds x="290" y="140" width="100" height="80" />
+      </bpmndi:BPMNShape>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>

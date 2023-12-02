@@ -1,0 +1,13 @@
+dependencies {
+  compile project(':erin-aim-repository-jdbc')
+  compile project(':erin-aim-shiro')
+  testCompile lib.javax.servlet
+
+  testCompile lib.spring.test
+
+  testCompile files('libs/ojdbc8.jar')
+  testCompile lib.erin.cmn_jdbc
+}
+
+// exclude module test from build
+build.dependsOn.remove('check')

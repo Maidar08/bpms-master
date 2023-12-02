@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" id="Definitions_0dhodyy" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="3.5.0">
+  <bpmn:collaboration id="Collaboration_1x0goac">
+    <bpmn:participant id="branch_banking_transaction" processRef="bpms_branch_banking_transaction" />
+  </bpmn:collaboration>
+  <bpmn:process id="bpms_branch_banking_transaction" isExecutable="true">
+    <bpmn:startEvent id="StartEvent_1">
+      <bpmn:outgoing>SequenceFlow_0ex23hk</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:endEvent id="EndEvent_153i449">
+      <bpmn:incoming>SequenceFlow_0jdva1w</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="SequenceFlow_0ex23hk" sourceRef="StartEvent_1" targetRef="user_task_branch_banking_transaction" />
+    <bpmn:sequenceFlow id="SequenceFlow_0jdva1w" sourceRef="user_task_branch_banking_transaction" targetRef="EndEvent_153i449" />
+    <bpmn:userTask id="user_task_branch_banking_transaction" name="гүйлгээ тест" camunda:assignee="teller" camunda:candidateGroups="customer">
+      <bpmn:extensionElements>
+        <camunda:formData>
+          <camunda:formField id="test" label="test" type="string" />
+        </camunda:formData>
+      </bpmn:extensionElements>
+      <bpmn:incoming>SequenceFlow_0ex23hk</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_0jdva1w</bpmn:outgoing>
+    </bpmn:userTask>
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Collaboration_1x0goac">
+      <bpmndi:BPMNShape id="Participant_1fcjalx_di" bpmnElement="branch_banking_transaction" isHorizontal="true">
+        <dc:Bounds x="129" y="52" width="600" height="250" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
+        <dc:Bounds x="202" y="159" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="EndEvent_153i449_di" bpmnElement="EndEvent_153i449">
+        <dc:Bounds x="532" y="159" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="SequenceFlow_0ex23hk_di" bpmnElement="SequenceFlow_0ex23hk">
+        <di:waypoint x="238" y="177" />
+        <di:waypoint x="290" y="177" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_0jdva1w_di" bpmnElement="SequenceFlow_0jdva1w">
+        <di:waypoint x="390" y="177" />
+        <di:waypoint x="532" y="177" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="UserTask_11x327z_di" bpmnElement="user_task_branch_banking_transaction">
+        <dc:Bounds x="290" y="137" width="100" height="80" />
+      </bpmndi:BPMNShape>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>

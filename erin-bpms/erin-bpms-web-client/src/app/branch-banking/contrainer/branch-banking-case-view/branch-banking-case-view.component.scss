@@ -1,0 +1,72 @@
+.full-container, .container {
+  display: flex;
+  flex-direction: row;
+  height: 92vh;
+}
+
+.left {
+  flex: 1;
+  flex-basis: 65%;
+  width: 100%;
+  order: 3;
+}
+.right{
+  flex: 1;
+  flex-basis: 12.5%;
+  width: 100%;
+  order: 10;
+}
+
+.taskDashletButton {
+  display: none;
+}
+
+@media (max-width: 910px) {
+  .container {
+    height: 100vh;
+  }
+  .right {
+    display: none;
+  }
+  .taskDashletButton {
+    display: block;
+    position: fixed;
+    left: 94%;
+    top: 12px;
+    color: white;
+    z-index: 10;
+  }
+}
+
+
+@media (min-width: 920px) and (max-width: 1300px) {
+  .container {
+    display: flex;
+    flex-direction: row;
+    height: 92vh;
+  }
+  .full-container{
+    flex-direction: inherit;
+  }
+  .left {
+    flex: 1;
+    flex-basis: 100%;
+    width: 100%;
+    order: 5;
+  }
+  .right {
+    flex: 1;
+    flex-basis: 100%;
+    width: 100%;
+    order: 10;
+  }
+}
+
+@media(min-width: 1900px) and (min-height: 1000px) {
+  .right{
+    flex-basis: 9.5%;
+  }
+
+}
+
+

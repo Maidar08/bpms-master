@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/DMN/20151101/dmn.xsd" xmlns:camunda="http://camunda.org/schema/1.0/dmn" id="Definitions_19bis73" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="3.7.1">
+  <decision id="loan_history_mapping" name="Map Mongol Bank Loan History to Xac Loan History">
+    <decisionTable id="decisionTable_1">
+      <input id="input_1" label="Mongol Bank Loan History" camunda:inputVariable="loanClassName">
+        <inputExpression id="inputExpression_1" typeRef="string">
+          <text></text>
+        </inputExpression>
+      </input>
+      <output id="output_1" label="Xac Bank Loan History" name="loan_history" typeRef="string" />
+      <rule id="DecisionRule_1i1ht6s">
+        <inputEntry id="UnaryTests_0hzxupb">
+          <text>"Хэвийн"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1o9mmq5">
+          <text>"Сайн"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0qsvd5x">
+        <inputEntry id="UnaryTests_1et3epf">
+          <text>"Анхаарал хандуулах"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0i8fcar">
+          <text>"Хугацаа хэтэрсэн"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1fg05mw">
+        <inputEntry id="UnaryTests_0zuoevk">
+          <text>"Хэвийн бус"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1wepvmq">
+          <text>"Муу"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1x08zhb">
+        <inputEntry id="UnaryTests_1rb4wzt">
+          <text>"Эргэлзээтэй"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1sljdl1">
+          <text>"Эргэлзээтэй / Чанаргүй"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0asjunz">
+        <inputEntry id="UnaryTests_03jttzh">
+          <text>"Муу"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0n8c08q">
+          <text>"Муу"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0kmgia3">
+        <inputEntry id="UnaryTests_1ugbvww">
+          <text>not("Хэвийн", "Анхаарал хандуулах", "Хэвийн бус", "Эргэлзээтэй", "Муу" )</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0k2swwp">
+          <text>"Сайн"</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+</definitions>

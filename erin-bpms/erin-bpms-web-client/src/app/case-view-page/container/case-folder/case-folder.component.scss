@@ -1,0 +1,154 @@
+.detail-container {
+  margin: 16px;
+  height: auto;
+}
+
+.title-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.clicked {
+  background: var(--primary-color) !important;
+  color: white;
+}
+
+.trapeze {
+  position: relative;
+  width: 140px;
+  height: 10px !important;
+  -webkit-clip-path: polygon(0 0, 0 100%, 100% 100%, 100% 100%, 90% 0);
+  clip-path: polygon(0 0, 0 100%, 100% 100%, 100% 100%, 90% 0);
+  background: white;
+  border-radius: 0.25em 0 0 0;
+  border: solid 1.8px whitesmoke;
+  text-align: center;
+  padding-top: 5px;
+}
+
+.trapeze:hover {
+  background-color: #fafafa;
+  cursor: pointer;
+}
+
+.full-container {
+  height: 76vh !important;
+}
+
+.request-detail-card {
+  padding: 16px;
+  height: 35.5vh;
+  //height: auto;
+  overflow-y: auto;
+}
+
+.folder-title {
+  margin-right: 2px;
+}
+
+.icon-container {
+  display: flex;
+  flex-direction: row-reverse;
+  height: 10px;
+}
+
+.save-button {
+  background: var(--primary-color);
+  color: white;
+}
+
+.form-title {
+  display: flex;
+  flex-direction: row;
+  margin: 10px 0 0 0;
+
+  //.title-text{
+  //  width: 25%;
+  //}
+  //
+  span {
+    width: fit-content;
+    white-space: nowrap;
+  }
+
+  .line {
+    width: 70%;
+    margin-left: 10px;
+  }
+}
+  .documents-detail-card {
+    height: 35.5vh;
+    width: 80%;
+  }
+
+  documentation-table {
+    padding-top: 100px;
+  }
+
+  @media only screen and (max-width: 1024px) {
+    .detail-container {
+      width: 62vw;
+      margin: 16px 0 16px 10px;
+    }
+    .trapeze {
+      position: relative;
+      min-height: 10px;
+      max-width: 45px;
+      font-size: 12px;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+    .clicked {
+      max-width: 110px;
+      font-size: 13px;
+    }
+  }
+
+  @media (min-width: 1300px) and (max-width: 1510px) {
+    .trapeze {
+      height: 10px !important;
+      position: relative;
+      font-size: 12px;
+      max-width: 58px;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+    .clicked {
+      max-width: 110px;
+      font-size: 13px;
+    }
+  }
+
+  @media (max-width: 910px) {
+    .trapeze {
+      min-height: 10px !important;
+      position: relative;
+      max-width: 80px;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+    .detail-container {
+      width: auto;
+      margin: 16px;
+    }
+    .request-detail-card {
+      height: 25vh;
+    }
+    .clicked {
+      max-width: 130px;
+      font-size: 13px;
+    }
+  }
+
+  @media (max-width: 1920px) {
+    .trapeze {
+      min-height: 10px !important;
+      width: 120px;
+    }
+    .clicked {
+      width: 140px;
+    }
+  }

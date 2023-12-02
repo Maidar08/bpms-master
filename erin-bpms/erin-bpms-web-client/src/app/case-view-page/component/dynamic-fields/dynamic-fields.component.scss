@@ -1,0 +1,248 @@
+mat-form-field {
+  width: 185px;
+}
+
+h4 {
+  margin: initial;
+}
+
+label {
+  font-size: 13px;
+}
+
+.paddingLeft {
+  padding-right: 26px;
+}
+
+.floatRight {
+  float: right;
+}
+
+.description {
+  width: 100%;
+}
+
+.emptyMessage {
+  padding: 28px 0;
+  color: grey;
+  text-align: center;
+}
+
+.form-field-container {
+  width: 35vw;
+  display: grid;
+  grid-template-columns: repeat(3, calc(650px /3));
+
+  .form-fields {
+    width: 100%;
+    div:first-child {
+      width: 100%;
+    }
+    margin: 10px 20px 10px 25px;
+  }
+}
+
+@media only screen and (max-width: 1100px){
+  .form-field-container{
+    width: 100%;
+    grid-template-columns: repeat(3, calc(56vw/3));
+  }
+  .form-fields {
+    margin: 10px 10px 0 0 !important;
+  }
+}
+
+@media screen and (max-width: 1009px){
+  .form-field-container {
+    grid-template-columns: repeat(2, calc(50vw/2));
+  }
+}
+
+@media screen and (max-width: 670px){
+  .form-field-container {
+    grid-template-columns: repeat(1, calc(56vw/2));
+  }
+}
+
+@media (min-width: 1300px) and (max-width: 1520px){
+  .form-field-container {
+    width: 50vw;
+    display: grid;
+    grid-template-columns: repeat(3, calc(56vw / 3));
+  }
+}
+
+@media (min-width: 680px) and (max-width: 910px){
+  .form-field-container{
+    margin-left: 16px;
+    width: 100%;
+    grid-template-columns: repeat(3, calc(96vw/3));
+  }
+  .form-fields {
+    margin: 10px 10px 0 0 !important;
+  }
+}
+
+::ng-deep .mat-autocomplete-panel {
+  min-width:186px!important;
+}
+
+::ng-deep .erinTextareaTooltip {
+  white-space: pre-line!important;
+}
+
+ /* here is custom style of 1 column form */
+
+.column-1-container{
+  width: 20vw;
+  display: grid;
+  grid-template-columns: repeat(1, calc(20vw /1));
+}
+
+/* here is custom style of 2 column form on udf dialog */
+
+.column-2-container{
+  width: 28vw;
+  display: grid;
+  grid-template-columns: repeat(2, calc(28vw /2));
+  margin: auto;
+  .form-fields {
+    width: 100%;
+    div:first-child {
+      width: 100%;
+    }
+    margin: 10px 10px 10px 20px;
+  }
+}
+
+/* here is custom style of 4 column form on collateral account */
+
+.column-4-container{
+  width: 50vw;
+  display: grid;
+  grid-template-columns: repeat(4, calc(45vw /4));
+
+  ::ng-deep .simple-field {
+    width: 130px !important;
+  }
+  ::ng-deep .simple-dropdown {
+    width: 152px!important;
+  }
+  .form-fields {
+    width: 100%;
+    div:first-child {
+      width: 100%;
+    }
+    margin: 10px 20px 10px 25px;
+  }
+}
+
+/* here is custom style of 5 column form on collateral account */
+
+.column-5-container{
+  width: 50vw;
+  display: grid;
+  grid-template-columns: repeat(5, calc(45vw /5));
+
+  ::ng-deep .simple-field {
+    width: 100px!important;
+  }
+  ::ng-deep .simple-dropdown {
+    width: 122px!important;
+  }
+  .form-fields {
+    width: 100%;
+    div:first-child {
+      width: 100%;
+    }
+    margin: 10px 20px 10px 25px;
+  }
+}
+
+@media (min-width: 680px) and (max-width: 910px) {
+  .column-2-container {
+    width: 60vw;
+    grid-template-columns: repeat(2, calc(55vw / 2));
+    margin-left: 5vw;
+    .form-fields {
+      margin: 10px 10px 10px 30px;
+    }
+  }
+  .column-4-container{
+    grid-template-columns: repeat(4, calc(90vw /4));
+
+    ::ng-deep .simple-field {
+      width: 150px;
+    }
+    ::ng-deep .simple-dropdown {
+      width: 152px!important;
+    }
+  }
+  .column-5-container{
+    grid-template-columns: repeat(5, calc(90vw /5));
+
+    ::ng-deep .simple-field {
+      width: 90px!important;
+    }
+    ::ng-deep .simple-dropdown {
+      width: 112px!important;
+    }
+  }
+}
+
+@media (min-width: 920px) and (max-width: 1300px){
+  .column-2-container{
+    width: 47vw;
+    grid-template-columns: repeat(2, calc(47vw /2));
+    margin-left: 6vw;
+  }
+  .column-4-container{
+    grid-template-columns: repeat(4, calc(53vw /4));
+
+    ::ng-deep .simple-field {
+      width: 104px !important;
+    }
+    ::ng-deep .simple-dropdown {
+      width: 126px!important;
+    }
+  }
+  .column-5-container{
+    grid-template-columns: repeat(5, calc(53vw /5));
+    ::ng-deep .simple-field {
+      width: 82px !important;
+    }
+    ::ng-deep .simple-dropdown {
+      width: 104px!important;
+    }
+    ::ng-deep .erin-button {
+      width: 100px!important;
+    }
+  }
+}
+
+@media (min-width: 1300px) and (max-width: 1700px){
+  .column-2-container {
+    width: 38vw;
+    margin: auto;
+    grid-template-columns: repeat(2, calc(38vw / 2));
+  }
+  .column-4-container{
+    grid-template-columns: repeat(4, calc(53vw /4));
+
+    ::ng-deep .simple-field {
+      width: 150px;
+    }
+    ::ng-deep .simple-dropdown {
+      width: 150px!important;
+    }
+  }
+  .column-5-container{
+    grid-template-columns: repeat(5, calc(53vw /5));
+    ::ng-deep .simple-field {
+      width: 100px!important;
+    }
+    ::ng-deep .simple-dropdown {
+      width: 122px!important;
+    }
+  }
+}

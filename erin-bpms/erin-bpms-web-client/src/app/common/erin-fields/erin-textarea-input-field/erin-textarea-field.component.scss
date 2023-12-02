@@ -1,0 +1,34 @@
+.textarea-form {
+  margin-right: 0;
+}
+.simple-textarea {
+  border: solid var(--field-color);
+  border-width: 1px;
+  border-radius: 5px;
+  height: 7vh;
+  width: 31.2vw;
+  outline: none;
+  padding: 0.5px 10px 0.5px 10px;
+  background-color: transparent;
+}
+.simple-textarea:disabled{
+  color: grey;
+  border-color: grey;
+}
+@media only screen and (max-width: 1024px){
+  .simple-textarea {
+    width: 53.6vw;
+  }
+}
+
+@media (min-width: 1300px) and (max-width: 1520px){
+  .simple-textarea {
+    width: 50vw;
+  }
+}
+
+@media (min-width: 680px) and (max-width: 910px){
+  .simple-textarea {
+    width: 85vw;
+  }
+}

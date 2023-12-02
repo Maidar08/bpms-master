@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/DMN/20151101/dmn.xsd" xmlns:camunda="http://camunda.org/schema/1.0/dmn" id="Definitions_1h29ez5" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="3.7.1">
+  <decision id="total_years_worked" name="Total Years Worked">
+    <decisionTable id="decisionTable_1">
+      <input id="input_1" label="Нийт ажилласан жил" camunda:inputVariable="total_years_worked">
+        <inputExpression id="inputExpression_1" typeRef="string">
+          <text></text>
+        </inputExpression>
+      </input>
+      <output id="output_1" label="Total Years Worked Score" name="total_year_worked_score" typeRef="integer" />
+      <rule id="DecisionRule_0oqrmf0">
+        <inputEntry id="UnaryTests_1scyu98">
+          <text>"0-1"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_19t01e0">
+          <text>0</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_03v6l20">
+        <inputEntry id="UnaryTests_0s6sfyd">
+          <text>"1-7"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0sgyqsz">
+          <text>1</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0hv8t3e">
+        <inputEntry id="UnaryTests_1ks3mut">
+          <text>"8-12"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0fynyeg">
+          <text>2</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1gxv5ms">
+        <inputEntry id="UnaryTests_00qkf96">
+          <text>"13-20"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_14bntf1">
+          <text>3</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0584wiv">
+        <inputEntry id="UnaryTests_0tp67q1">
+          <text>"21+"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_07nnefq">
+          <text>4</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+</definitions>

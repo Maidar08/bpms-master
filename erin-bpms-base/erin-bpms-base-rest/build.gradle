@@ -1,0 +1,17 @@
+/*
+ * (C)opyright, 2019, ERIN SYSTEMS LLC
+ * The source code is protected by copyright laws and international copyright
+ * treaties, as well as other intellectual property laws and treaties.
+ * All rights reserved.
+ */
+
+dependencies {
+  compile project(':erin-bpms-base-domain')
+
+  compile lib.javax.inject
+  compile lib.swagger.v1.annotations
+
+  compile lib.erin.cmn_rest
+
+  compileOnly lib.erin.dms_alfresco
+}

@@ -1,0 +1,44 @@
+.date-picker{
+  display: flex;
+  gap: 10px;
+  margin-right: 10px;
+  float: right;
+}
+
+.md-icon-button + .md-datepicker-input-container {
+  float: left;
+  margin-top:7px;
+}
+
+.container-date-picker{
+  display: flex;
+}
+
+.checkbox-erin {
+  ::ng-deep .mat-form-field {
+    width: 252px;
+    margin-right: 1em;
+  }
+  ::ng-deep .mat-form-field-flex {
+    height: 42px;
+  }
+  ::ng-deep .mat-form-field-infix {
+    padding: 4px!important;
+  }
+}
+
+@media only screen and (max-width: 1100px){
+  .checkbox-erin {
+    ::ng-deep .mat-form-field {
+      width: 100px;
+      margin-right: 1em;
+    }
+    ::ng-deep .mat-form-field-flex {
+      height: 42px;
+    }
+    ::ng-deep .mat-form-field-infix {
+      padding: 4px!important;
+    }
+  }
+}
+

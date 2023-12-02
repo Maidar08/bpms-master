@@ -1,0 +1,213 @@
+button {
+  background: none;
+  color: inherit;
+  border: none;
+  outline: inherit;
+}
+
+.tree-invisible {
+  display: none;
+}
+
+.mat-button {
+  padding: 0;
+  text-align: left;
+}
+
+.mat-tree-nodes {
+  align-items: center;
+}
+
+.mat-tree-node {
+  min-height: 35px;
+}
+
+.tree ul {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-left: 10px;
+  list-style-type: none;
+  background: none;
+  width: fit-content;
+}
+
+.container {
+  background: #fff;
+}
+
+.root-btn {
+  display: block;
+  height: 30px;
+  margin: 0 auto 10px;
+}
+
+.root-selected {
+  background-color: lightgrey !important;
+}
+
+.root-name {
+  font-weight: bold;
+}
+
+@media only screen and (max-width: 1100px) {
+  .contianer {
+    height: 100%;
+  }
+}
+
+.mat-tree {
+  margin-left: 0;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-top: 10px;
+}
+
+.mat-button[disabled] {
+  position: absolute;
+}
+
+.has-child {
+  display: flex;
+  flex-direction: row;
+  cursor: move;
+}
+
+.has-child:hover {
+  background-color: #f2f2f2;
+  border-radius: 10px !important;
+  cursor: default;
+}
+
+.node, .node-activated {
+  overflow: visible !important;
+  cursor: default !important;
+}
+
+.node:hover {
+  background-color: #f2f2f2 !important;
+  border-radius: 10px !important;
+}
+
+.mat-nested-tree-node {
+  width: 230px;
+  overflow: visible;
+}
+
+.mat-icon {
+  visibility: visible;
+  display: flex;
+  margin-left: auto;
+  cursor: pointer;
+}
+
+.mat-menu-item {
+  display: flex;
+  line-height: 25px;
+  white-space: pre;
+}
+
+.button-size {
+  width: 184px;
+  background: none;
+}
+
+.active {
+  background-color: #e5e5e5 !important;
+  border-radius: 10px !important;
+  width: 230px;
+}
+
+.material-icons {
+  margin-right: 10px;
+}
+
+.nochild-node-size {
+  width: 177px;
+  display: flex;
+  align-items: center;
+  margin-left: 7px;
+}
+
+.input-style {
+  border-bottom: 0.5px gray solid;
+  display: flex;
+  margin-top: 10px;
+  word-wrap: break-word;
+  width: 180px;
+  margin-bottom: 10px;
+  margin-left: 20px;
+}
+
+.mat-error {
+  font-size: 12px;
+}
+
+.edit-input-style {
+  border-bottom: 0.5px gray solid;
+  display: flex;
+  margin-top: 10px;
+  word-wrap: break-word;
+  width: 200px;
+  margin-left: 7px;
+}
+
+.nodeIndicatorWhite {
+  color: transparent;
+}
+
+.nodeIndicatorGray {
+  color: gray;
+}
+
+.add-icon {
+  margin-right: 10px;
+  display: inherit;
+}
+
+.add {
+  margin-right: 0;
+}
+
+.more-button {
+  opacity: 0.3;
+}
+
+.node-name:hover {
+  cursor: grab;
+}
+.node-name:active{
+  cursor: grabbing;
+}
+
+.node-name {
+  margin-left: 8px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 13px;
+}
+
+.node-name-button {
+  padding-right: 0;
+}
+
+@media only screen and (max-width: 1100px) {
+  .active {
+    width: 150px;
+  }
+  .mat-nested-tree-node {
+    width: 150px;
+  }
+  .nochild-node-size {
+    width: 150px;
+    margin-left: 2px;
+  }
+  .button-size {
+    width: 150px;
+  }
+}
+.tree-actions{
+  display: flex;
+  flex-direction: row;
+}

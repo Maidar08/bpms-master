@@ -1,0 +1,375 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:bioc="http://bpmn.io/schema/bpmn/biocolor/1.0" id="Definitions_0rty3pl" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="3.7.3">
+  <bpmn:collaboration id="Collaboration_0hfphnz">
+    <bpmn:participant id="Participant_09snbet" processRef="bpms_mortgage_salary_loan_scoring" />
+  </bpmn:collaboration>
+  <bpmn:process id="bpms_mortgage_salary_loan_scoring" name="Bpms scoring" isExecutable="true">
+    <bpmn:startEvent id="StartEvent_1" name="Scoring Sub Process Begin">
+      <bpmn:outgoing>Flow_0u9ctug</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:businessRuleTask id="Activity_0u2mvzo" name="Business Sector Translation" camunda:resultVariable="economic_level" camunda:decisionRef="DecFindingLevel" camunda:mapDecisionResult="singleEntry">
+      <bpmn:incoming>SequenceFlow_1c9sr0y</bpmn:incoming>
+      <bpmn:outgoing>Flow_0jzrspn</bpmn:outgoing>
+    </bpmn:businessRuleTask>
+    <bpmn:serviceTask id="Task_039d6yw" name="Date to number" camunda:delegateExpression="${dateToNumber}">
+      <bpmn:incoming>Flow_1axo8q7</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_1c9sr0y</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:serviceTask id="Activity_0sxp38k" name="Get Branch and Set Resource Ratio" camunda:delegateExpression="${getBranchTask}">
+      <bpmn:incoming>Flow_1eux310</bpmn:incoming>
+      <bpmn:outgoing>Flow_1axo8q7</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:businessRuleTask id="Activity_0dqs8i6" name="Gender Mapping" camunda:resultVariable="gender" camunda:decisionRef="gender_mapping" camunda:mapDecisionResult="singleEntry">
+      <bpmn:incoming>Flow_0kkyycj</bpmn:incoming>
+      <bpmn:outgoing>Flow_1eux310</bpmn:outgoing>
+    </bpmn:businessRuleTask>
+    <bpmn:businessRuleTask id="Activity_1fjpjkb" name="Income Type Mapping" camunda:resultVariable="income_type" camunda:decisionRef="incomeTypeMapping" camunda:mapDecisionResult="singleEntry">
+      <bpmn:incoming>Flow_0jzrspn</bpmn:incoming>
+      <bpmn:outgoing>Flow_0mqxl7g</bpmn:outgoing>
+    </bpmn:businessRuleTask>
+    <bpmn:businessRuleTask id="Activity_0p1aq4m" name="Get Score" camunda:resultVariable="score" camunda:decisionRef="DecComputeOnSalary" camunda:mapDecisionResult="singleEntry">
+      <bpmn:extensionElements>
+        <camunda:field name="">
+          <camunda:string></camunda:string>
+        </camunda:field>
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_0mqxl7g</bpmn:incoming>
+      <bpmn:outgoing>Flow_0725o2q</bpmn:outgoing>
+    </bpmn:businessRuleTask>
+    <bpmn:businessRuleTask id="Activity_1qiema3" name="Scoring Level" camunda:resultVariable="scoring_level" camunda:decisionRef="DecOnApproval" camunda:mapDecisionResult="singleResult">
+      <bpmn:incoming>Flow_0725o2q</bpmn:incoming>
+      <bpmn:outgoing>Flow_1aw1bq6</bpmn:outgoing>
+    </bpmn:businessRuleTask>
+    <bpmn:serviceTask id="Activity_1np9ho0" name="Set Scoring Level Task" camunda:delegateExpression="${setScoringLevelTask}">
+      <bpmn:incoming>Flow_1aw1bq6</bpmn:incoming>
+      <bpmn:outgoing>Flow_19y6zp9</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:endEvent id="Event_0mygv6u">
+      <bpmn:incoming>Flow_19y6zp9</bpmn:incoming>
+      <bpmn:incoming>Flow_0ax95pt</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:userTask id="user_task_mortgage_salary_loan_scoring" name="13. Скоринг хийх" camunda:formKey="13. Скоринг хийх">
+      <bpmn:extensionElements>
+        <camunda:formData>
+          <camunda:formField id="xacspanDate" label="ХасБанктай харьцсан хоног" type="date">
+            <camunda:validation>
+              <camunda:constraint name="required" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="sector" label="Ажиллаж буй эдийн засгийн салбар" type="string">
+            <camunda:properties>
+              <camunda:property id="mining" value="Газар тариалан" />
+              <camunda:property id="farmer" value="Мал аж ахуй" />
+              <camunda:property id="Property_3fl42hk" value="Ан агнуур,нөхөн сэргээгдэх байгалийн баялаг ашиглт&#34;" />
+              <camunda:property id="Property_05oa875" value="Байгаль хамгаалал, нөхөн сэрг" />
+              <camunda:property id="Property_0g715im" value="Уул уурхайн хайгуул" />
+              <camunda:property id="Property_34cen29" value="Уул уурхайн олборлолт" />
+              <camunda:property id="Property_2qp21eq" value="Уул уурхайн баяжуулалт" />
+              <camunda:property id="Property_3lsbt46" value="Өрөмдлөгийн үйлчилгээ" />
+              <camunda:property id="Property_11lojhj" value="Уул уурхайн дагалдах бусад үйлчилгээ" />
+              <camunda:property id="Property_2me7m3a" value="Хүнсний бүтээгдэхүүн үйлдвэрлэл" />
+              <camunda:property id="Property_2isjda3" value="Архи, тамхи үйлдвэрлэл" />
+              <camunda:property id="Property_0prs5ir" value="Ноос, ноолуур боловсруулалт, үйлдвэрлэл" />
+              <camunda:property id="Property_1dh9cui" value="Хувцас, нэхмэл эдлэл үйлдвэрлэл" />
+              <camunda:property id="Property_0st6vaa" value="Арьс, шир үслэг эдлэл боловсруулалт, үйлдвэрлэл" />
+              <camunda:property id="Property_01so8sq" value="Мод, модон эдлэл үйлдвэрлэл, боловсруулалт" />
+              <camunda:property id="Property_15ao4lf" value="Цаас боловсруулалт, хэвлэлийн үйлдвэрлэл" />
+              <camunda:property id="Property_29rdp37" value="Нийтлэх, дуу,бичлэг хийх, FM радио, ТВ-ийн үа" />
+              <camunda:property id="Property_3cp23lo" value="Алт, мөнгөн эдлэлийн үйлдвэрлэл" />
+              <camunda:property id="Property_17lgghq" value="Уул уурхайн болон химийн бэлдцээр бүт үйлдвэрлэл" />
+              <camunda:property id="Property_1phofns" value="Машин,тоног төх,сэлбэг,цахилгаан хэрэгсл үйлдвэрл" />
+              <camunda:property id="Property_1t7nvuu" value="Эм, гоо сайхан, ариун цэврийн бараа үйлдвэрлэл" />
+              <camunda:property id="Property_0os1l5t" value="Барилгын материал үйлдвэрлэл" />
+              <camunda:property id="Property_05vjj9a" value="Бараа материалын бусад үйлдвэрлэл" />
+              <camunda:property id="Property_1e2vuj5" value="Элс, хайрга, гөлтгөнө, шохонй чулуу олборлох үйлдвэр" />
+              <camunda:property id="Property_1f2l39o" value="Цахилгаан, хий, дулаан үйлдвэрлэл, ус хангамж" />
+              <camunda:property id="Property_3revrfv" value="Орон сууцны барилга" />
+              <camunda:property id="Property_2mk1fd9" value="Үйлдвэрлэл, үйлчилгээний буюу олон нийтийн барилга" />
+              <camunda:property id="Property_28rvosg" value="Зам гүүрийн барилга" />
+              <camunda:property id="Property_2gbd9vc" value="Дэд бүтцийн болон инженерийн шугам сүлжээний барилга" />
+              <camunda:property id="Property_3gbgbmb" value="Барилгын туслан гүйцэтгэх үйлчилгээ" />
+              <camunda:property id="Property_2d7eh6n" value="Барилгын засвар, засал чимэглэлийн үйлчилгээ" />
+              <camunda:property id="Property_3t27dqu" value="Хүнс, бараа, өргөн хэрэглээний барааны худалдаа" />
+              <camunda:property id="Property_2qkeknk" value="Барилгын материалын худалдаа" />
+              <camunda:property id="Property_20us4gh" value="Эм, гоо сайхны барааны худалдаа" />
+              <camunda:property id="Property_2man4oq" value="Ном, бичиг хэрэгслийн худалдаа" />
+              <camunda:property id="Property_3r0uikh" value="Гэрийн тавилга, эд хогшлын барааны худалдаа" />
+              <camunda:property id="Property_3uljqeg" value="Комиссийн барааны худалдаа" />
+              <camunda:property id="Property_13755pg" value="Мал, амьтны гаралтай түүхий эдийн худалдаа" />
+              <camunda:property id="Property_13jio9b" value="Автомашн, мотоцкл,өрө явагч хэрэгсл,сэлбэгийн худл" />
+              <camunda:property id="Property_0sd6snb" value="Түлш шатахуун, тос тосолгооны материалын худалдаа" />
+              <camunda:property id="Property_1tlfvsu" value="Уул уурхайн тоног төхөөрөмж худалдаа" />
+              <camunda:property id="Property_2nnbcij" value="Бусад худалдаа" />
+              <camunda:property id="Property_0bkd663" value="Бусад тоног төхөөрөмжийн худалдаа" />
+              <camunda:property id="Property_2ege5n8" value="УУ-н хүнд даацын техник, тээврийн хэрэгслийн худалдаа" />
+              <camunda:property id="Property_1f912eg" value="Уул уурхайн бусад худалдаа" />
+              <camunda:property id="Property_3s50s6p" value="Нийтийн тээврийн үйлчилгээ" />
+              <camunda:property id="Property_1685p75" value="Уул уурхайн ачаа тээврийн үйлчилгээ" />
+              <camunda:property id="Property_0fbf7up" value="Агуулахын үйлчилгээ" />
+              <camunda:property id="Property_080jnul" value="Шуудан, илгээмжийн үйлчилгээ" />
+              <camunda:property id="Property_0b3tn0q" value="Барилгын материалын ачаа тээврийн үйлчилгээ" />
+              <camunda:property id="Property_2e52pdg" value="Хүнсний барааны ачаа тээврийн үйлчилгээ" />
+              <camunda:property id="Property_11s74c3" value="Бусад ачаа тээврийн үйлчилгээ" />
+              <camunda:property id="Property_1s9buj3" value="Нийтийн хоол, зочид буудлын үйлчилгээ" />
+              <camunda:property id="Property_1jh4dqe" value="Ахуйн үйлчилгээ" />
+              <camunda:property id="Property_069gk33" value="Автозасварын үйлчилгээ" />
+              <camunda:property id="Property_2td8hdl" value="Олон нийтийн спорт, тоглоом, наадмын үйлчилгээ" />
+              <camunda:property id="Property_1mpt4ii" value="Бусад үйлчилгээ" />
+              <camunda:property id="Property_0lhktdu" value="Мэдээлэл технологи, харилцаа холбоо" />
+              <camunda:property id="Property_2m5um2t" value="ББСБайгууллага, ХЗХоршооны үйл ажиллагаа" />
+              <camunda:property id="Property_3jgioet" value="Банкны үйл ажиллагаа" />
+              <camunda:property id="Property_0aohsj3" value="Үнэт цаасны үйл ажиллагаа" />
+              <camunda:property id="Property_2sd114k" value="Даатгалын үйл ажиллагаа" />
+              <camunda:property id="Property_1fsq5br" value="Төрийн бус, сүм хийд, ашгийн бус бусад байгууллага" />
+              <camunda:property id="Property_234dmr9" value="Санхүүгийн бусад үйл ажиллагаа" />
+              <camunda:property id="Property_0s9b95l" value="Үл хөдлөх хөрөнгийн түрээсийн үйлчилгээ" />
+              <camunda:property id="Property_3f1rg0s" value="Үл хөдлөх хөрөнгийг борлуулах зуучлалын үйл ажиллагаа" />
+              <camunda:property id="Property_3nuumjh" value="Шинжлэх ухаан, эрдэм шинжилгээ, судалгааны үа" />
+              <camunda:property id="Property_1fgqs8n" value="Аялал жуулчлал" />
+              <camunda:property id="Property_3idvme9" value="Төрийн удирдлага, батлан хамгаалах байгууллага" />
+              <camunda:property id="Property_2aapeoe" value="Төрийн оролцоотой байгууллага" />
+              <camunda:property id="Property_08qlbqh" value="Төсөвт байгууллага" />
+              <camunda:property id="Property_1v0tpie" value="Тэтгэвэр, тэтгэмж, нийгмийн халамж" />
+              <camunda:property id="Property_3shubeg" value="Боловсрол" />
+              <camunda:property id="Property_1gkt3at" value="Эрүүл мэнд, эмнэлэг" />
+              <camunda:property id="Property_0v3h2o9" value="Ус хангамж,бохир ус, хог,хаягдл менежмнт,цэврлх үа" />
+              <camunda:property id="Property_38g450m" value="Олон нийтыг хамарсан үйл ажиллагаа" />
+              <camunda:property id="Property_0aivm02" value="Шашин шүтлэг, буяны үйл ажиллагаа" />
+              <camunda:property id="Property_0ekue6t" value="Бусад /сонгож үл болно./" />
+            </camunda:properties>
+            <camunda:validation>
+              <camunda:constraint name="required" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="workspan" label="Нийт ажилласан жил" type="long">
+            <camunda:properties>
+              <camunda:property id="Property_0tp287v" value="0" />
+              <camunda:property id="Property_2p9h8nv" value="1" />
+              <camunda:property id="Property_26v5dak" value="2" />
+              <camunda:property id="Property_16u2v4r" value="3" />
+              <camunda:property id="Property_13gj7oi" value="4" />
+              <camunda:property id="Property_0q16m7m" value="5" />
+              <camunda:property id="Property_2euj9bg" value="6" />
+              <camunda:property id="Property_229icec" value="7" />
+              <camunda:property id="Property_25eerrj" value="8" />
+              <camunda:property id="Property_321o5hc" value="9" />
+              <camunda:property id="Property_28phnuo" value="10" />
+              <camunda:property id="Property_06obbr2" value="11" />
+              <camunda:property id="Property_1kvdips" value="12" />
+              <camunda:property id="Property_0m5bb8n" value="13" />
+              <camunda:property id="Property_2cr77i5" value="14" />
+              <camunda:property id="Property_0itlq41" value="15" />
+              <camunda:property id="Property_3uo770b" value="16" />
+              <camunda:property id="Property_0iuqd4g" value="17" />
+              <camunda:property id="Property_1mbrv27" value="18" />
+              <camunda:property id="Property_18pm669" value="19" />
+              <camunda:property id="Property_12fumd3" value="20" />
+              <camunda:property id="Property_033gvjf" value="21" />
+              <camunda:property id="Property_1vdqndh" value="22" />
+              <camunda:property id="Property_087nnhq" value="23" />
+              <camunda:property id="Property_056tsbu" value="24" />
+              <camunda:property id="Property_04jcncf" value="25" />
+              <camunda:property id="Property_19ftsk4" value="26" />
+              <camunda:property id="Property_137nlq5" value="27" />
+              <camunda:property id="Property_3pujjob" value="28" />
+              <camunda:property id="Property_1dus5ic" value="29" />
+              <camunda:property id="Property_064jkfu" value="30" />
+              <camunda:property id="Property_39r0ujv" value="31" />
+              <camunda:property id="Property_1atrmsj" value="32" />
+              <camunda:property id="Property_35tke6h" value="33" />
+              <camunda:property id="Property_02ik6ds" value="34" />
+              <camunda:property id="Property_33qis5g" value="35" />
+              <camunda:property id="Property_3opuhk2" value="36" />
+              <camunda:property id="Property_2vaqkb0" value="37" />
+              <camunda:property id="Property_3e3v4ju" value="38" />
+              <camunda:property id="Property_09b1ms7" value="39" />
+              <camunda:property id="Property_2r88ghj" value="40" />
+              <camunda:property id="Property_17uhj48" value="41" />
+              <camunda:property id="Property_1d52720" value="42" />
+              <camunda:property id="Property_3i1gkvv" value="43" />
+              <camunda:property id="Property_0599omc" value="44" />
+              <camunda:property id="Property_1ccfj96" value="45" />
+              <camunda:property id="Property_38pj0e3" value="46" />
+              <camunda:property id="Property_1a3528n" value="47" />
+              <camunda:property id="Property_1lpjovj" value="48" />
+              <camunda:property id="Property_1hunv47" value="49" />
+              <camunda:property id="Property_0as6qs4" value="50" />
+            </camunda:properties>
+            <camunda:validation>
+              <camunda:constraint name="required" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="gender_input" label="Хүйс" type="string">
+            <camunda:properties>
+              <camunda:property id="Property_07ufdd1" value="Эрэгтэй" />
+              <camunda:property id="Property_2ed4i13" value="Эмэгтэй" />
+            </camunda:properties>
+            <camunda:validation>
+              <camunda:constraint name="required" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="family_income_string" label="Өрхийн орлого" type="string">
+            <camunda:properties>
+              <camunda:property id="Property_3s75k94" value="0 - 488,940" />
+              <camunda:property id="Property_2sftmo4" value="488,941 - 627,812" />
+              <camunda:property id="Property_3gptopn" value="627,813 - 948,608" />
+              <camunda:property id="Property_1l4tmpi" value="948,608+" />
+            </camunda:properties>
+            <camunda:validation>
+              <camunda:constraint name="required" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="jobless_members" label="Өрхийн орлогогүй гишүүдийн тоо" type="long">
+            <camunda:properties>
+              <camunda:property id="Property_26glq93" value="0" />
+              <camunda:property id="Property_1udq68b" value="1" />
+              <camunda:property id="Property_0tnlop8" value="2" />
+              <camunda:property id="Property_2g6dp16" value="3" />
+              <camunda:property id="Property_1t2vo7v" value="4" />
+              <camunda:property id="Property_2up71m9" value="5" />
+            </camunda:properties>
+            <camunda:validation>
+              <camunda:constraint name="required" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="score" label="Скоринг оноо" type="string">
+            <camunda:validation>
+              <camunda:constraint name="readonly" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="scoring_level_risk" label="Скоринг зэрэглэл" type="string">
+            <camunda:validation>
+              <camunda:constraint name="readonly" />
+            </camunda:validation>
+          </camunda:formField>
+        </camunda:formData>
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_0u9ctug</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_12cespm</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:exclusiveGateway id="Gateway_18b9irv">
+      <bpmn:incoming>SequenceFlow_12cespm</bpmn:incoming>
+      <bpmn:outgoing>Flow_0kkyycj</bpmn:outgoing>
+      <bpmn:outgoing>Flow_0ax95pt</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:sequenceFlow id="Flow_0ax95pt" name="Continue - calculateScoring is false" sourceRef="Gateway_18b9irv" targetRef="Event_0mygv6u">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${calculateScoring == false}</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:sequenceFlow id="Flow_0kkyycj" name="Calculate - calculateScoring is true" sourceRef="Gateway_18b9irv" targetRef="Activity_0dqs8i6">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${calculateScoring == true}</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:sequenceFlow id="Flow_19y6zp9" sourceRef="Activity_1np9ho0" targetRef="Event_0mygv6u" />
+    <bpmn:sequenceFlow id="Flow_0mqxl7g" sourceRef="Activity_1fjpjkb" targetRef="Activity_0p1aq4m" />
+    <bpmn:sequenceFlow id="Flow_1aw1bq6" sourceRef="Activity_1qiema3" targetRef="Activity_1np9ho0" />
+    <bpmn:sequenceFlow id="Flow_0jzrspn" sourceRef="Activity_0u2mvzo" targetRef="Activity_1fjpjkb" />
+    <bpmn:sequenceFlow id="Flow_0u9ctug" sourceRef="StartEvent_1" targetRef="user_task_mortgage_salary_loan_scoring" />
+    <bpmn:sequenceFlow id="SequenceFlow_12cespm" sourceRef="user_task_mortgage_salary_loan_scoring" targetRef="Gateway_18b9irv" />
+    <bpmn:sequenceFlow id="SequenceFlow_1c9sr0y" sourceRef="Task_039d6yw" targetRef="Activity_0u2mvzo" />
+    <bpmn:sequenceFlow id="Flow_1eux310" sourceRef="Activity_0dqs8i6" targetRef="Activity_0sxp38k" />
+    <bpmn:sequenceFlow id="Flow_1axo8q7" sourceRef="Activity_0sxp38k" targetRef="Task_039d6yw" />
+    <bpmn:sequenceFlow id="Flow_0725o2q" sourceRef="Activity_0p1aq4m" targetRef="Activity_1qiema3" />
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Collaboration_0hfphnz">
+      <bpmndi:BPMNShape id="Participant_09snbet_di" bpmnElement="Participant_09snbet" isHorizontal="true">
+        <dc:Bounds x="160" y="70" width="1410" height="340" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_0725o2q_di" bpmnElement="Flow_0725o2q">
+        <di:waypoint x="1200" y="170" />
+        <di:waypoint x="1230" y="170" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1axo8q7_di" bpmnElement="Flow_1axo8q7">
+        <di:waypoint x="660" y="170" />
+        <di:waypoint x="690" y="170" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1eux310_di" bpmnElement="Flow_1eux310">
+        <di:waypoint x="520" y="170" />
+        <di:waypoint x="560" y="170" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_1c9sr0y_di" bpmnElement="SequenceFlow_1c9sr0y">
+        <di:waypoint x="790" y="170" />
+        <di:waypoint x="820" y="170" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_12cespm_di" bpmnElement="SequenceFlow_12cespm">
+        <di:waypoint x="340" y="210" />
+        <di:waypoint x="340" y="255" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0u9ctug_di" bpmnElement="Flow_0u9ctug">
+        <di:waypoint x="258" y="170" />
+        <di:waypoint x="290" y="170" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0jzrspn_di" bpmnElement="Flow_0jzrspn">
+        <di:waypoint x="920" y="170" />
+        <di:waypoint x="960" y="170" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1aw1bq6_di" bpmnElement="Flow_1aw1bq6">
+        <di:waypoint x="1330" y="170" />
+        <di:waypoint x="1380" y="170" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0mqxl7g_di" bpmnElement="Flow_0mqxl7g">
+        <di:waypoint x="1060" y="170" />
+        <di:waypoint x="1100" y="170" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_19y6zp9_di" bpmnElement="Flow_19y6zp9">
+        <di:waypoint x="1480" y="170" />
+        <di:waypoint x="1530" y="170" />
+        <di:waypoint x="1530" y="312" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0kkyycj_di" bpmnElement="Flow_0kkyycj">
+        <di:waypoint x="365" y="280" />
+        <di:waypoint x="470" y="280" />
+        <di:waypoint x="470" y="210" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="346" y="210" width="88" height="40" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0ax95pt_di" bpmnElement="Flow_0ax95pt">
+        <di:waypoint x="340" y="305" />
+        <di:waypoint x="340" y="330" />
+        <di:waypoint x="1512" y="330" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="336" y="350" width="88" height="40" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
+        <dc:Bounds x="222" y="152" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="206" y="115" width="71" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0m11vej_di" bpmnElement="Activity_0u2mvzo">
+        <dc:Bounds x="820" y="130" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="ServiceTask_00v0t45_di" bpmnElement="Task_039d6yw">
+        <dc:Bounds x="690" y="130" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1uhzfmf_di" bpmnElement="Activity_0sxp38k">
+        <dc:Bounds x="560" y="130" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1u1stwo_di" bpmnElement="Activity_0dqs8i6">
+        <dc:Bounds x="420" y="130" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_067rg67_di" bpmnElement="Activity_1fjpjkb">
+        <dc:Bounds x="960" y="130" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0ku6xwn_di" bpmnElement="Activity_0p1aq4m">
+        <dc:Bounds x="1100" y="130" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0bk2ys3_di" bpmnElement="Activity_1qiema3">
+        <dc:Bounds x="1230" y="130" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_03qj952_di" bpmnElement="Activity_1np9ho0">
+        <dc:Bounds x="1380" y="130" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_0mygv6u_di" bpmnElement="Event_0mygv6u">
+        <dc:Bounds x="1512" y="312" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="UserTask_18vor3n_di" bpmnElement="user_task_mortgage_salary_loan_scoring" bioc:stroke="rgb(67, 160, 71)" bioc:fill="rgb(200, 230, 201)">
+        <dc:Bounds x="290" y="130" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Gateway_18b9irv_di" bpmnElement="Gateway_18b9irv" isMarkerVisible="true">
+        <dc:Bounds x="315" y="255" width="50" height="50" />
+      </bpmndi:BPMNShape>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>

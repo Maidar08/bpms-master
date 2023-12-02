@@ -1,0 +1,62 @@
+.title {
+  display: flex;
+  flex-direction: row;
+  color: gray;
+  height: 20px;
+}
+
+.line {
+  width: 30%;
+}
+
+@media only screen and (max-width: 1290px){
+  .title-text {
+    margin-left: 3% ;
+    margin-right: 3% ;
+  }
+  .title {
+    margin-top: 3%;
+    margin-bottom: 3%;
+  }
+}
+
+@media only screen and (max-width: 1024px){
+  .title-text {
+    margin-left: 10% ;
+    margin-right: 3% ;
+  }
+}
+
+@media (max-width: 910px) {
+  .line {
+    width: 20%
+  }
+  .title-text {
+    margin-left: 5% ;
+    margin-right: 3% ;
+  }
+}
+@media only screen and (max-width: 1024px){
+  .separator-line {
+    margin-top: 3%;
+  }
+  .line {
+    width: 15%;
+  }
+}
+
+@media (min-width: 1300px) and (max-width: 1510px){
+  .separator-line {
+    margin-top: 3%;
+  }
+  .line {
+    width: 25%;
+  }
+  .title-text {
+    margin-left: 3% ;
+    margin-right: 3% ;
+  }
+  .title {
+    padding-bottom: 5px;
+  }
+}

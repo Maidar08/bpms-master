@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:bioc="http://bpmn.io/schema/bpmn/biocolor/1.0" id="Definitions_1q7mhwx" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="4.0.0">
+  <bpmn:collaboration id="Collaboration_0qtiq96">
+    <bpmn:participant id="Participant_00oufh1" name="14. Барьцаа хөрөнгө үүсгэх" processRef="bpms_create_collateral" />
+  </bpmn:collaboration>
+  <bpmn:process id="bpms_create_collateral" isExecutable="true">
+    <bpmn:sequenceFlow id="SequenceFlow_0y6ecis" sourceRef="StartEvent_1" targetRef="Activity_0oc62ib" />
+    <bpmn:sequenceFlow id="SequenceFlow_0xn1s7o" sourceRef="user_task_create_collateral" targetRef="Activity_1t6oxqr" />
+    <bpmn:sequenceFlow id="Flow_10apt46" sourceRef="Activity_0oc62ib" targetRef="user_task_create_collateral" />
+    <bpmn:startEvent id="StartEvent_1">
+      <bpmn:outgoing>SequenceFlow_0y6ecis</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:serviceTask id="Activity_0oc62ib" name="generate collateral id" camunda:delegateExpression="${generateCollateralId}">
+      <bpmn:incoming>SequenceFlow_0y6ecis</bpmn:incoming>
+      <bpmn:outgoing>Flow_10apt46</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:sequenceFlow id="Flow_0n8iqll" sourceRef="Activity_1t6oxqr" targetRef="EndEvent_18d071t" />
+    <bpmn:endEvent id="EndEvent_18d071t">
+      <bpmn:incoming>Flow_0n8iqll</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:userTask id="user_task_create_collateral" name="14. Барьцаа хөрөнгө үүсгэх" camunda:formKey="14. Барьцаа үүсгэх">
+      <bpmn:extensionElements>
+        <camunda:formData>
+          <camunda:formField id="collateralId" label="Барьцааны код " type="string">
+            <camunda:validation>
+              <camunda:constraint name="readonly" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="collateralDescription" label="Дэлгэрэнгүй" type="string" />
+          <camunda:formField id="collateralValue" label="Үнэлгээчний үнэлгээ" type="long" />
+          <camunda:formField id="collateralBasicType" label="Үндсэн төрөл" type="string">
+            <camunda:properties>
+              <camunda:property id="type1" value="1.Үл хөдлөх хөрөнгө" />
+              <camunda:property id="type2" value="2.Хөдлөх хөрөнгө" />
+              <camunda:property id="type3" value="3. Биет бус барьцаа" />
+            </camunda:properties>
+            <camunda:validation>
+              <camunda:constraint name="required" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="formOfOwnership" label="Өмчлөлийн хэлбэр" type="string">
+            <camunda:properties>
+              <camunda:property id="Property_3r6a9bi" value="Өөрийн өмчлөл" />
+              <camunda:property id="Property_0f8uhmb" value="Дундын өмчлөл" />
+              <camunda:property id="Property_2umsa18" value="Батлан даагч /  Гуравдагч этгээдийн өмчлөл" />
+              <camunda:property id="Property_3624tva" value="Санхүү түрээс" />
+              <camunda:property id="Property_3ibdrqm" value="Төслийн" />
+            </camunda:properties>
+            <camunda:validation>
+              <camunda:constraint name="required" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="amountOfCollateral" label="Барьцааны дүн" type="long">
+            <camunda:validation>
+              <camunda:constraint name="required" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="collateralSubType" label="Дэд төрөл" type="string">
+            <camunda:validation>
+              <camunda:constraint name="required" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="stateRegistrationNumber" label="Улсын бүртгэлийн дугаар" type="string" />
+          <camunda:formField id="deductionRate" label="Хасагдуулгын хувь" type="long" />
+          <camunda:formField id="product" label="Бүтээгдэхүүн" type="string">
+            <camunda:validation>
+              <camunda:constraint name="required" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="startDate" label="Эхлэх огноо" type="date">
+            <camunda:validation>
+              <camunda:constraint name="required" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="collateralAssessment" label="Үнэлгээ" type="long" defaultValue="0">
+            <camunda:validation>
+              <camunda:constraint name="readonly" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="locationOfCollateral" label="Барьцааны байршил" type="string">
+            <camunda:properties>
+              <camunda:property id="Property_1oi6jlq" value="Улаанбаатар" />
+              <camunda:property id="Property_02mdg3q" value="Орон нутаг" />
+            </camunda:properties>
+          </camunda:formField>
+          <camunda:formField id="typeOfAssessment" label="Үнэлгээний төрөл" type="string">
+            <camunda:properties>
+              <camunda:property id="Property_3jredgv" value="Жишиг үнэлгээ" />
+              <camunda:property id="Property_27pq2nh" value="Хөрөнгийн үнэлгээчний үнэлгээ" />
+              <camunda:property id="Property_1leipae" value="Бусад үнэлгээ" />
+            </camunda:properties>
+          </camunda:formField>
+        </camunda:formData>
+        <camunda:taskListener delegateExpression="${setParentTaskIdTaskListener}" event="create" />
+        <camunda:properties>
+          <camunda:property name="createCollateralParentTaskName" value="user_task_collateral_list" />
+        </camunda:properties>
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_10apt46</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_0xn1s7o</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:serviceTask id="Activity_1t6oxqr" name="create collateral to CBS" camunda:delegateExpression="${createCollateralToCore}">
+      <bpmn:incoming>SequenceFlow_0xn1s7o</bpmn:incoming>
+      <bpmn:outgoing>Flow_0n8iqll</bpmn:outgoing>
+    </bpmn:serviceTask>
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Collaboration_0qtiq96">
+      <bpmndi:BPMNShape id="Participant_00oufh1_di" bpmnElement="Participant_00oufh1" isHorizontal="true">
+        <dc:Bounds x="160" y="110" width="880" height="230" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_10apt46_di" bpmnElement="Flow_10apt46">
+        <di:waypoint x="410" y="210" />
+        <di:waypoint x="470" y="210" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_0xn1s7o_di" bpmnElement="SequenceFlow_0xn1s7o">
+        <di:waypoint x="570" y="210" />
+        <di:waypoint x="630" y="210" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_0y6ecis_di" bpmnElement="SequenceFlow_0y6ecis">
+        <di:waypoint x="258" y="210" />
+        <di:waypoint x="310" y="210" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0n8iqll_di" bpmnElement="Flow_0n8iqll">
+        <di:waypoint x="730" y="210" />
+        <di:waypoint x="842" y="210" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="Activity_1wmjdbx_di" bpmnElement="Activity_0oc62ib" bioc:stroke="rgb(251, 140, 0)" bioc:fill="rgb(255, 224, 178)">
+        <dc:Bounds x="310" y="170" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
+        <dc:Bounds x="222" y="192" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="EndEvent_18d071t_di" bpmnElement="EndEvent_18d071t">
+        <dc:Bounds x="842" y="192" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="UserTask_0t7to26_di" bpmnElement="user_task_create_collateral" bioc:stroke="rgb(67, 160, 71)" bioc:fill="rgb(200, 230, 201)">
+        <dc:Bounds x="470" y="170" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1414ioo_di" bpmnElement="Activity_1t6oxqr">
+        <dc:Bounds x="630" y="170" width="100" height="80" />
+      </bpmndi:BPMNShape>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>

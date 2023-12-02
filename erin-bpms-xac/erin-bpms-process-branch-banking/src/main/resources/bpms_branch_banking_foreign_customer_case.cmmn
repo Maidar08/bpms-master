@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cmmn:definitions xmlns:dc="http://www.omg.org/spec/CMMN/20151109/DC" xmlns:cmmndi="http://www.omg.org/spec/CMMN/20151109/CMMNDI" xmlns:cmmn="http://www.omg.org/spec/CMMN/20151109/MODEL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="Definitions_0e18zz1" targetNamespace="http://bpmn.io/schema/cmmn" exporter="Camunda Modeler" exporterVersion="3.7.3">
+  <cmmn:case id="branch_banking_foreign_customer_case">
+    <cmmn:casePlanModel id="bpms_branch_banking_foreign_customer_case" name="Гадаад иргэн">
+      <cmmn:planItem id="PlanItem_1" definitionRef="ProcessTask_0rzep0y">
+        <cmmn:itemControl id="PlanItemControl_18wi2br">
+          <cmmn:repetitionRule id="RepetitionRule_1a02g4t" />
+          <cmmn:manualActivationRule id="ManualActivationRule_1cb144r" />
+        </cmmn:itemControl>
+      </cmmn:planItem>
+      <cmmn:processTask id="ProcessTask_0rzep0y" name="Гадаад иргэн" processRef="bpms_branch_banking_foreign_customer_process_task" />
+    </cmmn:casePlanModel>
+  </cmmn:case>
+  <cmmndi:CMMNDI>
+    <cmmndi:CMMNDiagram id="CMMNDiagram_06gqjl2">
+      <cmmndi:Size width="500" height="500" />
+      <cmmndi:CMMNShape id="DI_CasePlanModel_16y7fsa" cmmnElementRef="bpms_branch_banking_foreign_customer_case">
+        <dc:Bounds x="156" y="119" width="534" height="389" />
+        <cmmndi:CMMNLabel />
+      </cmmndi:CMMNShape>
+      <cmmndi:CMMNShape id="PlanItem_0unoiwr_di" cmmnElementRef="PlanItem_1">
+        <dc:Bounds x="211" y="165" width="100" height="80" />
+        <cmmndi:CMMNLabel />
+      </cmmndi:CMMNShape>
+    </cmmndi:CMMNDiagram>
+  </cmmndi:CMMNDI>
+</cmmn:definitions>

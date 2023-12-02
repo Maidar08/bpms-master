@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" xmlns:bioc="http://bpmn.io/schema/bpmn/biocolor/1.0" id="Definitions_0dxrurm" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="3.5.0">
+  <bpmn:collaboration id="Collaboration_1w91tc9">
+    <bpmn:participant id="salary_organization_process" name="Цалингийн байгууллага бүртгэх" processRef="bpms_salary_organization_process" />
+  </bpmn:collaboration>
+  <bpmn:process id="bpms_salary_organization_process" isExecutable="true">
+    <bpmn:startEvent id="StartEvent_1">
+      <bpmn:outgoing>Flow_0bjikbw</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:sequenceFlow id="Flow_0bjikbw" sourceRef="StartEvent_1" targetRef="user_task_salary_organization_registration" />
+    <bpmn:sequenceFlow id="Flow_0cufbe1" sourceRef="user_task_salary_organization_registration" targetRef="Event_09d43nx" />
+    <bpmn:endEvent id="Event_09d43nx">
+      <bpmn:incoming>Flow_0cufbe1</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:userTask id="user_task_salary_organization_registration" name="Цалингийн байгууллага бүртгэх">
+      <bpmn:extensionElements>
+        <camunda:formData>
+          <camunda:formField id="branchId" label="Салбарын дугаар" type="string">
+            <camunda:validation>
+              <camunda:constraint name="readonly" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="registerId" label="Регистрийн дугаар" type="string">
+            <camunda:validation>
+              <camunda:constraint name="readonly" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="registeredName" label="Бүртгэлийн нэр" type="string">
+            <camunda:validation>
+              <camunda:constraint name="readonly" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="contractNumber" label="Гэрээний дугаар" type="string">
+            <camunda:validation>
+              <camunda:constraint name="readonly" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="contractDate" label="Гэрээ байгуулсан огноо" type="date" />
+          <camunda:formField id="contractPeriod" label="Гэрээний хугацаа" type="string">
+            <camunda:properties>
+              <camunda:property id="oneYear" value="1 жил" />
+              <camunda:property id="twoYear" value="2 жил" />
+              <camunda:property id="threeYear" value="3 жил" />
+              <camunda:property id="fourYear" value="4 жил" />
+              <camunda:property id="fiveYear" value="5 жил" />
+            </camunda:properties>
+          </camunda:formField>
+          <camunda:formField id="contractEndDate" label="Гэрээний дуусах огноо" type="string">
+            <camunda:validation>
+              <camunda:constraint name="readonly" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="contractOldNumber" label="Өмнөх гэрээний дугаар" type="string">
+            <camunda:validation>
+              <camunda:constraint name="readonly" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="partnerType" label="Байгууллагын төрөл" type="string">
+            <camunda:properties>
+              <camunda:property id="Property_03f3cjm" value="Төрийн" />
+              <camunda:property id="Property_0ildd02" value="Хувийн" />
+            </camunda:properties>
+          </camunda:formField>
+          <camunda:formField id="partnerDirection" label="Үйл ажиллагааны чиглэл" type="string">
+            <camunda:properties>
+              <camunda:property id="Property_1r6h9v5" value="Хөдөө аж ахуй" />
+              <camunda:property id="Property_251pfum" value="Барилга" />
+              <camunda:property id="Property_0q74lr0" value="Аж үйлдвэр" />
+              <camunda:property id="Property_05eu328" value="Уул уурхай үндсэн" />
+              <camunda:property id="Property_2bb206u" value="Уул уурхайн туслах" />
+              <camunda:property id="Property_0jqcv97" value="Бусад" />
+              <camunda:property id="Property_1m75j9q" value="Үйлчилгээ" />
+              <camunda:property id="Property_3k76db1" value="Худалдаа" />
+            </camunda:properties>
+          </camunda:formField>
+          <camunda:formField id="partnerCif" label="Сиф дугаар" type="string">
+            <camunda:validation>
+              <camunda:constraint name="readonly" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="partnerRegistryId" label="Улсын бүртгэлийн дугаар" type="string" />
+          <camunda:formField id="partnerEstablishedDate" label="Байгууллагдсан огноо" type="date" />
+          <camunda:formField id="partnerCodeND" label="Ажил олгогчийн код /НД/" type="string" />
+          <camunda:formField id="partnerNDSubordinate" label="Нийгмийн даатгалын харъяалал" type="string">
+            <camunda:properties>
+              <camunda:property id="Property_2gt35u6" value="Багануур дүүрэг" />
+              <camunda:property id="Property_0b80b8g" value="Багахангай дүүрэг" />
+              <camunda:property id="Property_1ea5if9" value="Баянгол дүүрэг" />
+              <camunda:property id="Property_1v860hk" value="Баянзүрх дүүрэг" />
+              <camunda:property id="Property_0m2ton6" value="Налайх дүүрэг" />
+              <camunda:property id="Property_1cnh7b8" value="Сонгинохайрхан дүүрэг" />
+              <camunda:property id="Property_2s33fbe" value="Сүхбаатар дүүрэг" />
+              <camunda:property id="Property_1bh4ai9" value="Хан-Уул дүүрэг" />
+              <camunda:property id="Property_1o6hfge" value="Чингэлтэй дүүрэг" />
+              <camunda:property id="Property_0t13hoq" value="Архангай аймаг" />
+              <camunda:property id="Property_3713rn1" value="Баян-Өлгий аймаг" />
+              <camunda:property id="Property_27fqblt" value="Баянхонгор аймаг" />
+              <camunda:property id="Property_3bs3oeu" value="Булган аймаг" />
+              <camunda:property id="Property_1f29ac3" value="Говь-Алтай аймаг" />
+              <camunda:property id="Property_0mvub1n" value="Говьсүмбэр аймаг" />
+              <camunda:property id="Property_3ddm5bb" value="Дархан-Уул аймаг" />
+              <camunda:property id="Property_374clao" value="Дорноговь аймаг" />
+              <camunda:property id="Property_0gv9ksl" value="Дорнод аймаг" />
+              <camunda:property id="Property_10sknbs" value="Дундговь аймаг" />
+              <camunda:property id="Property_1381j8u" value="Завхан аймаг" />
+              <camunda:property id="Property_1c4g1ka" value="Орхон аймаг" />
+              <camunda:property id="Property_2qj2pct" value="Өвөрхангай аймаг" />
+              <camunda:property id="Property_2h8cumk" value="Өмнөговь аймаг" />
+              <camunda:property id="Property_0pti36f" value="Сүхбаатар аймаг" />
+              <camunda:property id="Property_3rdnfhd" value="Сэлэнгэ аймаг" />
+              <camunda:property id="Property_2sgtl66" value="Төв аймаг" />
+              <camunda:property id="Property_0guhr15" value="Увс аймаг" />
+              <camunda:property id="Property_325kqot" value="Ховд аймаг" />
+              <camunda:property id="Property_3nibeh6" value="Хөвсгөл аймаг" />
+              <camunda:property id="Property_2i9pi9o" value="Хэнтий аймаг" />
+            </camunda:properties>
+          </camunda:formField>
+          <camunda:formField id="partnerAccountId" label="Дансны дугаар" type="string" />
+          <camunda:formField id="partnerContactEmployee" label="Гэрээ байгуулагчийн нэр" type="string" />
+          <camunda:formField id="partnerPhoneNumber" label="Албан тушаал" type="string" />
+          <camunda:formField id="feeHasLoan" label="Зээлд хамрагдах эсэх" type="string">
+            <camunda:properties>
+              <camunda:property id="Property_1pln87i" value="Тийм" />
+              <camunda:property id="Property_2sd01do" value="Үгүй" />
+            </camunda:properties>
+          </camunda:formField>
+          <camunda:formField id="feeHasOnline" label="Онлайнаар олгох эсэх" type="string">
+            <camunda:properties>
+              <camunda:property id="Property_2vnk0fr" value="Тийм" />
+              <camunda:property id="Property_3rgtg4a" value="Үгүй" />
+            </camunda:properties>
+          </camunda:formField>
+          <camunda:formField id="feeType" label="Хүүгийн нөхцөл" type="string">
+            <camunda:properties>
+              <camunda:property id="standard" value="Стандарт" />
+              <camunda:property id="special" value="Тусгай" />
+            </camunda:properties>
+          </camunda:formField>
+          <camunda:formField id="feeOrganizationRating" label="Байгууллагын зэрэглэл" type="string">
+            <camunda:properties>
+              <camunda:property id="a" value="A" />
+              <camunda:property id="b" value="B" />
+              <camunda:property id="c" value="C" />
+            </camunda:properties>
+          </camunda:formField>
+          <camunda:formField id="feeAmountPercent" label="Хүүний хэмжээ" type="string" />
+          <camunda:formField id="feeKeyWorker" label="Түлхүүр ажилтны хүү" type="string" />
+          <camunda:formField id="feeBankFraud" label="Банкинд төлөх алданги" type="string" />
+          <camunda:formField id="contractExtensionYear" label="Сунгалтын хугацаа" type="string">
+            <camunda:properties>
+              <camunda:property id="Property_270hohq" value="1 жил" />
+              <camunda:property id="Property_2h86mcm" value="2 жил" />
+              <camunda:property id="Property_3qaskga" value="3 жил" />
+              <camunda:property id="Property_3rdhusq" value="4 жил" />
+              <camunda:property id="Property_1qv0vco" value="5 жил" />
+            </camunda:properties>
+          </camunda:formField>
+          <camunda:formField id="contractHasExtension" label="Сунгасан эсэх" type="string">
+            <camunda:properties>
+              <camunda:property id="Property_1i9h9va" value="Тийм" />
+              <camunda:property id="Property_18r1beg" value="Үгүй" />
+            </camunda:properties>
+          </camunda:formField>
+          <camunda:formField id="contractExtensionNewDate" label="Сунгасан огноо" type="date" />
+          <camunda:formField id="feeSalaryTransaction" label="Цалингийн гүйлгээний шимтгэл" type="string" />
+          <camunda:formField id="feeSalaryDays" label="Сард хэдэн удаа цалин тавих" type="string">
+            <camunda:properties>
+              <camunda:property id="oneTime" value="1 удаа" />
+              <camunda:property id="twoTimes" value="2 удаа" />
+            </camunda:properties>
+            <camunda:validation>
+              <camunda:constraint name="required" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="feeSalaryDaysFirst" label="Цалин тавих өдрүүд" type="string">
+            <camunda:properties>
+              <camunda:property id="Property_3ctnbgg" value="1" />
+              <camunda:property id="Property_37skcgm" value="2" />
+              <camunda:property id="Property_0kbkpj4" value="3" />
+              <camunda:property id="Property_0b45ipf" value="4" />
+              <camunda:property id="Property_2f4shnv" value="5" />
+              <camunda:property id="Property_38pvh21" value="6" />
+              <camunda:property id="Property_2a212li" value="7" />
+              <camunda:property id="Property_0ctr1rh" value="8" />
+              <camunda:property id="Property_3e9cq8u" value="9" />
+              <camunda:property id="Property_2kma4po" value="10" />
+              <camunda:property id="Property_0k116nh" value="11" />
+              <camunda:property id="Property_0h3iq71" value="12" />
+              <camunda:property id="Property_3e1psfa" value="13" />
+              <camunda:property id="Property_3op0u1g" value="14" />
+              <camunda:property id="Property_0eun10m" value="15" />
+              <camunda:property id="Property_1rllu19" value="16" />
+              <camunda:property id="Property_3u1t3nf" value="17" />
+              <camunda:property id="Property_3hpflq6" value="18" />
+              <camunda:property id="Property_1fpr8mk" value="19" />
+              <camunda:property id="Property_3jir7re" value="20" />
+              <camunda:property id="Property_3stcamb" value="21" />
+              <camunda:property id="Property_0512uue" value="22" />
+              <camunda:property id="Property_3mi36fk" value="23" />
+              <camunda:property id="Property_31tfgva" value="24" />
+              <camunda:property id="Property_2ekhu18" value="25" />
+              <camunda:property id="Property_1la583d" value="26" />
+              <camunda:property id="Property_3n22kd8" value="27" />
+              <camunda:property id="Property_35fjcj8" value="28" />
+              <camunda:property id="Property_1ncmubg" value="29" />
+              <camunda:property id="Property_2ph5a9u" value="30" />
+              <camunda:property id="Property_27er8id" value="31" />
+            </camunda:properties>
+          </camunda:formField>
+          <camunda:formField id="feeSalaryDaysSecond" label=" ." type="string">
+            <camunda:properties>
+              <camunda:property id="Property_2coh2bc" value="1" />
+              <camunda:property id="Property_315bn9s" value="2" />
+              <camunda:property id="Property_0sfdqd8" value="3" />
+              <camunda:property id="Property_23kkr1o" value="4" />
+              <camunda:property id="Property_2sb0cb8" value="5" />
+              <camunda:property id="Property_3mmgjil" value="6" />
+              <camunda:property id="Property_25809fa" value="7" />
+              <camunda:property id="Property_2ntm6mc" value="8" />
+              <camunda:property id="Property_294fk6o" value="9" />
+              <camunda:property id="Property_3bq6jn5" value="10" />
+              <camunda:property id="Property_2mdjreg" value="11" />
+              <camunda:property id="Property_18n87va" value="12" />
+              <camunda:property id="Property_37n6kvl" value="13" />
+              <camunda:property id="Property_3ag47lh" value="14" />
+              <camunda:property id="Property_1tif02f" value="15" />
+              <camunda:property id="Property_1j04ver" value="16" />
+              <camunda:property id="Property_2lofv0f" value="17" />
+              <camunda:property id="Property_36if8is" value="18" />
+              <camunda:property id="Property_0138a5s" value="19" />
+              <camunda:property id="Property_15a71if" value="20" />
+              <camunda:property id="Property_1ob734n" value="21" />
+              <camunda:property id="Property_30dk6b9" value="22" />
+              <camunda:property id="Property_0e0g4hn" value="23" />
+              <camunda:property id="Property_0dlj9bu" value="24" />
+              <camunda:property id="Property_20qfdgc" value="25" />
+              <camunda:property id="Property_24il6m6" value="26" />
+              <camunda:property id="Property_3ifjupp" value="27" />
+              <camunda:property id="Property_2cqthvh" value="28" />
+              <camunda:property id="Property_3fktmfb" value="29" />
+              <camunda:property id="Property_32us8un" value="30" />
+              <camunda:property id="Property_105f6kl" value="31" />
+            </camunda:properties>
+            <camunda:validation>
+              <camunda:constraint name="readonly" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="contractSpecialRemark" type="string" />
+          <camunda:formField id="temporaryState" label="Төлөв" type="string">
+            <camunda:validation>
+              <camunda:constraint name="readonly" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="processTypeId" type="string" />
+          <camunda:formField id="partnerTotalEmployee" label="Нийт ажилтаны тоо" type="long" />
+        </camunda:formData>
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_0bjikbw</bpmn:incoming>
+      <bpmn:outgoing>Flow_0cufbe1</bpmn:outgoing>
+    </bpmn:userTask>
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Collaboration_1w91tc9">
+      <bpmndi:BPMNShape id="Participant_1shm7pr_di" bpmnElement="salary_organization_process" isHorizontal="true">
+        <dc:Bounds x="129" y="60" width="600" height="250" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_0cufbe1_di" bpmnElement="Flow_0cufbe1">
+        <di:waypoint x="470" y="177" />
+        <di:waypoint x="642" y="177" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0bjikbw_di" bpmnElement="Flow_0bjikbw">
+        <di:waypoint x="228" y="177" />
+        <di:waypoint x="370" y="177" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
+        <dc:Bounds x="192" y="159" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_09d43nx_di" bpmnElement="Event_09d43nx">
+        <dc:Bounds x="642" y="159" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1kuxjva_di" bpmnElement="user_task_salary_organization_registration" bioc:stroke="black" bioc:fill="white">
+        <dc:Bounds x="370" y="137" width="100" height="80" />
+      </bpmndi:BPMNShape>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>

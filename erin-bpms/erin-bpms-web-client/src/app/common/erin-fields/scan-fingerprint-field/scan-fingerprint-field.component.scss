@@ -1,0 +1,43 @@
+.fingerprint-form {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  font-size: 11px;
+  margin: 0 0 2px 2px;
+}
+
+.placeholder {
+  width: 96px;
+  height: 107px;
+  border-radius: 5px;
+  border: 1.5px solid var(--primary-color);
+}
+
+img {
+  width: 96px;
+  height: 112px;
+  border-radius: 5px;
+  border: 1.5px solid var(--primary-color);
+}
+
+.scanBtn{
+  max-height: 25px;
+  width: 96px;
+  background-color: var(--primary-color);
+  border: solid var(--primary-color);
+  border-radius: 3px;
+  color: white;
+}
+
+.material-icons {
+  margin-left: -40px;
+  font-size: 80px;
+}
+.progress-bar{
+  width: 96px;
+}
+
+
+

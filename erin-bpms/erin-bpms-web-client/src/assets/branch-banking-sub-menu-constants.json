@@ -1,0 +1,18 @@
+{
+  "_comment": "Харилцагчийн гүйлгээний маягт",
+  "processId5": {
+    "menu": [
+      {"id": "incomeForm", "label": "Орлогын маягт"},
+      {"id": "billingForm", "label": "Зарлагын маягт"},
+      {"id": "paymentForm", "label": "Төлбөрийн маягт"},
+      {"id": "cashierForm", "label": "Кассын орлого/зарлагын маягт"},
+      {"id": "currencyTradingForm", "label": "Валют арилжааны маягт"}
+    ]
+  }
+}
+
+
+
+
+
+

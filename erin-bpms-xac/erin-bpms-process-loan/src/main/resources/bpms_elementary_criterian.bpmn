@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:bioc="http://bpmn.io/schema/bpmn/biocolor/1.0" id="Definitions_1hhxnxr" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="3.5.0">
+  <bpmn:collaboration id="Collaboration_1mw3i81">
+    <bpmn:participant id="Participant_09e0z7l" name="07. Анхан шатны шалгуур" processRef="bpms_elementary_criterian" />
+  </bpmn:collaboration>
+  <bpmn:process id="bpms_elementary_criterian" isExecutable="true">
+    <bpmn:startEvent id="StartEvent_1" name="Харилцагчийн мэдээлэл татсан">
+      <bpmn:outgoing>SequenceFlow_01vgkwz</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:sequenceFlow id="SequenceFlow_0boekea" name="Хангаагүй" sourceRef="ExclusiveGateway_0kurpy8" targetRef="Task_0oa31dy">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${elementaryCriterianPassed == "Хангаагүй"}</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:sequenceFlow id="SequenceFlow_0gvtj1w" name="Хангасан" sourceRef="ExclusiveGateway_0kurpy8" targetRef="EndEvent_006rouq">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${elementaryCriterianPassed == "Хангасан"}</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:sequenceFlow id="SequenceFlow_0k7adix" sourceRef="Task_1lwbico" targetRef="ExclusiveGateway_0kurpy8" />
+    <bpmn:sequenceFlow id="SequenceFlow_01vgkwz" sourceRef="StartEvent_1" targetRef="Task_1slfcry" />
+    <bpmn:sequenceFlow id="SequenceFlow_0mopqk4" sourceRef="Task_0oa31dy" targetRef="EndEvent_1pcgqdt" />
+    <bpmn:endEvent id="EndEvent_1pcgqdt" name="Зээлийн хүсэлт банк татгалзан төлөвтэй">
+      <bpmn:incoming>SequenceFlow_0mopqk4</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:endEvent id="EndEvent_006rouq" name="Дараагын шат руу явах">
+      <bpmn:incoming>SequenceFlow_0gvtj1w</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:serviceTask id="Task_0oa31dy" name="Банк татгалзсан төлөвт оруулах" camunda:delegateExpression="${setBankRejectedState}">
+      <bpmn:incoming>SequenceFlow_0boekea</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_0mopqk4</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:exclusiveGateway id="ExclusiveGateway_0kurpy8">
+      <bpmn:incoming>SequenceFlow_0k7adix</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_0gvtj1w</bpmn:outgoing>
+      <bpmn:outgoing>SequenceFlow_0boekea</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:userTask id="Task_1lwbico" name="07. Анхан шатны шалгуур" camunda:formKey="07. Анхан шатны шалгуур">
+      <bpmn:extensionElements>
+        <camunda:formData>
+          <camunda:formField id="fullName" label="Үндсэн зээлдэгч" type="string">
+            <camunda:validation>
+              <camunda:constraint name="readonly" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="riskyCustomerValue" label="Эрсдэлтэй харилцагч " type="string" defaultValue="Эрсдэлгүй">
+            <camunda:validation>
+              <camunda:constraint name="readonly" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="loanClassName" label="Зээлийн ангилал" type="string">
+            <camunda:validation>
+              <camunda:constraint name="readonly" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="elementaryCriterianPassed" label="Шалгуур хангасан эсэх" type="string">
+            <camunda:properties>
+              <camunda:property id="passed" value="Хангасан" />
+              <camunda:property id="rejected" value="Хангаагүй" />
+            </camunda:properties>
+            <camunda:validation>
+              <camunda:constraint name="required" />
+            </camunda:validation>
+          </camunda:formField>
+        </camunda:formData>
+        <camunda:taskListener delegateExpression="${manuallyStartSalaryCalculationListener}" event="complete" />
+        <camunda:taskListener delegateExpression="${disableXypMongolBankTaskListener}" event="complete" />
+      </bpmn:extensionElements>
+      <bpmn:incoming>SequenceFlow_098vbg5</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_0k7adix</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:sequenceFlow id="SequenceFlow_098vbg5" sourceRef="Task_1slfcry" targetRef="Task_1lwbico" />
+    <bpmn:serviceTask id="Task_1slfcry" name="Log variables" camunda:delegateExpression="${variableLoggerTask}">
+      <bpmn:incoming>SequenceFlow_01vgkwz</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_098vbg5</bpmn:outgoing>
+    </bpmn:serviceTask>
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Collaboration_1mw3i81">
+      <bpmndi:BPMNShape id="Participant_09e0z7l_di" bpmnElement="Participant_09e0z7l" isHorizontal="true">
+        <dc:Bounds x="170" y="80" width="780" height="330" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="SequenceFlow_098vbg5_di" bpmnElement="SequenceFlow_098vbg5">
+        <di:waypoint x="410" y="200" />
+        <di:waypoint x="470" y="200" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_0mopqk4_di" bpmnElement="SequenceFlow_0mopqk4">
+        <di:waypoint x="780" y="290" />
+        <di:waypoint x="852" y="290" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_01vgkwz_di" bpmnElement="SequenceFlow_01vgkwz">
+        <di:waypoint x="256" y="200" />
+        <di:waypoint x="310" y="200" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_0k7adix_di" bpmnElement="SequenceFlow_0k7adix">
+        <di:waypoint x="570" y="200" />
+        <di:waypoint x="615" y="200" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_0gvtj1w_di" bpmnElement="SequenceFlow_0gvtj1w">
+        <di:waypoint x="640" y="175" />
+        <di:waypoint x="640" y="140" />
+        <di:waypoint x="852" y="140" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="672" y="113" width="47" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_0boekea_di" bpmnElement="SequenceFlow_0boekea">
+        <di:waypoint x="640" y="225" />
+        <di:waypoint x="640" y="290" />
+        <di:waypoint x="680" y="290" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="619" y="313" width="51" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
+        <dc:Bounds x="220" y="182" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="207" y="236" width="86" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="EndEvent_1pcgqdt_di" bpmnElement="EndEvent_1pcgqdt">
+        <dc:Bounds x="852" y="272" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="830" y="315" width="80" height="40" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="EndEvent_006rouq_di" bpmnElement="EndEvent_006rouq">
+        <dc:Bounds x="852" y="122" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="834" y="165" width="73" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="ServiceTask_1uw7nge_di" bpmnElement="Task_0oa31dy">
+        <dc:Bounds x="680" y="250" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="ExclusiveGateway_0kurpy8_di" bpmnElement="ExclusiveGateway_0kurpy8" isMarkerVisible="true">
+        <dc:Bounds x="615" y="175" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="UserTask_18eslh0_di" bpmnElement="Task_1lwbico" bioc:stroke="rgb(67, 160, 71)" bioc:fill="rgb(200, 230, 201)">
+        <dc:Bounds x="470" y="160" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="ServiceTask_0wwq37v_di" bpmnElement="Task_1slfcry" bioc:stroke="rgb(67, 160, 71)" bioc:fill="rgb(200, 230, 201)">
+        <dc:Bounds x="310" y="160" width="100" height="80" />
+      </bpmndi:BPMNShape>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>

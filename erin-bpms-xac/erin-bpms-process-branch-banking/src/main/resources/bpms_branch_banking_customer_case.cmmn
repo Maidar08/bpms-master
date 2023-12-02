@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cmmn:definitions xmlns:dc="http://www.omg.org/spec/CMMN/20151109/DC" xmlns:cmmndi="http://www.omg.org/spec/CMMN/20151109/CMMNDI" xmlns:cmmn="http://www.omg.org/spec/CMMN/20151109/MODEL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="Definitions_0e6wu1f" targetNamespace="http://bpmn.io/schema/cmmn" exporter="Camunda Modeler" exporterVersion="3.7.3">
+  <cmmn:case id="branch_banking_customer_case">
+    <cmmn:casePlanModel id="bpms_branch_banking_customer_case" name="Харилцагч">
+      <cmmn:planItem id="branch_banking_billing_service_stage" name="Биллинг үйлчилгээ" definitionRef="Stage_0q0h9vy" />
+      <cmmn:planItem id="branch_banking_deposit_contract_stage" name="Хадгаламжийн гэрээ" definitionRef="Stage_1qcdvbp" />
+      <cmmn:planItem id="branch_banking_transaction_service_stage" name="Гүйлгээний баримт хэвлэх" definitionRef="Stage_1le4r88" />
+      <cmmn:planItem id="branch_banking_account_detail_stage" definitionRef="Stage_1ltaz8z" />
+      <cmmn:planItem id="branch_banking_salary_package_transaction_stage" name="Цалингийн багц гүйлгээ" definitionRef="Stage_0d8tpea" />
+      <cmmn:planItem id="branch_banking_ussd_stage" definitionRef="Stage_15g3ygo">
+        <cmmn:documentation id="Documentation_1fdhp7e">teller_branchBankingCustomer</cmmn:documentation>
+      </cmmn:planItem>
+      <cmmn:planItem id="branch_banking_loan_repayment_stage" definitionRef="Stage_1x00uiy" />
+      <cmmn:stage id="Stage_0q0h9vy" name="">
+        <cmmn:planItem id="process_task_custom_pay" name="Гаалийн төлбөр төлөх" definitionRef="ProcessTask_0hgv50s">
+          <cmmn:documentation id="Documentation_18fju0g">teller_branchBankingCustomer,banker_branchBankingCustomer,,admin_2_branchBankingCustomer,admin_branchBankingCustomer,</cmmn:documentation>
+          <cmmn:itemControl id="PlanItemControl_0tljh09">
+            <cmmn:repetitionRule id="RepetitionRule_0rs9iby" />
+            <cmmn:manualActivationRule id="ManualActivationRule_06x39yv" />
+          </cmmn:itemControl>
+        </cmmn:planItem>
+        <cmmn:planItem id="process_task_tax_pay" name="Татвар төлөх" definitionRef="ProcessTask_0cxht2u">
+          <cmmn:documentation id="Documentation_0iul4tc">teller_branchBankingCustomer,banker_branchBankingCustomer,admin_2_branchBankingCustomer,admin_branchBankingCustomer,</cmmn:documentation>
+          <cmmn:itemControl id="PlanItemControl_1g14o0c">
+            <cmmn:repetitionRule id="RepetitionRule_093mfvw" />
+            <cmmn:manualActivationRule id="ManualActivationRule_02ptyfu" />
+          </cmmn:itemControl>
+        </cmmn:planItem>
+        <cmmn:processTask id="ProcessTask_0hgv50s" processRef="bpms_branch_banking_customs_pay" />
+        <cmmn:processTask id="ProcessTask_0cxht2u" name="Татвар төлөх" processRef="bpms_branch_banking_tax_pay" />
+      </cmmn:stage>
+      <cmmn:stage id="Stage_1qcdvbp" name="Хадгаламжийн гэрээ хэвлэх">
+        <cmmn:planItem id="process_task_deposit_contract" name="Харилцах, хадгаламжийн гэрээ" definitionRef="ProcessTask_1nzwxd2">
+          <cmmn:documentation id="Documentation_1poudjx">teller_branchBankingCustomer,banker_branchBankingCustomer,admin_branchBankingCustomer,admin_2_branchBankingCustomer,</cmmn:documentation>
+          <cmmn:itemControl id="PlanItemControl_1ukvyem">
+            <cmmn:repetitionRule id="RepetitionRule_12i55u7" />
+            <cmmn:manualActivationRule id="ManualActivationRule_0iuoh6k" />
+          </cmmn:itemControl>
+        </cmmn:planItem>
+        <cmmn:planItem id="process_task_future_millionare" name="Ирээдүйн саятан гэрээ" definitionRef="ProcessTask_0rbln5e">
+          <cmmn:documentation id="Documentation_0ooqeit">teller_branchBankingCustomer,banker_branchBankingCustomer,admin_branchBankingCustomer,admin_2_branchBankingCustomer,</cmmn:documentation>
+          <cmmn:itemControl id="PlanItemControl_1jbzeki">
+            <cmmn:repetitionRule id="RepetitionRule_14240je" />
+            <cmmn:manualActivationRule id="ManualActivationRule_03i4xq0" />
+          </cmmn:itemControl>
+        </cmmn:planItem>
+        <cmmn:processTask id="ProcessTask_1nzwxd2" name="Харилцах,хадгаламжийн гэрээ татах" processRef="bpms_branch_banking_deposit_contract" />
+        <cmmn:processTask id="ProcessTask_0rbln5e" name="Ирээдүйн саятан гэрээ татах" processRef="bpms_branch_banking_future_millionare" />
+      </cmmn:stage>
+      <cmmn:stage id="Stage_1le4r88" name="">
+        <cmmn:planItem id="process_task_cust_transaction_form" name="Харилцагчийн гүйлгээний маягт" definitionRef="ProcessTask_1xha6vs">
+          <cmmn:documentation id="Documentation_1h3x7ur">teller_branchBankingCustomer,banker_branchBankingCustomer,,admin_2_branchBankingCustomer,admin_branchBankingCustomer,</cmmn:documentation>
+          <cmmn:itemControl id="PlanItemControl_0fr9qd2">
+            <cmmn:repetitionRule id="RepetitionRule_1e5sfqv" />
+            <cmmn:manualActivationRule id="ManualActivationRule_0tpc0b5" />
+          </cmmn:itemControl>
+        </cmmn:planItem>
+        <cmmn:planItem id="process_task_e_transaction_form" definitionRef="ProcessTask_13kkpef">
+          <cmmn:documentation id="Documentation_1kakno6">teller_branchBankingCustomer,banker_branchBankingCustomer,,admin_2_branchBankingCustomer,admin_branchBankingCustomer,</cmmn:documentation>
+          <cmmn:itemControl id="PlanItemControl_1s7klfp">
+            <cmmn:repetitionRule id="RepetitionRule_0u3jrkk" />
+            <cmmn:manualActivationRule id="ManualActivationRule_1ew4g9q" />
+          </cmmn:itemControl>
+        </cmmn:planItem>
+        <cmmn:processTask id="ProcessTask_1xha6vs" name="Харилцагчийн гүйлгээний баримт" processRef="bpms_branch_banking_customer_transaction_form" />
+        <cmmn:processTask id="ProcessTask_13kkpef" name="Цахим гүйлгээ" processRef="bpms_branch_banking_e_transaction" />
+      </cmmn:stage>
+      <cmmn:stage id="Stage_1ltaz8z" name="Дансны тодорхойлолт хэвлэх">
+        <cmmn:planItem id="process_task_account_reference" name="Дансны тодорхойлолт" definitionRef="ProcessTask_0fsxeql">
+          <cmmn:documentation id="Documentation_1oroo8d">teller_branchBankingCustomer,banker_branchBankingCustomer,admin_branchBankingCustomer,admin_2_branchBankingCustomer,</cmmn:documentation>
+          <cmmn:itemControl id="PlanItemControl_1qx1343">
+            <cmmn:repetitionRule id="RepetitionRule_1ta7kwz" />
+            <cmmn:manualActivationRule id="ManualActivationRule_1q48bcu" />
+          </cmmn:itemControl>
+        </cmmn:planItem>
+        <cmmn:processTask id="ProcessTask_0fsxeql" processRef="bpms_branch_banking_account_reference" />
+      </cmmn:stage>
+      <cmmn:stage id="Stage_0d8tpea" name="">
+        <cmmn:planItem id="process_task_salary_package_transaction" name="Цалингийн багц гүйлгээ" definitionRef="ProcessTask_15x72nj">
+          <cmmn:documentation id="Documentation_1mla5g9">teller_branchBankingCustomer,banker_branchBankingCustomer,admin_2_branchBankingCustomer,admin_branchBankingCustomer,</cmmn:documentation>
+          <cmmn:itemControl id="PlanItemControl_0llq3yk">
+            <cmmn:repetitionRule id="RepetitionRule_1iruq8l" />
+            <cmmn:manualActivationRule id="ManualActivationRule_0woda7l" />
+          </cmmn:itemControl>
+        </cmmn:planItem>
+        <cmmn:processTask id="ProcessTask_15x72nj" processRef="bpms_branch_banking_salary_package_transaction" />
+      </cmmn:stage>
+      <cmmn:stage id="Stage_15g3ygo" name="USSD үйлчилгээ">
+        <cmmn:planItem id="process_task_ussd" name="USSD үйлчилгээ" definitionRef="ProcessTask_0ea3nmv">
+          <cmmn:documentation id="Documentation_0wbe2zl">cc_officer_branchBankingCustomer,admin_branchBankingCustomer,admin_2_branchBankingCustomer,branch_director_branchBankingCustomer,teller_branchBankingCustomer,banker_branchBankingCustomer,cc_specialist_branchBankingCustomer,</cmmn:documentation>
+          <cmmn:itemControl id="PlanItemControl_17pta58">
+            <cmmn:repetitionRule id="RepetitionRule_0fle38u" />
+            <cmmn:manualActivationRule id="ManualActivationRule_0mgxxjq" />
+          </cmmn:itemControl>
+        </cmmn:planItem>
+        <cmmn:processTask id="ProcessTask_0ea3nmv" processRef="bpms_branch_banking_ussd" />
+      </cmmn:stage>
+      <cmmn:stage id="Stage_1x00uiy" name="Зээлийн эргэн төлөлт">
+        <cmmn:planItem id="process_task_loan_repayment" name="Зээлийн эргэн төлөлт" definitionRef="ProcessTask_1lne8mm">
+          <cmmn:documentation id="Documentation_157nbly">teller_branchBankingCustomer,banker_branchBankingCustomer,admin_2_branchBankingCustomer,admin_branchBankingCustomer,</cmmn:documentation>
+          <cmmn:itemControl id="PlanItemControl_0i3hikd">
+            <cmmn:repetitionRule id="RepetitionRule_1vgvo5o" />
+            <cmmn:manualActivationRule id="ManualActivationRule_12u17n2" />
+          </cmmn:itemControl>
+        </cmmn:planItem>
+        <cmmn:processTask id="ProcessTask_1lne8mm" processRef="bpms_branch_banking_loan_repayment" />
+      </cmmn:stage>
+    </cmmn:casePlanModel>
+  </cmmn:case>
+  <cmmndi:CMMNDI>
+    <cmmndi:CMMNDiagram id="CMMNDiagram_1xnfxy2">
+      <cmmndi:Size width="500" height="500" />
+      <cmmndi:CMMNShape id="DI_CasePlanModel_03x4b9s" cmmnElementRef="bpms_branch_banking_customer_case">
+        <dc:Bounds x="145" y="116" width="1560" height="1068" />
+        <cmmndi:CMMNLabel />
+      </cmmndi:CMMNShape>
+      <cmmndi:CMMNShape id="PlanItem_0pwilfs_di" cmmnElementRef="branch_banking_billing_service_stage">
+        <dc:Bounds x="321" y="224" width="375" height="227" />
+        <cmmndi:CMMNLabel />
+      </cmmndi:CMMNShape>
+      <cmmndi:CMMNShape id="PlanItem_13ysnut_di" cmmnElementRef="process_task_custom_pay">
+        <dc:Bounds x="528" y="303" width="100" height="80" />
+        <cmmndi:CMMNLabel />
+      </cmmndi:CMMNShape>
+      <cmmndi:CMMNShape id="PlanItem_0irx8qc_di" cmmnElementRef="branch_banking_deposit_contract_stage">
+        <dc:Bounds x="329" y="509" width="360" height="218" />
+        <cmmndi:CMMNLabel />
+      </cmmndi:CMMNShape>
+      <cmmndi:CMMNShape id="PlanItem_0n0ggsv_di" cmmnElementRef="process_task_deposit_contract">
+        <dc:Bounds x="393" y="574" width="100" height="80" />
+        <cmmndi:CMMNLabel />
+      </cmmndi:CMMNShape>
+      <cmmndi:CMMNShape id="PlanItem_1h8x9m2_di" cmmnElementRef="branch_banking_transaction_service_stage">
+        <dc:Bounds x="809" y="220" width="391" height="235" />
+        <cmmndi:CMMNLabel />
+      </cmmndi:CMMNShape>
+      <cmmndi:CMMNShape id="PlanItem_03ppipd_di" cmmnElementRef="process_task_e_transaction_form">
+        <dc:Bounds x="1006" y="294" width="100" height="80" />
+        <cmmndi:CMMNLabel />
+      </cmmndi:CMMNShape>
+      <cmmndi:CMMNShape id="PlanItem_07z45ni_di" cmmnElementRef="process_task_cust_transaction_form">
+        <dc:Bounds x="873" y="294" width="100" height="80" />
+        <cmmndi:CMMNLabel />
+      </cmmndi:CMMNShape>
+      <cmmndi:CMMNShape id="PlanItem_19zvhf4_di" cmmnElementRef="process_task_future_millionare">
+        <dc:Bounds x="530" y="574" width="100" height="80" />
+        <cmmndi:CMMNLabel />
+      </cmmndi:CMMNShape>
+      <cmmndi:CMMNShape id="PlanItem_0unr9d5_di" cmmnElementRef="branch_banking_account_detail_stage">
+        <dc:Bounds x="817" y="518" width="350" height="200" />
+        <cmmndi:CMMNLabel />
+      </cmmndi:CMMNShape>
+      <cmmndi:CMMNShape id="PlanItem_12odfsj_di" cmmnElementRef="process_task_account_reference">
+        <dc:Bounds x="877" y="575" width="100" height="80" />
+        <cmmndi:CMMNLabel />
+      </cmmndi:CMMNShape>
+      <cmmndi:CMMNShape id="PlanItem_17vvahd_di" cmmnElementRef="branch_banking_ussd_stage">
+        <dc:Bounds x="1293" y="514" width="341" height="207" />
+        <cmmndi:CMMNLabel />
+      </cmmndi:CMMNShape>
+      <cmmndi:CMMNShape id="PlanItem_08rvo2s_di" cmmnElementRef="process_task_ussd">
+        <dc:Bounds x="1323" y="560" width="100" height="80" />
+        <cmmndi:CMMNLabel />
+      </cmmndi:CMMNShape>
+      <cmmndi:CMMNShape id="PlanItem_0v6j97t_di" cmmnElementRef="branch_banking_salary_package_transaction_stage">
+        <dc:Bounds x="1294" y="242" width="320" height="191" />
+        <cmmndi:CMMNLabel />
+      </cmmndi:CMMNShape>
+      <cmmndi:CMMNShape id="PlanItem_1w3b3a3_di" cmmnElementRef="process_task_salary_package_transaction">
+        <dc:Bounds x="1392" y="284" width="100" height="80" />
+        <cmmndi:CMMNLabel />
+      </cmmndi:CMMNShape>
+      <cmmndi:CMMNShape id="PlanItem_1ouv8d5_di" cmmnElementRef="branch_banking_loan_repayment_stage">
+        <dc:Bounds x="334" y="786" width="350" height="200" />
+        <cmmndi:CMMNLabel />
+      </cmmndi:CMMNShape>
+      <cmmndi:CMMNShape id="PlanItem_0ih88dc_di" cmmnElementRef="process_task_loan_repayment">
+        <dc:Bounds x="384" y="838" width="100" height="80" />
+        <cmmndi:CMMNLabel />
+      </cmmndi:CMMNShape>
+      <cmmndi:CMMNShape id="PlanItem_059mmen_di" cmmnElementRef="process_task_tax_pay">
+        <dc:Bounds x="396" y="303" width="100" height="80" />
+        <cmmndi:CMMNLabel />
+      </cmmndi:CMMNShape>
+    </cmmndi:CMMNDiagram>
+  </cmmndi:CMMNDI>
+</cmmn:definitions>

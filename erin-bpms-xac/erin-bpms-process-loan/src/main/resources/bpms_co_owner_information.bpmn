@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" xmlns:bioc="http://bpmn.io/schema/bpmn/biocolor/1.0" id="Definitions_03d6fsu" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="3.7.3">
+  <bpmn:collaboration id="Collaboration_1s292yr">
+    <bpmn:participant id="Participant_00u3b3q" name="21. Хамтран өмчлөгч" processRef="bpms_co_owner_information" />
+  </bpmn:collaboration>
+  <bpmn:process id="bpms_co_owner_information" isExecutable="true">
+    <bpmn:startEvent id="StartEvent_1">
+      <bpmn:outgoing>Flow_02xx0eh</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:sequenceFlow id="Flow_02xx0eh" sourceRef="StartEvent_1" targetRef="Activity_0ir3v33" />
+    <bpmn:userTask id="Activity_0ir3v33" name="21. Хамтран өмчлөгчийн мэдээлэл оруулах" camunda:formKey="21. Хамтран өмчлөгчийн мэдээлэл оруулах">
+      <bpmn:extensionElements>
+        <camunda:formData>
+          <camunda:formField id="loanProductDescription" label="Бүтээгдэхүүн" type="string">
+            <camunda:validation>
+              <camunda:constraint name="readonly" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="fixedAcceptedLoanAmount" label="Зээлийн дүн" type="long">
+            <camunda:validation>
+              <camunda:constraint name="readonly" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="loanAccountNumber" label="Зээлийн данс" type="string">
+            <camunda:validation>
+              <camunda:constraint name="readonly" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="contractNumber" label="Хэвлэх гэрээ" type="string">
+            <camunda:properties>
+              <camunda:property id="Property_2m4miit" value="Барьцаа хөрөнгө хамтран эзэмшигчийн зөвшөөрөл" />
+              <camunda:property id="Property_0pbdjo6" value="Дараачийн барьцааны гэрээний нөхцөл байна" />
+            </camunda:properties>
+          </camunda:formField>
+          <camunda:formField id="loanAttachmentNumber" label="Хавсралт гэрээний дугаар" type="string" />
+          <camunda:formField id="dateOfLoanAgreement" label="Зээлийн гэрээний байгуулсан огноо" type="date" />
+          <camunda:formField id="typeOfLoanAgreement" label="Зээлийн гэрээний төрөл" type="string">
+            <camunda:properties>
+              <camunda:property id="Property_1s6smab" value="Барьцаат зээлийн гэрээ" />
+              <camunda:property id="Property_3n2flui" value="Зээлийн эрх нээх гэрээ" />
+              <camunda:property id="Property_0fl5v8d" value="Зээлийн шугамын гэрээ" />
+              <camunda:property id="Property_3cqhn57" value="Бизнесийн зээлийн гэрээ" />
+            </camunda:properties>
+          </camunda:formField>
+          <camunda:formField id="collateralListNumber" label="Барьцаа жагсаалтын дугаар" type="string" />
+          <camunda:formField id="attachment" label="Хавсралт" type="string">
+            <camunda:properties>
+              <camunda:property id="Property_1eg4qdk" value="Ипотекийн гэрээ" />
+              <camunda:property id="Property_17c0i7h" value="Батлан даалтын гэрээ" />
+              <camunda:property id="Property_1emk97o" value="Барьцааны гэрээ" />
+            </camunda:properties>
+          </camunda:formField>
+          <camunda:formField id="fullNameCoOwner0" label="Овог нэр" type="string" />
+          <camunda:formField id="fullNameCoOwner1" label="Овог нэр" type="string" />
+          <camunda:formField id="fullNameCoOwner2" label="Овог нэр" type="string" />
+          <camunda:formField id="fullNameCoOwner3" label="Овог нэр" type="string" />
+          <camunda:formField id="fullNameCoOwner4" label="Овог нэр" type="string" />
+          <camunda:formField id="birthCertificateCoOwner0" label="Төрсний Гэрчилгээ" type="string" />
+          <camunda:formField id="birthCertificateCoOwner1" label="Төрсний Гэрчилгээ" type="string" />
+          <camunda:formField id="birthCertificateCoOwner2" label="Төрсний Гэрчилгээ" type="string" />
+          <camunda:formField id="birthCertificateCoOwner3" label="Төрсний Гэрчилгээ" type="string" />
+          <camunda:formField id="birthCertificateCoOwner4" label="Төрсний Гэрчилгээ" type="string" />
+          <camunda:formField id="ageGroupCoOwner0" label="Насны ангилал" type="string">
+            <camunda:properties>
+              <camunda:property id="ageGroupCoOwner01" value="0-13" />
+              <camunda:property id="ageGroupCoOwner02" value="14-17" />
+              <camunda:property id="ageGroupCoOwner03" value="18 нас хүрсэн" />
+            </camunda:properties>
+          </camunda:formField>
+          <camunda:formField id="ageGroupCoOwner1" label="Насны ангилал" type="string">
+            <camunda:properties>
+              <camunda:property id="ageGroupCoOwner11" value="0-13" />
+              <camunda:property id="ageGroupCoOwner12" value="14-17" />
+              <camunda:property id="ageGroupCoOwner13" value="18 нас хүрсэн" />
+            </camunda:properties>
+          </camunda:formField>
+          <camunda:formField id="ageGroupCoOwner2" label="Насны ангилал" type="string">
+            <camunda:properties>
+              <camunda:property id="ageGroupCoOwner21" value="0-13" />
+              <camunda:property id="ageGroupCoOwner22" value="14-17" />
+              <camunda:property id="ageGroupCoOwner23" value="18 нас хүрсэн" />
+            </camunda:properties>
+          </camunda:formField>
+          <camunda:formField id="ageGroupCoOwner3" label="Насны ангилал" type="string">
+            <camunda:properties>
+              <camunda:property id="ageGroupCoOwner31" value="0-13" />
+              <camunda:property id="ageGroupCoOwner32" value="14-17" />
+              <camunda:property id="ageGroupCoOwner33" value="18 нас хүрсэн" />
+            </camunda:properties>
+          </camunda:formField>
+          <camunda:formField id="ageGroupCoOwner4" label="Насны ангилал" type="string">
+            <camunda:properties>
+              <camunda:property id="ageGroupCoOwner41" value="0-13" />
+              <camunda:property id="ageGroupCoOwner42" value="14-17" />
+              <camunda:property id="ageGroupCoOwner43" value="18 нас хүрсэн" />
+            </camunda:properties>
+          </camunda:formField>
+          <camunda:formField id="registerCoOwner0" label="Регистр" type="string" />
+          <camunda:formField id="registerCoOwner1" label="Регистр" type="string" />
+          <camunda:formField id="registerCoOwner2" label="Регистр" type="string" />
+          <camunda:formField id="registerCoOwner3" label="Регистр" type="string" />
+          <camunda:formField id="registerCoOwner4" label="Регистр" type="string" />
+          <camunda:formField id="addressCoOwner0" label="Аймаг/Хот" type="string" />
+          <camunda:formField id="addressCoOwner1" label="Аймаг/Хот" type="string" />
+          <camunda:formField id="addressCoOwner2" label="Аймаг/Хот" type="string" />
+          <camunda:formField id="addressCoOwner3" label="Аймаг/Хот" type="string" />
+          <camunda:formField id="addressCoOwner4" label="Аймаг/Хот" type="string" />
+          <camunda:formField id="attachmentCoOwner0" label="Хавсралт" type="string" />
+          <camunda:formField id="attachmentCoOwner1" label="Хавсралт" type="string" />
+          <camunda:formField id="attachmentCoOwner2" label="Хавсралт" type="string" />
+          <camunda:formField id="attachmentCoOwner3" label="Хавсралт" type="string" />
+          <camunda:formField id="attachmentCoOwner4" label="Хавсралт" type="string" />
+          <camunda:formField id="dateOfLoanAgreementForCoOwner" label="Зээлийн гэрээний байгуулсан огноо" type="date" />
+          <camunda:formField id="collateralAttachmentNumber" label="Барьцааны хавсралтын дугаар" type="string" />
+          <camunda:formField id="attachmentNumber" label="Хавсралтын дугаар" type="string" />
+        </camunda:formData>
+        <camunda:taskListener delegateExpression="${updateContractParamsListener}" event="complete" />
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_02xx0eh</bpmn:incoming>
+    </bpmn:userTask>
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Collaboration_1s292yr">
+      <bpmndi:BPMNShape id="Participant_00u3b3q_di" bpmnElement="Participant_00u3b3q" isHorizontal="true">
+        <dc:Bounds x="160" y="79" width="600" height="250" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_02xx0eh_di" bpmnElement="Flow_02xx0eh">
+        <di:waypoint x="258" y="170" />
+        <di:waypoint x="330" y="170" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
+        <dc:Bounds x="222" y="152" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0n6jjgf_di" bpmnElement="Activity_0ir3v33" bioc:stroke="rgb(67, 160, 71)" bioc:fill="rgb(200, 230, 201)">
+        <dc:Bounds x="330" y="130" width="100" height="80" />
+      </bpmndi:BPMNShape>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>

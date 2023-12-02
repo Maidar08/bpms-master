@@ -1,0 +1,95 @@
+.card-container {
+  margin: 16px;
+  width: auto;
+  height: fit-content;
+  min-height: 150px;
+}
+
+.title-container{
+  margin-top: 0.8vh;
+  margin-bottom: 2.5vh;
+  .title{
+    font-size: 2.2vh;
+  }
+}
+mat-panel-title{
+  font-weight: 500 !important;
+}
+mat-expansion-panel {
+  margin-bottom: 20px;
+}
+mat-label {
+  margin-right: 20px;
+  margin-left: 20px;
+}
+
+add-remove-box {
+  margin-top: 10px;
+}
+
+.subtitle, .sale-result {
+  display: flex;
+}
+
+.subtitle {
+  span { width: 165px; }
+  add-remove-box { flex: 50%; }
+  margin-bottom: 30px;
+}
+.sale-result {
+  margin: 2% 3% 0 0;
+  justify-content: flex-end;
+  ::ng-deep erin-percent-field input {
+    width: 4vw;
+  }
+  ::ng-deep erin-number-input-field {
+    input { width: 9vw }
+  }
+  span { margin-right: 10% }
+  > * { margin-left: 10px }
+}
+
+.workspace-action {
+  display: flex;
+  justify-content: flex-end;
+  > * { margin-left: 10px }
+}
+
+// xac pc
+@media only screen and (max-width: 1241px) and (min-width: 800px) {
+  .subtitle {
+    span { width: 40%; }
+  }
+  .sale-result {
+    ::ng-deep erin-percent-field input {
+      width: 3vw;
+    }
+    ::ng-deep erin-number-input-field {
+      input { width: 7vw }
+    }
+    span { margin-right: 4% }
+    > erin-number-input-field, erin-percent-field {
+      margin-left: 0;
+      margin-right: 8px
+    }
+  }
+}
+
+// xac tablet
+@media only screen and (max-width: 1334px)  and (min-width: 1241px) {
+  .sale-result {
+    span { margin-right: 7%; }
+  }
+}
+
+@media only screen and (max-width: 801px) {
+  .sale-result {
+    ::ng-deep erin-percent-field input {
+      width: 5vw;
+    }
+    ::ng-deep erin-number-input-field {
+      input { width: 12vw }
+    }
+    span { margin-right: 9% }
+  }
+}

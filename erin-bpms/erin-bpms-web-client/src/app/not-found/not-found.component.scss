@@ -1,0 +1,19 @@
+.card {
+  max-width: 400px;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 10%;
+}
+.header{
+  font-weight: bold;
+  color: #00126e;
+}
+.content{
+  margin-left: 30px;
+  margin-top: 50px !important;
+  margin-bottom: 30px !important;
+}
+.mat-card-actions{
+  display: flex;
+}
+

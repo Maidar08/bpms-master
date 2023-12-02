@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" id="Definitions_08qyw5b" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="4.4.0">
+  <bpmn:collaboration id="Collaboration_00k266a">
+    <bpmn:participant id="direct_online_create_loan_account" name="Create loan account" processRef="bpms_direct_online_create_loan_account_process" />
+  </bpmn:collaboration>
+  <bpmn:process id="bpms_direct_online_create_loan_account_process" isExecutable="true">
+    <bpmn:startEvent id="StartEvent_1">
+      <bpmn:outgoing>Flow_1wpw5gy</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:sequenceFlow id="Flow_1wpw5gy" sourceRef="StartEvent_1" targetRef="Task_1p65ar9" />
+    <bpmn:sequenceFlow id="Flow_1sr1j27" sourceRef="Activity_036lh9x" targetRef="direct_online_create_loan_account_task" />
+    <bpmn:sequenceFlow id="Flow_1ciby3s" sourceRef="direct_online_create_loan_account_task" targetRef="Event_0bpq76q" />
+    <bpmn:serviceTask id="direct_online_create_loan_account_task" name="Create loan account" camunda:delegateExpression="${createLoanAccountNewCoreTask}">
+      <bpmn:extensionElements>
+        <camunda:executionListener delegateExpression="${saveCreatedLoanAccountListener}" event="end" />
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_1sr1j27</bpmn:incoming>
+      <bpmn:outgoing>Flow_1ciby3s</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:endEvent id="Event_0bpq76q">
+      <bpmn:incoming>Flow_1ciby3s</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:serviceTask id="Activity_036lh9x" name="Set account creation fields" camunda:delegateExpression="${setAccountCreationFieldsTask}">
+      <bpmn:incoming>SequenceFlow_18lwioh</bpmn:incoming>
+      <bpmn:outgoing>Flow_1sr1j27</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:sequenceFlow id="SequenceFlow_18lwioh" sourceRef="Task_1p65ar9" targetRef="Activity_036lh9x" />
+    <bpmn:serviceTask id="Task_1p65ar9" name="Online Salary Set Account Data" camunda:delegateExpression="${onlineSalarySetAccountData}">
+      <bpmn:incoming>Flow_1wpw5gy</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_18lwioh</bpmn:outgoing>
+    </bpmn:serviceTask>
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Collaboration_00k266a">
+      <bpmndi:BPMNShape id="Participant_09fbc23_di" bpmnElement="direct_online_create_loan_account" isHorizontal="true">
+        <dc:Bounds x="190" y="70" width="790" height="240" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="SequenceFlow_18lwioh_di" bpmnElement="SequenceFlow_18lwioh">
+        <di:waypoint x="440" y="200" />
+        <di:waypoint x="500" y="200" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1ciby3s_di" bpmnElement="Flow_1ciby3s">
+        <di:waypoint x="780" y="200" />
+        <di:waypoint x="882" y="200" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1sr1j27_di" bpmnElement="Flow_1sr1j27">
+        <di:waypoint x="600" y="200" />
+        <di:waypoint x="680" y="200" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1wpw5gy_di" bpmnElement="Flow_1wpw5gy">
+        <di:waypoint x="288" y="200" />
+        <di:waypoint x="340" y="200" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
+        <dc:Bounds x="252" y="182" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_09yhqlh_di" bpmnElement="direct_online_create_loan_account_task">
+        <dc:Bounds x="680" y="160" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_0bpq76q_di" bpmnElement="Event_0bpq76q">
+        <dc:Bounds x="882" y="182" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_036lh9x_di" bpmnElement="Activity_036lh9x">
+        <dc:Bounds x="500" y="160" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="ServiceTask_1lxtu9t_di" bpmnElement="Task_1p65ar9">
+        <dc:Bounds x="340" y="160" width="100" height="80" />
+      </bpmndi:BPMNShape>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>

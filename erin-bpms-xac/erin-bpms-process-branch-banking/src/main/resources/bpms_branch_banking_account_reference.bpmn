@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:bioc="http://bpmn.io/schema/bpmn/biocolor/1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="Definitions_11u081j" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="4.0.0">
+  <bpmn:collaboration id="Collaboration_0k18bz6">
+    <bpmn:participant id="branch_banking_account_reference" name="Дансны тодорхойлолт" processRef="bpms_branch_banking_account_reference" />
+  </bpmn:collaboration>
+  <bpmn:process id="bpms_branch_banking_account_reference" isExecutable="true">
+    <bpmn:sequenceFlow id="Flow_15lt9jh" sourceRef="StartEvent_1" targetRef="user_task_branch_banking_account_reference" />
+    <bpmn:sequenceFlow id="Flow_1hqh7cz" sourceRef="Gateway_1jpla5n" targetRef="user_task_branch_banking_account_reference">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${action == "back"}</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:userTask id="user_task_branch_banking_account_reference" name="Дансны тодорхойлолт" camunda:formKey="Дансны тодорхойлолт">
+      <bpmn:extensionElements>
+        <camunda:formData>
+          <camunda:formField id="accountIdEnter" label="Дансны дугаар" type="long">
+            <camunda:validation>
+              <camunda:constraint name="required" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="language" label="Хэл сонгох" type="string" defaultValue="Монгол">
+            <camunda:properties>
+              <camunda:property id="mng" value="Монгол" />
+              <camunda:property id="eng" value="Англи" />
+            </camunda:properties>
+            <camunda:validation>
+              <camunda:constraint name="required" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="customerFullName" label="Харилцагчийн овог нэр" type="string">
+            <camunda:validation>
+              <camunda:constraint name="readonly" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="accountBalanceRef" label="Дансны үлдэгдэл" type="long">
+            <camunda:validation>
+              <camunda:constraint name="readonly" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="accountCcy" label="Дансны валют" type="string">
+            <camunda:validation>
+              <camunda:constraint name="readonly" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="accountCreatedDt" label="Данс нээсэн огноо" type="string">
+            <camunda:validation>
+              <camunda:constraint name="readonly" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="accountCloseDt" label="Дансны дуусах огноо" type="string">
+            <camunda:validation>
+              <camunda:constraint name="readonly" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="printAverageAmount" label="Дундаж дүн хэвлэх эсэх" type="boolean" defaultValue="false" />
+          <camunda:formField id="printBalanceAmount" label="Үлдэгдэл дүн хэвлэх эсэх" type="boolean" defaultValue="false" />
+          <camunda:formField id="showAccountCreatedDt" label="Данс нээсэн огноо" type="boolean" defaultValue="false" />
+          <camunda:formField id="descriptionRecipient" label="Тодорхойлолт хүлээн авагч" type="string">
+            <camunda:validation>
+              <camunda:constraint name="maxlength" config="150" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="additionalInfo" label="Нэмэлт мэдээлэл" type="string">
+            <camunda:validation>
+              <camunda:constraint name="maxlength" config="300" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="transactionType" label="Гүйлгээний төрөл" type="string" defaultValue="Бэлэн">
+            <camunda:properties>
+              <camunda:property id="cash" value="Бэлэн" />
+              <camunda:property id="noCash" value="Бэлэн бус" />
+            </camunda:properties>
+          </camunda:formField>
+          <camunda:formField id="accountNumber" label="Дансны дугаар" type="long">
+            <camunda:validation>
+              <camunda:constraint name="readonly" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="accountName" label="Дансны нэр" type="string">
+            <camunda:validation>
+              <camunda:constraint name="readonly" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="accountBalance" label="Боломжит  үлдэгдэл" type="long">
+            <camunda:validation>
+              <camunda:constraint name="readonly" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="accountCurrency" label="Дансны валют" type="string">
+            <camunda:validation>
+              <camunda:constraint name="readonly" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="feesAmount" label="Хураамж төлөх дүн" type="long">
+            <camunda:validation>
+              <camunda:constraint name="readonly" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="exemptFromFees" label="Хураамж чөлөөлөх" type="boolean" />
+          <camunda:formField id="reduceFees" label="Хураамж бууруулах" type="boolean" />
+          <camunda:formField id="feeConstant" label="Хураамжны тогтмол утга" type="long" defaultValue="5000" />
+          <camunda:formField id="toAccountNo" type="string" />
+          <camunda:formField id="toAccountCurrency" type="string" />
+          <camunda:formField id="accountRefTranCcy" type="string" defaultValue="MNT" />
+          <camunda:formField id="fee" type="long" />
+        </camunda:formData>
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_15lt9jh</bpmn:incoming>
+      <bpmn:incoming>Flow_1hqh7cz</bpmn:incoming>
+      <bpmn:incoming>SequenceFlow_1mi3dny</bpmn:incoming>
+      <bpmn:outgoing>Flow_13wwvhh</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:startEvent id="StartEvent_1">
+      <bpmn:outgoing>Flow_15lt9jh</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:sequenceFlow id="Flow_13wwvhh" sourceRef="user_task_branch_banking_account_reference" targetRef="Gateway_1jpla5n" />
+    <bpmn:sequenceFlow id="Flow_04t1qxj" sourceRef="Gateway_1jpla5n" targetRef="Event_1e0i2ch">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${action == "complete"}</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:exclusiveGateway id="Gateway_1jpla5n">
+      <bpmn:incoming>Flow_13wwvhh</bpmn:incoming>
+      <bpmn:outgoing>Flow_1hqh7cz</bpmn:outgoing>
+      <bpmn:outgoing>Flow_04t1qxj</bpmn:outgoing>
+      <bpmn:outgoing>Flow_1854pb5</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:sequenceFlow id="Flow_1854pb5" sourceRef="Gateway_1jpla5n" targetRef="ExclusiveGateway_155m2l0">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${action ==  "continue"}</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:serviceTask id="Activity_12pfyu5" name="гүйлгээ хийх" camunda:delegateExpression="${makeAccountFeeTransactionTask}">
+      <bpmn:extensionElements>
+        <camunda:executionListener delegateExpression="${clearTransactionAmountListener}" event="end" />
+      </bpmn:extensionElements>
+      <bpmn:incoming>SequenceFlow_1i7og13</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_1uo2iqb</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:exclusiveGateway id="ExclusiveGateway_155m2l0">
+      <bpmn:incoming>Flow_1854pb5</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_1i7og13</bpmn:outgoing>
+      <bpmn:outgoing>SequenceFlow_0esp2gw</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:sequenceFlow id="SequenceFlow_1i7og13" sourceRef="ExclusiveGateway_155m2l0" targetRef="Activity_12pfyu5">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${transactionType == "Бэлэн"}</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:sequenceFlow id="SequenceFlow_0esp2gw" sourceRef="ExclusiveGateway_155m2l0" targetRef="Task_08k1pjm" />
+    <bpmn:endEvent id="Event_1e0i2ch">
+      <bpmn:extensionElements>
+        <camunda:executionListener delegateExpression="${clearAccountReferenceVariablesListener}" event="end" />
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_04t1qxj</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:serviceTask id="Task_08k1pjm" name="Бэлэн бус гүйлгээ" camunda:delegateExpression="${makeNoCashAccountFeeTransactionTask}">
+      <bpmn:extensionElements>
+        <camunda:executionListener delegateExpression="${clearTransactionAmountListener}" event="end" />
+      </bpmn:extensionElements>
+      <bpmn:incoming>SequenceFlow_0esp2gw</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_14w4983</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:sequenceFlow id="SequenceFlow_1uo2iqb" sourceRef="Activity_12pfyu5" targetRef="ExclusiveGateway_0ak8y6q" />
+    <bpmn:sequenceFlow id="SequenceFlow_14w4983" sourceRef="Task_08k1pjm" targetRef="ExclusiveGateway_0ak8y6q" />
+    <bpmn:sequenceFlow id="SequenceFlow_1mi3dny" sourceRef="ExclusiveGateway_0ak8y6q" targetRef="user_task_branch_banking_account_reference" />
+    <bpmn:exclusiveGateway id="ExclusiveGateway_0ak8y6q">
+      <bpmn:incoming>SequenceFlow_1uo2iqb</bpmn:incoming>
+      <bpmn:incoming>SequenceFlow_14w4983</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_1mi3dny</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Collaboration_0k18bz6">
+      <bpmndi:BPMNShape id="Participant_1wto97y_di" bpmnElement="branch_banking_account_reference" isHorizontal="true">
+        <dc:Bounds x="190" y="70" width="1170" height="370" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="SequenceFlow_1mi3dny_di" bpmnElement="SequenceFlow_1mi3dny">
+        <di:waypoint x="1040" y="175" />
+        <di:waypoint x="1040" y="100" />
+        <di:waypoint x="420" y="100" />
+        <di:waypoint x="420" y="160" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_14w4983_di" bpmnElement="SequenceFlow_14w4983">
+        <di:waypoint x="930" y="320" />
+        <di:waypoint x="1040" y="320" />
+        <di:waypoint x="1040" y="225" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_1uo2iqb_di" bpmnElement="SequenceFlow_1uo2iqb">
+        <di:waypoint x="930" y="200" />
+        <di:waypoint x="1015" y="200" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_0esp2gw_di" bpmnElement="SequenceFlow_0esp2gw">
+        <di:waypoint x="690" y="225" />
+        <di:waypoint x="690" y="320" />
+        <di:waypoint x="830" y="320" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_1i7og13_di" bpmnElement="SequenceFlow_1i7og13">
+        <di:waypoint x="715" y="200" />
+        <di:waypoint x="830" y="200" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1854pb5_di" bpmnElement="Flow_1854pb5">
+        <di:waypoint x="615" y="200" />
+        <di:waypoint x="665" y="200" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_04t1qxj_di" bpmnElement="Flow_04t1qxj">
+        <di:waypoint x="590" y="225" />
+        <di:waypoint x="590" y="390" />
+        <di:waypoint x="1290" y="390" />
+        <di:waypoint x="1290" y="238" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_13wwvhh_di" bpmnElement="Flow_13wwvhh">
+        <di:waypoint x="470" y="200" />
+        <di:waypoint x="565" y="200" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1hqh7cz_di" bpmnElement="Flow_1hqh7cz">
+        <di:waypoint x="590" y="175" />
+        <di:waypoint x="590" y="120" />
+        <di:waypoint x="410" y="120" />
+        <di:waypoint x="410" y="160" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_15lt9jh_di" bpmnElement="Flow_15lt9jh">
+        <di:waypoint x="308" y="200" />
+        <di:waypoint x="370" y="200" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="Activity_1vfel8t_di" bpmnElement="user_task_branch_banking_account_reference" bioc:stroke="rgb(67, 160, 71)" bioc:fill="rgb(200, 230, 201)">
+        <dc:Bounds x="370" y="160" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
+        <dc:Bounds x="272" y="182" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Gateway_1jpla5n_di" bpmnElement="Gateway_1jpla5n" isMarkerVisible="true">
+        <dc:Bounds x="565" y="175" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_12pfyu5_di" bpmnElement="Activity_12pfyu5" bioc:stroke="rgb(251, 140, 0)" bioc:fill="rgb(255, 224, 178)">
+        <dc:Bounds x="830" y="160" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="ExclusiveGateway_155m2l0_di" bpmnElement="ExclusiveGateway_155m2l0" isMarkerVisible="true">
+        <dc:Bounds x="665" y="175" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_1e0i2ch_di" bpmnElement="Event_1e0i2ch">
+        <dc:Bounds x="1272" y="202" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="ServiceTask_0y26y6o_di" bpmnElement="Task_08k1pjm" bioc:stroke="rgb(251, 140, 0)" bioc:fill="rgb(255, 224, 178)">
+        <dc:Bounds x="830" y="280" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="ExclusiveGateway_0ak8y6q_di" bpmnElement="ExclusiveGateway_0ak8y6q" isMarkerVisible="true">
+        <dc:Bounds x="1015" y="175" width="50" height="50" />
+      </bpmndi:BPMNShape>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>

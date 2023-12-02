@@ -1,0 +1,100 @@
+.login-main {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 100vh;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  overflow: hidden;
+}
+
+.login-background {
+  width: 65%;
+}
+
+.login-wrapper {
+  display: block;
+  text-align: center;
+  background-color: white;
+  width: 630px;
+}
+
+.login_picture{
+  height: 100%;
+  overflow: hidden;
+}
+
+.login-card{
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 40vh;
+    background: white;
+    height: 20vh;
+    width: 30vw;
+    border-radius: 5px;
+}
+
+@media only screen and (max-width: 1024px) {
+  .login-main {
+    display: block;
+    margin: 0 auto;
+    vertical-align: middle;
+  }
+  .login-background {
+    display: none;
+  }
+  .login-wrapper {
+    display: inline-block;
+    margin: auto;
+  }
+}
+
+@media only screen and (min-width: 1024px) and (max-width: 1600px) {
+  .login-background img {
+    width: 1000px;
+    height: 100vh;
+  }
+}
+
+@media only screen and (min-width: 2550px) {
+  .login-wrapper {
+    width: 960px;
+  }
+
+}
+
+@media (min-width: 1300px) and (max-width: 1520px){
+  .login-background {
+    width: 70%;
+  }
+  .login-wrapper {
+    display: inline-block;
+    width: 630px;
+  }
+}
+
+@media (min-width: 790px) and (max-width: 910px){
+  .login-background {
+    display: none;
+  }
+  .login-wrapper {
+    width: 100%;
+    height: 100vh;
+    display: inline-block;
+    background-image: url("/assets/images/img.jpg");
+    background-size: cover;
+    background-position: center;
+  }
+
+  .login-card{
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 35vh;
+    background: white;
+    height: 442px;
+    width: 350px;
+    border-radius: 5px;
+    transform: scale(1.5);
+  }
+}

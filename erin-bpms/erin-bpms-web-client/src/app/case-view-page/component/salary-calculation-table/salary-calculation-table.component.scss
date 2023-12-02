@@ -1,0 +1,38 @@
+@media only screen and (min-height: 600px) {
+  body {
+    background-color: lightblue;
+  }
+}
+mat-table{
+  width: auto;
+  height: 55vh;
+  overflow-y: scroll;
+}
+
+input{
+  height: 30px;
+  width: 90%;
+}
+.mat-column-month{
+  flex: 0 0 7% !important;
+}
+ .mat-column-value2, .mat-column-value3, .mat-column-value4{
+  flex: 0 0 15% !important;
+}
+.mat-column-value1{
+  flex: 0 0 20% !important;
+}
+.mat-column-date{
+  flex: 0 0 25% !important;
+}
+mat-checkbox{
+  margin-right: 10px;
+}
+.errorMessage{
+  color: red;
+}
+
+.highlightedSalaryRow{
+  color: var(--secondary-color) !important;
+  font-weight: 700;
+}

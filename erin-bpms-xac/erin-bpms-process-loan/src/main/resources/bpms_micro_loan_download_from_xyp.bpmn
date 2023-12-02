@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" xmlns:bioc="http://bpmn.io/schema/bpmn/biocolor/1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="Definitions_0glvwc5" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="3.5.0">
+  <bpmn:collaboration id="Collaboration_0roz3jh">
+    <bpmn:participant id="Participant_0hl4504" name="ХУР-аас мэдээлэл татах" processRef="bpms_micro_loan_download_from_xyp" />
+  </bpmn:collaboration>
+  <bpmn:process id="bpms_micro_loan_download_from_xyp" isExecutable="true">
+    <bpmn:exclusiveGateway id="ExclusiveGateway_057o0h1">
+      <bpmn:incoming>SequenceFlow_0tspq8o</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_0js01m4</bpmn:outgoing>
+      <bpmn:outgoing>SequenceFlow_0cexts1</bpmn:outgoing>
+      <bpmn:outgoing>Flow_03nhtft</bpmn:outgoing>
+      <bpmn:outgoing>SequenceFlow_1tb0o3g</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:serviceTask id="Activity_1rs678y" name="Үл хөдлөх хөрөнгийн лавлагаа татах" camunda:delegateExpression="${downloadPropertyInfoFromXypTask}">
+      <bpmn:incoming>Flow_03nhtft</bpmn:incoming>
+      <bpmn:outgoing>Flow_1qjcs5s</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:endEvent id="EndEvent_03cxc26" name="Харилцагчын лавлагаануудыг ХУР-аас татсан">
+      <bpmn:incoming>SequenceFlow_1jqnsmy</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:serviceTask id="service_task_micro_khur_ndsh_enquire" name="НДШ-ийн лавлагаа татах" camunda:delegateExpression="${downloadSalaryInfoFromXypTask}">
+      <bpmn:incoming>SequenceFlow_0cexts1</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_15lllr0</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:serviceTask id="service_task_micro_khur_vehicle_enquire" name="Тээврийн хэрэгслийн лавлагаа татах" camunda:delegateExpression="${downloadVehicleInfoFromXypTask}">
+      <bpmn:incoming>SequenceFlow_1tb0o3g</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_1krtz4y</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:startEvent id="StartEvent_1" name="ХУР-аас татах хүсэлт ирсэн">
+      <bpmn:outgoing>SequenceFlow_1ey379v</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:serviceTask id="service_task_micro_khur_download_id_card_enquire" name="Иргэний үнэмлэхний лавлагаа татах" camunda:delegateExpression="${downloadIDCardInfoFromXypTask}">
+      <bpmn:incoming>SequenceFlow_039u504</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_0m09aj6</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:exclusiveGateway id="ExclusiveGateway_1tgpji3">
+      <bpmn:incoming>SequenceFlow_0m09aj6</bpmn:incoming>
+      <bpmn:incoming>SequenceFlow_15lllr0</bpmn:incoming>
+      <bpmn:incoming>Flow_1qjcs5s</bpmn:incoming>
+      <bpmn:incoming>SequenceFlow_1krtz4y</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_1jqnsmy</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:serviceTask id="service_task_micro_khur_address_info" name="Оршин суугаа газрын лавлагаа татах" camunda:delegateExpression="${downloadAddressInfoFromXypTask}">
+      <bpmn:incoming>SequenceFlow_0js01m4</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_039u504</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:userTask id="user_task_micro_loan_download_from_khur" name="03. ХУР лавлагаа" camunda:formKey="03. ХУР лавлагаа">
+      <bpmn:extensionElements>
+        <camunda:formData>
+          <camunda:formField id="month" label="Цалин задаргаа (Сараар)" type="string" defaultValue="12">
+            <camunda:properties>
+              <camunda:property id="year" value="12" />
+              <camunda:property id="two_year" value="24" />
+              <camunda:property id="three_year" value="36" />
+            </camunda:properties>
+            <camunda:validation>
+              <camunda:constraint name="required" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="registerNumber" label="Харилцагчийн регистр" type="string">
+            <camunda:validation>
+              <camunda:constraint name="required" />
+              <camunda:constraint name="readonly" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="employeeRegisterNumber" label="Ажилтны регистр" type="string">
+            <camunda:validation>
+              <camunda:constraint name="required" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="referenceType" label="Лавлагааны төрөл" type="string" defaultValue="Иргэний үнэмлэхний лавлагаа">
+            <camunda:properties>
+              <camunda:property id="identityCardReference" value="Иргэний үнэмлэхний лавлагаа" />
+              <camunda:property id="socialSecurityReference" value="НДШ-ийн лавлагаа" />
+              <camunda:property id="realEstateReference" value="ҮХХ-ийн лавлагаа" />
+              <camunda:property id="vehicleReference" value="Тээврийн хэрэгслийн лавлагаа" />
+            </camunda:properties>
+            <camunda:validation>
+              <camunda:constraint name="required" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="downloadInquiries" label="Лавлагааны утга" type="string" />
+        </camunda:formData>
+        <camunda:taskListener delegateExpression="${setCaseInstanceIdListener}" event="create" />
+      </bpmn:extensionElements>
+      <bpmn:incoming>SequenceFlow_1ey379v</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_0tspq8o</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:sequenceFlow id="SequenceFlow_039u504" sourceRef="service_task_micro_khur_address_info" targetRef="service_task_micro_khur_download_id_card_enquire" />
+    <bpmn:sequenceFlow id="Flow_1qjcs5s" sourceRef="Activity_1rs678y" targetRef="ExclusiveGateway_1tgpji3" />
+    <bpmn:sequenceFlow id="Flow_03nhtft" name="ҮХХ-ийн лавлагаа" sourceRef="ExclusiveGateway_057o0h1" targetRef="Activity_1rs678y">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${referenceType == "ҮХХ-ийн лавлагаа"}</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:sequenceFlow id="SequenceFlow_1jqnsmy" sourceRef="ExclusiveGateway_1tgpji3" targetRef="EndEvent_03cxc26" />
+    <bpmn:sequenceFlow id="SequenceFlow_15lllr0" sourceRef="service_task_micro_khur_ndsh_enquire" targetRef="ExclusiveGateway_1tgpji3" />
+    <bpmn:sequenceFlow id="SequenceFlow_0m09aj6" sourceRef="service_task_micro_khur_download_id_card_enquire" targetRef="ExclusiveGateway_1tgpji3" />
+    <bpmn:sequenceFlow id="SequenceFlow_0cexts1" name="НДШ-ийн лавлагаа" sourceRef="ExclusiveGateway_057o0h1" targetRef="service_task_micro_khur_ndsh_enquire">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${referenceType == "НДШ-ийн лавлагаа"}</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:sequenceFlow id="SequenceFlow_0js01m4" name="Иргэний үнэмлэхний лавлагаа" sourceRef="ExclusiveGateway_057o0h1" targetRef="service_task_micro_khur_address_info">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${referenceType == "Иргэний үнэмлэхний лавлагаа"}</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:sequenceFlow id="SequenceFlow_1ey379v" sourceRef="StartEvent_1" targetRef="user_task_micro_loan_download_from_khur" />
+    <bpmn:sequenceFlow id="SequenceFlow_1tb0o3g" name="Тээврийн хэрэгслийн лавлагаа" sourceRef="ExclusiveGateway_057o0h1" targetRef="service_task_micro_khur_vehicle_enquire">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${referenceType == "Тээврийн хэрэгслийн лавлагаа"}</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:sequenceFlow id="SequenceFlow_0tspq8o" sourceRef="user_task_micro_loan_download_from_khur" targetRef="ExclusiveGateway_057o0h1" />
+    <bpmn:sequenceFlow id="SequenceFlow_1krtz4y" sourceRef="service_task_micro_khur_vehicle_enquire" targetRef="ExclusiveGateway_1tgpji3" />
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Collaboration_0roz3jh">
+      <bpmndi:BPMNShape id="Participant_0hl4504_di" bpmnElement="Participant_0hl4504" isHorizontal="true">
+        <dc:Bounds x="160" y="80" width="1250" height="470" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="SequenceFlow_1krtz4y_di" bpmnElement="SequenceFlow_1krtz4y">
+        <di:waypoint x="920" y="470" />
+        <di:waypoint x="1200" y="470" />
+        <di:waypoint x="1200" y="285" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_0tspq8o_di" bpmnElement="SequenceFlow_0tspq8o">
+        <di:waypoint x="490" y="260" />
+        <di:waypoint x="595" y="260" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_1tb0o3g_di" bpmnElement="SequenceFlow_1tb0o3g">
+        <di:waypoint x="620" y="285" />
+        <di:waypoint x="620" y="470" />
+        <di:waypoint x="820" y="470" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="642" y="410" width="57" height="40" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_1ey379v_di" bpmnElement="SequenceFlow_1ey379v">
+        <di:waypoint x="268" y="260" />
+        <di:waypoint x="390" y="260" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_0js01m4_di" bpmnElement="SequenceFlow_0js01m4">
+        <di:waypoint x="620" y="235" />
+        <di:waypoint x="620" y="160" />
+        <di:waypoint x="820" y="160" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="681" y="110" width="60" height="40" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_0cexts1_di" bpmnElement="SequenceFlow_0cexts1">
+        <di:waypoint x="620" y="285" />
+        <di:waypoint x="620" y="370" />
+        <di:waypoint x="820" y="370" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="656" y="336" width="48" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_0m09aj6_di" bpmnElement="SequenceFlow_0m09aj6">
+        <di:waypoint x="1100" y="160" />
+        <di:waypoint x="1200" y="160" />
+        <di:waypoint x="1200" y="235" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_15lllr0_di" bpmnElement="SequenceFlow_15lllr0">
+        <di:waypoint x="920" y="370" />
+        <di:waypoint x="1200" y="370" />
+        <di:waypoint x="1200" y="285" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_1jqnsmy_di" bpmnElement="SequenceFlow_1jqnsmy">
+        <di:waypoint x="1225" y="260" />
+        <di:waypoint x="1262" y="260" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_03nhtft_di" bpmnElement="Flow_03nhtft">
+        <di:waypoint x="645" y="260" />
+        <di:waypoint x="820" y="260" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="656" y="226" width="47" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1qjcs5s_di" bpmnElement="Flow_1qjcs5s">
+        <di:waypoint x="920" y="260" />
+        <di:waypoint x="1175" y="260" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_039u504_di" bpmnElement="SequenceFlow_039u504">
+        <di:waypoint x="920" y="160" />
+        <di:waypoint x="1000" y="160" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="ExclusiveGateway_057o0h1_di" bpmnElement="ExclusiveGateway_057o0h1" isMarkerVisible="true">
+        <dc:Bounds x="595" y="235" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1bq2zdp_di" bpmnElement="Activity_1rs678y" bioc:stroke="black" bioc:fill="white">
+        <dc:Bounds x="820" y="220" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="EndEvent_03cxc26_di" bpmnElement="EndEvent_03cxc26">
+        <dc:Bounds x="1262" y="242" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1240" y="285" width="82" height="40" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="ServiceTask_0rgtljh_di" bpmnElement="service_task_micro_khur_ndsh_enquire" bioc:stroke="black" bioc:fill="white">
+        <dc:Bounds x="820" y="330" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="ServiceTask_0lcjnar_di" bpmnElement="service_task_micro_khur_vehicle_enquire" bioc:stroke="black" bioc:fill="white">
+        <dc:Bounds x="820" y="430" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
+        <dc:Bounds x="232" y="242" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="214" y="285" width="74" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="ServiceTask_0f0ln8v_di" bpmnElement="service_task_micro_khur_download_id_card_enquire" bioc:stroke="black" bioc:fill="white">
+        <dc:Bounds x="1000" y="120" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="ExclusiveGateway_1tgpji3_di" bpmnElement="ExclusiveGateway_1tgpji3" isMarkerVisible="true">
+        <dc:Bounds x="1175" y="235" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="ServiceTask_1mfg88e_di" bpmnElement="service_task_micro_khur_address_info" bioc:stroke="black" bioc:fill="white">
+        <dc:Bounds x="820" y="120" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="UserTask_0alhcpz_di" bpmnElement="user_task_micro_loan_download_from_khur" bioc:stroke="black" bioc:fill="white">
+        <dc:Bounds x="390" y="220" width="100" height="80" />
+      </bpmndi:BPMNShape>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>

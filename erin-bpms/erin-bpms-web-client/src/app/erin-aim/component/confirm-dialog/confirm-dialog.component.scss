@@ -1,0 +1,14 @@
+.spacer {
+  flex: 1 1 auto;
+}
+
+#confirm-dialog-yes-btn, #confirm-dialog-no-btn{
+  border-radius: 30px !important;
+}
+.dialog-buttons {
+  float: right;
+}
+
+.alternative {
+  word-wrap: break-word;
+}

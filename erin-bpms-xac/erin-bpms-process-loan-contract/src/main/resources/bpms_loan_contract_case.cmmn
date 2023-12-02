@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cmmn:definitions xmlns:dc="http://www.omg.org/spec/CMMN/20151109/DC" xmlns:cmmndi="http://www.omg.org/spec/CMMN/20151109/CMMNDI" xmlns:cmmn="http://www.omg.org/spec/CMMN/20151109/MODEL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:camunda="http://camunda.org/schema/1.0/cmmn" id="Definitions_0uxwutg" targetNamespace="http://bpmn.io/schema/cmmn" exporter="Camunda Modeler" exporterVersion="4.0.0">
+  <cmmn:case id="bpms_loan_contract_case">
+    <cmmn:casePlanModel id="loan_contract" name="Зээлийн гэрээ бэлтгэх кэйс">
+      <cmmn:planItem id="PlanItem_1" name="Зээлийн үндсэн гэрээ бэлтгэх" definitionRef="ProcessTask_10plg6o">
+        <cmmn:itemControl id="PlanItemControl_054nm0g">
+          <cmmn:repetitionRule id="RepetitionRule_11rbdio" />
+          <cmmn:manualActivationRule id="ManualActivationRule_0ny0mhz" />
+        </cmmn:itemControl>
+      </cmmn:planItem>
+      <cmmn:planItem id="bpms_prepare_attachment_contract" name="Хавсралт гэрээ" definitionRef="Stage_02p5bbp">
+        <cmmn:itemControl id="PlanItemControl_1gavvlc">
+          <cmmn:repetitionRule id="RepetitionRule_18izynn" />
+        </cmmn:itemControl>
+      </cmmn:planItem>
+      <cmmn:planItem id="PlanItem_00p49to" name="Зээлийн гэрээ эхлүүлэх" definitionRef="ProcessTask_09rm5ud" />
+      <cmmn:processTask id="ProcessTask_10plg6o" name="Зээлийн үндсэн гэрээ бэлдэх" processRef="bpms_prepare_loan_contract_process">
+        <cmmn:extensionElements>
+          <camunda:in variables="all" />
+          <camunda:out variables="all" />
+        </cmmn:extensionElements>
+      </cmmn:processTask>
+      <cmmn:stage id="Stage_02p5bbp" name="Хавсралт гэрээ">
+        <cmmn:planItem id="PlanItem_1f8hfqk" definitionRef="ProcessTask_1bnmgh0">
+          <cmmn:itemControl id="PlanItemControl_0zx582i">
+            <cmmn:repetitionRule id="RepetitionRule_1uy1ahp" />
+            <cmmn:manualActivationRule id="ManualActivationRule_1dzot34" />
+          </cmmn:itemControl>
+        </cmmn:planItem>
+        <cmmn:planItem id="PlanItem_1et8ru7" definitionRef="ProcessTask_1fjni7e">
+          <cmmn:itemControl id="PlanItemControl_18ognpp">
+            <cmmn:repetitionRule id="RepetitionRule_1dbnot3" />
+            <cmmn:manualActivationRule id="ManualActivationRule_1qjfwir" />
+          </cmmn:itemControl>
+        </cmmn:planItem>
+        <cmmn:planItem id="PlanItem_0gur5lp" definitionRef="ProcessTask_1u4wtux">
+          <cmmn:itemControl id="PlanItemControl_1hcs2xv">
+            <cmmn:repetitionRule id="RepetitionRule_1nnwt2z" />
+            <cmmn:manualActivationRule id="ManualActivationRule_0t1ppjl" />
+          </cmmn:itemControl>
+        </cmmn:planItem>
+        <cmmn:planItem id="PlanItem_16wzrha" name="Зээлийн эргэн төлөлтийн хуваарь (өмнөх)" definitionRef="ProcessTask_1baw71m">
+          <cmmn:itemControl id="PlanItemControl_0hakqd3">
+            <cmmn:repetitionRule id="RepetitionRule_1m73ttg" />
+            <cmmn:manualActivationRule id="ManualActivationRule_0nq62sa" />
+          </cmmn:itemControl>
+        </cmmn:planItem>
+        <cmmn:planItem id="PlanItem_1de8iwv" definitionRef="ProcessTask_13oc56d">
+          <cmmn:itemControl id="PlanItemControl_1s7etu9">
+            <cmmn:repetitionRule id="RepetitionRule_0u2jv7f" />
+            <cmmn:manualActivationRule id="ManualActivationRule_1rep5f6" />
+          </cmmn:itemControl>
+        </cmmn:planItem>
+        <cmmn:planItem id="PlanItem_1k566fp" definitionRef="ProcessTask_0plpp08">
+          <cmmn:itemControl id="PlanItemControl_0fqlwpz">
+            <cmmn:repetitionRule id="RepetitionRule_0h0b6om" />
+            <cmmn:manualActivationRule id="ManualActivationRule_0pvvrro" />
+          </cmmn:itemControl>
+        </cmmn:planItem>
+        <cmmn:planItem id="PlanItem_1sa8msp" definitionRef="ProcessTask_0wnfbd8">
+          <cmmn:itemControl id="PlanItemControl_13vypzv">
+            <cmmn:repetitionRule id="RepetitionRule_1xlr83u" />
+            <cmmn:manualActivationRule id="ManualActivationRule_139d285" />
+          </cmmn:itemControl>
+        </cmmn:planItem>
+        <cmmn:planItem id="PlanItem_0gxmq68" definitionRef="ProcessTask_0aaw5ef">
+          <cmmn:itemControl id="PlanItemControl_1b6fe37">
+            <cmmn:repetitionRule id="RepetitionRule_145izyv" />
+            <cmmn:manualActivationRule id="ManualActivationRule_1nuuc7r" />
+          </cmmn:itemControl>
+        </cmmn:planItem>
+        <cmmn:processTask id="ProcessTask_1bnmgh0" name="Хамтран өмчлөгчийн мэдээлэл оруулах" processRef="bpms_co_owner_contract_process">
+          <cmmn:extensionElements>
+            <camunda:in variables="all" />
+            <camunda:out variables="all" />
+          </cmmn:extensionElements>
+        </cmmn:processTask>
+        <cmmn:processTask id="ProcessTask_1fjni7e" name="Фидуцийн хөрөнгийн мэдээлэл оруулах" processRef="bpms_input_fiduciary_asset_process">
+          <cmmn:extensionElements>
+            <camunda:in variables="all" />
+            <camunda:out variables="all" />
+          </cmmn:extensionElements>
+        </cmmn:processTask>
+        <cmmn:processTask id="ProcessTask_1u4wtux" name="Зээлийн хавсралт гэрээ бэлтгэх" processRef="bpms_attachment_contract_process">
+          <cmmn:extensionElements>
+            <camunda:in variables="all" />
+            <camunda:out variables="all" />
+          </cmmn:extensionElements>
+        </cmmn:processTask>
+        <cmmn:processTask id="ProcessTask_1baw71m" processRef="bpms_loan_repayment_before_process" />
+        <cmmn:processTask id="ProcessTask_13oc56d" name="Зээл олголтын зөвшөөрөл" processRef="bpms_loan_transaction_prepration_process">
+          <cmmn:extensionElements>
+            <camunda:in variables="all" />
+            <camunda:out variables="all" />
+          </cmmn:extensionElements>
+        </cmmn:processTask>
+        <cmmn:processTask id="ProcessTask_0plpp08" name="Зээлийн эргэн төлөлтийн хуваарь (дараах)" processRef="bpms_loan_repayment_after_process" />
+        <cmmn:processTask id="ProcessTask_0wnfbd8" name="Барьцаа хөрөнгийн жагсаалт харах" processRef="bpms_view_loan_collateral_process">
+          <cmmn:extensionElements>
+            <camunda:in variables="all" />
+            <camunda:out variables="all" />
+          </cmmn:extensionElements>
+        </cmmn:processTask>
+        <cmmn:processTask id="ProcessTask_0aaw5ef" name="Худалдах, худалдан авах хавсралт гэрээ бэлтгэх" processRef="bpms_prepare_trade_attachment_contract_process" />
+      </cmmn:stage>
+      <cmmn:processTask id="ProcessTask_09rm5ud" processRef="bpms_start_contract_process">
+        <cmmn:extensionElements>
+          <camunda:in variables="all" />
+          <camunda:out variables="all" />
+        </cmmn:extensionElements>
+      </cmmn:processTask>
+    </cmmn:casePlanModel>
+  </cmmn:case>
+  <cmmndi:CMMNDI>
+    <cmmndi:CMMNDiagram id="CMMNDiagram_1sioeur" name="Зээлийн үндсэн гэрээ бэлтгэх">
+      <cmmndi:Size width="500" height="500" />
+      <cmmndi:CMMNShape id="DI_CasePlanModel_04f7vwp" cmmnElementRef="loan_contract">
+        <dc:Bounds x="187" y="99" width="948" height="460" />
+        <cmmndi:CMMNLabel />
+      </cmmndi:CMMNShape>
+      <cmmndi:CMMNShape id="PlanItem_1gqp3d9_di" cmmnElementRef="PlanItem_1">
+        <dc:Bounds x="486" y="123" width="100" height="80" />
+        <cmmndi:CMMNLabel />
+      </cmmndi:CMMNShape>
+      <cmmndi:CMMNShape id="PlanItem_0ou37ge_di" cmmnElementRef="bpms_prepare_attachment_contract">
+        <dc:Bounds x="253" y="231" width="782" height="292" />
+        <cmmndi:CMMNLabel />
+      </cmmndi:CMMNShape>
+      <cmmndi:CMMNShape id="PlanItem_1q6plc0_di" cmmnElementRef="PlanItem_1f8hfqk">
+        <dc:Bounds x="506" y="271" width="100" height="80" />
+        <cmmndi:CMMNLabel />
+      </cmmndi:CMMNShape>
+      <cmmndi:CMMNShape id="PlanItem_0w2o0wk_di" cmmnElementRef="PlanItem_1et8ru7">
+        <dc:Bounds x="321" y="404" width="100" height="80" />
+        <cmmndi:CMMNLabel />
+      </cmmndi:CMMNShape>
+      <cmmndi:CMMNShape id="PlanItem_013sjcz_di" cmmnElementRef="PlanItem_0gur5lp">
+        <dc:Bounds x="321" y="271" width="100" height="80" />
+        <cmmndi:CMMNLabel />
+      </cmmndi:CMMNShape>
+      <cmmndi:CMMNShape id="PlanItem_17bx1fa_di" cmmnElementRef="PlanItem_00p49to">
+        <dc:Bounds x="279" y="123" width="100" height="80" />
+        <cmmndi:CMMNLabel />
+      </cmmndi:CMMNShape>
+      <cmmndi:CMMNShape id="PlanItem_10n2n3b_di" cmmnElementRef="PlanItem_16wzrha">
+        <dc:Bounds x="663" y="271" width="100" height="80" />
+        <cmmndi:CMMNLabel />
+      </cmmndi:CMMNShape>
+      <cmmndi:CMMNShape id="PlanItem_0kdi9x5_di" cmmnElementRef="PlanItem_1de8iwv">
+        <dc:Bounds x="663" y="404" width="100" height="80" />
+        <cmmndi:CMMNLabel />
+      </cmmndi:CMMNShape>
+      <cmmndi:CMMNShape id="PlanItem_1u8zplk_di" cmmnElementRef="PlanItem_1k566fp">
+        <dc:Bounds x="808" y="271" width="100" height="80" />
+        <cmmndi:CMMNLabel />
+      </cmmndi:CMMNShape>
+      <cmmndi:CMMNShape id="PlanItem_1x3nn5w_di" cmmnElementRef="PlanItem_1sa8msp">
+        <dc:Bounds x="506" y="404" width="100" height="80" />
+        <cmmndi:CMMNLabel />
+      </cmmndi:CMMNShape>
+      <cmmndi:CMMNShape id="PlanItem_02vfntn_di" cmmnElementRef="PlanItem_0gxmq68">
+        <dc:Bounds x="808" y="404" width="100" height="80" />
+        <cmmndi:CMMNLabel />
+      </cmmndi:CMMNShape>
+    </cmmndi:CMMNDiagram>
+  </cmmndi:CMMNDI>
+</cmmn:definitions>

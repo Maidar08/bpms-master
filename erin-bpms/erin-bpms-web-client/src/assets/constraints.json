@@ -1,0 +1,30 @@
+{
+  "businessPropertyType": [
+    {"id": "own", "name": "Өөрийн эзэмшлийн"},
+    {"id": "rental", "name": "Түрээсийн"}
+  ],
+  "industryType": [
+    {"id": "trade", "name": "Худалдаа үйлдвэрлэл"},
+    {"id": "agriculture", "name": "Хөдөө аж ахуй"},
+    {"id": "other", "name": "Бусад"}
+  ],
+  "businessPeriod": [
+    {"id": "oneYear", "name": "1 жил хүртэл"},
+    {"id": "one_twoYear", "name": "1-2 жил"},
+    {"id": "three_fiveYear", "name": "3-5 жил"},
+    {"id": "six_sevenYear", "name": "6-7 жил"},
+    {"id": "moreThanSevenYear", "name": "7-с дээш жил"}
+  ],
+  "customerAge": [
+    {"id": "until26", "name": "26 хүртэл"},
+    {"id": "between26_37", "name": "26-37"},
+    {"id": "between38_47", "name": "38-47"},
+    {"id": "moreThan47", "name": "47-с дээш"}
+  ],
+  "generalRemarks": {"value": "Судалгааны талаар ерөнхий тайлбар"}
+,
+  "loanReviewComplete": {"value": "Шилжүүлэх"},
+  "propertyImage":{"type": "File"},
+  "generateContract": {"type": "File"},
+  "uploadCustomerContract": {"type": "File"}
+}

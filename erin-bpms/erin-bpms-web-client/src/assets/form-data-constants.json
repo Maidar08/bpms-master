@@ -1,0 +1,2323 @@
+{
+  "_comment": "MONGOL BANK Task",
+  "Task_1tzwhk1": {
+    "fieldGroups": [
+      {
+        "title": null,
+        "type": "default",
+        "column": 2,
+        "fieldIds": ["legalStatus", "registerNumber", "accountNumber"],
+        "fields": [],
+        "subFields": [],
+        "noSeparator": true
+      },
+      {
+        "title": null,
+        "type": "default",
+        "column": 2,
+        "fieldIds": ["mbFirstName", "mbOccupancy", "mbLastName", "mbProfession", "mbLegalState","mbFamilyName", "mgRegisterNumber", "mbFamilyLastName",
+          "mbIdNumber", "mbFamilyRegisterNumber", "mbBirth", "mbNumberOfFamilyMember", "mbAddress", "mbJoblessNumberOfFamilyMember"],
+        "fields": [],
+        "subFields": []
+      }
+    ],
+    "buttons": {
+      "download": false, "continue": false
+    },
+    "entities": {"taskType":  "mongol-bank", "entity":  "downloadMongolBank"}
+  },
+
+  "_comment": "MONGOL BANK MICRO CITIZEN EXTENDED Task",
+  "user_task_micro_mongol_bank_extended": {
+    "fieldGroups": [
+      {
+        "title": null,
+        "type": "default",
+        "column": 2,
+        "fieldIds": ["legalStatus", "registerNumber"],
+        "fields": [],
+        "subFields": [],
+        "noSeparator": true
+      },
+      {
+        "title": null,
+        "type": "default",
+        "column": 2,
+        "fieldIds": ["mbFirstName", "mbOccupancy", "mbLastName", "mbProfession", "mbLegalState","mbFamilyName", "mgRegisterNumber", "mbFamilyLastName",
+          "mbIdNumber", "mbFamilyRegisterNumber", "mbBirth", "mbNumberOfFamilyMember", "mbAddress", "mbJoblessNumberOfFamilyMember"],
+        "fields": [],
+        "subFields": []
+      }
+    ],
+    "buttons": {
+      "download": false, "continue": false
+    },
+    "entities": {"taskType":  "mongol-bank", "entity":  "downloadMongolBank"}
+  },
+
+  "_comment": "MONGOL BANK CO BORROWER Task",
+  "UserTask_01adzfr": {
+    "fieldGroups": [],
+    "buttons": {
+      "download": false
+    },
+    "entities": {"taskType":  null, "entity":  null}
+  },
+
+  "_comment": "MICRO MONGOL BANK Task",
+  "user_task_micro_mongol_bank_new_core": {
+    "fieldGroups": [
+      {
+        "title": null,
+        "type": "default",
+        "column": 2,
+        "fieldIds": ["legalStatus", "registerNumber"],
+        "fields": [],
+        "subFields": [],
+        "noSeparator": true
+      },
+      {
+        "title": null,
+        "type": "default",
+        "column": 2,
+        "fieldIds": [
+          "lawStatus", "established", "organizationName", "officialAddress", "organizationFitch", "numberOfEmployees", "organizationSP", "executiveFirstName",
+          "organizationMoody", "executiveLastName", "registrationInMongolia", "legalState", "organizationType",
+          "executiveRegisterNumber", "registerNumberId", "numberOfShareholders","stateNumber"
+        ],
+        "fields": [],
+        "subFields": []
+      }
+    ],
+    "buttons": {
+      "download": false, "continue": false
+    },
+    "entities": {"taskType":  "mongol-bank", "entity":  "downloadMongolBank"}
+  },
+
+  "_comment": "MICRO MONGOL BANK CO BORROWER Task",
+  "user_task_micro_co_borrower_mongol_bank": {
+    "fieldGroups": [],
+    "buttons": {
+      "download": false
+    },
+    "entities": {"taskType":  null, "entity":  null}
+  },
+
+  "_comment": "DOWNLOAD XYP Task",
+  "UserTask_03hclbt": {
+    "fieldGroups": [],
+    "buttons": {
+      "download": false
+    },
+    "entities": {"taskType":  null, "entity":  null}
+  },
+
+  "_comment": "MICRO DOWNLOAD XYP Task",
+  "user_task_micro_loan_download_from_khur": {
+    "fieldGroups": [
+      {
+        "title": null,
+        "type": "vertical",
+        "column": 1,
+        "fieldIds": [],
+        "subFieldIds": [
+          ["fingerPrint", "registerNumber"],
+          ["employeeFingerPrint", "employeeRegisterNumber"],
+          ["month", "referenceType", "downloadInquiries"]
+        ],
+        "fields": [],
+        "subFields": [],
+        "subColumn": [1, 1, 1],
+        "noSeparator": true
+      }
+    ],
+    "buttons": {
+      "download": false
+    },
+    "entities": {"taskType":  null, "entity":  null}
+  },
+
+  "_comment": "MICRO DOWNLOAD CO BORROWER XYP Task",
+  "user_task_micro_loan_download_from_khur_coBorrower": {
+    "fieldGroups": [
+      {
+        "title": null,
+        "type": "vertical",
+        "column": 1,
+        "fieldIds": [],
+        "subFieldIds": [
+          ["fingerPrint", "registerNumberCoBorrower"],
+          ["employeeFingerPrint", "employeeRegisterNumber"],
+          ["month", "referenceType", "downloadInquiries"]
+        ],
+        "fields": [],
+        "subFields": [],
+        "subColumn": [1, 1, 1],
+        "noSeparator": true
+      }
+    ],
+    "buttons": {
+      "download": false
+    },
+    "entities": {"taskType":  null, "entity":  null}
+  },
+
+  "_comment": "DOWNLOAD CO BORROWER XYP Task",
+  "user_task_download_from_khur_co_borrower": {
+    "fieldGroups": [],
+    "buttons": {
+      "download": false
+    },
+    "entities": {"taskType":  null, "entity":  null}
+  },
+
+  "_comment": "CONSUMPTION CO BORROWER TASK",
+  "Task_02zdq0o"
+: {
+    "getPropertyId": ["coBorrowerType"]
+  },
+
+  "_comment": "MICRO  CO BORROWER TASK",
+  "user_task_micro_loan_update_coBorrower"
+  : {
+    "getPropertyId": ["coBorrowerType"],
+    "fieldAction": {"borrowerTypeCoBorrower":  "setRegisterValidation"}
+  },
+
+  "_comment": "ELEMENTARY CRITERIA Task",
+  "Task_1lwbico": {
+    "fieldGroups": [
+      {
+        "title": null,
+        "type": "default",
+        "column": 3,
+        "fieldIds": ["fullName", "riskyCustomerValue", "loanClassName"],
+        "fields": []
+      },
+      {
+        "title": null,
+        "type": "default",
+        "column": 3,
+        "fieldIds": ["fullNameCoBorrower-0", "riskyCustomerValue-0", "loanClassName-0"],
+        "fields": []
+      },
+      {
+        "title": null,
+        "type": "default",
+        "column": 3,
+        "fieldIds": ["fullNameCoBorrower-1", "riskyCustomerValue-1", "loanClassName-1"],
+        "fields": []
+      },
+      {
+        "title": null,
+        "type": "default",
+        "column": 3,
+        "fieldIds": ["fullNameCoBorrower-2", "riskyCustomerValue-2", "loanClassName-2"],
+        "fields": []
+      },
+      {
+        "title": null,
+        "type": "default",
+        "column": 3,
+        "fieldIds": ["fullNameCoBorrower-3", "riskyCustomerValue-3", "loanClassName-3"],
+        "fields": []
+      },
+      {
+        "title": null,
+        "type": "default",
+        "column": 3,
+        "fieldIds": ["fullNameCoBorrower-4", "riskyCustomerValue-4", "loanClassName-4"],
+        "fields": []
+      },
+      {
+        "title": null,
+        "type": "default",
+        "column": 3,
+        "fieldIds": ["fullNameCoBorrower-5", "riskyCustomerValue-5", "loanClassName-5"],
+        "fields": []
+      },
+      {
+        "title": null,
+        "type": "default",
+        "column": 3,
+        "fieldIds": ["elementaryCriterianPassed"],
+        "fields": []
+      }
+    ],
+    "buttons": {
+      "save": false,
+      "continue": false
+    },
+    "entities": {"taskType":  null, "entity":  null}
+  },
+
+  "_comment": "MICRO ELEMENTARY CRITERIA Task",
+  "user_task_micro_loan_elementary_criterian": {
+    "fieldGroups": [
+      {
+        "title": null,
+        "type": "default",
+        "column": 3,
+        "fieldIds": ["fullName", "riskyCustomerValue", "loanClassName"],
+        "fields": []
+      },
+      {
+        "title": null,
+        "type": "default",
+        "column": 3,
+        "fieldIds": ["fullNameCoBorrower-0", "riskyCustomerValue-0", "loanClassName-0"],
+        "fields": []
+      },
+      {
+        "title": null,
+        "type": "default",
+        "column": 3,
+        "fieldIds": ["fullNameCoBorrower-1", "riskyCustomerValue-1", "loanClassName-1"],
+        "fields": []
+      },
+      {
+        "title": null,
+        "type": "default",
+        "column": 3,
+        "fieldIds": ["fullNameCoBorrower-2", "riskyCustomerValue-2", "loanClassName-2"],
+        "fields": []
+      },
+      {
+        "title": null,
+        "type": "default",
+        "column": 3,
+        "fieldIds": ["fullNameCoBorrower-3", "riskyCustomerValue-3", "loanClassName-3"],
+        "fields": []
+      },
+      {
+        "title": null,
+        "type": "default",
+        "column": 3,
+        "fieldIds": ["fullNameCoBorrower-4", "riskyCustomerValue-4", "loanClassName-4"],
+        "fields": []
+      },
+      {
+        "title": null,
+        "type": "default",
+        "column": 3,
+        "fieldIds": ["fullNameCoBorrower-5", "riskyCustomerValue-5", "loanClassName-5"],
+        "fields": []
+      },
+      {
+        "title": null,
+        "type": "default",
+        "column": 3,
+        "fieldIds": ["elementaryCriterianPassed"],
+        "fields": []
+      }
+    ],
+    "buttons": {
+      "save": false,
+      "continue": false
+    },
+    "entities": {"taskType":  null, "entity":  null}
+  },
+
+  "_comment": "CONSUMPTION SCORING Task",
+  "UserTask_18vor3n": {
+    "fieldGroups": [
+      {
+        "title": null,
+        "type": "default",
+        "column": 3,
+        "fieldIds": ["xacspanDate", "sector", "workspan", "gender_input", "family_income_string", "jobless_members"],
+        "fields": []
+      },
+      {
+        "title": null,
+        "type": "default",
+        "column": 3,
+        "fieldIds": ["score", "scoring_level_risk"],
+        "fields": []
+      }
+    ],
+    "buttons": {
+      "calculate": false,
+      "save": false,
+      "continue": false
+    },
+    "entities": {"taskType":  "scoring", "entity":  "calculateScoring"}
+  },
+
+  "_comment": "MORTGAGE (CONSUMPTION) SCORING Task",
+  "user_task_mortgage_salary_loan_scoring": {
+    "fieldGroups": [
+      {
+        "title": null,
+        "type": "default",
+        "column": 3,
+        "fieldIds": ["xacspanDate", "sector", "workspan", "gender_input", "family_income_string", "jobless_members"],
+        "fields": []
+      },
+      {
+        "title": null,
+        "type": "default",
+        "column": 3,
+        "fieldIds": ["score", "scoring_level_risk"],
+        "fields": []
+      }
+    ],
+    "buttons": {
+      "calculate": false,
+      "save": false,
+      "continue": false
+    },
+    "entities": {"taskType":  "scoring", "entity":  "calculateScoring"}
+  },
+
+  "_comment": "MICRO SCORING Task",
+  "user_task_micro_loan_scoring": {
+    "fieldGroups": [
+      {
+        "title": null,
+        "type": "default",
+        "column": 3,
+        "fieldIds": ["xacspanDate", "deposit", "businessSpan", "businessOwnerAge", "netWorth", "rentalCosts"],
+        "fields": []
+      },
+      {
+        "title": null,
+        "type": "default",
+        "column": 3,
+        "fieldIds": ["score", "scoring_level_risk"],
+        "fields": []
+      }
+    ],
+    "buttons": {
+      "calculate": false,
+      "save": false,
+      "continue": false
+    },
+    "entities": {"taskType":  "scoring", "entity":  "calculateScoring"}
+  },
+
+  "_comment": "MORTGAGE (MICRO) SCORING Task",
+  "user_task_mortgage_business_loan_scoring": {
+    "fieldGroups": [
+      {
+        "title": null,
+        "type": "default",
+        "column": 3,
+        "fieldIds": ["xacspanDate", "deposit", "businessSpan", "businessOwnerAge", "netWorth", "rentalCosts"],
+        "fields": []
+      },
+      {
+        "title": null,
+        "type": "default",
+        "column": 3,
+        "fieldIds": ["score", "scoring_level_risk"],
+        "fields": []
+      }
+    ],
+    "buttons": {
+      "calculate": false,
+      "save": false,
+      "continue": false
+    },
+    "entities": {"taskType":  "scoring", "entity":  "calculateScoring"}
+  },
+
+  "_comment": "CONSUMPTION LOAN AMOUNT CALCULATION Task",
+  "UserTask_0r0le5y": {
+    "fieldGroups": [
+      {
+        "title": null,
+        "type": "default",
+        "column": 3,
+        "fieldIds": ["incomeType", "amount", "monthPaymentActiveLoan", "processTypeName", "term", "loanGrantDate", "loanProduct",
+          "interestRate", "firstPaymentDate", "repaymentType",
+        "incomeAmountCoBorrower", "debtIncomeBalanceString", "hasCollateral", "collateralAmount", "loanApprovalAmount"],
+        "fields": []
+      },
+      {
+        "title": null,
+        "type": "default",
+        "column": 3,
+        "fieldIds": ["salaryAmountString", "totalIncomeAmountString", "debtIncomeIssuanceString",
+          "grantLoanAmountString", "fixedAcceptedLoanAmount","confirmLoanAmount"],
+        "fields": []
+      }
+    ],
+    "fieldAction": {"fixedAcceptedLoanAmount":  "calculate"},
+    "buttons": {
+      "calculate": false,
+      "continue": true
+    },
+    "entities": {"taskType":  "loan-amount/calculate", "entity":  "calculateLoanAmount"}
+  },
+
+  "_comment": "MICRO LOAN CALCULATION Task",
+  "user_task_calculate_micro_loan_amount": {
+    "fieldGroups": [
+      {
+        "title": null,
+        "type": "default",
+        "column": 3,
+        "fieldIds": ["amount", "loanTerm", "interestRate", "loanProduct", "loanProductType", "areasOfActivity"],
+        "fields": []
+      },
+      {
+        "title": null,
+        "type": "vertical",
+        "column": 1,
+        "fieldIds":   [],
+        "fields": [],
+        "subFieldIds": [
+          ["hasMortgage", "consumerLoanRepayment", "businessLoanRepayment", "householdExpenses", "purposeOfLoan"],
+          ["debtToSolvencyRatioString", "debtToIncomeRatioString", "debtToAssetsRatioString", "currentAssetsRatioString", "collateralProvidedAmountString",
+            "grantLoanAmount", "acceptedLoanAmount"]
+        ],
+        "subFields": [],
+        "subColumn": [1, 1],
+        "subtitles": ["Зээлийн түүх", "Журмын нөхцөлүүд"],
+        "noSeparator": true
+      },
+      {
+        "title": null,
+        "type": "flexible",
+        "column": 3,
+        "fields": [],
+        "subFields": [],
+        "fieldIds": [
+          "collateralAsset0", "collateralAmount0", "loanApprovalAmount0",
+          "collateralAsset1", "collateralAmount1", "loanApprovalAmount1",
+          "collateralAsset2", "collateralAmount2", "loanApprovalAmount2",
+          "collateralAsset3", "collateralAmount3", "loanApprovalAmount3",
+          "collateralAsset4", "collateralAmount4", "loanApprovalAmount4",
+          "collateralAsset5", "collateralAmount5", "loanApprovalAmount5",
+          "collateralAsset6", "collateralAmount6", "loanApprovalAmount6",
+          "collateralAsset7", "collateralAmount7", "loanApprovalAmount7",
+          "collateralAsset8", "collateralAmount8", "loanApprovalAmount8",
+          "collateralAsset9", "collateralAmount9", "loanApprovalAmount9",
+          "collateralAsset10", "collateralAmount10", "loanApprovalAmount10",
+          "collateralAsset11", "collateralAmount11", "loanApprovalAmount11",
+          "collateralAsset12", "collateralAmount12", "loanApprovalAmount12",
+          "collateralAsset13", "collateralAmount13", "loanApprovalAmount13",
+          "collateralAsset14", "collateralAmount14", "loanApprovalAmount14",
+          "collateralAsset15", "collateralAmount15", "loanApprovalAmount15",
+          "collateralAsset16", "collateralAmount16", "loanApprovalAmount16",
+          "collateralAsset17", "collateralAmount17", "loanApprovalAmount17",
+          "collateralAsset18", "collateralAmount18", "loanApprovalAmount18",
+          "collateralAsset19", "collateralAmount19", "loanApprovalAmount19"
+        ],
+        "flexibleForm": {
+          "2": [
+            {"id": "collateralAsset", "label": "Барьцаа хөрөнгө", "required": false, "options": [],
+              "formFieldValue": {"defaultValue": "", "valueInfo": ""}, "validations": [], "disabled": false, "type": "string", "context": null},
+            {"id": "collateralAmount", "label": "Барьцааны дүн", "required": false, "options": [],
+              "formFieldValue": {"defaultValue": 0, "valueInfo": ""}, "validations": [], "disabled": false, "type": "BigDecimal", "context": null},
+            {"id": "loanApprovalAmount", "label": "Зээл олгох дүн", "required": false, "options": [],
+              "formFieldValue": {"defaultValue": 0, "valueInfo": ""}, "validations": [{"name": "readonly", "configuration": null}],
+              "disabled": false, "type": "BigDecimal", "context": null}
+          ]
+        },
+        "max": 20
+      }
+    ],
+    "buttons": {
+      "calculate": false,
+      "continue": false
+    },
+    "entities": {"taskType":  "micro-loan-amount/calculate", "entity":  "calculateLoanAmount"}
+  },
+
+  "_comment": "MORTGAGE LOAN CALCULATION Task",
+  "user_task_calculate_mortgage_loan_amount": {
+    "fieldGroups": [
+      {
+        "title": null,
+        "type": "default",
+        "column": 4,
+        "fieldIds": ["loanProduct", "amount", "loanTerm", "interestRate"],
+        "fields": []
+      },
+      {
+        "title": "Нэмэлт орлого\n",
+        "type": "flexible",
+        "column": 5,
+        "fields": [],
+        "subFields": [],
+        "fieldIds": [
+          "typeOfIncome0", "seasonOne0", "seasonTwo0", "seasonThree0", "seasonFour0", "annualResults0", "monthlyAverage0",
+          "typeOfIncome1", "seasonOne1", "seasonTwo1", "seasonThree1", "seasonFour1", "annualResults1", "monthlyAverage1",
+          "typeOfIncome2", "seasonOne2", "seasonTwo2", "seasonThree2", "seasonFour2", "annualResults2", "monthlyAverage2"
+        ],
+        "flexibleForm": {
+          "1": [
+            {"id": "typeOfIncome", "label": "Орлогын төрөл", "required": false, "options": [{"id": "incomeCoBorrower", "value": "Хамтран зээлдэгчийн орлого"},
+              {"id": "incomeCashFlow", "value": "Гуйвуулгын орлого, бусад орлого"}],
+              "formFieldValue": {"defaultValue": "", "valueInfo": ""}, "validations": [], "disabled": false, "type": "string", "context": null},
+            {"id": "seasonOne", "label": "Улирал 1", "required": false, "options": [],
+              "formFieldValue": {"defaultValue": 0, "valueInfo": ""}, "validations": [], "disabled": false, "type": "BigDecimal", "context": null},
+            {"id": "seasonTwo", "label": "Улирал 2", "required": false, "options": [],
+              "formFieldValue": {"defaultValue": 0, "valueInfo": ""}, "validations": [], "disabled": false, "type": "BigDecimal", "context": null},
+            {"id": "seasonThree", "label": "Улирал 3", "required": false, "options": [],
+              "formFieldValue": {"defaultValue": 0, "valueInfo": ""}, "validations": [], "disabled": false, "type": "BigDecimal", "context": null},
+            {"id": "seasonFour", "label": "Улирал 4", "required": false, "options": [],
+              "formFieldValue": {"defaultValue": 0, "valueInfo": ""}, "validations": [], "disabled": false, "type": "BigDecimal", "context": null},
+            {"id": "annualResults", "label": "Жилийн дүн", "required": false, "options": [],
+              "formFieldValue": {"defaultValue": 0, "valueInfo": ""}, "validations": [{"name": "readonly", "configuration": null}], "disabled": false, "type": "BigDecimal", "context": null},
+            {"id": "monthlyAverage", "label": "Сарын дундаж", "required": false, "options": [],
+              "formFieldValue": {"defaultValue": 0, "valueInfo": ""}, "validations": [{"name": "readonly", "configuration": null}], "disabled": false, "type": "BigDecimal", "context": null}
+          ]
+        },
+        "max": 3
+      },
+      {
+        "title": "Орлогын бүтэц",
+        "type": "default",
+        "column": 4,
+        "fieldIds": ["borrowersIncome", "borrowersIncomePercent", "coBorrowersIncome", "coBorrowersIncomePercent",
+        "transferIncome", "transferIncomePercent", "netIncome", "netIncomePercent"],
+        "fields": []
+      },
+      {
+        "title": "Журмын нөхцөлүүд",
+        "type": "default",
+        "column": 2,
+        "fieldIds": ["totalFunding", "conditionsMet", "housingFinancing", "propertyLocation",
+          "borrowerFinances", "maxLoanAmount", "borrowerFinancesPercent", "maxLoanTerm",
+          "monthlyPayment", "loanMonthlyPayment", "autoGarage", "loanAmount",
+          "borrowerFinanceGarage","acceptedLoanAmount", "borrowerFinanceGaragePercent", "authorize"],
+        "fields": []
+      }
+    ],
+    "buttons": {
+      "calculate": false,
+      "continue": false
+    },
+    "entities": {"taskType":  "mortgage-loan-amount/calculate", "entity":  "calculateLoanAmount"}
+  },
+
+  "comment": "CONSUMPTION CREATE COLLATERAL TASK",
+  "user_task_create_collateral": {
+    "fieldGroups": [],
+    "buttons": {
+      "continue": false
+    },
+    "entities": {"taskType":  null, "entity": null},
+    "getPropertyId": ["collateralType"]
+  },
+
+  "_comment": "CONSUMPTION LOAN SEND Task",
+  "Activity_1hszg0z": {
+    "fieldGroups": [
+      {
+        "title": null,
+        "type": "default",
+        "column": 3,
+        "fieldIds": ["receivers"],
+        "fields": []
+      },
+      {
+        "title": null,
+        "type": "textarea",
+        "column": 1,
+        "fieldIds": ["loanCommentExplanation"],
+        "fields": [],
+        "noSeparator": true
+      },
+      {
+        "title": null,
+        "type": "textarea",
+        "column": 1,
+        "fieldIds": ["loanDecisionReason"],
+        "fields": [],
+        "noSeparator": true
+      }
+    ],
+    "buttons": {
+      "save": false,
+      "continue": false
+    },
+    "entities": {"taskType":  null, "entity":  null},
+    "getPropertyId": ["receivers"]
+  },
+
+  "_comment": "MICRO LOAN SEND Task",
+  "user_task_micro_loan_send": {
+    "fieldGroups": [
+      {
+        "title": null,
+        "type": "default",
+        "column": 3,
+        "fieldIds": ["receivers"],
+        "fields": []
+      },
+      {
+        "title": null,
+        "type": "textarea",
+        "column": 1,
+        "fieldIds": ["loanCommentExplanation"],
+        "fields": [],
+        "noSeparator": true
+      },
+      {
+        "title": null,
+        "type": "textarea",
+        "column": 1,
+        "fieldIds": ["loanDecisionReason"],
+        "fields": [],
+        "noSeparator": true
+      }
+    ],
+    "buttons": {
+      "save": false,
+      "continue": false
+    },
+    "entities": {"taskType":  null, "entity":  null},
+    "getPropertyId": ["receivers"]
+  },
+
+  "_comment": "MORTGAGE LOAN SEND Task",
+  "user_task_mortgage_loan_send": {
+    "fieldGroups": [
+      {
+        "title": null,
+        "type": "default",
+        "column": 3,
+        "fieldIds": ["receivers"],
+        "fields": []
+      },
+      {
+        "title": null,
+        "type": "textarea",
+        "column": 1,
+        "fieldIds": ["loanCommentExplanation"],
+        "fields": [],
+        "noSeparator": true
+      },
+      {
+        "title": null,
+        "type": "textarea",
+        "column": 1,
+        "fieldIds": ["loanDecisionReason"],
+        "fields": [],
+        "noSeparator": true
+      }
+    ],
+    "buttons": {
+      "save": false,
+      "continue": false
+    },
+    "entities": {"taskType":  null, "entity":  null},
+    "getPropertyId": ["receivers"]
+  },
+
+  "_comment": "CONSUMPTION LOAN DECISION Task",
+  "Activity_1dcks6m": {
+    "fieldGroups": [
+      {
+        "title": null,
+        "type": "default",
+        "column": 3,
+        "fieldIds": ["sentUser", "receivedUser", "loanDecision"],
+        "fields": []
+      },
+      {
+        "title": null,
+        "type": "textarea",
+        "column": 1,
+        "fieldIds": ["loanDecisionReason"],
+        "fields": [],
+        "noSeparator": true
+      },
+      {
+        "title": null,
+        "type": "textarea",
+        "column": 1,
+        "fieldIds": ["loanCommentExplanation"],
+        "fields": [],
+        "noSeparator": true
+      }
+    ],
+    "buttons": {
+      "save": false,
+      "continue": false
+    },
+    "entities": {"taskType":  null, "entity":  null},
+    "getPropertyId": ["receivedUser"]
+  },
+
+  "_comment": "MICRO LOAN DECISION Task",
+  "user_task_loan_decision": {
+    "fieldGroups": [
+      {
+        "title": null,
+        "type": "default",
+        "column": 3,
+        "fieldIds": ["sentUser", "receivedUser", "loanDecision"],
+        "fields": []
+      },
+      {
+        "title": null,
+        "type": "textarea",
+        "column": 1,
+        "fieldIds": ["loanDecisionReason"],
+        "fields": [],
+        "noSeparator": true
+      },
+      {
+        "title": null,
+        "type": "textarea",
+        "column": 1,
+        "fieldIds": ["loanCommentExplanation"],
+        "fields": [],
+        "noSeparator": true
+      }
+    ],
+    "buttons": {
+      "save": false,
+      "continue": false
+    },
+    "entities": {"taskType":  null, "entity":  null},
+    "getPropertyId": ["receivedUser"]
+  },
+
+  "_comment": "MORTGAGE LOAN DECISION Task",
+  "user_task_mortgage_loan_decision": {
+    "fieldGroups": [
+      {
+        "title": null,
+        "type": "default",
+        "column": 3,
+        "fieldIds": ["sentUser", "receivedUser", "loanDecision"],
+        "fields": []
+      },
+      {
+        "title": null,
+        "type": "textarea",
+        "column": 1,
+        "fieldIds": ["loanDecisionReason"],
+        "fields": [],
+        "noSeparator": true
+      },
+      {
+        "title": null,
+        "type": "textarea",
+        "column": 1,
+        "fieldIds": ["loanCommentExplanation"],
+        "fields": [],
+        "noSeparator": true
+      }
+    ],
+    "buttons": {
+      "save": false,
+      "continue": false
+    },
+    "entities": {"taskType":  null, "entity":  null},
+    "getPropertyId": ["receivedUser"]
+  },
+
+  "_comment": "NEW CONSUMPTION LOAN ACCOUNT Task",
+  "Activity_1na5uix": {
+    "fieldGroups": [
+      {
+        "title": null,
+        "type": "default",
+        "column": 3,
+        "fieldIds": ["loanProduct", "fixedAcceptedLoanAmountString", "loanAccountNumber"],
+        "fields": []
+      },
+      {
+        "title": null,
+        "type": "default",
+        "column": 3,
+        "fieldIds": ["numberOfPayments", "yearlyInterestRateString", "accountBranchNumber", "frequency", "depositInterestRateString",
+          "currentAccountNumber", "dayOfPayment", "fees", "firstPaymentDate"],
+        "fields": []
+      },
+      {
+        "title": "UDF талбар",
+        "type": "default",
+        "column": 3,
+        "fieldIds": ["AccountFreeCode2", "AccountFreeCode3", "TypeOfAdvance", "BorrowerCategoryCode",  "FREE_CODE_4", "FREE_CODE_5", "FREE_CODE_6",
+          "FREE_CODE_7", "PurposeOfAdvance", "FREE_CODE_9", "FREE_CODE_10", "NatureOfAdvance", "CustomerIndustryType", "FREE_CODE_8", "AccountFreeCode1", "sanctionedBy"
+        ,"FREE_TEXT_15", "modeOfAdvance"],
+        "fields": []
+      },
+      {
+        "title": null,
+        "type": "default",
+        "column": 1,
+        "fieldIds": ["additionalSpecialCondition"],
+        "fields": [],
+        "noSeparator": true
+      }
+    ],
+    "buttons": {
+      "save": false,
+      "continue": true,
+      "createAccount": false
+    },
+    "entities": {"taskType":  null, "entity":  null},
+    "getPropertyId": ["AccountFreeCode2", "AccountFreeCode3", "TypeOfAdvance", "BorrowerCategoryCode",  "FREE_CODE_4", "FREE_CODE_5", "FREE_CODE_6",
+      "FREE_CODE_7", "FREE_CODE_8", "FREE_CODE_9", "FREE_CODE_10", "NatureOfAdvance", "CustomerIndustryType", "PurposeOfAdvance", "AccountFreeCode1"]
+  },
+
+  "_comment": "OLD CONSUMPTION LOAN ACCOUNT Task",
+  "Activity_1na5uix-OLD": {
+    "fieldGroups": [
+      {
+        "title": null,
+        "type": "default",
+        "column": 3,
+        "fieldIds": ["loanProduct", "fixedAcceptedLoanAmountString", "loanAccountNumber"],
+        "fields": []
+      },
+      {
+        "title": null,
+        "type": "default",
+        "column": 3,
+        "fieldIds": ["numberOfPayments", "yearlyInterestRateString", "accountBranchNumber", "frequency", "depositInterestRateString",
+          "currentAccountNumber", "dayOfPayment", "fees", "firstPaymentDate"],
+        "fields": []
+      },
+      {
+        "title": "UDF талбар",
+        "type": "default",
+        "column": 3,
+        "fieldIds": ["loanPurpose", "businessTypeReason", "worker", "sanctionedBy",  "supplier1", "loanCycle", "subType",
+          "supplier2", "scoring_level_risk", "attentiveLoan", "supplier3", "score", "insuranceCompanyInfo", "surguuli"],
+        "fields": []
+      },
+      {
+        "title": null,
+        "type": "default",
+        "column": 1,
+        "fieldIds": ["additionalSpecialCondition"],
+        "fields": [],
+        "noSeparator": true
+      }
+    ],
+    "buttons": {
+      "save": false,
+      "continue": true,
+      "createAccount": false
+    },
+    "entities": {"taskType":  null, "entity":  null}
+  },
+
+  "_comment": "NEW CONSUMPTION LOAN ACCOUNT WITH COLLATERAL Task",
+  "user_task_create_account_with_collateral": {
+    "fieldGroups": [
+      {
+        "title": null,
+        "type": "default",
+        "column": 3,
+        "fieldIds": ["loanProduct", "fixedAcceptedLoanAmountString", "loanAccountNumber"],
+        "fields": []
+      },
+      {
+        "title": null,
+        "type": "default",
+        "column": 3,
+        "fieldIds": ["numberOfPayments", "yearlyInterestRateString", "accountBranchNumber", "frequency", "depositInterestRateString",
+          "currentAccountNumber", "dayOfPayment", "fees", "firstPaymentDate"],
+        "fields": []
+      },
+      {
+        "title": null,
+        "type": "default",
+        "column": 3,
+        "fieldIds": ["totalCollateralAmountUDF", "insuranceCUDF"],
+        "fields": []
+      },
+      {
+        "title": "UDF талбар",
+        "type": "default",
+        "column": 3,
+        "fieldIds": ["AccountFreeCode2", "AccountFreeCode3", "TypeOfAdvance", "BorrowerCategoryCode",  "FREE_CODE_4", "FREE_CODE_5", "FREE_CODE_6",
+          "FREE_CODE_7", "PurposeOfAdvance", "FREE_CODE_9", "FREE_CODE_10", "NatureOfAdvance", "CustomerIndustryType", "FREE_CODE_8", "AccountFreeCode1", "sanctionedBy",
+        "FREE_TEXT_15", "modeOfAdvance"],
+        "fields": []
+      },
+      {
+        "title": null,
+        "type": "default",
+        "column": 1,
+        "fieldIds": ["additionalSpecialCondition"],
+        "fields": [],
+        "noSeparator": true
+      }
+    ],
+    "fieldAction": {"loanAmount": "calculateCollateralAccount" },
+
+    "buttons": {
+      "save": false,
+      "continue": true,
+      "createAccount": false
+    },
+    "entities": {"taskType":  null, "entity":  null},
+    "getPropertyId": ["AccountFreeCode2", "AccountFreeCode3", "TypeOfAdvance", "BorrowerCategoryCode",  "FREE_CODE_4", "FREE_CODE_5", "FREE_CODE_6",
+      "FREE_CODE_7", "FREE_CODE_8", "FREE_CODE_9", "FREE_CODE_10", "NatureOfAdvance", "CustomerIndustryType", "PurposeOfAdvance", "AccountFreeCode1"]
+  },
+
+  "_comment": "OLD CONSUMPTION LOAN ACCOUNT WITH COLLATERAL Task",
+  "user_task_create_account_with_collateral-OLD": {
+    "fieldGroups": [
+      {
+        "title": null,
+        "type": "default",
+        "column": 3,
+        "fieldIds": ["loanProduct", "fixedAcceptedLoanAmountString", "loanAccountNumber"],
+        "fields": []
+      },
+      {
+        "title": null,
+        "type": "default",
+        "column": 3,
+        "fieldIds": ["numberOfPayments", "yearlyInterestRateString", "accountBranchNumber", "frequency", "depositInterestRateString",
+          "currentAccountNumber", "dayOfPayment", "fees", "firstPaymentDate"],
+        "fields": []
+      },
+      {
+        "title": null,
+        "type": "default",
+        "column": 3,
+        "fieldIds": ["totalCollateralAmountUDF", "insuranceCUDF"],
+        "fields": []
+      },
+      {
+        "title": "UDF талбар",
+        "type": "default",
+        "column": 3,
+        "fieldIds": ["loanPurpose", "score", "attentiveLoan", "businessTypeReason", "scoring_level_risk",
+          "lateReasonAttention", "subType", "typeOfFee", "nonRegulatoryLoanTerms", "worker", "amountOfFee", "loanReviewDate",
+        "sanctionedBy", "numberOfCurrentJobs", "lateReason", "insuranceCompanyInfo", "numberNewCreatedApartments", "restructuredNumber","supplier1",
+          "discountedInterestFromMinistry","restructuredDate","supplier2","loanGuaranteeRate", "firstAccountNumber", "supplier3", "boneu",
+          "firstDisbursedDate", "loanCycle", "controlOfficer", "dateOfAttention", "sellAndPurchasePrice", "currentHeater", "schoolNameAndInstitution"
+        ],
+        "fields": []
+      },
+      {
+        "title": null,
+        "type": "default",
+        "column": 1,
+        "fieldIds": ["additionalSpecialCondition"],
+        "fields": [],
+        "noSeparator": true
+      }
+    ],
+    "buttons": {
+      "save": false,
+      "continue": true,
+      "createAccount": false
+    },
+    "entities": {"taskType":  null, "entity":  null}
+  },
+
+  "_comment": "MICRO LOAN ACCOUNT WITH COLLATERAL Task",
+  "user_task_micro_create_account_with_collateral": {
+    "fieldGroups": [
+      {
+        "title": null,
+        "type": "default",
+        "column": 3,
+        "fieldIds": ["loanProduct", "fixedAcceptedLoanAmountString", "loanAccountNumber"],
+        "fields": []
+      },
+      {
+        "title": null,
+        "type": "default",
+        "column": 3,
+        "fieldIds": ["numberOfPayments", "yearlyInterestRateString", "accountBranchNumber", "frequency", "depositInterestRateString",
+          "currentAccountNumber", "dayOfPayment", "fees", "firstPaymentDate"],
+        "fields": []
+      },
+      {
+        "title": null,
+        "type": "default",
+        "column": 3,
+        "fieldIds": ["insuranceCUDF", "totalCollateralAmountUDF"],
+        "fields": [],
+        "noSeparator": true
+      },
+      {
+        "title": "UDF талбар",
+        "type": "default",
+        "column": 3,
+        "fieldIds":   [
+          "AccountFreeCode2", "AccountFreeCode3", "TypeOfAdvance", "BorrowerCategoryCode",  "FREE_CODE_4", "FREE_CODE_5", "FREE_CODE_6",
+          "FREE_CODE_7", "FREE_CODE_8", "FREE_CODE_9", "FREE_CODE_10", "NatureOfAdvance", "CustomerIndustryType", "PurposeOfAdvance", "AccountFreeCode1", "sanctionedBy"
+        ],
+        "fields": []
+      },
+      {
+        "title": null,
+        "type": "default",
+        "column": 1,
+        "fieldIds": ["additionalSpecialCondition"],
+        "fields": [],
+        "noSeparator": true
+      }
+    ],
+    "buttons": {
+      "save": false,
+      "continue": true,
+      "createAccount": false
+    },
+    "fieldAction": {"loanAmount": "calculateCollateralAccount" },
+    "entities": {"taskType":  null, "entity":  null}
+  },
+
+  "_comment": "OLD MICRO LOAN ACCOUNT WITH COLLATERAL Task",
+  "user_task_micro_create_account_with_collateral-OLD": {
+    "fieldGroups": [
+      {
+        "title": null,
+        "type": "default",
+        "column": 3,
+        "fieldIds": ["loanProduct", "fixedAcceptedLoanAmountString", "loanAccountNumber"],
+        "fields": []
+      },
+      {
+        "title": null,
+        "type": "default",
+        "column": 3,
+        "fieldIds": ["numberOfPayments", "yearlyInterestRateString", "accountBranchNumber", "frequency", "depositInterestRateString",
+          "currentAccountNumber", "dayOfPayment", "fees", "firstPaymentDate"],
+        "fields": []
+      },
+      {
+        "title": null,
+        "type": "default",
+        "column": 3,
+        "fieldIds": ["insuranceCUDF", "totalCollateralAmountUDF"],
+        "fields": [],
+        "noSeparator": true
+      },
+      {
+        "title": "UDF талбар",
+        "type": "default",
+        "column": 3,
+        "fieldIds": ["loanPurpose", "score", "attentiveLoan", "businessTypeReason", "scoring_level_risk",
+          "lateReasonAttention", "subType", "typeOfFee", "nonRegulatoryLoanTerms", "worker", "amountOfFee", "loanReviewDate",
+          "sanctionedBy", "numberOfCurrentJobs", "lateReason", "insuranceCompanyInfo", "numberNewCreatedApartments", "restructuredNumber","supplier1",
+          "discountedInterestFromMinistry","restructuredDate","supplier2","loanGuaranteeRate", "firstAccountNumber", "supplier3", "boneu",
+          "firstDisbursedDate", "loanCycle", "controlOfficer", "dateOfAttention", "sellAndPurchasePrice", "currentHeater", "schoolNameAndInstitution",
+          "facilityRating", "borrowerRating"
+        ],
+        "fields": []
+      },
+      {
+        "title": null,
+        "type": "default",
+        "column": 1,
+        "fieldIds": ["additionalSpecialCondition"],
+        "fields": [],
+        "noSeparator": true
+      }
+    ],
+    "buttons": {
+      "save": false,
+      "continue": true,
+      "createAccount": false
+    },
+    "entities": {"taskType":  null, "entity":  null}
+  },
+
+  "_comment": "MICRO SIMPLE CALCULATION Task",
+  "user_task_micro_simple_calculation": {
+    "fieldGroups": [
+      {
+        "title": null,
+        "type": "vertical",
+        "column": 1,
+        "fieldIds": [],
+        "subFieldIds": [
+          ["reportingPeriodCash","currentAssets", "fixedAssets", "supplierPay", "shortTermPayment", "longTermPayment", "totalAssetString"],
+          ["reportPeriod", "salesIncome", "otherIncome", "costOfGoods", "operatingExpenses",
+            "taxCosts", "rentalExpenses", "otherExpense", "netProfitString"]
+        ],
+        "fields": [],
+        "subColumn": [1, 1],
+        "subFields": [],
+        "subtitles": ["Баланс", "Орлого үр дүнгийн тайлан"],
+        "noSeparator": true
+      }
+    ],
+    "buttons": {
+      "calculate": false,
+      "continue": false
+    },
+    "entities": {"taskType":  "micro-calculation/simple-calculation", "entity":  "calculateSimpleCalculation"}
+  },
+
+
+  "_comment": "MORTGAGE BUSINESS CALCULATION Task",
+  "user_task_mortgage_business_calculation": {
+    "fieldGroups": [
+      {
+        "title": null,
+        "type": "vertical",
+        "column": 1,
+        "fieldIds": [],
+        "subFieldIds": [
+          ["businessActivities","areasActivity", "numberEmployees", "businessHousingInfo", "salesChannels", "durationOfBusiness", "newBusiness"],
+          ["reportPeriod", "salesIncome", "otherIncome", "soldGoods", "operationCost", "activeLoanPayment", "netProfit"]
+        ],
+        "fields": [],
+        "subColumn": [1, 1],
+        "subFields": [],
+        "subtitles": ["Бизнесийн мэдээлэл", "Орлого үр дүнгийн тайлан"],
+        "noSeparator": true
+      }
+    ],
+    "buttons": {
+      "calculate": false,
+      "continue": false
+    },
+    "entities": {"taskType":  "mortgage-calculation/business-calculation", "entity":  "businessCalculation"}
+  },
+
+  "_comment": "MORTGAGE GENERATE LOAN DECISION Task",
+  "user_task_mortgage_generate_loan_decision": {
+    "fieldGroups": [
+      {
+        "title": null,
+        "type": "default",
+        "column": 3,
+        "fieldIds": ["sanctionedBy","loanPurpose", "workspaceName", "numberOfCoBorrowers", "borrowerMonthlyIncome", "coBorrowerMonthlyIncome", "address", "requestDate"],
+        "fields": []
+      },
+      {
+        "title": null,
+        "type": "textarea",
+        "column": 1,
+        "fieldIds": ["additionalSpecialCondition"],
+        "fields": [],
+        "noSeparator": true
+      }
+    ],
+    "buttons": {
+      "save": false,
+      "continue": false
+    },
+    "entities": {"taskType":  null, "entity":  null}
+  },
+
+  "_comment": "CONSUMPTION LOAN CONTRACT PREPARATION Task",
+  "user_task_online_salary_loan_contract": {
+    "fieldGroups": [
+      {
+        "title": null,
+        "type": "default",
+        "column": 3,
+        "fieldIds": [
+          "loanProduct",
+          "fixedAcceptedLoanAmount",
+          "loanAccountNumber"
+        ],
+        "fields": []
+      },
+      {
+        "title": null,
+        "type": "default",
+        "column": 3,
+        "fieldIds": [
+          "rateChange",
+          "applicationFee",
+          "mortgageContract",
+          "loanServiceFee",
+          "numberOfContract",
+          "collateralContract",
+          "commitmentFee",
+          "assetInfo",
+          "dummy2",
+          "dummy3",
+          "fiduciaryContract",
+          "dummy4",
+          "dummy5",
+          "warrantyContract"
+        ],
+        "fields": []
+      },
+      {
+        "title": null,
+        "subtitle": "Хасбанкны данс",
+        "type": "flexible",
+        "column": 3,
+        "fields": [],
+        "subFields": [],
+        "fieldIds": [
+          "currentAccount0", "savingAccount0", "cardAccount0",
+          "currentAccount1", "savingAccount1", "cardAccount1",
+          "currentAccount2", "savingAccount2", "cardAccount2",
+          "currentAccount3", "savingAccount3", "cardAccount3",
+          "currentAccount4", "savingAccount4", "cardAccount4"
+        ],
+        "flexibleForm": {
+          "2": [
+            {
+              "id": "currentAccount",
+              "label": "Харилцах данс",
+              "required": false,
+              "options": [],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "string",
+              "context": null
+            },
+            {
+              "id": "savingAccount",
+              "label": "Хадгаламжийн данс",
+              "required": false,
+              "options": [],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "string",
+              "context": null
+            },
+            {
+              "id": "cardAccount",
+              "label": "Картын данс",
+              "required": false,
+              "options": [],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "string",
+              "context": null
+            }
+          ]
+        },
+        "max": 5
+      },
+      {
+        "title": null,
+        "subtitle": "Бусад банкны данс",
+        "type": "flexible",
+        "column": 3,
+        "fields": [],
+        "subFields": [],
+        "fieldIds": [
+          "otherBankName0",
+          "dummy40",
+          "dummy50",
+          "otherCurrentAccount0",
+          "otherSavingAccount0",
+          "otherCardAccount0",
+          "otherBankName1",
+          "dummy41",
+          "dummy51",
+          "otherCurrentAccount1",
+          "otherSavingAccount1",
+          "otherCardAccount1",
+          "otherBankName2",
+          "dummy42",
+          "dummy52",
+          "otherCurrentAccount2",
+          "otherSavingAccount2",
+          "otherCardAccount2",
+          "otherBankName3",
+          "dummy43",
+          "dummy53",
+          "otherCurrentAccount3",
+          "otherSavingAccount3",
+          "otherCardAccount3",
+          "otherBankName4",
+          "dummy44",
+          "dummy54",
+          "otherCurrentAccount4",
+          "otherSavingAccount4",
+          "otherCardAccount4"
+        ],
+        "flexibleForm": {
+          "3": [
+            {
+              "id": "otherBankName",
+              "label": "Банкны нэр",
+              "required": false,
+              "options": [
+                {"id": "op1", "value": "ХасБанк"},
+                {"id": "op2", "value": "Ариг банк"},
+                {"id": "op3", "value": "Богд банк"},
+                {"id": "op4", "value": "Голомт банк"},
+                {"id": "op5", "value": "Капитрон банк"},
+                {"id": "op6", "value": "Кредит банк"},
+                {"id": "op7", "value": "Төрийн банк"},
+                {"id": "op8", "value": "Төрийн сан"},
+                {"id": "op9", "value": "Тээвэр хөгжлийн банк"},
+                {"id": "op10", "value": "Улаанбаатар хотын банк"},
+                {"id": "op11", "value": "Үндэсний хөрөнгө оруулалтын банк"},
+                {"id": "op12", "value": "Хаан банк"},
+                {"id": "op13", "value": "Худалдаа хөгжлийн банк"},
+                {"id": "op14", "value": "Чингис хаан банк"}
+              ],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "string",
+              "context": null
+            },
+            {
+              "id": "dummy4",
+              "label": "dummy",
+              "required": false,
+              "options": [],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "string",
+              "context": null
+            },
+            {
+              "id": "dummy5",
+              "label": "dummy",
+              "required": false,
+              "options": [],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "string",
+              "context": null
+            },
+            {
+              "id": "otherCurrentAccount",
+              "label": "Харилцах данс",
+              "required": false,
+              "options": [],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "string",
+              "context": null
+            },
+            {
+              "id": "otherSavingAccount",
+              "label": "Хадгаламжийн данс",
+              "required": false,
+              "options": [],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "string",
+              "context": null
+            },
+            {
+              "id": "otherCardAccount",
+              "label": "Картын данс",
+              "required": false,
+              "options": [],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "string",
+              "context": null
+            }
+          ]
+        },
+        "max": 5
+      },
+      {
+        "title": null,
+        "subtitle": "Зээлийн мэдээллийн хуудас",
+        "type": "default",
+        "column": 3,
+        "fieldIds": [
+          "serviceFee",
+          "supplierFee",
+          "otherFee",
+          "propertyInsurance",
+          "accidentInsurance"
+        ],
+        "fields": []
+      }
+    ],
+    "buttons": {
+      "save": false,
+      "continue": false
+    },
+    "entities": {"taskType":  "haha", "entity":  null}
+  },
+
+  "_comment": "CONSUMPTION LOAN CONTRACT PREPARATION Task 2",
+  "Activity_04a4hu1": {
+    "fieldGroups": [
+      {
+        "title": null,
+        "type": "default",
+        "column": 3,
+        "fieldIds": [
+          "loanProduct",
+          "fixedAcceptedLoanAmount",
+          "loanAccountNumber"
+        ],
+        "fields": []
+      },
+      {
+        "title": null,
+        "type": "default",
+        "column": 3,
+        "fieldIds": [
+          "rateChange",
+          "applicationFee",
+          "mortgageContract",
+          "loanServiceFee",
+          "numberOfContract",
+          "collateralContract",
+          "commitmentFee",
+          "assetInfo",
+          "dummy2",
+          "dummy3",
+          "fiduciaryContract",
+          "dummy4",
+          "dummy5",
+          "warrantyContract"
+        ],
+        "fields": []
+      },
+      {
+        "title": null,
+        "subtitle": "Хасбанкны данс",
+        "type": "flexible",
+        "column": 3,
+        "fields": [],
+        "subFields": [],
+        "fieldIds": [
+          "currentAccount0", "savingAccount0", "cardAccount0",
+          "currentAccount1", "savingAccount1", "cardAccount1",
+          "currentAccount2", "savingAccount2", "cardAccount2",
+          "currentAccount3", "savingAccount3", "cardAccount3",
+          "currentAccount4", "savingAccount4", "cardAccount4"
+        ],
+        "flexibleForm": {
+          "2": [
+            {
+              "id": "currentAccount",
+              "label": "Харилцах данс",
+              "required": false,
+              "options": [],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "string",
+              "context": null
+            },
+            {
+              "id": "savingAccount",
+              "label": "Хадгаламжийн данс",
+              "required": false,
+              "options": [],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "string",
+              "context": null
+            },
+            {
+              "id": "cardAccount",
+              "label": "Картын данс",
+              "required": false,
+              "options": [],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "string",
+              "context": null
+            }
+          ]
+        },
+        "max": 5
+      },
+      {
+        "title": null,
+        "subtitle": "Бусад банкны данс",
+        "type": "flexible",
+        "column": 3,
+        "fields": [],
+        "subFields": [],
+        "fieldIds": [
+          "otherBankName0",
+          "dummy40",
+          "dummy50",
+          "otherCurrentAccount0",
+          "otherSavingAccount0",
+          "otherCardAccount0",
+          "otherBankName1",
+          "dummy41",
+          "dummy51",
+          "otherCurrentAccount1",
+          "otherSavingAccount1",
+          "otherCardAccount1",
+          "otherBankName2",
+          "dummy42",
+          "dummy52",
+          "otherCurrentAccount2",
+          "otherSavingAccount2",
+          "otherCardAccount2",
+          "otherBankName3",
+          "dummy43",
+          "dummy53",
+          "otherCurrentAccount3",
+          "otherSavingAccount3",
+          "otherCardAccount3",
+          "otherBankName4",
+          "dummy44",
+          "dummy54",
+          "otherCurrentAccount4",
+          "otherSavingAccount4",
+          "otherCardAccount4"
+        ],
+        "flexibleForm": {
+          "3": [
+            {
+              "id": "otherBankName",
+              "label": "Банкны нэр",
+              "required": false,
+              "options": [
+                {"id": "op1", "value": "ХасБанк"},
+                {"id": "op2", "value": "Ариг банк"},
+                {"id": "op3", "value": "Богд банк"},
+                {"id": "op4", "value": "Голомт банк"},
+                {"id": "op5", "value": "Капитрон банк"},
+                {"id": "op6", "value": "Кредит банк"},
+                {"id": "op7", "value": "Төрийн банк"},
+                {"id": "op8", "value": "Төрийн сан"},
+                {"id": "op9", "value": "Тээвэр хөгжлийн банк"},
+                {"id": "op10", "value": "Улаанбаатар хотын банк"},
+                {"id": "op11", "value": "Үндэсний хөрөнгө оруулалтын банк"},
+                {"id": "op12", "value": "Хаан банк"},
+                {"id": "op13", "value": "Худалдаа хөгжлийн банк"},
+                {"id": "op14", "value": "Чингис хаан банк"}
+              ],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "string",
+              "context": null
+            },
+            {
+              "id": "dummy4",
+              "label": "dummy",
+              "required": false,
+              "options": [],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "string",
+              "context": null
+            },
+            {
+              "id": "dummy5",
+              "label": "dummy",
+              "required": false,
+              "options": [],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "string",
+              "context": null
+            },
+            {
+              "id": "otherCurrentAccount",
+              "label": "Харилцах данс",
+              "required": false,
+              "options": [],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "string",
+              "context": null
+            },
+            {
+              "id": "otherSavingAccount",
+              "label": "Хадгаламжийн данс",
+              "required": false,
+              "options": [],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "string",
+              "context": null
+            },
+            {
+              "id": "otherCardAccount",
+              "label": "Картын данс",
+              "required": false,
+              "options": [],
+              "formFieldValue": {
+                "defaultValue": "",
+                "valueInfo": ""
+              },
+              "validations": [],
+              "disabled": false,
+              "type": "string",
+              "context": null
+            }
+          ]
+        },
+        "max": 5
+      },
+      {
+        "title": null,
+        "subtitle": "Зээлийн мэдээллийн хуудас",
+        "type": "default",
+        "column": 3,
+        "fieldIds": [
+          "serviceFee",
+          "supplierFee",
+          "otherFee",
+          "propertyInsurance",
+          "accidentInsurance"
+        ],
+        "fields": []
+      }
+    ],
+    "buttons": {
+      "save": false,
+      "continue": false
+    },
+    "entities": {"taskType":  "haha", "entity":  null}
+  },
+
+  "_comment": "CREATE VEHICLE COLLATERAL TO NEW CORE",
+  "user_task_new_core_create_vehicle_collateral": {
+    "fieldGroups": [
+      {
+        "title": null,
+        "type": "default",
+        "column": 3,
+        "fieldIds": ["collateralCode"],
+        "fields": []
+      },
+      {
+        "title": null,
+        "subtitle": "Тээврийн хэрэгслийн мэдээлэл",
+        "type": "default",
+        "column": 3,
+        "fieldIds": ["vehicleRegisterNumber", "formNumber", "chassisNumber", "engineNumber", "manufactureYear", "vehicleModel",
+          "financialLeasingSupplier", "purposeOfUsage", "address1", "address2", "address3", "cifNumber", "reviewDate"],
+        "fields": []
+      },
+      {
+        "title": null,
+        "type": "textarea",
+        "column": 1,
+        "fieldIds": ["remarks"],
+        "fields": [],
+        "noSeparator": true
+      },
+      {
+      "title": null,
+        "subtitle": "Үнэлгээний мэдээлэл",
+      "type": "default",
+      "column": 3,
+      "fieldIds": [
+        "inspectionType", "inspectionAmountValue", "amountOfCollateral", "deductionRate", "collateralAssessment", "inspectorId","inspectionDate"
+      ],
+      "fields": []
+      },
+      {
+        "title": null,
+        "subtitle": "Эзэмшигчийн мэдээлэл",
+        "type": "default",
+        "column": 3,
+        "fieldIds": ["ownershipType", "ownerCifNumber", "ownerName"],
+        "fields": []
+      }
+    ],
+    "buttons": {
+      "save": false,
+      "continue": false
+    },
+    "entities": {"taskType":  null, "entity": null}
+  },
+
+  "_comment": "CREATE IMMOVABLE COLLATERAL TO NEW CORE",
+  "user_task_new_core_create_immovable_collateral": {
+    "fieldGroups": [
+      {
+        "title": null,
+        "type": "default",
+        "column": 3,
+        "fieldIds": ["collateralCode"],
+        "fields": []
+      },
+      {
+        "title": null,
+        "subtitle": "Үл хөдлөх хөрөнгийн мэдээлэл",
+        "type": "default",
+        "column": 3,
+        "fieldIds": ["reviewDate", "yearOfConstruction", "conditionOfContract", "purposeOfUsage", "formNumber", "propertyId", "propertyDocNumber",
+          "builtArea", "dueDate","landArea","immovableNumber"],
+        "fields": []
+      },
+      {
+        "title": null,
+        "subtitle": "Барьцаа хөрөнгийн хаяг байршил",
+        "type": "default",
+        "column": 3,
+        "fieldIds": ["city", "address1", "address2", "builderName", "houseNumber", "address3", "streetName", "streetNumber"],
+        "fields": []
+      },
+      {
+        "title": null,
+        "type": "textarea",
+        "column": 1,
+        "fieldIds": ["remarks"],
+        "fields": [],
+        "noSeparator": true
+      },
+      {
+        "title": null,
+        "subtitle": "Үнэлгээний мэдээлэл",
+        "type": "default",
+        "column": 3,
+        "fieldIds": [
+          "inspectionType", "inspectionAmountValue", "amountOfCollateral", "deductionRate", "collateralAssessment", "inspectorId", "inspectionDate"],
+        "fields": []
+      },
+      {
+        "title": null,
+        "subtitle": "Эзэмшигчийн мэдээлэл",
+        "type": "default",
+        "column": 3,
+        "fieldIds": ["ownershipType", "ownerCifNumber", "ownerName"],
+        "fields": []
+      }
+    ],
+    "buttons": {
+      "save": false,
+      "continue": false
+    },
+    "entities": {"taskType":  null, "entity": null}
+  },
+
+  "_comment": "CREATE MACHINERY COLLATERAL TO NEW CORE",
+  "user_task_new_core_create_machinery_collateral": {
+    "fieldGroups": [
+      {
+        "title": null,
+        "type": "default",
+        "column": 3,
+        "fieldIds": ["collateralCode"],
+        "fields": []
+      },
+      {
+        "title": null,
+        "subtitle": "Тоног төхөөрөмжийн хөрөнгийн мэдээлэл",
+        "type": "default",
+        "column": 3,
+        "fieldIds": ["formNumber", "manufacturer", "machineNum", "cifNumber", "manufactureYear", "machineModel", "reviewDate"],
+        "fields": []
+      },
+      {
+        "title": null,
+        "type": "textarea",
+        "column": 1,
+        "fieldIds": ["remarks"],
+        "fields": [],
+        "noSeparator": true
+      },
+      {
+        "title": null,
+        "subtitle": "Үнэлгээний мэдээлэл",
+        "type": "default",
+        "column": 3,
+        "fieldIds": [
+          "inspectionType", "inspectionAmountValue", "amountOfCollateral", "deductionRate", "collateralAssessment", "inspectorId", "inspectionDate"],
+        "fields": []
+      },
+      {
+        "title": null,
+        "subtitle": "Эзэмшигчийн мэдээлэл",
+        "type": "default",
+        "column": 3,
+        "fieldIds": ["ownershipType", "ownerCifNumber", "ownerName"],
+        "fields": []
+      }
+    ],
+    "buttons": {
+      "save": false,
+      "continue": false
+    },
+    "entities": {"taskType":  null, "entity": null}
+  },
+
+  "_comment": "UPDATE IMMOVABLE COLLATERAL TO NEW CORE",
+  "user_task_new_core_update_immovable_collateral": {
+    "fieldGroups": [
+      {
+        "title": null,
+        "type": "default",
+        "column": 3,
+        "fieldIds": ["collateralCode"],
+        "fields": []
+      },
+      {
+        "title": null,
+        "subtitle": "Үл хөдлөх хөрөнгийн мэдээлэл",
+        "type": "default",
+        "column": 3,
+        "fieldIds": ["reviewDate", "yearOfConstruction", "conditionOfContract", "purposeOfUsage", "formNumber", "propertyId", "propertyDocNumber",
+          "builtArea", "dueDate","landArea", "immovableNumber"],
+        "fields": []
+      },
+      {
+        "title": null,
+        "subtitle": "Барьцаа хөрөнгийн хаяг байршил",
+        "type": "default",
+        "column": 3,
+        "fieldIds": ["city", "address1", "address2", "builderName", "houseNumber", "address3", "streetName", "streetNumber"],
+        "fields": []
+      },
+      {
+        "title": null,
+        "type": "textarea",
+        "column": 1,
+        "fieldIds": ["remarks"],
+        "fields": [],
+        "noSeparator": true
+      },
+      {
+        "title": null,
+        "subtitle": "Үнэлгээний мэдээлэл",
+        "type": "default",
+        "column": 3,
+        "fieldIds": [
+          "inspectionType", "inspectionAmountValue", "amountOfCollateral", "deductionRate", "collateralAssessment", "inspectorId", "inspectionDate"],
+        "fields": []
+      },
+      {
+        "title": null,
+        "subtitle": "Эзэмшигчийн мэдээлэл",
+        "type": "default",
+        "column": 3,
+        "fieldIds": ["ownershipType", "ownerCifNumber", "ownerName"],
+        "fields": []
+      }
+    ],
+    "buttons": {
+      "cancel": false,
+      "continue": false
+    },
+    "entities": {"taskType":  null, "entity": null}
+  },
+
+  "_comment": "UPDATE MACHINERY COLLATERAL TO NEW CORE",
+  "user_task_new_core_update_machinery_collateral": {
+    "fieldGroups": [
+      {
+        "title": null,
+        "type": "default",
+        "column": 3,
+        "fieldIds": ["collateralCode"],
+        "fields": []
+      },
+      {
+        "title": null,
+        "subtitle": "Тоног төхөөрөмжийн хөрөнгийн мэдээлэл",
+        "type": "default",
+        "column": 3,
+        "fieldIds": ["formNumber", "manufacturer", "machineNum", "cifNumber", "manufactureYear", "machineModel", "reviewDate"],
+        "fields": []
+      },
+      {
+        "title": null,
+        "type": "textarea",
+        "column": 1,
+        "fieldIds": ["remarks"],
+        "fields": [],
+        "noSeparator": true
+      },
+      {
+        "title": null,
+        "subtitle": "Үнэлгээний мэдээлэл",
+        "type": "default",
+        "column": 3,
+        "fieldIds": [
+          "inspectionType", "inspectionAmountValue", "amountOfCollateral", "deductionRate", "collateralAssessment", "inspectorId", "inspectionDate"],
+        "fields": []
+      },
+      {
+        "title": null,
+        "subtitle": "Эзэмшигчийн мэдээлэл",
+        "type": "default",
+        "column": 3,
+        "fieldIds": ["ownershipType", "ownerCifNumber", "ownerName"],
+        "fields": []
+      }
+    ],
+    "buttons": {
+      "cancel": false,
+      "continue": false
+    },
+    "entities": {"taskType":  null, "entity": null}
+  },
+
+  "_comment": "UPDATE VEHICLE COLLATERAL TO NEW CORE",
+  "user_task_new_core_update_vehicle_collateral": {
+    "fieldGroups": [
+      {
+        "title": null,
+        "type": "default",
+        "column": 3,
+        "fieldIds": [
+          "collateralCode"
+        ],
+        "fields": []
+      },
+      {
+        "title": null,
+        "subtitle": "Тээврийн хэрэгслийн мэдээлэл",
+        "type": "default",
+        "column": 3,
+        "fieldIds": [
+          "vehicleRegisterNumber",
+          "formNumber",
+          "chassisNumber",
+          "engineNumber",
+          "manufactureYear",
+          "vehicleModel",
+          "financialLeasingSupplier",
+          "purposeOfUsage",
+          "address1",
+          "address2",
+          "address3",
+          "cifNumber",
+          "reviewDate"
+        ],
+        "fields": []
+      },
+      {
+        "title": null,
+        "type": "textarea",
+        "column": 1,
+        "fieldIds": [
+          "remarks"
+        ],
+        "fields": [],
+        "noSeparator": true
+      },
+      {
+        "title": null,
+        "subtitle": "Үнэлгээний мэдээлэл",
+        "type": "default",
+        "column": 3,
+        "fieldIds": [
+          "inspectionType",
+          "inspectionAmountValue",
+          "amountOfCollateral",
+          "deductionRate",
+          "collateralAssessment",
+          "inspectorId",
+          "inspectionDate"
+        ],
+        "fields": []
+      },
+      {
+        "title": null,
+        "subtitle": "Эзэмшигчийн мэдээлэл",
+        "type": "default",
+        "column": 3,
+        "fieldIds": [
+          "ownershipType",
+          "ownerCifNumber",
+          "ownerName"
+        ],
+        "fields": []
+      }
+    ],
+    "buttons": {
+      "cancel": false,
+      "continue": false
+    },
+    "entities": {
+      "taskType": null,
+      "entity": null
+    }
+  },
+
+  "_comment": "CREATE OTHER COLLATERAL TO NEW CORE",
+  "user_task_new_core_create_other_collateral": {
+    "fieldGroups": [
+      {
+        "title": null,
+        "type": "default",
+        "column": 3,
+        "fieldIds": ["collateralCode"],
+        "fields": []
+      },
+      {
+        "title": null,
+        "subtitle": "Бусад барьцааны мэдээлэл",
+        "type": "default",
+        "column": 3,
+        "fieldIds": [
+          "formNumber", "cifNumber", "receivedDate", "reviewDate"
+        ],
+        "fields": []
+      },
+      {
+        "title": null,
+        "type": "textarea",
+        "column": 1,
+        "fieldIds": ["remarks"],
+        "fields": [],
+        "noSeparator": true
+      },
+      {
+        "title": null,
+        "subtitle": "Үнэлгээний мэдээлэл",
+        "type": "default",
+        "column": 3,
+        "fieldIds": [
+          "inspectionType", "inspectionAmountValue", "amountOfCollateral", "deductionRate", "collateralAssessment", "inspectorId", "inspectionDate"
+        ],
+        "fields": []
+      },
+      {
+        "title": null,
+        "subtitle": "Эзэмшигчийн мэдээлэл",
+        "type": "default",
+        "column": 3,
+        "fieldIds": [
+          "ownershipType", "ownerCifNumber", "ownerName"
+        ],
+        "fields": []
+      }
+    ],
+    "buttons": {
+      "save": false,
+      "continue": false
+    },
+    "entities": {"taskType":  null, "entity": null}
+  },
+
+  "_comment": "UPDATE OTHER COLLATERAL TO NEW CORE",
+  "user_task_new_core_update_other_collateral": {
+    "fieldGroups": [
+      {
+        "title": null,
+        "type": "default",
+        "column": 3,
+        "fieldIds": ["collateralCode"],
+        "fields": []
+      },
+      {
+        "title": null,
+        "subtitle": "Бусад барьцааны мэдээлэл",
+        "type": "default",
+        "column": 3,
+        "fieldIds": [
+          "formNumber", "cifNumber", "receivedDate", "reviewDate"
+        ],
+        "fields": []
+      },
+      {
+        "title": null,
+        "type": "textarea",
+        "column": 1,
+        "fieldIds": ["remarks"],
+        "fields": [],
+        "noSeparator": true
+      },
+      {
+        "title": null,
+        "subtitle": "Үнэлгээний мэдээлэл",
+        "type": "default",
+        "column": 3,
+        "fieldIds": [
+          "inspectionType", "inspectionAmountValue", "amountOfCollateral", "deductionRate", "collateralAssessment", "inspectorId", "inspectionDate"
+        ],
+        "fields": []
+      },
+      {
+        "title": null,
+        "subtitle": "Эзэмшигчийн мэдээлэл",
+        "type": "default",
+        "column": 3,
+        "fieldIds": [
+          "ownershipType", "ownerCifNumber", "ownerName"
+        ],
+        "fields": []
+      }
+    ],
+    "buttons": {
+      "cancel": false,
+      "continue": false
+    },
+    "entities": {"taskType":  null, "entity": null}
+  },
+
+  "user_task_close_account_and_disburse": {
+    "fieldGroups": [
+      {
+        "title": null,
+        "type": "default",
+        "column": 3,
+        "fieldIds": [
+          "errorProcess", "currentAccountNumber"
+        ],
+        "fields": []
+      },
+      {
+        "title": null,
+        "type": "textarea",
+        "column": 1,
+        "fieldIds": ["errorCause"],
+        "fields": [],
+        "noSeparator": true
+      }
+    ],
+    "buttons": {
+      "save": false,
+      "continue": false
+    },
+    "entities": {"taskType":  "close-account-and-disburse", "entity":  "closeAndDisburse"}
+  },
+
+  "user_task_disbursement": {
+    "fieldGroups": [
+      {
+        "title": null,
+        "type": "default",
+        "column": 3,
+        "fieldIds": [
+          "currentAccountNumber", "errorProcess"
+        ],
+        "fields": []
+      },
+      {
+        "title": null,
+        "type": "textarea",
+        "column": 1,
+        "fieldIds": ["errorCause"],
+        "fields": [],
+        "noSeparator": true
+      }
+    ],
+    "buttons": {
+      "save": false,
+      "continue": false
+    },
+    "entities": {"taskType":  null, "entity":  null}
+  },
+  "user_task_instant_loan_disbursement": {
+    "fieldGroups": [
+      {
+        "title": null,
+        "type": "default",
+        "column": 3,
+        "fieldIds": [
+          "currentAccountNumber", "errorProcess"
+        ],
+        "fields": []
+      },
+      {
+        "title": null,
+        "type": "textarea",
+        "column": 1,
+        "fieldIds": ["errorCause"],
+        "fields": [],
+        "noSeparator": true
+      }
+    ],
+    "table": {
+      "tableHeader": "АЛДААНЫ МЭДЭЭЛЭЛ",
+      "tableColumns": [
+        {"columnDef": "taskName", "headerText": "Таскын нэр", "type": "string"},
+        {"columnDef": "taskState", "headerText": "Төлөв", "type": "string"}
+      ]
+    },
+    "buttons": {
+      "save": false,
+      "continue": false
+    },
+    "entities": {"taskType":  null, "entity":  null}
+  },
+  "user_task_online_leasing_disbursement": {
+    "fieldGroups": [
+      {
+        "title": null,
+        "type": "default",
+        "column": 3,
+        "fieldIds": [
+          "currentAccountNumber", "errorProcess"
+        ],
+        "fields": []
+      },
+      {
+        "title": null,
+        "type": "textarea",
+        "column": 1,
+        "fieldIds": ["errorCause"],
+        "fields": [],
+        "noSeparator": true
+      }
+    ],
+    "table": {
+      "tableHeader": "АЛДААНЫ МЭДЭЭЛЭЛ",
+      "tableColumns": [
+        {"columnDef": "taskName", "headerText": "Таскын нэр", "type": "string"},
+        {"columnDef": "taskState", "headerText": "Төлөв", "type": "string"}
+      ]
+    },
+    "buttons": {
+      "save": false,
+      "continue": false
+    },
+    "entities": {"taskType":  null, "entity":  null}
+  }
+}

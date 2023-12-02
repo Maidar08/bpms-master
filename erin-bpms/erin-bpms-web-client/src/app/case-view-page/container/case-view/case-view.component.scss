@@ -1,0 +1,38 @@
+.container {
+  display:flex;
+  flex-flow:row wrap;
+  font-size: 14px;
+}
+.left {
+  flex:1;
+  flex-basis: 70%;
+  width:100%;
+  order:5;
+}
+.right {
+  flex:1;
+  flex-basis: 30%;
+  width:100%;
+  order:10;
+}
+
+.taskDashletButton{
+  display: none;
+}
+
+@media (max-width: 910px){
+  .container{
+    height: 100vh;
+  }
+  .right{
+    display: none;
+  }
+  .taskDashletButton{
+    display: block;
+    position: fixed;
+    left: 94%;
+    top: 12px;
+    color: white;
+    z-index: 10;
+  }
+}

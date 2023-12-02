@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:bioc="http://bpmn.io/schema/bpmn/biocolor/1.0" id="Definitions_0r6cc98" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="3.7.3">
+  <bpmn:collaboration id="Collaboration_1b0546t">
+    <bpmn:participant id="Participant_1cce85v" name="Баланс тооцоолол" processRef="bpms_micro_loan_balance_calculation" />
+  </bpmn:collaboration>
+  <bpmn:process id="bpms_micro_loan_balance_calculation" isExecutable="true">
+    <bpmn:startEvent id="StartEvent_1">
+      <bpmn:outgoing>Flow_133tcl9</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:sequenceFlow id="Flow_133tcl9" sourceRef="StartEvent_1" targetRef="user_task_micro_balance_calculation" />
+    <bpmn:sequenceFlow id="Flow_1yq5aw9" sourceRef="user_task_micro_balance_calculation" targetRef="Event_1qgai77" />
+    <bpmn:endEvent id="Event_1qgai77">
+      <bpmn:incoming>Flow_1yq5aw9</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:userTask id="user_task_micro_balance_calculation" name="08. Тооцоолол хийх" camunda:formKey="08. Тооцоолол хийх">
+      <bpmn:extensionElements>
+        <camunda:formData>
+          <camunda:formField id="reportPeriod" type="string">
+            <camunda:properties>
+              <camunda:property id="month1" value="1" />
+              <camunda:property id="month2" value="2" />
+              <camunda:property id="month3" value="3" />
+              <camunda:property id="month4" value="4" />
+              <camunda:property id="month5" value="5" />
+              <camunda:property id="month6" value="6" />
+              <camunda:property id="month7" value="7" />
+              <camunda:property id="month8" value="8" />
+              <camunda:property id="month9" value="9" />
+              <camunda:property id="month10" value="10" />
+              <camunda:property id="month11" value="11" />
+              <camunda:property id="month12" value="12" />
+            </camunda:properties>
+          </camunda:formField>
+          <camunda:formField id="balanceTotalIncomeAmountString" type="string" defaultValue="0" />
+          <camunda:formField id="balanceTotalIncomePercentString" type="string" defaultValue="0" />
+          <camunda:formField id="sale" type="string" />
+          <camunda:formField id="operation" type="string" />
+          <camunda:formField id="asset" type="string" />
+          <camunda:formField id="debt" type="string" />
+          <camunda:formField id="balanceTotalsJson" type="string" />
+          <camunda:formField id="reCalculated" type="boolean" defaultValue="false" />
+          <camunda:formField id="businessCalculationCount" type="long" defaultValue="0" />
+          <camunda:formField id="startDate" type="date" />
+          <camunda:formField id="endDate" type="date" />
+        </camunda:formData>
+        <camunda:properties>
+          <camunda:property name="balanceCalculationParentTask" value="user_task_calculation_type" />
+        </camunda:properties>
+        <camunda:taskListener delegateExpression="${setParentTaskIdTaskListener}" event="create" />
+        <camunda:taskListener delegateExpression="${manuallyStartRelatedTaskListener}" event="complete" />
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_133tcl9</bpmn:incoming>
+      <bpmn:outgoing>Flow_1yq5aw9</bpmn:outgoing>
+    </bpmn:userTask>
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Collaboration_1b0546t">
+      <bpmndi:BPMNShape id="Participant_1cce85v_di" bpmnElement="Participant_1cce85v" isHorizontal="true">
+        <dc:Bounds x="120" y="52" width="600" height="250" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_1yq5aw9_di" bpmnElement="Flow_1yq5aw9">
+        <di:waypoint x="390" y="177" />
+        <di:waypoint x="612" y="177" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_133tcl9_di" bpmnElement="Flow_133tcl9">
+        <di:waypoint x="215" y="177" />
+        <di:waypoint x="290" y="177" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
+        <dc:Bounds x="179" y="159" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_1qgai77_di" bpmnElement="Event_1qgai77">
+        <dc:Bounds x="612" y="159" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1937lmo_di" bpmnElement="user_task_micro_balance_calculation" bioc:stroke="rgb(67, 160, 71)" bioc:fill="rgb(200, 230, 201)">
+        <dc:Bounds x="290" y="137" width="100" height="80" />
+      </bpmndi:BPMNShape>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>

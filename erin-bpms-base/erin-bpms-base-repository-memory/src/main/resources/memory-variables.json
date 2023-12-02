@@ -1,0 +1,722 @@
+[
+  {
+    "id": "lastName",
+    "label": "\u041e\u0432\u043e\u0433",
+    "type": "String",
+    "context": "personal-info",
+    "isLocalVariable": false
+  },
+  {
+    "id": "firstName",
+    "label": "\u041d\u044d\u0440",
+    "type": "String",
+    "context": "personal-info",
+    "isLocalVariable": false
+  },
+  {
+    "id": "gender",
+    "label": "\u0425\u04af\u0439\u0441",
+    "type": "String",
+    "context": "personal-info",
+    "isLocalVariable": false
+  },
+  {
+    "id": "email",
+    "label": "\u0426\u0430\u0445\u0438\u043c \u0445\u0430\u044f\u0433",
+    "type": "String",
+    "context": "personal-info",
+    "isLocalVariable": false
+  },
+  {
+    "id": "birthDate",
+    "label": "\u0422\u04e9\u0440\u0441\u04e9\u043d \u043e\u043d\u002c \u0441\u0430\u0440\u002c \u04e9\u0434\u04e9\u0440",
+    "type": "String",
+    "context": "personal-info",
+    "isLocalVariable": false
+  },
+  {
+    "id": "phoneNumber",
+    "label": "\u0423\u0442\u0430\u0441",
+    "type": "String",
+    "context": "personal-info",
+    "isLocalVariable": false
+  },
+  {
+    "id": "marriageState",
+    "label": "\u0413\u044d\u0440\u043b\u044d\u043b\u0442\u0438\u0439\u043d \u0431\u0430\u0439\u0434\u0430\u043b",
+    "type": "String",
+    "context": "personal-info",
+    "isLocalVariable": false
+  },
+  {
+    "id": "address",
+    "label": "\u0413\u044d\u0440\u0438\u0439\u043d \u0445\u0430\u044f\u0433",
+    "type": "String",
+    "context": "personal-info",
+    "isLocalVariable": false
+  },
+
+
+
+  {
+    "id": "schoolName",
+    "label": "\u0421\u0443\u0440\u0433\u0443\u0443\u043b\u0438\u0439\u043d \u043d\u044d\u0440",
+    "type": "String",
+    "context": "educational-state",
+    "isLocalVariable": false
+  },
+  {
+    "id": "startedDate",
+    "label": "\u042d\u043b\u0441\u044d\u043d \u043e\u0440\u0441\u043e\u043d \u043e\u0433\u043d\u043e\u043e",
+    "type": "String",
+    "context": "educational-state",
+    "isLocalVariable": false
+  },
+  {
+    "id": "graduatedDate",
+    "label": "\u0422\u04e9\u0433\u0441\u0441\u04e9\u043d \u043e\u0433\u043d\u043e\u043e",
+    "type": "String",
+    "context": "educational-state",
+    "isLocalVariable": false
+  },
+  {
+    "id": "majorName",
+    "label": "\u042d\u0437\u044d\u043c\u0448\u0441\u044d\u043d \u043c\u044d\u0440\u0433\u044d\u0436\u0438\u043b",
+    "type": "String",
+    "context": "educational-state",
+    "isLocalVariable": false
+  },
+  {
+    "id": "averageScore",
+    "label": "\u0413\u043e\u043b\u0447 \u043e\u043d\u043e\u043e",
+    "type": "String",
+    "context": "educational-state",
+    "isLocalVariable": false
+  },
+  {
+    "id": "majorDirection",
+    "label": "\u042f\u043c\u0430\u0440 \u0447\u0438\u0433\u043b\u044d\u043b\u002c \u0441\u044d\u0434\u0432\u044d\u044d\u0440",
+    "type": "String",
+    "context": "educational-state",
+    "isLocalVariable": false
+  },
+  {
+    "id": "companyName",
+    "label": "\u0425\u0430\u0430\u043d\u0430\u002c \u044f\u043c\u0430\u0440 \u0431\u0430\u0439\u0433\u0443\u0443\u043b\u043b\u0430\u0433\u0430\u0434",
+    "type": "String",
+    "context": "educational-state",
+    "isLocalVariable": false
+  },
+  {
+    "id": "whenDate",
+    "label": "\u0425\u044d\u0437\u044d\u044d",
+    "type": "String",
+    "context": "educational-state",
+    "isLocalVariable": false
+  },
+  {
+    "id": "majorPreparationDate",
+    "label": "\u0425\u0443\u0433\u0430\u0446\u0430\u0430",
+    "type": "String",
+    "context": "educational-state",
+    "isLocalVariable": false
+  },
+  {
+    "id": "certificateNumber",
+    "label": "\u0413\u044d\u0440\u0447\u0438\u043b\u0433\u044d\u044d\u002c \u0441\u0435\u0440\u0442\u0438\u0444\u0438\u043a\u0430\u0442\u044b\u043d \u2116",
+    "type": "String",
+    "context": "educational-state",
+    "isLocalVariable": false
+  },
+  {
+    "id": "languageName",
+    "label": "\u0413\u0430\u0434\u0430\u0430\u0434 \u0445\u044d\u043b\u043d\u0438\u0439 \u043d\u044d\u0440",
+    "type": "String",
+    "context": "educational-state",
+    "isLocalVariable": false
+  },
+  {
+    "id": "understandTalking",
+    "label": "\u042f\u0440\u044c\u0441\u043d\u044b\u0433 \u043e\u0439\u043b\u0433\u043e\u0445",
+    "type": "String",
+    "context": "educational-state",
+    "isLocalVariable": false
+  },
+  {
+    "id": "oralSkill",
+    "label": "\u04e8\u04e9\u0440\u04e9\u04e9 \u044f\u0440\u0438\u0445",
+    "type": "String",
+    "context": "educational-state",
+    "isLocalVariable": false
+  },
+  {
+    "id": "understandReading",
+    "label": "\u0423\u043d\u0448\u0438\u0436 \u043e\u0439\u043b\u0433\u043e\u0445",
+    "type": "String",
+    "context": "educational-state",
+    "isLocalVariable": false
+  },
+  {
+    "id": "translateWriteSkill",
+    "label": "\u0411\u0438\u0447\u0438\u0436  \u043e\u0440\u0447\u0443\u0443\u043b\u0430\u0445",
+    "type": "String",
+    "context": "educational-state",
+    "isLocalVariable": false
+  },
+
+  {
+    "id": "schoolName_1",
+    "label": "\u0421\u0443\u0440\u0433\u0443\u0443\u043b\u0438\u0439\u043d \u043d\u044d\u0440",
+    "type": "String",
+    "context": "educational-state",
+    "isLocalVariable": false
+  },
+  {
+    "id": "startedDate_1",
+    "label": "\u042d\u043b\u0441\u044d\u043d \u043e\u0440\u0441\u043e\u043d \u043e\u0433\u043d\u043e\u043e",
+    "type": "String",
+    "context": "educational-state",
+    "isLocalVariable": false
+  },
+  {
+    "id": "graduatedDate_1",
+    "label": "\u0422\u04e9\u0433\u0441\u0441\u04e9\u043d \u043e\u0433\u043d\u043e\u043e",
+    "type": "String",
+    "context": "educational-state",
+    "isLocalVariable": false
+  },
+  {
+    "id": "majorName_1",
+    "label": "\u042d\u0437\u044d\u043c\u0448\u0441\u044d\u043d \u043c\u044d\u0440\u0433\u044d\u0436\u0438\u043b",
+    "type": "String",
+    "context": "educational-state",
+    "isLocalVariable": false
+  },
+  {
+    "id": "averageScore_1",
+    "label": "\u0413\u043e\u043b\u0447 \u043e\u043d\u043e\u043e",
+    "type": "String",
+    "context": "educational-state",
+    "isLocalVariable": false
+  },
+  {
+    "id": "majorDirection_1",
+    "label": "\u042f\u043c\u0430\u0440 \u0447\u0438\u0433\u043b\u044d\u043b\u002c \u0441\u044d\u0434\u0432\u044d\u044d\u0440",
+    "type": "String",
+    "context": "educational-state",
+    "isLocalVariable": false
+  },
+  {
+    "id": "companyName_1",
+    "label": "\u0425\u0430\u0430\u043d\u0430\u002c \u044f\u043c\u0430\u0440 \u0431\u0430\u0439\u0433\u0443\u0443\u043b\u043b\u0430\u0433\u0430\u0434",
+    "type": "String",
+    "context": "educational-state",
+    "isLocalVariable": false
+  },
+  {
+    "id": "whenDate_1",
+    "label": "\u0425\u044d\u0437\u044d\u044d",
+    "type": "String",
+    "context": "educational-state",
+    "isLocalVariable": false
+  },
+  {
+    "id": "majorPreparationDate_1",
+    "label": "\u0425\u0443\u0433\u0430\u0446\u0430\u0430",
+    "type": "String",
+    "context": "educational-state",
+    "isLocalVariable": false
+  },
+  {
+    "id": "certificateNumber_1",
+    "label": "\u0413\u044d\u0440\u0447\u0438\u043b\u0433\u044d\u044d\u002c \u0441\u0435\u0440\u0442\u0438\u0444\u0438\u043a\u0430\u0442\u044b\u043d \u2116",
+    "type": "String",
+    "context": "educational-state",
+    "isLocalVariable": false
+  },
+  {
+    "id": "languageName_1",
+    "label": "\u0413\u0430\u0434\u0430\u0430\u0434 \u0445\u044d\u043b\u043d\u0438\u0439 \u043d\u044d\u0440",
+    "type": "String",
+    "context": "educational-state",
+    "isLocalVariable": false
+  },
+  {
+    "id": "understandTalking_1",
+    "label": "\u042f\u0440\u044c\u0441\u043d\u044b\u0433 \u043e\u0439\u043b\u0433\u043e\u0445",
+    "type": "String",
+    "context": "educational-state",
+    "isLocalVariable": false
+  },
+  {
+    "id": "oralSkill_1",
+    "label": "\u04e8\u04e9\u0440\u04e9\u04e9 \u044f\u0440\u0438\u0445",
+    "type": "String",
+    "context": "educational-state",
+    "isLocalVariable": false
+  },
+  {
+    "id": "understandReading_1",
+    "label": "\u0423\u043d\u0448\u0438\u0436 \u043e\u0439\u043b\u0433\u043e\u0445",
+    "type": "String",
+    "context": "educational-state",
+    "isLocalVariable": false
+  },
+  {
+    "id": "translateWriteSkill_1",
+    "label": "\u0411\u0438\u0447\u0438\u0436  \u043e\u0440\u0447\u0443\u0443\u043b\u0430\u0445",
+    "type": "String",
+    "context": "educational-state",
+    "isLocalVariable": false
+  },
+
+  {
+    "id": "schoolName_2",
+    "label": "\u0421\u0443\u0440\u0433\u0443\u0443\u043b\u0438\u0439\u043d \u043d\u044d\u0440",
+    "type": "String",
+    "context": "educational-state",
+    "isLocalVariable": false
+  },
+  {
+    "id": "startedDate_2",
+    "label": "\u042d\u043b\u0441\u044d\u043d \u043e\u0440\u0441\u043e\u043d \u043e\u0433\u043d\u043e\u043e",
+    "type": "String",
+    "context": "educational-state",
+    "isLocalVariable": false
+  },
+  {
+    "id": "graduatedDate_2",
+    "label": "\u0422\u04e9\u0433\u0441\u0441\u04e9\u043d \u043e\u0433\u043d\u043e\u043e",
+    "type": "String",
+    "context": "educational-state",
+    "isLocalVariable": false
+  },
+  {
+    "id": "majorName_2",
+    "label": "\u042d\u0437\u044d\u043c\u0448\u0441\u044d\u043d \u043c\u044d\u0440\u0433\u044d\u0436\u0438\u043b",
+    "type": "String",
+    "context": "educational-state",
+    "isLocalVariable": false
+  },
+  {
+    "id": "averageScore_2",
+    "label": "\u0413\u043e\u043b\u0447 \u043e\u043d\u043e\u043e",
+    "type": "String",
+    "context": "educational-state",
+    "isLocalVariable": false
+  },
+  {
+    "id": "majorDirection_2",
+    "label": "\u042f\u043c\u0430\u0440 \u0447\u0438\u0433\u043b\u044d\u043b\u002c \u0441\u044d\u0434\u0432\u044d\u044d\u0440",
+    "type": "String",
+    "context": "educational-state",
+    "isLocalVariable": false
+  },
+  {
+    "id": "companyName_2",
+    "label": "\u0425\u0430\u0430\u043d\u0430\u002c \u044f\u043c\u0430\u0440 \u0431\u0430\u0439\u0433\u0443\u0443\u043b\u043b\u0430\u0433\u0430\u0434",
+    "type": "String",
+    "context": "educational-state",
+    "isLocalVariable": false
+  },
+  {
+    "id": "whenDate_2",
+    "label": "\u0425\u044d\u0437\u044d\u044d",
+    "type": "String",
+    "context": "educational-state",
+    "isLocalVariable": false
+  },
+  {
+    "id": "majorPreparationDate_2",
+    "label": "\u0425\u0443\u0433\u0430\u0446\u0430\u0430",
+    "type": "String",
+    "context": "educational-state",
+    "isLocalVariable": false
+  },
+  {
+    "id": "certificateNumber_2",
+    "label": "\u0413\u044d\u0440\u0447\u0438\u043b\u0433\u044d\u044d\u002c \u0441\u0435\u0440\u0442\u0438\u0444\u0438\u043a\u0430\u0442\u044b\u043d \u2116",
+    "type": "String",
+    "context": "educational-state",
+    "isLocalVariable": false
+  },
+  {
+    "id": "languageName_2",
+    "label": "\u0413\u0430\u0434\u0430\u0430\u0434 \u0445\u044d\u043b\u043d\u0438\u0439 \u043d\u044d\u0440",
+    "type": "String",
+    "context": "educational-state",
+    "isLocalVariable": false
+  },
+  {
+    "id": "understandTalking_2",
+    "label": "\u042f\u0440\u044c\u0441\u043d\u044b\u0433 \u043e\u0439\u043b\u0433\u043e\u0445",
+    "type": "String",
+    "context": "educational-state",
+    "isLocalVariable": false
+  },
+  {
+    "id": "oralSkill_2",
+    "label": "\u04e8\u04e9\u0440\u04e9\u04e9 \u044f\u0440\u0438\u0445",
+    "type": "String",
+    "context": "educational-state",
+    "isLocalVariable": false
+  },
+  {
+    "id": "understandReading_2",
+    "label": "\u0423\u043d\u0448\u0438\u0436 \u043e\u0439\u043b\u0433\u043e\u0445",
+    "type": "String",
+    "context": "educational-state",
+    "isLocalVariable": false
+  },
+  {
+    "id": "translateWriteSkill_2",
+    "label": "\u0411\u0438\u0447\u0438\u0436  \u043e\u0440\u0447\u0443\u0443\u043b\u0430\u0445",
+    "type": "String",
+    "context": "educational-state",
+    "isLocalVariable": false
+  },
+
+  {
+    "id": "schoolName_3",
+    "label": "\u0421\u0443\u0440\u0433\u0443\u0443\u043b\u0438\u0439\u043d \u043d\u044d\u0440",
+    "type": "String",
+    "context": "educational-state",
+    "isLocalVariable": false
+  },
+  {
+    "id": "startedDate_3",
+    "label": "\u042d\u043b\u0441\u044d\u043d \u043e\u0440\u0441\u043e\u043d \u043e\u0433\u043d\u043e\u043e",
+    "type": "String",
+    "context": "educational-state",
+    "isLocalVariable": false
+  },
+  {
+    "id": "graduatedDate_3",
+    "label": "\u0422\u04e9\u0433\u0441\u0441\u04e9\u043d \u043e\u0433\u043d\u043e\u043e",
+    "type": "String",
+    "context": "educational-state",
+    "isLocalVariable": false
+  },
+  {
+    "id": "majorName_3",
+    "label": "\u042d\u0437\u044d\u043c\u0448\u0441\u044d\u043d \u043c\u044d\u0440\u0433\u044d\u0436\u0438\u043b",
+    "type": "String",
+    "context": "educational-state",
+    "isLocalVariable": false
+  },
+  {
+    "id": "averageScore_3",
+    "label": "\u0413\u043e\u043b\u0447 \u043e\u043d\u043e\u043e",
+    "type": "String",
+    "context": "educational-state",
+    "isLocalVariable": false
+  },
+  {
+    "id": "majorDirection_3",
+    "label": "\u042f\u043c\u0430\u0440 \u0447\u0438\u0433\u043b\u044d\u043b\u002c \u0441\u044d\u0434\u0432\u044d\u044d\u0440",
+    "type": "String",
+    "context": "educational-state",
+    "isLocalVariable": false
+  },
+  {
+    "id": "companyName_3",
+    "label": "\u0425\u0430\u0430\u043d\u0430\u002c \u044f\u043c\u0430\u0440 \u0431\u0430\u0439\u0433\u0443\u0443\u043b\u043b\u0430\u0433\u0430\u0434",
+    "type": "String",
+    "context": "educational-state",
+    "isLocalVariable": false
+  },
+  {
+    "id": "whenDate_3",
+    "label": "\u0425\u044d\u0437\u044d\u044d",
+    "type": "String",
+    "context": "educational-state",
+    "isLocalVariable": false
+  },
+  {
+    "id": "majorPreparationDate_3",
+    "label": "\u0425\u0443\u0433\u0430\u0446\u0430\u0430",
+    "type": "String",
+    "context": "educational-state",
+    "isLocalVariable": false
+  },
+  {
+    "id": "certificateNumber_3",
+    "label": "\u0413\u044d\u0440\u0447\u0438\u043b\u0433\u044d\u044d\u002c \u0441\u0435\u0440\u0442\u0438\u0444\u0438\u043a\u0430\u0442\u044b\u043d \u2116",
+    "type": "String",
+    "context": "educational-state",
+    "isLocalVariable": false
+  },
+  {
+    "id": "languageName_3",
+    "label": "\u0413\u0430\u0434\u0430\u0430\u0434 \u0445\u044d\u043b\u043d\u0438\u0439 \u043d\u044d\u0440",
+    "type": "String",
+    "context": "educational-state",
+    "isLocalVariable": false
+  },
+  {
+    "id": "understandTalking_3",
+    "label": "\u042f\u0440\u044c\u0441\u043d\u044b\u0433 \u043e\u0439\u043b\u0433\u043e\u0445",
+    "type": "String",
+    "context": "educational-state",
+    "isLocalVariable": false
+  },
+  {
+    "id": "oralSkill_3",
+    "label": "\u04e8\u04e9\u0440\u04e9\u04e9 \u044f\u0440\u0438\u0445",
+    "type": "String",
+    "context": "educational-state",
+    "isLocalVariable": false
+  },
+  {
+    "id": "understandReading_3",
+    "label": "\u0423\u043d\u0448\u0438\u0436 \u043e\u0439\u043b\u0433\u043e\u0445",
+    "type": "String",
+    "context": "educational-state",
+    "isLocalVariable": false
+  },
+  {
+    "id": "translateWriteSkill_3",
+    "label": "\u0411\u0438\u0447\u0438\u0436  \u043e\u0440\u0447\u0443\u0443\u043b\u0430\u0445",
+    "type": "String",
+    "context": "educational-state",
+    "isLocalVariable": false
+  },
+
+  {
+    "id": "schoolName_4",
+    "label": "\u0421\u0443\u0440\u0433\u0443\u0443\u043b\u0438\u0439\u043d \u043d\u044d\u0440",
+    "type": "String",
+    "context": "educational-state",
+    "isLocalVariable": false
+  },
+  {
+    "id": "startedDate_4",
+    "label": "\u042d\u043b\u0441\u044d\u043d \u043e\u0440\u0441\u043e\u043d \u043e\u0433\u043d\u043e\u043e",
+    "type": "String",
+    "context": "educational-state",
+    "isLocalVariable": false
+  },
+  {
+    "id": "graduatedDate_4",
+    "label": "\u0422\u04e9\u0433\u0441\u0441\u04e9\u043d \u043e\u0433\u043d\u043e\u043e",
+    "type": "String",
+    "context": "educational-state",
+    "isLocalVariable": false
+  },
+  {
+    "id": "majorName_4",
+    "label": "\u042d\u0437\u044d\u043c\u0448\u0441\u044d\u043d \u043c\u044d\u0440\u0433\u044d\u0436\u0438\u043b",
+    "type": "String",
+    "context": "educational-state",
+    "isLocalVariable": false
+  },
+  {
+    "id": "averageScore_4",
+    "label": "\u0413\u043e\u043b\u0447 \u043e\u043d\u043e\u043e",
+    "type": "String",
+    "context": "educational-state",
+    "isLocalVariable": false
+  },
+  {
+    "id": "majorDirection_4",
+    "label": "\u042f\u043c\u0430\u0440 \u0447\u0438\u0433\u043b\u044d\u043b\u002c \u0441\u044d\u0434\u0432\u044d\u044d\u0440",
+    "type": "String",
+    "context": "educational-state",
+    "isLocalVariable": false
+  },
+  {
+    "id": "companyName_4",
+    "label": "\u0425\u0430\u0430\u043d\u0430\u002c \u044f\u043c\u0430\u0440 \u0431\u0430\u0439\u0433\u0443\u0443\u043b\u043b\u0430\u0433\u0430\u0434",
+    "type": "String",
+    "context": "educational-state",
+    "isLocalVariable": false
+  },
+  {
+    "id": "whenDate_4",
+    "label": "\u0425\u044d\u0437\u044d\u044d",
+    "type": "String",
+    "context": "educational-state",
+    "isLocalVariable": false
+  },
+  {
+    "id": "majorPreparationDate_4",
+    "label": "\u0425\u0443\u0433\u0430\u0446\u0430\u0430",
+    "type": "String",
+    "context": "educational-state",
+    "isLocalVariable": false
+  },
+  {
+    "id": "certificateNumber_4",
+    "label": "\u0413\u044d\u0440\u0447\u0438\u043b\u0433\u044d\u044d\u002c \u0441\u0435\u0440\u0442\u0438\u0444\u0438\u043a\u0430\u0442\u044b\u043d \u2116",
+    "type": "String",
+    "context": "educational-state",
+    "isLocalVariable": false
+  },
+  {
+    "id": "languageName_4",
+    "label": "\u0413\u0430\u0434\u0430\u0430\u0434 \u0445\u044d\u043b\u043d\u0438\u0439 \u043d\u044d\u0440",
+    "type": "String",
+    "context": "educational-state",
+    "isLocalVariable": false
+  },
+  {
+    "id": "understandTalking_4",
+    "label": "\u042f\u0440\u044c\u0441\u043d\u044b\u0433 \u043e\u0439\u043b\u0433\u043e\u0445",
+    "type": "String",
+    "context": "educational-state",
+    "isLocalVariable": false
+  },
+  {
+    "id": "oralSkill_4",
+    "label": "\u04e8\u04e9\u0440\u04e9\u04e9 \u044f\u0440\u0438\u0445",
+    "type": "String",
+    "context": "educational-state",
+    "isLocalVariable": false
+  },
+  {
+    "id": "understandReading_4",
+    "label": "\u0423\u043d\u0448\u0438\u0436 \u043e\u0439\u043b\u0433\u043e\u0445",
+    "type": "String",
+    "context": "educational-state",
+    "isLocalVariable": false
+  },
+  {
+    "id": "translateWriteSkill_4",
+    "label": "\u0411\u0438\u0447\u0438\u0436  \u043e\u0440\u0447\u0443\u0443\u043b\u0430\u0445",
+    "type": "String",
+    "context": "educational-state",
+    "isLocalVariable": false
+  },
+
+
+
+  {
+    "id": "communicateWithOthersStar",
+    "label": "\u0411\u0443\u0441\u0430\u0434\u0442\u0430\u0439 \u0445\u0430\u0440\u0438\u043b\u0446\u0430\u0445 \u0447\u0430\u0434\u0432\u0430\u0440",
+    "type": "String",
+    "context": "personal-skill",
+    "isLocalVariable": false
+  },
+  {
+    "id": "responsibilityStar",
+    "label": "\u0425\u0430\u0440\u0438\u0443\u0446\u043b\u0430\u0433\u0430\u0442\u0430\u0439 \u0431\u0430\u0439\u0434\u0430\u043b",
+    "type": "String",
+    "context": "personal-skill",
+    "isLocalVariable": false
+  },
+  {
+    "id": "creativityStar",
+    "label": "\u0411\u04af\u0442\u044d\u044d\u043b\u0447 \u0431\u0430\u0439\u0434\u0430\u043b",
+    "type": "String",
+    "context": "personal-skill",
+    "isLocalVariable": false
+  },
+  {
+    "id": "selfrelianceStar",
+    "label": "\u0411\u0438\u0435 \u0434\u0430\u0430\u0445 \u0447\u0430\u0434\u0432\u0430\u0440",
+    "type": "String",
+    "context": "personal-skill",
+    "isLocalVariable": false
+  },
+  {
+    "id": "problemSolvingStar",
+    "label": "\u0410\u0441\u0443\u0443\u0434\u0430\u043b \u0448\u0438\u0439\u0434\u0432\u044d\u0440\u043b\u044d\u0445",
+    "type": "String",
+    "context": "personal-skill",
+    "isLocalVariable": false
+  },
+  {
+    "id": "analyzeStar",
+    "label": "\u0414\u04af\u043d \u0448\u0438\u043d\u0436\u0438\u043b\u0433\u044d\u044d \u0445\u0438\u0439\u0445",
+    "type": "String",
+    "context": "personal-skill",
+    "isLocalVariable": false
+  },
+  {
+    "id": "timeManagementStar",
+    "label": "\u0426\u0430\u0433\u0438\u0439\u043d \u043c\u0435\u043d\u0435\u0436\u043c\u0435\u043d\u0442",
+    "type": "String",
+    "context": "personal-skill",
+    "isLocalVariable": false
+  },
+  {
+    "id": "teamworkStar",
+    "label": "\u0411\u0430\u0433\u0430\u0430\u0440 \u0430\u0436\u0438\u043b\u043b\u0430\u0445",
+    "type": "String",
+    "context": "personal-skill",
+    "isLocalVariable": false
+  },
+  {
+    "id": "flexibilityStar",
+    "label": "\u0423\u044f\u043d \u0445\u0430\u0442\u0430\u043d \u0431\u0430\u0439\u0434\u0430\u043b",
+    "type": "String",
+    "context": "personal-skill",
+    "isLocalVariable": false
+  },
+
+
+
+  {
+    "id": "proSkill1",
+    "label": "",
+    "type": "String",
+    "context": "pro-skill",
+    "isLocalVariable": false
+  },
+  {
+    "id": "proSkill2",
+    "label": "",
+    "type": "String",
+    "context": "pro-skill",
+    "isLocalVariable": false
+  },
+  {
+    "id": "proSkill3",
+    "label": "",
+    "type": "String",
+    "context": "pro-skill",
+    "isLocalVariable": false
+  },
+  {
+    "id": "proSkill4",
+    "label": "",
+    "type": "String",
+    "context": "pro-skill",
+    "isLocalVariable": false
+  },
+  {
+    "id": "proSkill5",
+    "label": "",
+    "type": "String",
+    "context": "pro-skill",
+    "isLocalVariable": false
+  },
+  {
+    "id": "proSkill6",
+    "label": "",
+    "type": "String",
+    "context": "pro-skill",
+    "isLocalVariable": false
+  },
+  {
+    "id": "proSkill7",
+    "label": "",
+    "type": "String",
+    "context": "pro-skill",
+    "isLocalVariable": false
+  },
+  {
+    "id": "proSkill8",
+    "label": "",
+    "type": "String",
+    "context": "pro-skill",
+    "isLocalVariable": false
+  },
+  {
+    "id": "proSkill9",
+    "label": "",
+    "type": "String",
+    "context": "pro-skill",
+    "isLocalVariable": false
+  }
+]

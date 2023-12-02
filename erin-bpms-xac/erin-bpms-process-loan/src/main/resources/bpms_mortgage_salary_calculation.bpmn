@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:bioc="http://bpmn.io/schema/bpmn/biocolor/1.0" id="Definitions_0bddkgw" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="4.4.0">
+  <bpmn:collaboration id="Collaboration_1wbjid5">
+    <bpmn:participant id="Participant_0a0mhr9" name="08. Цалингийн тооцоолол" processRef="bpms_mortgage_salary_calculation" />
+  </bpmn:collaboration>
+  <bpmn:process id="bpms_mortgage_salary_calculation" isExecutable="true">
+    <bpmn:startEvent id="StartEvent_1">
+      <bpmn:outgoing>SequenceFlow_15q4xvg</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:userTask id="user_task_mortgage_salary_calculation" name="08. Тооцоолол хийх" camunda:formKey="08. Тооцоолол хийх">
+      <bpmn:extensionElements>
+        <camunda:formData>
+          <camunda:formField id="hasMortgage" label="Орон сууцны зээлтэй эсэх" type="string" defaultValue="Үгүй">
+            <camunda:properties>
+              <camunda:property id="yes" value="Тийм" />
+              <camunda:property id="no" value="Үгүй" />
+              <camunda:property id="no" value="Банкны нөхцөлтэй орон сууц" />
+            </camunda:properties>
+            <camunda:validation>
+              <camunda:constraint name="required" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="reCalculated" type="boolean" defaultValue="false" />
+          <camunda:formField id="mortgageCalculationCount" type="long" defaultValue="2" />
+        </camunda:formData>
+        <camunda:properties>
+          <camunda:property name="mortgageSalaryCalculationParentTaskName" value="user_task_salary_calculation" />
+        </camunda:properties>
+        <camunda:taskListener delegateExpression="${setParentTaskIdTaskListener}" event="create" />
+        <camunda:taskListener delegateExpression="${manuallyStartRelatedTaskListener}" event="complete" />
+      </bpmn:extensionElements>
+      <bpmn:incoming>SequenceFlow_15q4xvg</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_0aa04j7</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:sequenceFlow id="SequenceFlow_15q4xvg" sourceRef="StartEvent_1" targetRef="user_task_mortgage_salary_calculation" />
+    <bpmn:sequenceFlow id="SequenceFlow_0aa04j7" sourceRef="user_task_mortgage_salary_calculation" targetRef="Activity_07l8jnz" />
+    <bpmn:endEvent id="EndEvent_1ld0z8z">
+      <bpmn:incoming>Flow_1vgdzzg</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_1vgdzzg" sourceRef="Activity_07l8jnz" targetRef="EndEvent_1ld0z8z" />
+    <bpmn:serviceTask id="Activity_07l8jnz" name="Set Last Calculation Type" camunda:delegateExpression="${setLastCalculationTypeSalaryTask}">
+      <bpmn:incoming>SequenceFlow_0aa04j7</bpmn:incoming>
+      <bpmn:outgoing>Flow_1vgdzzg</bpmn:outgoing>
+    </bpmn:serviceTask>
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Collaboration_1wbjid5">
+      <bpmndi:BPMNShape id="Participant_0a0mhr9_di" bpmnElement="Participant_0a0mhr9" isHorizontal="true">
+        <dc:Bounds x="160" y="40" width="830" height="250" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_1vgdzzg_di" bpmnElement="Flow_1vgdzzg">
+        <di:waypoint x="670" y="161" />
+        <di:waypoint x="852" y="161" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_0aa04j7_di" bpmnElement="SequenceFlow_0aa04j7">
+        <di:waypoint x="400" y="161" />
+        <di:waypoint x="570" y="161" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_15q4xvg_di" bpmnElement="SequenceFlow_15q4xvg">
+        <di:waypoint x="246" y="161" />
+        <di:waypoint x="300" y="161" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
+        <dc:Bounds x="210" y="143" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="UserTask_0v0loyo_di" bpmnElement="user_task_mortgage_salary_calculation" bioc:stroke="rgb(67, 160, 71)" bioc:fill="rgb(200, 230, 201)">
+        <dc:Bounds x="300" y="121" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="EndEvent_1ld0z8z_di" bpmnElement="EndEvent_1ld0z8z">
+        <dc:Bounds x="852" y="143" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_021pxrp_di" bpmnElement="Activity_07l8jnz">
+        <dc:Bounds x="570" y="121" width="100" height="80" />
+      </bpmndi:BPMNShape>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>

@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" xmlns:bioc="http://bpmn.io/schema/bpmn/biocolor/1.0" id="Definitions_0dvrn17" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="4.0.0">
+  <bpmn:collaboration id="Collaboration_02f5762">
+    <bpmn:participant id="Participant_0kl4ya4" name="Монгол банкнаас лавлагаа татах" processRef="download_info_from_mongol_bank" />
+  </bpmn:collaboration>
+  <bpmn:process id="download_info_from_mongol_bank" isExecutable="true">
+    <bpmn:startEvent id="StartEvent_1" name="Монгол банкны лавлагаа татах хүсэлт ирсэн">
+      <bpmn:outgoing>SequenceFlow_06u498f</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:userTask id="Task_1tzwhk1" name="02. Монгол банк лавлагаа" camunda:formKey="02. Монгол банк лавлагаа">
+      <bpmn:extensionElements>
+        <camunda:formData>
+          <camunda:formField id="legalStatus" label="Хуулийн статус" type="string" defaultValue="Монгол улсын иргэн">
+            <camunda:properties>
+              <camunda:property id="citizenOfMongolian" value="Монгол улсын иргэн" />
+            </camunda:properties>
+            <camunda:validation>
+              <camunda:constraint name="required" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="registerNumber" label="Харилцагчийн регистр" type="string">
+            <camunda:validation>
+              <camunda:constraint name="readonly" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="mbFirstName" label="Иргэний нэр" type="string">
+            <camunda:validation>
+              <camunda:constraint name="readonly" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="mbLastName" label="Эцгийн нэр" type="string">
+            <camunda:validation>
+              <camunda:constraint name="readonly" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="mbLegalState" label="Монгол улсын иргэн эсэх" type="string">
+            <camunda:validation>
+              <camunda:constraint name="readonly" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="mgRegisterNumber" label="Регистрийн дугаар" type="string">
+            <camunda:validation>
+              <camunda:constraint name="readonly" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="mbIdNumber" label="Иргэний үнэмлэхийн №" type="string">
+            <camunda:validation>
+              <camunda:constraint name="readonly" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="mbBirth" label="Төрсөн огноо" type="string">
+            <camunda:validation>
+              <camunda:constraint name="readonly" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="mbAddress" label="Албан ёсны хаяг" type="string">
+            <camunda:validation>
+              <camunda:constraint name="readonly" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="mbOccupancy" label="Эрхэлдэг ажил" type="string">
+            <camunda:validation>
+              <camunda:constraint name="readonly" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="mbProfession" label="Мэргэжил" type="string">
+            <camunda:validation>
+              <camunda:constraint name="readonly" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="mbFamilyName" label="Гэр бүлийн нэр" type="string">
+            <camunda:validation>
+              <camunda:constraint name="readonly" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="mbFamilyLastName" label="Гэр бүлийн эцгийн нэр" type="string">
+            <camunda:validation>
+              <camunda:constraint name="readonly" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="mbFamilyRegisterNumber" label="Гэр бүлийн регистрийн дугаар" type="string">
+            <camunda:validation>
+              <camunda:constraint name="readonly" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="mbNumberOfFamilyMember" label="Гэр бүлийн гишүүдийн тоо" type="string">
+            <camunda:validation>
+              <camunda:constraint name="readonly" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="mbJoblessNumberOfFamilyMember" label="Үүнээс ажил эрхэлдэггүй гишүүдийн тоо" type="string">
+            <camunda:validation>
+              <camunda:constraint name="readonly" />
+            </camunda:validation>
+          </camunda:formField>
+        </camunda:formData>
+      </bpmn:extensionElements>
+      <bpmn:incoming>SequenceFlow_06u498f</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_1dezgu6</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:endEvent id="EndEvent_0p4jifq" name="Лавлагаа татсан">
+      <bpmn:incoming>SequenceFlow_1khe0f5</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="SequenceFlow_1dezgu6" sourceRef="Task_1tzwhk1" targetRef="Task_0thksy4" />
+    <bpmn:sequenceFlow id="SequenceFlow_1khe0f5" sourceRef="Task_0thksy4" targetRef="EndEvent_0p4jifq" />
+    <bpmn:sequenceFlow id="SequenceFlow_06u498f" sourceRef="StartEvent_1" targetRef="Task_1tzwhk1" />
+    <bpmn:serviceTask id="Task_0thksy4" name="Харилцагчийн зээлийн мэдээлэл тавах" camunda:delegateExpression="${downloadInfoFromMongolBankNew}">
+      <bpmn:incoming>SequenceFlow_1dezgu6</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_1khe0f5</bpmn:outgoing>
+      <bpmn:property id="Property_0puwpl4" name="__targetRef_placeholder" />
+      <bpmn:dataInputAssociation id="DataInputAssociation_1nc4pjs">
+        <bpmn:sourceRef>DataStoreReference_1rp78rm</bpmn:sourceRef>
+        <bpmn:targetRef>Property_0puwpl4</bpmn:targetRef>
+      </bpmn:dataInputAssociation>
+    </bpmn:serviceTask>
+    <bpmn:dataStoreReference id="DataStoreReference_1rp78rm" name="Монгол банкны ЗМ-ийн сан" />
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Collaboration_02f5762">
+      <bpmndi:BPMNShape id="Participant_0kl4ya4_di" bpmnElement="Participant_0kl4ya4" isHorizontal="true">
+        <dc:Bounds x="160" y="120" width="582" height="270" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="SequenceFlow_06u498f_di" bpmnElement="SequenceFlow_06u498f">
+        <di:waypoint x="246" y="210" />
+        <di:waypoint x="320" y="210" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_1khe0f5_di" bpmnElement="SequenceFlow_1khe0f5">
+        <di:waypoint x="580" y="210" />
+        <di:waypoint x="662" y="210" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_1dezgu6_di" bpmnElement="SequenceFlow_1dezgu6">
+        <di:waypoint x="420" y="210" />
+        <di:waypoint x="480" y="210" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
+        <dc:Bounds x="210" y="192" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="201" y="235" width="78" height="40" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="UserTask_12ujxc1_di" bpmnElement="Task_1tzwhk1" bioc:stroke="rgb(67, 160, 71)" bioc:fill="rgb(200, 230, 201)">
+        <dc:Bounds x="320" y="170" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="EndEvent_0p4jifq_di" bpmnElement="EndEvent_0p4jifq">
+        <dc:Bounds x="662" y="192" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="638" y="235" width="84" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="ServiceTask_1hiwvj2_di" bpmnElement="Task_0thksy4" bioc:stroke="rgb(142, 36, 170)" bioc:fill="rgb(225, 190, 231)">
+        <dc:Bounds x="480" y="170" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="DataStoreReference_1rp78rm_di" bpmnElement="DataStoreReference_1rp78rm" bioc:stroke="rgb(142, 36, 170)" bioc:fill="rgb(225, 190, 231)">
+        <dc:Bounds x="505" y="285" width="50" height="50" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="492" y="342" width="78" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="DataInputAssociation_1nc4pjs_di" bpmnElement="DataInputAssociation_1nc4pjs">
+        <di:waypoint x="530" y="285" />
+        <di:waypoint x="530" y="250" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>

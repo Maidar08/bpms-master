@@ -1,0 +1,50 @@
+plugins {
+  id "com.moowork.node" version "1.3.1"
+}
+
+apply plugin: 'war'
+
+task buildProd(type: NpmTask) {
+  args = ['run', 'build-prod']
+  dependsOn npmInstall
+}
+
+task testCoverage(type: NpmTask) {
+  args = ['run', 'test-coverage']
+  dependsOn npmInstall
+}
+
+task prodWar(type: War) {
+  destinationDir file('build/libs')
+  from "dist/prod"
+  dependsOn buildProd
+}
+
+// dist standalone
+
+task buildStandalone(type: NpmTask) {
+  args = ['run', 'build-standalone']
+  dependsOn npmInstall
+}
+
+task standaloneWar(type: War) {
+  destinationDir file('build/libs')
+  from "dist/standalone"
+  dependsOn buildStandalone
+}
+
+war {
+  from "dist/prod"
+}
+
+sonarqube {
+  properties {
+    def sources = [
+      file("src").absolutePath
+    ]
+    property("sonar.typescript.lcov.reportPaths", file("coverage/erin-bpms-web-client/lcov.info").absolutePath)
+    property("sonar.sourceEncoding", "UTF-8")
+    property("sonar.sources", sources.join(',') )
+    property("projectBaseDir", projectDir.absolutePath )
+  }
+}

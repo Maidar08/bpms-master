@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/DMN/20151101/dmn.xsd" id="Definitions_0fkvhvv" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="3.7.1">
+  <decision id="max_scores" name="Max Scores (Interest Rate)">
+    <decisionTable id="decisionTable_1">
+      <input id="input_1">
+        <inputExpression id="inputExpression_1" typeRef="string">
+          <text></text>
+        </inputExpression>
+      </input>
+      <output id="output_1" label="Loan History Max Score" name="loan_history_max_score" typeRef="integer" />
+      <output id="OutputClause_1wte47u" label="Loan Period Max Score" name="loan_period_max_score" typeRef="integer" />
+      <output id="OutputClause_1r8qfsm" label="Resource Max Score" name="resource_max_score" typeRef="integer" />
+      <output id="OutputClause_14dahfa" label="Total Years Worked Max Score" name="total_years_worked_max_score" typeRef="integer" />
+      <output id="OutputClause_0bta7y2" label="Years Worked Company Max Score" name="workspan_max_score" typeRef="integer" />
+      <rule id="DecisionRule_1cp7vcl">
+        <inputEntry id="UnaryTests_1bv0o17">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0ya3l96">
+          <text>4</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0wt00tn">
+          <text>4</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_1wsfdlz">
+          <text>5</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0kek4ek">
+          <text>4</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0ru3kas">
+          <text>4</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+</definitions>

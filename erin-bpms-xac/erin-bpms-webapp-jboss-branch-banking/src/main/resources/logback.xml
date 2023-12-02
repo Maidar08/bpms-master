@@ -1,0 +1,48 @@
+<configuration debug="true">
+  <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+    <encoder>
+      <pattern>%d{HH:mm:ss.SSS} [%thread] [%-5level] %logger - %msg%n</pattern>
+    </encoder>
+  </appender>
+
+  <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+    <file>${jboss.server.log.dir}/server.log</file>
+<!--    <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">-->
+<!--      &lt;!&ndash; daily rollover &ndash;&gt;-->
+<!--      <fileNamePattern>server.%d{yyyy-MM-dd_HH-mm}.%i.log</fileNamePattern>-->
+<!--      <maxFileSize>50MB</maxFileSize>-->
+<!--    </rollingPolicy>-->
+    <encoder>
+      <pattern>%-4relative [%d{HH:mm:ss.SSS}] [%thread] [%-5level] %logger - %msg%n</pattern>
+      <charset>UTF-8</charset>
+      <outputPatternAsHeader>true</outputPatternAsHeader>
+    </encoder>
+  </appender>
+
+  <appender name="DB" class="log.db.ErinBpmsLogDbAppender">
+    <connectionSource class="ch.qos.logback.core.db.DriverManagerConnectionSource">
+      <dataSource class="com.mchange.v2.c3p0.ComboPooledDataSource">
+        <driverClass>oracle.jdbc.driver.OracleDriver</driverClass>
+        <url>${dbAppender.url}</url>
+        <user>${dbAppender.username}</user>
+        <password>${dbAppender.password}</password>
+      </dataSource>
+    </connectionSource>
+    <filter class="org.springframework" />
+  </appender>
+
+  <appender name="ASYNC_DB" class="ch.qos.logback.classic.AsyncAppender">
+    <discardingThreshold>0</discardingThreshold>
+    <!--  default 20, means drop lower event when has 20% capacity remaining  -->
+    <appender-ref ref="DB"/>
+  </appender>
+<!--  <logger name="mn.erin" level="INFO">-->
+<!--    <appender-ref ref="ASYNC_DB"/>-->
+<!--  </logger>-->
+
+  <root level="INFO">
+    <appender-ref ref="STDOUT" />
+    <appender-ref ref="FILE" />
+    <appender-ref ref="ASYNC_DB"/>
+  </root>
+</configuration>

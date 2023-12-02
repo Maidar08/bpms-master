@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="Definitions_1i0vxhv" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="3.7.3">
+  <bpmn:collaboration id="Collaboration_1q19b98">
+    <bpmn:participant id="branch_banking_salary_package_transaction" name="Цалингийн багц гүйлгээ" processRef="bpms_branch_banking_salary_package_transaction" />
+  </bpmn:collaboration>
+  <bpmn:process id="bpms_branch_banking_salary_package_transaction" isExecutable="true">
+    <bpmn:startEvent id="StartEvent_1">
+      <bpmn:outgoing>Flow_1qhm67n</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:sequenceFlow id="Flow_1qhm67n" sourceRef="StartEvent_1" targetRef="user_task_branch_banking_salary_package" />
+    <bpmn:sequenceFlow id="Flow_1w72jfa" sourceRef="user_task_branch_banking_salary_package" targetRef="service_task_salary_package_transaction" />
+    <bpmn:userTask id="user_task_branch_banking_salary_package" name="Цалингийн багц гүйлгээ" camunda:formKey="Цалингийн багц гүйлгээ">
+      <bpmn:extensionElements>
+        <camunda:formData>
+          <camunda:formField id="accountIdEnter" label="Байгууллагын данс" type="long">
+            <camunda:validation>
+              <camunda:constraint name="required" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="accountName" label="Дансны нэр" type="string">
+            <camunda:validation>
+              <camunda:constraint name="readonly" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="accountBalance" label="Дансны үлдэгдэл" type="long">
+            <camunda:validation>
+              <camunda:constraint name="readonly" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="accountCurrency" label="Дансны валют" type="string">
+            <camunda:validation>
+              <camunda:constraint name="readonly" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="uploadFile" label="ФАЙЛ СОНГОХ" type="string" defaultValue="uploadFile" />
+          <camunda:formField id="transactionCount" label="Гүйлгээний тоо" type="long">
+            <camunda:validation>
+              <camunda:constraint name="readonly" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="transactionTotalAmount" label="Гүйлгээний нийт дүн" type="long">
+            <camunda:validation>
+              <camunda:constraint name="readonly" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="hasFee" label="Шимтгэл авах" type="boolean" />
+          <camunda:formField id="checkNameAndAccountNo" label="НЭР ДАНС ШАЛГАХ" type="string" defaultValue="checkNameAndAccount" />
+          <camunda:formField id="transactionDescription" label="Гүйлгээний утга" type="string">
+            <camunda:validation>
+              <camunda:constraint name="required" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="invalidAccounts" label="Алдаатай данс" type="string">
+            <camunda:validation>
+              <camunda:constraint name="readonly" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="transactionDt" label="Гүйлгээний огноо" type="string">
+            <camunda:validation>
+              <camunda:constraint name="readonly" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="transactionNumber" label="Гүйлгээний дугаар" type="string">
+            <camunda:validation>
+              <camunda:constraint name="readonly" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="fileNameChips" type="string" />
+          <camunda:formField id="action" type="string" />
+        </camunda:formData>
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_1qhm67n</bpmn:incoming>
+      <bpmn:incoming>SequenceFlow_0m6i5sk</bpmn:incoming>
+      <bpmn:outgoing>Flow_1w72jfa</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:sequenceFlow id="SequenceFlow_05zmir5" sourceRef="service_task_salary_package_transaction" targetRef="ExclusiveGateway_1ibsx0j" />
+    <bpmn:endEvent id="Event_1u826xo">
+      <bpmn:incoming>SequenceFlow_0nxar86</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:exclusiveGateway id="ExclusiveGateway_1ibsx0j">
+      <bpmn:incoming>SequenceFlow_05zmir5</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_0nxar86</bpmn:outgoing>
+      <bpmn:outgoing>SequenceFlow_0m6i5sk</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:sequenceFlow id="SequenceFlow_0nxar86" sourceRef="ExclusiveGateway_1ibsx0j" targetRef="Event_1u826xo">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${action == "complete"}</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:sequenceFlow id="SequenceFlow_0m6i5sk" sourceRef="ExclusiveGateway_1ibsx0j" targetRef="user_task_branch_banking_salary_package">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${action ==  "continue"}</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:serviceTask id="service_task_salary_package_transaction" name="Salary package transaction service" camunda:delegateExpression="${makeSalaryPackageTransaction}">
+      <bpmn:incoming>Flow_1w72jfa</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_05zmir5</bpmn:outgoing>
+    </bpmn:serviceTask>
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Collaboration_1q19b98">
+      <bpmndi:BPMNShape id="Participant_1khbkuh_di" bpmnElement="branch_banking_salary_package_transaction" isHorizontal="true">
+        <dc:Bounds x="150" y="80" width="850" height="240" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="SequenceFlow_0m6i5sk_di" bpmnElement="SequenceFlow_0m6i5sk">
+        <di:waypoint x="750" y="165" />
+        <di:waypoint x="750" y="110" />
+        <di:waypoint x="370" y="110" />
+        <di:waypoint x="370" y="150" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_0nxar86_di" bpmnElement="SequenceFlow_0nxar86">
+        <di:waypoint x="775" y="190" />
+        <di:waypoint x="872" y="190" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_05zmir5_di" bpmnElement="SequenceFlow_05zmir5">
+        <di:waypoint x="650" y="200" />
+        <di:waypoint x="688" y="200" />
+        <di:waypoint x="688" y="190" />
+        <di:waypoint x="725" y="190" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1w72jfa_di" bpmnElement="Flow_1w72jfa">
+        <di:waypoint x="420" y="190" />
+        <di:waypoint x="485" y="190" />
+        <di:waypoint x="485" y="200" />
+        <di:waypoint x="550" y="200" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1qhm67n_di" bpmnElement="Flow_1qhm67n">
+        <di:waypoint x="249" y="190" />
+        <di:waypoint x="320" y="190" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
+        <dc:Bounds x="213" y="172" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_14kjdip_di" bpmnElement="user_task_branch_banking_salary_package">
+        <dc:Bounds x="320" y="150" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_1u826xo_di" bpmnElement="Event_1u826xo">
+        <dc:Bounds x="872" y="172" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="ExclusiveGateway_1ibsx0j_di" bpmnElement="ExclusiveGateway_1ibsx0j" isMarkerVisible="true">
+        <dc:Bounds x="725" y="165" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="ServiceTask_1oiatdv_di" bpmnElement="service_task_salary_package_transaction">
+        <dc:Bounds x="550" y="160" width="100" height="80" />
+      </bpmndi:BPMNShape>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>

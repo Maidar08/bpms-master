@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/DMN/20151101/dmn.xsd" id="Definitions_141p27n" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="3.5.0">
+  <decision id="setFeeNumber" name="Decision 1">
+    <decisionTable id="decisionTable_1">
+      <input id="input_1" label="Зээл авсан тоо">
+        <inputExpression id="inputExpression_1" typeRef="double">
+          <text>number_of_requests</text>
+        </inputExpression>
+      </input>
+      <output id="output_1" label="Хүүний хэмжээ" name="fee_value" typeRef="string" />
+      <rule id="DecisionRule_1rhzddw">
+        <inputEntry id="UnaryTests_1winf28">
+          <text>[0..4]</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1pk0lel">
+          <text>"2.5"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_15r28p7">
+        <inputEntry id="UnaryTests_0fno7r4">
+          <text>[5..9]</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0x5khq8">
+          <text>"2.4"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1vbs0yb">
+        <inputEntry id="UnaryTests_172x6sb">
+          <text>[10..14]</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_08kdfsv">
+          <text>"2.3"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_05ofnff">
+        <inputEntry id="UnaryTests_1pwjtfi">
+          <text>[15..19]</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0skfsq2">
+          <text>"2.2"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0xs2pr1">
+        <inputEntry id="UnaryTests_1smikv7">
+          <text>[20..24]</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1nlzcfv">
+          <text>"2.1"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0cyb3in">
+        <inputEntry id="UnaryTests_03q2eji">
+          <text>&gt;=25</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_19egylc">
+          <text>"2.0"</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+</definitions>

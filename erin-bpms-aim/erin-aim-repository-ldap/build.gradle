@@ -1,0 +1,5 @@
+dependencies {
+  compile project(':erin-aim-domain')
+  compile lib.spring.context
+  compile lib.javax.inject
+}

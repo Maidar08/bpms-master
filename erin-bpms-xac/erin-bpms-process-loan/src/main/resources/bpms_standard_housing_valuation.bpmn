@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:bioc="http://bpmn.io/schema/bpmn/biocolor/1.0" id="Definitions_0ej0q64" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="3.7.3">
+  <bpmn:collaboration id="Collaboration_04adv2e">
+    <bpmn:participant id="Participant_11lbay3" name="23. Тооцоолох орон сууц зогсоол" processRef="bpms_standard_housing_valuation" />
+  </bpmn:collaboration>
+  <bpmn:process id="bpms_standard_housing_valuation" isExecutable="true">
+    <bpmn:startEvent id="StartEvent_1">
+      <bpmn:outgoing>Flow_1aq8u5i</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:userTask id="Activity_0ir3b54" name="Орон сууцны тооцоолол" camunda:formKey="Орон сууцны тооцоолол">
+      <bpmn:extensionElements>
+        <camunda:formData>
+          <camunda:formField id="purposeOfAsset" label="Хөрөнгийн зориулалт" type="string">
+            <camunda:validation>
+              <camunda:constraint name="readonly" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="totalArea" label="Талбайн нийт хэмжээ, м2" type="long" />
+          <camunda:formField id="khoroolol" label="Хороолол, хотхон" type="string" />
+          <camunda:formField id="ownersName" label="Өмчлөгчийн нэр" type="string" />
+          <camunda:formField id="detailedAddress" label="Дэлгэрэнгүй хаяг" type="string" />
+          <camunda:formField id="apartmentNumber" label="Байрны дугаар" type="string" />
+          <camunda:formField id="fullName" label="Зээлдэгчийн нэр" type="string">
+            <camunda:validation>
+              <camunda:constraint name="readonly" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="what3words" label="what3words" type="string" />
+          <camunda:formField id="standartPrice" label="Жишиг үнэ" type="long" />
+          <camunda:formField id="cifNumber" label="CIF" type="string">
+            <camunda:validation>
+              <camunda:constraint name="readonly" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="district" label="Дүүрэг" type="string" />
+          <camunda:formField id="totalRating" label="Нийт Үнэлгээ" type="long">
+            <camunda:validation>
+              <camunda:constraint name="readonly" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="numberOfRooms" label="Өрөөний тоо" type="long" />
+          <camunda:formField id="Khoroo" label="Хороо" type="string" />
+          <camunda:formField id="userName" label="Үнэлгээ хийсэн" type="string">
+            <camunda:validation>
+              <camunda:constraint name="readonly" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="dateAppartmentCalculation" label="Огноо" type="date" />
+          <camunda:formField id="branchNumber" label="Салбар" type="string">
+            <camunda:validation>
+              <camunda:constraint name="readonly" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="commentary" label="Тайлбар" type="string" />
+        </camunda:formData>
+        <camunda:taskListener delegateExpression="${userNameTaskListener}" event="create" />
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_1aq8u5i</bpmn:incoming>
+      <bpmn:outgoing>Flow_0t0wny0</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:sequenceFlow id="Flow_1aq8u5i" sourceRef="StartEvent_1" targetRef="Activity_0ir3b54" />
+    <bpmn:endEvent id="Event_0npblyq">
+      <bpmn:incoming>Flow_0t0wny0</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_0t0wny0" sourceRef="Activity_0ir3b54" targetRef="Event_0npblyq" />
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Collaboration_04adv2e">
+      <bpmndi:BPMNShape id="Participant_11lbay3_di" bpmnElement="Participant_11lbay3" isHorizontal="true">
+        <dc:Bounds x="120" y="52" width="600" height="250" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_1aq8u5i_di" bpmnElement="Flow_1aq8u5i">
+        <di:waypoint x="215" y="177" />
+        <di:waypoint x="280" y="177" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0t0wny0_di" bpmnElement="Flow_0t0wny0">
+        <di:waypoint x="380" y="177" />
+        <di:waypoint x="452" y="177" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
+        <dc:Bounds x="179" y="159" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0p97nsl_di" bpmnElement="Activity_0ir3b54" bioc:stroke="rgb(67, 160, 71)" bioc:fill="rgb(200, 230, 201)">
+        <dc:Bounds x="280" y="137" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_0npblyq_di" bpmnElement="Event_0npblyq">
+        <dc:Bounds x="452" y="159" width="36" height="36" />
+      </bpmndi:BPMNShape>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>

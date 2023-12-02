@@ -1,0 +1,19 @@
+version: "3.8"
+services:
+  oracle:
+    image: gvenzl/oracle-xe:11.2.0.2-slim
+    environment:
+      ORACLE_PASSWORD: 9ahz3dycMTmhoYd
+    ports:
+      - 127.0.0.1:1521:1521
+    volumes:
+      - oracle-data:/u01/app/oracle/oradata
+      - ./scripts:/container-entrypoint-initdb.d
+    healthcheck:
+      test: healthcheck.sh
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 30s
+volumes:
+  oracle-data:

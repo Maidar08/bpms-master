@@ -1,0 +1,14 @@
+dependencies {
+    compile project(':erin-bpms-base-process')
+    compile project(':erin-bpms-ohs-xac-new-core')
+
+    compile lib.javax.inject
+    compileOnly lib.camunda.process_engine
+
+    compileOnly lib.camunda.plugin_spin
+    compileOnly lib.camunda.json_jackson
+
+    compileOnly lib.erin.dms_alfresco
+
+    testCompile lib.camunda.process_engine
+}

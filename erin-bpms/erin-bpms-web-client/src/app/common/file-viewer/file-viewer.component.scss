@@ -1,0 +1,91 @@
+#the-canvas {
+  direction: ltr;
+  padding-left: 0;
+  padding-right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  margin-bottom: 16px;
+}
+
+.pagination {
+  margin-top: 10px
+}
+
+button {
+  margin-left: 5px;
+  margin-right: 5px;
+
+  mat-icon {
+    margin-right: 7px;
+  }
+
+  span {
+    color: var(--primary-color);
+  }
+}
+
+.file-actions {
+  border: gainsboro 1px solid;
+  display: flex;
+  padding-left: 0;
+  padding-right: 0;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#fileName {
+  margin-top: 10px
+}
+
+.file-navigation {
+  background-color: transparent;
+  display: flex;
+}
+
+.canvas-container {
+  width: 100%;
+  height: calc(100% - 101px);
+  overflow: auto;
+}
+
+#spinner {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.container {
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+}
+
+.navigation-card {
+  border-radius: 3px;
+}
+
+#htmlDiv {
+  background-color: white;
+}
+
+::ng-deep .download-menu {
+  overflow: hidden;
+}
+
+.menu-button {
+  height: 40px;
+}
+
+.toggle-button {
+  margin: 15px;
+  text-align: center;
+}
+.mat-button-toggle{
+  background-color: #f0f0f0;
+  color: grey;
+}
+.selected{
+  background-color: var(--primary-color);
+  color: #f0f0f0;
+}
+

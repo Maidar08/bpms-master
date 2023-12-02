@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="Definitions_113vwqe" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="3.5.0">
+  <bpmn:collaboration id="Collaboration_0mmkk4v">
+    <bpmn:participant id="Participant_1idxetg" processRef="bpms_direct_online_download_interest_rate_info" />
+  </bpmn:collaboration>
+  <bpmn:process id="bpms_direct_online_download_interest_rate_info" isExecutable="true">
+    <bpmn:startEvent id="StartEvent_1">
+      <bpmn:outgoing>SequenceFlow_1da7g4s</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:sequenceFlow id="SequenceFlow_1da7g4s" sourceRef="StartEvent_1" targetRef="Gateway_0jdezwq" />
+    <bpmn:sequenceFlow id="Flow_0ffx1et" sourceRef="Task_0bhpy30" targetRef="EndEvent_0k1q1h8" />
+    <bpmn:endEvent id="EndEvent_0k1q1h8">
+      <bpmn:incoming>Flow_0ffx1et</bpmn:incoming>
+      <bpmn:incoming>Flow_1er0u2f</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:businessRuleTask id="Task_0bhpy30" name="Interest rate" camunda:resultVariable="interestRate" camunda:decisionRef="direct_online_interest_rate" camunda:mapDecisionResult="singleEntry">
+      <bpmn:incoming>Flow_0vv3syz</bpmn:incoming>
+      <bpmn:outgoing>Flow_0ffx1et</bpmn:outgoing>
+    </bpmn:businessRuleTask>
+    <bpmn:exclusiveGateway id="Gateway_0jdezwq">
+      <bpmn:incoming>SequenceFlow_1da7g4s</bpmn:incoming>
+      <bpmn:outgoing>Flow_19tkb4k</bpmn:outgoing>
+      <bpmn:outgoing>Flow_0vv3syz</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:sequenceFlow id="Flow_19tkb4k" sourceRef="Gateway_0jdezwq" targetRef="Activity_1clij6r">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${isSalaryOrganization==false}</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:sequenceFlow id="Flow_0vv3syz" sourceRef="Gateway_0jdezwq" targetRef="Task_0bhpy30">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${isSalaryOrganization==true}</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:serviceTask id="Activity_1clij6r" name="Get max interest rate from database" camunda:delegateExpression="${getMaxInterestRateTask}">
+      <bpmn:incoming>Flow_19tkb4k</bpmn:incoming>
+      <bpmn:outgoing>Flow_1er0u2f</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:sequenceFlow id="Flow_1er0u2f" sourceRef="Activity_1clij6r" targetRef="EndEvent_0k1q1h8" />
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Collaboration_0mmkk4v">
+      <bpmndi:BPMNShape id="Participant_1idxetg_di" bpmnElement="Participant_1idxetg" isHorizontal="true">
+        <dc:Bounds x="160" y="50" width="770" height="270" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="SequenceFlow_1da7g4s_di" bpmnElement="SequenceFlow_1da7g4s">
+        <di:waypoint x="248" y="180" />
+        <di:waypoint x="465" y="180" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1er0u2f_di" bpmnElement="Flow_1er0u2f">
+        <di:waypoint x="680" y="250" />
+        <di:waypoint x="770" y="250" />
+        <di:waypoint x="770" y="180" />
+        <di:waypoint x="832" y="180" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0ffx1et_di" bpmnElement="Flow_0ffx1et">
+        <di:waypoint x="680" y="110" />
+        <di:waypoint x="770" y="110" />
+        <di:waypoint x="770" y="180" />
+        <di:waypoint x="832" y="180" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0vv3syz_di" bpmnElement="Flow_0vv3syz">
+        <di:waypoint x="490" y="155" />
+        <di:waypoint x="490" y="110" />
+        <di:waypoint x="580" y="110" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_19tkb4k_di" bpmnElement="Flow_19tkb4k">
+        <di:waypoint x="490" y="205" />
+        <di:waypoint x="490" y="250" />
+        <di:waypoint x="580" y="250" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
+        <dc:Bounds x="212" y="162" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BusinessRuleTask_0rmgij1_di" bpmnElement="Task_0bhpy30">
+        <dc:Bounds x="580" y="80" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_10ykjnx_di" bpmnElement="Activity_1clij6r">
+        <dc:Bounds x="580" y="210" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Gateway_0jdezwq_di" bpmnElement="Gateway_0jdezwq" isMarkerVisible="true">
+        <dc:Bounds x="465" y="155" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="EndEvent_0k1q1h8_di" bpmnElement="EndEvent_0k1q1h8">
+        <dc:Bounds x="832" y="162" width="36" height="36" />
+      </bpmndi:BPMNShape>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>

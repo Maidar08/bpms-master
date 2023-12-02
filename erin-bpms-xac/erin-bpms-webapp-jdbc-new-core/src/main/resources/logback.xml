@@ -1,0 +1,45 @@
+<configuration debug="true">
+  <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+    <!-- encoders are assigned the type
+         ch.qos.logback.classic.encoder.PatternLayoutEncoder by default -->
+    <encoder>
+      <pattern>%d{HH:mm:ss.SSS} [%thread] [%-5level] %logger - %msg -%n</pattern>
+    </encoder>
+  </appender>
+
+  <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+    <file>${CATALINA_HOME}\test-logs\server.log</file>
+    <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+      <fileNamePattern>${CATALINA_HOME}\test-logs\server.%d{yyyy-MM-dd_HH}.%i.log</fileNamePattern>
+      <maxFileSize>500MB</maxFileSize>
+    </rollingPolicy>
+
+    <encoder>
+      <pattern>%-4relative [%d{HH:mm:ss.SSS}] [%thread] [%-5level] %logger - %msg%n</pattern>
+      <charset>UTF-8</charset>
+      <outputPatternAsHeader>true</outputPatternAsHeader>
+    </encoder>
+  </appender>
+
+<!--  <appender name="DB" class="ch.qos.logback.classic.db.DBAppender">-->
+<!--    <connectionSource-->
+<!--        class="ch.qos.logback.core.db.DataSourceConnectionSource">-->
+<!--      <dataSource-->
+<!--          class="com.mchange.v2.c3p0.ComboPooledDataSource">-->
+<!--        <driverClass>oracle.jdbc.driver.OracleDriver</driverClass>-->
+<!--        <jdbcUrl>jdbc:oracle:thin:@localhost:1521:xe</jdbcUrl>-->
+<!--        <user>lkhagva</user>-->
+<!--        <password>erin</password>-->
+<!--      </dataSource>-->
+<!--    </connectionSource>-->
+<!--  </appender>-->
+
+<!--  <logger name="mn.erin" level="INFO">-->
+<!--    <appender-ref ref="DB"/>-->
+<!--  </logger>-->
+
+  <root level="INFO">
+    <appender-ref ref="STDOUT" />
+    <appender-ref ref="FILE" />
+  </root>
+</configuration>

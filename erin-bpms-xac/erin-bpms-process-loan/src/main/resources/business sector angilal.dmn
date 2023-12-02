@@ -1,0 +1,637 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/DMN/20151101/dmn.xsd" id="Definitions_1rokp6x" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="3.2.1">
+  <decision id="DecFindingLevel" name="business sectors">
+    <decisionTable id="decisionTable_1">
+      <input id="input_1" label="Business sector">
+        <inputExpression id="inputExpression_1" typeRef="string">
+          <text>sector</text>
+        </inputExpression>
+      </input>
+      <output id="output_1" label="Economic level" name="level" typeRef="string" />
+      <rule id="DecisionRule_0y3jo1x">
+        <inputEntry id="UnaryTests_1mcdvka">
+          <text>"Газар тариалан"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0a6v632">
+          <text>"1"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_014omhe">
+        <inputEntry id="UnaryTests_1c7698v">
+          <text>"Мал аж ахуй"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_17ekf0s">
+          <text>"1"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_19t7kx3">
+        <inputEntry id="UnaryTests_0h2uscq">
+          <text>"Ан агнуур,нөхөн сэргээгдэх байгалийн баялаг ашиглт"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0v647nd">
+          <text>"1"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1u7e3qx">
+        <inputEntry id="UnaryTests_1aeocxy">
+          <text>"Байгаль хамгаалал, нөхөн сэргээлт"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0j68p4i">
+          <text>"1"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0hch42h">
+        <inputEntry id="UnaryTests_0b5mqgg">
+          <text>"Уул уурхайн хайгуул"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0plakmy">
+          <text>"2"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0yae8ns">
+        <inputEntry id="UnaryTests_15kbmfh">
+          <text>"Уул уурхайн олборлолт"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_11agmzq">
+          <text>"2"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1nh0r4t">
+        <inputEntry id="UnaryTests_0aw6wit">
+          <text>"Уул уурхайн баяжуулалт"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_12wy2j3">
+          <text>"2"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_037knlr">
+        <inputEntry id="UnaryTests_1hiqj3g">
+          <text>"Өрөмдлөгийн үйлчилгээ"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0iigk07">
+          <text>"2"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1ghoxry">
+        <inputEntry id="UnaryTests_1yfw4ke">
+          <text>"Уул уурхайн дагалдах бусад үйлчилгээ"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1kgcyr2">
+          <text>"2"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1yinwa6">
+        <inputEntry id="UnaryTests_0xldbc7">
+          <text>"Хүнсний бүтээгдэхүүн үйлдвэрлэл"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_08msavv">
+          <text>"0"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0qya1e8">
+        <inputEntry id="UnaryTests_1dnoude">
+          <text>"Архи, тамхи үйлдвэрлэл"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0w494jq">
+          <text>"0"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_00g8opd">
+        <inputEntry id="UnaryTests_0exgj4v">
+          <text>"Ноос, ноолуур боловсруулалт, үйлдвэрлэл"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_10hpwet">
+          <text>"0"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0obzdm4">
+        <inputEntry id="UnaryTests_0wxt51s">
+          <text>"Хувцас, нэхмэл эдлэл үйлдвэрлэл"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1ye2dd2">
+          <text>"0"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0zhebe4">
+        <inputEntry id="UnaryTests_1k3ou6a">
+          <text>"Арьс, шир үслэг эдлэл боловсруулалт, үйлдвэрлэл"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0gp8kr5">
+          <text>"0"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1guxzhr">
+        <inputEntry id="UnaryTests_0kftds2">
+          <text>"Мод, модон эдлэл үйлдвэрлэл, боловсруулалт"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1ahe9ql">
+          <text>"0"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0l19o68">
+        <inputEntry id="UnaryTests_0uo0xax">
+          <text>"Цаас боловсруулалт, хэвлэлийн үйлдвэрлэл"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1t2s2j0">
+          <text>"0"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1pkcni4">
+        <inputEntry id="UnaryTests_0m7fr7l">
+          <text>"Нийтлэх, дуу,бичлэг хийх, FM радио, ТВ-ийн үа"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0ln4n1m">
+          <text>"0"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1v79gfh">
+        <inputEntry id="UnaryTests_1ok6blu">
+          <text>"Алт, мөнгөн эдлэлийн үйлдвэрлэл"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0jkuoev">
+          <text>"0"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1xpz20w">
+        <inputEntry id="UnaryTests_172i8nv">
+          <text>"Уул уурхайн болон химийн бэлдцээр бүт үйлдвэрлэл"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_15a46qj">
+          <text>"0"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_00raims">
+        <inputEntry id="UnaryTests_1fbuijl">
+          <text>"Машин,тоног төх,сэлбэг,цахилгаан хэрэгсл үйлдвэрл"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1j55f0r">
+          <text>"0"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1ybvbww">
+        <inputEntry id="UnaryTests_1si6sh0">
+          <text>"Эм, гоо сайхан, ариун цэврийн бараа үйлдвэрлэл"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_16xetod">
+          <text>"0"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_12paxo4">
+        <inputEntry id="UnaryTests_1qc9ff6">
+          <text>"Барилгын материал үйлдвэрлэл"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1wrb30d">
+          <text>"0"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1tbnf3o">
+        <inputEntry id="UnaryTests_0rqfhp3">
+          <text>"Бараа материалын бусад үйлдвэрлэл"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0nvhv9s">
+          <text>"0"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_01wovos">
+        <inputEntry id="UnaryTests_16opw1l">
+          <text>"Элс, хайрга, гөлтгөнө, шохонй чулуу олборлох үйлдвэр"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0edjqjc">
+          <text>"0"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_07gif7o">
+        <inputEntry id="UnaryTests_17tz5pq">
+          <text>"Цахилгаан, хий, дулаан үйлдвэрлэл, ус хангамж"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_112jdss">
+          <text>"0"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_12kl1ad">
+        <inputEntry id="UnaryTests_0sw9k23">
+          <text>"Орон сууцны барилга"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_08ur6zz">
+          <text>"2"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0e472pn">
+        <inputEntry id="UnaryTests_0osz9zp">
+          <text>"Үйлдвэрлэл, үйлчилгээний буюу олон нийтийн барилга"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1y0n2yy">
+          <text>"2"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0sd8k69">
+        <inputEntry id="UnaryTests_0amtk50">
+          <text>"Зам гүүрийн барилга"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_01b0i2x">
+          <text>"2"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0s5bi3y">
+        <inputEntry id="UnaryTests_0fix41m">
+          <text>"Дэд бүтцийн болон инженерийн шугам сүлжээний барилга"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0dqaj76">
+          <text>"2"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0cy35il">
+        <inputEntry id="UnaryTests_0jqcjax">
+          <text>"Барилгын туслан гүйцэтгэх үйлчилгээ"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_03zt241">
+          <text>"2"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1smu026">
+        <inputEntry id="UnaryTests_1msuba3">
+          <text>"Барилгын засвар, засал чимэглэлийн үйлчилгээ"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0dirasv">
+          <text>"2"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_09szizz">
+        <inputEntry id="UnaryTests_1w1jubs">
+          <text>"Хүнс, бараа, өргөн хэрэглээний барааны худалдаа"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0jm89pg">
+          <text>"0"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1cqw4q3">
+        <inputEntry id="UnaryTests_1plhk55">
+          <text>"Барилгын материалын худалдаа"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1vpnbw0">
+          <text>"0"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_05vrg3a">
+        <inputEntry id="UnaryTests_1xpbhg1">
+          <text>"Эм, гоо сайхны барааны худалдаа"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_111d4r3">
+          <text>"0"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1qj8rf4">
+        <inputEntry id="UnaryTests_1rftyqf">
+          <text>"Ном, бичиг хэрэгслийн худалдаа"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_08asta0">
+          <text>"0"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_075sdgw">
+        <inputEntry id="UnaryTests_0euhcnb">
+          <text>"Гэрийн тавилга, эд хогшлын барааны худалдаа"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1his0of">
+          <text>"0"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_16wo47l">
+        <inputEntry id="UnaryTests_0dr3ext">
+          <text>"Комиссийн барааны худалдаа"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1095hd8">
+          <text>"0"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0h1lopi">
+        <inputEntry id="UnaryTests_1j1c74b">
+          <text>"Мал, амьтны гаралтай түүхий эдийн худалдаа"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_191zefz">
+          <text>"0"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1llts9c">
+        <inputEntry id="UnaryTests_15y89hr">
+          <text>"Автомашн, мотоцкл,өрө явагч хэрэгсл,сэлбэгийн худл"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0etqvr8">
+          <text>"0"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0nwmi16">
+        <inputEntry id="UnaryTests_0c5kprb">
+          <text>"Түлш шатахуун, тос тосолгооны материалын худалдаа"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_132d42h">
+          <text>"0"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0kx5yns">
+        <inputEntry id="UnaryTests_0mrzccs">
+          <text>"Уул уурхайн тоног төхөөрөмж худалдаа"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0za5kq1">
+          <text>"0"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0e7j9i1">
+        <inputEntry id="UnaryTests_1m6o3pb">
+          <text>"Бусад худалдаа"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0knjxg7">
+          <text>"0"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0zyiu4z">
+        <inputEntry id="UnaryTests_165q9vi">
+          <text>"Бусад тоног төхөөрөмжийн худалдаа"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_064piz4">
+          <text>"0"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_13qnour">
+        <inputEntry id="UnaryTests_1p8zptz">
+          <text>"УУ-н хүнд даацын техник, тээврийн хэрэгслийн худалдаа"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0w9a6la">
+          <text>"0"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0c3jnjr">
+        <inputEntry id="UnaryTests_1m52eiz">
+          <text>"Уул уурхайн бусад худалдаа"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0xfu6hb">
+          <text>"0"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1sm8fg6">
+        <inputEntry id="UnaryTests_1ta4omd">
+          <text>"Нийтийн тээврийн үйлчилгээ"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1wozqnm">
+          <text>"0"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1jixsc9">
+        <inputEntry id="UnaryTests_05ccv3w">
+          <text>"Уул уурхайн ачаа тээврийн үйлчилгээ"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1yimn7s">
+          <text>"0"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1klfyky">
+        <inputEntry id="UnaryTests_1ess4h0">
+          <text>"Агуулахын үйлчилгээ"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_00qn2eb">
+          <text>"0"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_045a711">
+        <inputEntry id="UnaryTests_0i1b7n0">
+          <text>"Шуудан, илгээмжийн үйлчилгээ"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0g1a2ve">
+          <text>"0"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1e5ee1a">
+        <inputEntry id="UnaryTests_15ynm57">
+          <text>"Барилгын материалын ачаа тээврийн үйлчилгээ"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1admu0e">
+          <text>"0"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0ji74un">
+        <inputEntry id="UnaryTests_1qjtrq4">
+          <text>"Хүнсний барааны ачаа тээврийн үйлчилгээ"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_11z11xx">
+          <text>"0"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_13yst4q">
+        <inputEntry id="UnaryTests_1pgk9cs">
+          <text>"Бусад ачаа тээврийн үйлчилгээ"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1bomptk">
+          <text>"0"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1eggdf3">
+        <inputEntry id="UnaryTests_1d9827l">
+          <text>"Нийтийн хоол, зочид буудлын үйлчилгээ"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1x7e4gk">
+          <text>"0"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1eikiw7">
+        <inputEntry id="UnaryTests_0kz3bm5">
+          <text>"Ахуйн үйлчилгээ"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0wub3l2">
+          <text>"0"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1p2b4mx">
+        <inputEntry id="UnaryTests_0zslrp7">
+          <text>"Автозасварын үйлчилгээ"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_158ndix">
+          <text>"0"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0rsqju7">
+        <inputEntry id="UnaryTests_0x0scpl">
+          <text>"Олон нийтийн спорт, тоглоом, наадмын үйлчилгээ"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1mwap0k">
+          <text>"0"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0huxrxn">
+        <inputEntry id="UnaryTests_1xxqo5c">
+          <text>"Бусад үйлчилгээ"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1naf24u">
+          <text>"0"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1t7gbq8">
+        <inputEntry id="UnaryTests_190c1j3">
+          <text>"Мэдээлэл технологи, харилцаа холбоо"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1w31zo3">
+          <text>"0"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0ne2bjf">
+        <inputEntry id="UnaryTests_0s83pak">
+          <text>"ББСБайгууллага, ХЗХоршооны үйл ажиллагаа"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0cx95f5">
+          <text>"0"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_03gd3of">
+        <inputEntry id="UnaryTests_1k9neud">
+          <text>"Банкны үйл ажиллагаа"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0a6ja9o">
+          <text>"0"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_10m83wx">
+        <inputEntry id="UnaryTests_03k6zto">
+          <text>"Үнэт цаасны үйл ажиллагаа"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_00gtb1p">
+          <text>"0"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1jyft3l">
+        <inputEntry id="UnaryTests_1m6mdic">
+          <text>"Даатгалын үйл ажиллагаа"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1f6vf5d">
+          <text>"0"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_15afmk2">
+        <inputEntry id="UnaryTests_15y4djj">
+          <text>"Төрийн бус, сүм хийд, ашгийн бус бусад байгууллага"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0qnqsmg">
+          <text>"0"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_06f3j7h">
+        <inputEntry id="UnaryTests_0a693gf">
+          <text>"Санхүүгийн бусад үйл ажиллагаа"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_08dd2ds">
+          <text>"0"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_03y777k">
+        <inputEntry id="UnaryTests_0s36hbe">
+          <text>"Үл хөдлөх хөрөнгийн түрээсийн үйлчилгээ"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_01ohadm">
+          <text>"0"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_06albhx">
+        <inputEntry id="UnaryTests_0ditozt">
+          <text>"Үл хөдлөх хөрөнгийг борлуулах зуучлалын үйл ажиллагаа"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_18kmri9">
+          <text>"0"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_18ibc5n">
+        <inputEntry id="UnaryTests_0nu4km8">
+          <text>"Шинжлэх ухаан, эрдэм шинжилгээ, судалгааны үа"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1uw3kfl">
+          <text>"0"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1o4swfa">
+        <inputEntry id="UnaryTests_0helxcc">
+          <text>"Аялал жуулчлал"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0i7wmfp">
+          <text>"0"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1halyks">
+        <inputEntry id="UnaryTests_01m8muj">
+          <text>"Төрийн удирдлага, батлан хамгаалах байгууллага"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_03vs59w">
+          <text>"0"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0pj6g1z">
+        <inputEntry id="UnaryTests_1fw3oei">
+          <text>"Төрийн оролцоотой байгууллага"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1tmoexk">
+          <text>"0"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_15b2bg4">
+        <inputEntry id="UnaryTests_0u433b8">
+          <text>"Төсөвт байгууллага"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0r3n06n">
+          <text>"0"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1ny7z2e">
+        <inputEntry id="UnaryTests_0yluhqb">
+          <text>"Тэтгэвэр, тэтгэмж, нийгмийн халамж"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_024mf57">
+          <text>"0"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_13uli9c">
+        <inputEntry id="UnaryTests_140u51q">
+          <text>"Боловсрол"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0dlvkq1">
+          <text>"0"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0jtetop">
+        <inputEntry id="UnaryTests_0pbz9c1">
+          <text>"Эрүүл мэнд, эмнэлэг"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_16vjrfp">
+          <text>"0"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1fapr1b">
+        <inputEntry id="UnaryTests_117i541">
+          <text>"Ус хангамж,бохир ус, хог,хаягдл менежмнт,цэврлх үа"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_16szc2x">
+          <text>"0"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_07r3pnc">
+        <inputEntry id="UnaryTests_0tzxamz">
+          <text>"Олон нийтыг хамарсан үйл ажиллагаа"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1rhghde">
+          <text>"2"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_101pot8">
+        <inputEntry id="UnaryTests_0v5yal0">
+          <text>"Шашин шүтлэг, буяны үйл ажиллагаа"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_08n2ojv">
+          <text>"2"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0w97gtv">
+        <inputEntry id="UnaryTests_1ii6fkv">
+          <text>"Бусад /сонгож үл болно./"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1d3w4fj">
+          <text>"2"</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+</definitions>

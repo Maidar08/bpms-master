@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" xmlns:bioc="http://bpmn.io/schema/bpmn/biocolor/1.0" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="Definitions_068nc8o" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="3.5.0">
+  <bpmn:collaboration id="Collaboration_0s60yin">
+    <bpmn:participant id="Participant_0ss6rsz" name="ХУР лавлагаа (хамтран)" processRef="bpms_download_from_xyp_co_borrower" />
+  </bpmn:collaboration>
+  <bpmn:process id="bpms_download_from_xyp_co_borrower" isExecutable="true">
+    <bpmn:startEvent id="StartEvent_1" name="Хамтрангийн лавлагаа татах">
+      <bpmn:outgoing>SequenceFlow_0mctoxy</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:userTask id="user_task_download_from_khur_co_borrower" name="06. (Хамтран) ХУР лавлагаа" camunda:formKey="06. (Хамтран) ХУР лавлагаа">
+      <bpmn:extensionElements>
+        <camunda:formData>
+          <camunda:formField id="month" label="Цалин задаргаа (Сараар)" type="string" defaultValue="12">
+            <camunda:properties>
+              <camunda:property id="year" value="12" />
+              <camunda:property id="two_year" value="24" />
+              <camunda:property id="three_year" value="36" />
+            </camunda:properties>
+            <camunda:validation>
+              <camunda:constraint name="required" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="registerNumberCoBorrower" label="Хамтрангийн регистр" type="string">
+            <camunda:validation>
+              <camunda:constraint name="required" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="employeeRegisterNumber" label="Ажилтны регистр" type="string">
+            <camunda:validation>
+              <camunda:constraint name="required" />
+            </camunda:validation>
+          </camunda:formField>
+        </camunda:formData>
+      </bpmn:extensionElements>
+      <bpmn:incoming>SequenceFlow_0mctoxy</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_0gg16um</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:serviceTask id="ServiceTask_0a9lfg5" name="Оршин суугаа газрын лавлагаа татах" camunda:delegateExpression="${downloadAddressInfoCoBorrowerTask}">
+      <bpmn:incoming>SequenceFlow_0gg16um</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_08q6hcr</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:exclusiveGateway id="Gateway_0e5d3o6">
+      <bpmn:incoming>SequenceFlow_023ae7j</bpmn:incoming>
+      <bpmn:outgoing>Flow_1a6vwkm</bpmn:outgoing>
+      <bpmn:outgoing>Flow_1th0auf</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:serviceTask id="ServiceTask_1baxvh1" name="Нийгмийн даатгалын лавлагаа татах" camunda:delegateExpression="${downloadSalaryInfoCoBorrowerTask}">
+      <bpmn:incoming>Flow_1a6vwkm</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_1icqtqn</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:endEvent id="EndEvent_03lr5cq">
+      <bpmn:incoming>SequenceFlow_0ac2ncb</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:serviceTask id="Task_0h9vrur" name="Хамтрангийн регистр field-ийг цэвэрлэх" camunda:delegateExpression="${cleanCoBorrowerRegNumTask}">
+      <bpmn:incoming>SequenceFlow_048xj4v</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_0ac2ncb</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:exclusiveGateway id="ExclusiveGateway_1v7j1p6">
+      <bpmn:incoming>Flow_1th0auf</bpmn:incoming>
+      <bpmn:incoming>SequenceFlow_1icqtqn</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_048xj4v</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:serviceTask id="ServiceTask_00x7rqk" name="Иргэний үнэмлэхний лавлагаа татах" camunda:delegateExpression="${downloadIDCardInfoCoBorrowerTask}">
+      <bpmn:extensionElements>
+        <camunda:executionListener delegateExpression="${setDownloadSalaryInfoConditionListener}" event="end" />
+      </bpmn:extensionElements>
+      <bpmn:incoming>SequenceFlow_08q6hcr</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_023ae7j</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:sequenceFlow id="Flow_1th0auf" sourceRef="Gateway_0e5d3o6" targetRef="ExclusiveGateway_1v7j1p6">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${isDownloadSalaryInfo == false}</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:sequenceFlow id="Flow_1a6vwkm" sourceRef="Gateway_0e5d3o6" targetRef="ServiceTask_1baxvh1">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${isDownloadSalaryInfo == true}</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:sequenceFlow id="SequenceFlow_1icqtqn" sourceRef="ServiceTask_1baxvh1" targetRef="ExclusiveGateway_1v7j1p6" />
+    <bpmn:sequenceFlow id="SequenceFlow_023ae7j" sourceRef="ServiceTask_00x7rqk" targetRef="Gateway_0e5d3o6" />
+    <bpmn:sequenceFlow id="SequenceFlow_08q6hcr" sourceRef="ServiceTask_0a9lfg5" targetRef="ServiceTask_00x7rqk" />
+    <bpmn:sequenceFlow id="SequenceFlow_0gg16um" sourceRef="user_task_download_from_khur_co_borrower" targetRef="ServiceTask_0a9lfg5" />
+    <bpmn:sequenceFlow id="SequenceFlow_0mctoxy" sourceRef="StartEvent_1" targetRef="user_task_download_from_khur_co_borrower" />
+    <bpmn:sequenceFlow id="SequenceFlow_0ac2ncb" sourceRef="Task_0h9vrur" targetRef="EndEvent_03lr5cq" />
+    <bpmn:sequenceFlow id="SequenceFlow_048xj4v" sourceRef="ExclusiveGateway_1v7j1p6" targetRef="Task_0h9vrur" />
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Collaboration_0s60yin">
+      <bpmndi:BPMNShape id="Participant_0ss6rsz_di" bpmnElement="Participant_0ss6rsz" isHorizontal="true">
+        <dc:Bounds x="160" y="90" width="1260" height="260" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_1th0auf_di" bpmnElement="Flow_1th0auf">
+        <di:waypoint x="770" y="166" />
+        <di:waypoint x="770" y="120" />
+        <di:waypoint x="1070" y="120" />
+        <di:waypoint x="1070" y="166" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1a6vwkm_di" bpmnElement="Flow_1a6vwkm">
+        <di:waypoint x="770" y="216" />
+        <di:waypoint x="770" y="251" />
+        <di:waypoint x="860" y="251" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_1icqtqn_di" bpmnElement="SequenceFlow_1icqtqn">
+        <di:waypoint x="960" y="251" />
+        <di:waypoint x="1070" y="251" />
+        <di:waypoint x="1070" y="216" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_023ae7j_di" bpmnElement="SequenceFlow_023ae7j">
+        <di:waypoint x="710" y="191" />
+        <di:waypoint x="745" y="191" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_08q6hcr_di" bpmnElement="SequenceFlow_08q6hcr">
+        <di:waypoint x="570" y="191" />
+        <di:waypoint x="610" y="191" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_0gg16um_di" bpmnElement="SequenceFlow_0gg16um">
+        <di:waypoint x="420" y="191" />
+        <di:waypoint x="470" y="191" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_0mctoxy_di" bpmnElement="SequenceFlow_0mctoxy">
+        <di:waypoint x="268" y="191" />
+        <di:waypoint x="320" y="191" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_0ac2ncb_di" bpmnElement="SequenceFlow_0ac2ncb">
+        <di:waypoint x="1240" y="191" />
+        <di:waypoint x="1312" y="191" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
+        <dc:Bounds x="232" y="173" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="212" y="216" width="77" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="UserTask_03hclbt_di" bpmnElement="user_task_download_from_khur_co_borrower" bioc:stroke="black" bioc:fill="white">
+        <dc:Bounds x="320" y="151" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="ServiceTask_00x7rqk_di" bpmnElement="ServiceTask_00x7rqk" bioc:stroke="black" bioc:fill="white">
+        <dc:Bounds x="610" y="151" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="ServiceTask_0a9lfg5_di" bpmnElement="ServiceTask_0a9lfg5" bioc:stroke="black" bioc:fill="white">
+        <dc:Bounds x="470" y="151" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Gateway_0e5d3o6_di" bpmnElement="Gateway_0e5d3o6" isMarkerVisible="true">
+        <dc:Bounds x="745" y="166" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="ServiceTask_0c7nu6b_di" bpmnElement="Task_0h9vrur" bioc:stroke="black" bioc:fill="white">
+        <dc:Bounds x="1140" y="151" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="EndEvent_03lr5cq_di" bpmnElement="EndEvent_03lr5cq">
+        <dc:Bounds x="1312" y="173" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="ServiceTask_1baxvh1_di" bpmnElement="ServiceTask_1baxvh1" bioc:stroke="black" bioc:fill="white">
+        <dc:Bounds x="860" y="211" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="ExclusiveGateway_1v7j1p6_di" bpmnElement="ExclusiveGateway_1v7j1p6" isMarkerVisible="true">
+        <dc:Bounds x="1045" y="166" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="SequenceFlow_048xj4v_di" bpmnElement="SequenceFlow_048xj4v">
+        <di:waypoint x="1095" y="191" />
+        <di:waypoint x="1140" y="191" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>

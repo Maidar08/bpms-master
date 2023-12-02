@@ -1,0 +1,102 @@
+.table-container{
+  width: auto;
+}
+.table-container-scrollable{
+  max-width: 62vw;
+  overflow-x: scroll;
+}
+.mat-table{
+  width: auto;
+  overflow-y: auto;
+}
+.mat-table-scrollable{
+  width: 76vw;
+}
+//TODO: resolve it by another way later
+.mat-column-checkJointHolder, .mat-column-no  {
+  flex: 0 0 8%;
+}
+.mat-column-checkSelectedCollateral{
+  flex: 0 0 6.5%;
+}
+mat-header-cell {
+  //font-size: 1.3vh !important;
+}
+mat-checkbox {
+  margin-left: 1vw !important;
+  margin-right: 3vw !important;
+}
+input {
+  height: 30px;
+  width: 90%;
+  border: 1px solid;
+}
+
+.mat-row.error span{
+  color: red;
+}
+
+.mat-row.active {
+  background: #f2f5fa;
+}
+
+.context-menu{
+  visibility: hidden;
+  position: fixed;
+}
+@media (max-width: 910px) {
+  mat-header-cell {
+    font-size: 1vh !important;
+  }
+  .table-container-scrollable{
+    max-width: 100%;
+    overflow-x: scroll;
+  }
+  .table-container{
+    width: auto;
+  }
+  .mat-table-scrollable{
+    width: 1420px;
+  }
+}
+
+@media (min-width: 920px) and (max-width: 1300px){
+  .table-container-scrollable{
+    max-width: 100%;
+    overflow-x: scroll;
+  }
+  .table-container{
+    width: auto;
+  }
+  .mat-table-scrollable{
+    width: 1560px;
+  }
+  mat-header-cell {
+    font-size: 1.4vh !important;
+  }
+}
+
+@media (max-width: 1340px) and (max-height: 804px) {
+  .table-container-scrollable{
+    max-width: 65vw;
+  }
+}
+
+@media (max-width: 1340px) and (max-height: 770px) {
+  .table-container-scrollable{
+    max-width: 57vw;
+  }
+}
+
+@media (min-width: 1900px) and (max-height: 1090px) {
+  .table-container-scrollable{
+    max-width: 70vw;
+  }
+}
+
+@media (min-width: 1300px) and (min-height: 1500px) {
+  .table-container-scrollable{
+    max-width: 67vw;
+  }
+}
+

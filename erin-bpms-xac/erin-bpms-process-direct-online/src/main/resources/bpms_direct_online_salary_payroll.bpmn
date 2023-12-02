@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" id="Definitions_0c05uuf" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="3.5.0">
+  <bpmn:collaboration id="Collaboration_1wt5t6o">
+    <bpmn:participant id="direct_online_salrary_payroll" name="Direct Online Salrary - Payroll" processRef="bpms_direct_online_salary_payroll" />
+  </bpmn:collaboration>
+  <bpmn:process id="bpms_direct_online_salary_payroll" isExecutable="true">
+    <bpmn:startEvent id="StartEvent_1">
+      <bpmn:outgoing>SequenceFlow_00wbef8</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:sequenceFlow id="SequenceFlow_00wbef8" sourceRef="StartEvent_1" targetRef="ServiceTask_027vfo2" />
+    <bpmn:sequenceFlow id="SequenceFlow_1xpkxlj" sourceRef="Task_1m60aor" targetRef="EndEvent_1yv4znh" />
+    <bpmn:sequenceFlow id="SequenceFlow_0dcszd2" sourceRef="Task_1fi76eb" targetRef="Task_1m60aor" />
+    <bpmn:endEvent id="EndEvent_1yv4znh">
+      <bpmn:incoming>SequenceFlow_1xpkxlj</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:serviceTask id="Task_1m60aor" name="Calculate Salary Payroll" camunda:delegateExpression="${salaryCalculationTask}">
+      <bpmn:incoming>SequenceFlow_0dcszd2</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_1xpkxlj</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:serviceTask id="Task_1fi76eb" name="Идэвхтэй ЗЭТ-ийн хэмжээг тооцоолох" camunda:delegateExpression="${calculateMonthlyLoanRepaymentAmount}">
+      <bpmn:incoming>SequenceFlow_0cxbbeo</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_0dcszd2</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:sequenceFlow id="SequenceFlow_0cxbbeo" sourceRef="ServiceTask_027vfo2" targetRef="Task_1fi76eb" />
+    <bpmn:serviceTask id="ServiceTask_027vfo2" name="Зээлийн дансны олголтын мэдээлэл хадгалах&#10;" camunda:delegateExpression="${downloadGrantLoanAccountInfo}">
+      <bpmn:incoming>SequenceFlow_00wbef8</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_0cxbbeo</bpmn:outgoing>
+    </bpmn:serviceTask>
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Collaboration_1wt5t6o">
+      <bpmndi:BPMNShape id="Participant_1q3z1fn_di" bpmnElement="direct_online_salrary_payroll" isHorizontal="true">
+        <dc:Bounds x="129" y="80" width="671" height="250" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
+        <dc:Bounds x="179" y="159" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="EndEvent_1yv4znh_di" bpmnElement="EndEvent_1yv4znh">
+        <dc:Bounds x="722" y="159" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="SequenceFlow_00wbef8_di" bpmnElement="SequenceFlow_00wbef8">
+        <di:waypoint x="215" y="177" />
+        <di:waypoint x="250" y="177" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_1xpkxlj_di" bpmnElement="SequenceFlow_1xpkxlj">
+        <di:waypoint x="640" y="177" />
+        <di:waypoint x="722" y="177" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="ServiceTask_1qcleos_di" bpmnElement="Task_1m60aor">
+        <dc:Bounds x="540" y="137" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="SequenceFlow_0dcszd2_di" bpmnElement="SequenceFlow_0dcszd2">
+        <di:waypoint x="490" y="177" />
+        <di:waypoint x="540" y="177" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="ServiceTask_1pixwrg_di" bpmnElement="Task_1fi76eb">
+        <dc:Bounds x="390" y="137" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="ServiceTask_027vfo2_di" bpmnElement="ServiceTask_027vfo2">
+        <dc:Bounds x="250" y="137" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="SequenceFlow_0cxbbeo_di" bpmnElement="SequenceFlow_0cxbbeo">
+        <di:waypoint x="350" y="177" />
+        <di:waypoint x="390" y="177" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>

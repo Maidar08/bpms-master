@@ -1,0 +1,13 @@
+embed-server --server-config=standalone.xml
+
+/extension=org.camunda.bpm.wildfly.camunda-wildfly-subsystem:add(module=org.camunda.bpm.wildfly.camunda-wildfly-subsystem)
+
+:composite(steps=[ \
+  {"operation" => "add", "address" => [("subsystem" => "camunda-bpm-platform")]}, \
+  {"operation" => "add", "address" => [("subsystem" => "camunda-bpm-platform"), ("job-executor" => "default")], "core-threads" => 3, "max-threads" => 5, "queue-length" => 10, "job-acquisitions" => "default"}, \
+  {"operation" => "add", "address" => [("subsystem" => "camunda-bpm-platform"), ("job-executor" => "default"), ("job-acquisitions" => "default")], "name" => "default", "properties" => {"lockTimeInMillis" => 300000, "waitTimeInMillis" => 5000, "maxJobsPerAcquisition" => 3}}, \
+  {"operation" => "add", "address" => [("subsystem" => "camunda-bpm-platform"), ("process-engines" => "default")], "name" => "default", "default" => "true", "datasource" => "java:/CamundaDS", "history-level" => "full", "properties" => {"jobExecutorAcquisitionName" => "default", "isAutoSchemaUpdate" => "true", "authorizationEnabled" => "true", "jobExecutorDeploymentAware" => "true", "historyCleanupBatchWindowStartTime" => "00:01"}, "plugins" => [{"class" => "org.camunda.bpm.application.impl.event.ProcessApplicationEventListenerPlugin"}, {"class" => "org.camunda.spin.plugin.impl.SpinProcessEnginePlugin"},{"class" => "org.camunda.connect.plugin.impl.ConnectProcessEnginePlugin"}]} \
+])
+
+stop-embedded-server
+

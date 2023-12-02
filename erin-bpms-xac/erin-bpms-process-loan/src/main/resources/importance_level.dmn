@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/DMN/20151101/dmn.xsd" id="Definitions_0ytlnsq" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="3.7.1">
+  <decision id="importance_level" name="Importance Level">
+    <decisionTable id="decisionTable_1">
+      <input id="input_1">
+        <inputExpression id="inputExpression_1" typeRef="string">
+          <text></text>
+        </inputExpression>
+      </input>
+      <output id="output_1" label="Зээлийн түүх importance" name="loan_history_importance" typeRef="double" />
+      <output id="OutputClause_00wk3do" label="Зээлийн мөчлөг importance" name="loan_period_importance" typeRef="double" />
+      <output id="OutputClause_13kc4ul" label="Эх үүсвэр / зээлийн харьцаа importance" name="resource_importance" typeRef="double" />
+      <output id="OutputClause_0lrqd95" label="Нийт ажилласан жил importance" name="total_years_worked_importance" typeRef="double" />
+      <output id="OutputClause_118co5x" label="Тухайн байгууллагад ажилласан жил importance" name="workspan_importance" typeRef="double" />
+      <rule id="DecisionRule_1mrt9s9">
+        <inputEntry id="UnaryTests_16bieb9">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0tpnqsf">
+          <text>0.05</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0yn3yca">
+          <text>0.20</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0p5vsc4">
+          <text>0.25</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_0y0rp6h">
+          <text>0.25</text>
+        </outputEntry>
+        <outputEntry id="LiteralExpression_07sgpt5">
+          <text>0.25</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+</definitions>

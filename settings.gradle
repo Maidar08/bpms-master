@@ -1,0 +1,135 @@
+rootProject.name = 'ERIN-BPMS'
+/*
+ * (C)opyright, 2020, ERIN SYSTEMS LLC
+ * The source code is protected by copyright laws and international copyright
+ * treaties, as well as other intellectual property laws and treaties.
+ * All rights reserved.
+ */
+
+include 'erin-bpms-web-client'
+project(':erin-bpms-web-client').projectDir = file('erin-bpms/erin-bpms-web-client')
+
+// Base BPMS projects
+include 'erin-bpms-base-domain'
+project(':erin-bpms-base-domain').projectDir = file('erin-bpms-base/erin-bpms-base-domain')
+
+include 'erin-bpms-base-calculations'
+project(':erin-bpms-base-calculations').projectDir = file('erin-bpms-base/erin-bpms-base-calculations')
+
+include 'erin-bpms-ohs-camunda'
+project(':erin-bpms-ohs-camunda').projectDir = file('erin-bpms-base/erin-bpms-ohs-camunda')
+
+include 'erin-bpms-base-repository-jdbc'
+project(':erin-bpms-base-repository-jdbc').projectDir = file('erin-bpms-base/erin-bpms-base-repository-jdbc')
+
+include 'erin-bpms-base-repository-memory'
+project(':erin-bpms-base-repository-memory').projectDir = file('erin-bpms-base/erin-bpms-base-repository-memory')
+
+include 'erin-bpms-base-rest'
+project(':erin-bpms-base-rest').projectDir = file('erin-bpms-base/erin-bpms-base-rest')
+
+include 'erin-bpms-base-webapp-jdbc'
+project(':erin-bpms-base-webapp-jdbc').projectDir = file('erin-bpms-base/erin-bpms-base-webapp-jdbc')
+
+include 'erin-bpms-webapp-standalone'
+project(':erin-bpms-webapp-standalone').projectDir = file('erin-bpms-base/erin-bpms-webapp-standalone')
+
+include 'erin-bpms-base-module-test'
+project(':erin-bpms-base-module-test').projectDir = file('erin-bpms-base/erin-bpms-base-module-test')
+
+include 'erin-bpms-base-process'
+project(':erin-bpms-base-process').projectDir = file('erin-bpms-base/erin-bpms-base-process')
+
+// XAC BPMS projects
+include 'erin-bpms-ohs-xac-branch-banking'
+project(':erin-bpms-ohs-xac-branch-banking').projectDir = file('erin-bpms-xac/erin-bpms-ohs-xac-branch-banking')
+
+include 'erin-bpms-process-branch-banking'
+project(':erin-bpms-process-branch-banking').projectDir = file('erin-bpms-xac/erin-bpms-process-branch-banking')
+
+include 'erin-bpms-ohs-xac-new-core'
+project(':erin-bpms-ohs-xac-new-core').projectDir = file('erin-bpms-xac/erin-bpms-ohs-xac-new-core')
+
+include 'erin-bpms-process-loan'
+project(':erin-bpms-process-loan').projectDir = file('erin-bpms-xac/erin-bpms-process-loan')
+
+include 'erin-bpms-process-loan-contract'
+project(':erin-bpms-process-loan-contract').projectDir = file('erin-bpms-xac/erin-bpms-process-loan-contract')
+
+include 'erin-bpms-process-direct-online'
+project(':erin-bpms-process-direct-online').projectDir = file('erin-bpms-xac/erin-bpms-process-direct-online')
+
+include 'erin-bpms-process-organization-registration'
+project(':erin-bpms-process-organization-registration').projectDir = file('erin-bpms-xac/erin-bpms-process-organization-registration')
+
+
+include 'erin-bpms-webapp'
+project(':erin-bpms-webapp').projectDir = file('erin-bpms-xac/erin-bpms-webapp')
+
+include 'erin-bpms-webapp-jdbc-branch-banking'
+project(':erin-bpms-webapp-jdbc-branch-banking').projectDir = file('erin-bpms-xac/erin-bpms-webapp-jdbc-branch-banking')
+
+include 'erin-bpms-webapp-jdbc-new-core'
+project(':erin-bpms-webapp-jdbc-new-core').projectDir = file('erin-bpms-xac/erin-bpms-webapp-jdbc-new-core')
+
+include 'erin-bpms-webapp-jboss-branch-banking'
+project(':erin-bpms-webapp-jboss-branch-banking').projectDir = file('erin-bpms-xac/erin-bpms-webapp-jboss-branch-banking')
+
+include 'erin-bpms-branch-banking-rest'
+project(':erin-bpms-branch-banking-rest').projectDir = file('erin-bpms-xac/erin-bpms-branch-banking-rest')
+
+include 'erin-bpms-direct-online-rest'
+project(':erin-bpms-direct-online-rest').projectDir = file('erin-bpms-xac/erin-bpms-direct-online-rest')
+
+include 'erin-bpms-document-rest'
+project(':erin-bpms-document-rest').projectDir = file('erin-bpms-xac/erin-bpms-document-rest')
+
+include 'erin-bpms-webapp-jboss-new-core'
+project(':erin-bpms-webapp-jboss-new-core').projectDir = file('erin-bpms-xac/erin-bpms-webapp-jboss-new-core')
+
+include 'erin-bpms-loan-request-rest'
+project(':erin-bpms-loan-request-rest').projectDir = file('erin-bpms-xac/erin-bpms-loan-request-rest')
+
+include 'erin-bpms-organization-request-rest'
+project(':erin-bpms-organization-request-rest').projectDir = file('erin-bpms-xac/erin-bpms-organization-request-rest')
+
+// BNPL
+include 'erin-bpms-bnpl'
+project(':erin-bpms-bnpl').projectDir = file('erin-bpms-xac/erin-bpms-bnpl')
+
+include 'erin-bpms-bnpl-rest'
+project(':erin-bpms-bnpl-rest').projectDir = file('erin-bpms-xac/erin-bpms-bnpl-rest')
+
+// BPMS AIM projects
+include 'erin-aim-domain'
+project(':erin-aim-domain').projectDir = file('erin-bpms-aim/erin-aim-domain')
+
+include 'erin-aim-shiro'
+project(':erin-aim-shiro').projectDir = file('erin-bpms-aim/erin-aim-ohs-shiro')
+
+include 'erin-aim-repository-jdbc'
+project(':erin-aim-repository-jdbc').projectDir = file('erin-bpms-aim/erin-aim-repository-jdbc')
+
+include 'erin-aim-repository-ldap'
+project(':erin-aim-repository-ldap').projectDir = file('erin-bpms-aim/erin-aim-repository-ldap')
+
+include 'erin-aim-repository-memory'
+project(':erin-aim-repository-memory').projectDir = file('erin-bpms-aim/erin-aim-repository-memory')
+
+include 'erin-aim-repository-mongo'
+project(':erin-aim-repository-mongo').projectDir = file('erin-bpms-aim/erin-aim-repository-mongo')
+
+include 'erin-aim-rest'
+project(':erin-aim-rest').projectDir = file('erin-bpms-aim/erin-aim-rest-api')
+
+include 'erin-aim-module-test'
+project(':erin-aim-module-test').projectDir = file('erin-bpms-aim/erin-aim-module-test')
+
+include 'erin-aim-webapp-standalone'
+project(':erin-aim-webapp-standalone').projectDir = file('erin-bpms-aim/erin-aim-webapp-standalone')
+
+include 'erin-aim-webapp-jdbc'
+project(':erin-aim-webapp-jdbc').projectDir = file('erin-bpms-aim/erin-aim-webapp-jdbc')
+
+include 'erin-bpms-custom-log'
+project(":erin-bpms-custom-log").projectDir = file('erin-bpms-xac/erin-bpms-custom-log')

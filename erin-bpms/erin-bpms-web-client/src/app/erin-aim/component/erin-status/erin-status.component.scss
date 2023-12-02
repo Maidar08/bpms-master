@@ -1,0 +1,19 @@
+.erin-status {
+  font-weight: bold;
+  font-size: 0.9em;
+  width: 120px;
+  height: 1.5rem;
+  border-radius: 5px;
+  padding: 0.25rem 0 0 0;
+  text-align: center;
+}
+
+.active {
+  background: #D7F4E5;
+  color: #006644;
+}
+
+.inactive {
+  background: #C1C6D0;
+  color: #69758C;
+}

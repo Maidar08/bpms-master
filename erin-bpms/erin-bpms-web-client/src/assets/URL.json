@@ -1,0 +1,5 @@
+{
+  "creditCard": { "url": "http://camunda.xac0000.mn/login" },
+  "finacleCRM": {"url": "https://finacle.xac0000.mn:10100/fininfra/ui/SSOLogin.jsp?LANG=mon_MN"},
+  "finacleCore": {"url": "https://finacle.xac0000.mn:10100/fininfra/ui/SSOLogin.jsp"}
+}

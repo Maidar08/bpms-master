@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:bioc="http://bpmn.io/schema/bpmn/biocolor/1.0" id="Definitions_0bddkgw" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="4.4.0">
+  <bpmn:collaboration id="Collaboration_1wbjid5">
+    <bpmn:participant id="Participant_0a0mhr9" name="08. Бизнесийн тооцоолол" processRef="bpms_mortgage_business_calculation" />
+  </bpmn:collaboration>
+  <bpmn:process id="bpms_mortgage_business_calculation" isExecutable="true">
+    <bpmn:sequenceFlow id="Flow_0ccuvhb" sourceRef="user_task_mortgage_business_calculation" targetRef="Event_1tjzuvz" />
+    <bpmn:startEvent id="Event_0pgmchq">
+      <bpmn:outgoing>Flow_0ar9vxp</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:sequenceFlow id="Flow_0ar9vxp" sourceRef="Event_0pgmchq" targetRef="user_task_mortgage_business_calculation" />
+    <bpmn:userTask id="user_task_mortgage_business_calculation" name="08. Тооцоолол хийх" camunda:formKey="08. Тооцоолол хийх">
+      <bpmn:extensionElements>
+        <camunda:formData>
+          <camunda:formField id="businessActivities" label="Бизнесийн үйл ажиллагаа" type="string">
+            <camunda:properties>
+              <camunda:property id="buy" value="Худалдаа" />
+              <camunda:property id="produce" value="Үйлдвэрлэл" />
+              <camunda:property id="service" value="Үйлчилгээ" />
+              <camunda:property id="mixed" value="Холимог" />
+            </camunda:properties>
+            <camunda:validation>
+              <camunda:constraint name="required" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="areasActivity" label="Үйл ажиллагааны чиглэл" type="string">
+            <camunda:properties>
+              <camunda:property id="agriculture" value="Газар тариалан" />
+              <camunda:property id="livestock" value="Мал аж ахуй" />
+              <camunda:property id="hunting" value="Ан агнуур, нөхөн сэргээгдэх байгалийн баялаг ашиглт" />
+              <camunda:property id="environmental" value="Байгаль хамгаалал, нөхөн сэргээлт" />
+              <camunda:property id="miningExploration" value="Уул уурхайн хайгуул" />
+              <camunda:property id="mining" value="Уул уурхайн олборлолт" />
+              <camunda:property id="miningProcessing" value="Уул уурхайн баяжуулалт" />
+              <camunda:property id="drillingService" value="Өрөмдлөгийн үйлчилгээ" />
+              <camunda:property id="otherMiningServices" value="Уул уурхайн дагалдах бусад үйлчилгээ" />
+              <camunda:property id="foodProduction" value="Хүнсний бүтээгдэхүүн үйлдвэрлэл" />
+              <camunda:property id="alcoholTobacco" value="Архи, тамхи үйлдвэрлэл" />
+              <camunda:property id="woolCashemier" value="Ноос, ноолуур боловсруулалт, үйлдвэрлэл" />
+              <camunda:property id="clothesTextile" value="Хувцас, нэхмэл эдлэл үйлдвэрлэл" />
+              <camunda:property id="LeatherFur" value="Арьс, шир үслэг эдлэл боловсруулалт, үйлдвэрлэл" />
+              <camunda:property id="wood" value="Мод, модон эдлэл үйлдвэрлэл, боловсруулалт" />
+              <camunda:property id="paper" value="Цаас боловсруулалт, хэвлэлийн үйлдвэрлэл" />
+              <camunda:property id="audio" value="Нийтлэх, дуу, бичлэг хийх, FM радио, ТВ-ийн үа" />
+              <camunda:property id="goldSilver" value="Алт, мөнгөн эдлэлийн үйлдвэрлэл" />
+              <camunda:property id="miningChemical" value="Уул уурхайн болон химийн бэлдцээр бүт үйлдвэрлэл" />
+              <camunda:property id="machinery" value="Машин,тоног төх,сэлбэг,цахилгаан хэрэгсл үйлдвэрлл" />
+              <camunda:property id="pharmaceutical" value="Эм, гоо сайхан, ариун цэврийн бараа үйлдвэрлэл" />
+              <camunda:property id="construction" value="Барилгын материал үйлдвэрлэл" />
+              <camunda:property id="inventory" value="Бараа материалын бусад үйлдвэрлэл" />
+              <camunda:property id="sandGravel" value="Элс, хайрга, гөлтгөнө, шохонй чулуу олборлох үйлдвэр" />
+              <camunda:property id="electricityGasHeat" value="Цахилгаан, хий, дулаан үйлдвэрлэл, ус хангамж" />
+              <camunda:property id="apartment" value="Орон сууцны барилга" />
+              <camunda:property id="industrial" value="Үйлдвэрлэл, үйлчилгээний буюу олон нийтийн барилга" />
+              <camunda:property id="road" value="Зам гүүрийн барилга" />
+              <camunda:property id="Infrastructure" value="Дэд бүтцийн болон инженерийн шугам сүлжээний барилга" />
+              <camunda:property id="construction" value="Барилгын туслан гүйцэтгэх үйлчилгээ" />
+              <camunda:property id="building" value="Барилгын засвар, засал чимэглэлийн үйлчилгээ" />
+              <camunda:property id="tradeGoods" value="Хүнс, бараа, өргөн хэрэглээний барааны худалдаа" />
+              <camunda:property id="tradeConstruction" value="Барилгын материалын худалдаа" />
+              <camunda:property id="cosmetics" value="Эм, гоо сайхны барааны худалдаа" />
+              <camunda:property id="books" value="Ном, бичиг хэрэгслийн худалдаа" />
+              <camunda:property id="furniture" value="Гэрийн тавилга, эд хогшлын барааны худалдаа" />
+              <camunda:property id="commission" value="Комиссийн барааны худалдаа" />
+              <camunda:property id="rawMaterial" value="Мал, амьтны гаралтай түүхий эдийн худалдаа" />
+              <camunda:property id="cars" value="Автомашн, мотоцкл,өрө явагч хэрэгсл,сэлбэгийн худл" />
+              <camunda:property id="fueld" value="Түлш шатахуун, тос тосолгооны материалын худалдаа" />
+              <camunda:property id="miningEquipment" value="Уул уурхайн тоног төхөөрөмж худалдаа" />
+              <camunda:property id="otherTrade" value="Бусад худалдаа" />
+              <camunda:property id="saleOtherEquipment" value="Бусад тоног төхөөрөмжийн худалдаа" />
+              <camunda:property id="miningHeavyMachinery" value="УУ-н хүнд даацын техник, тээврийн хэрэгслийн худалдаа" />
+              <camunda:property id="miningTrade" value="Уул уурхайн бусад худалдаа" />
+              <camunda:property id="publicTransportation" value="Нийтийн тээврийн үйлчилгээ" />
+              <camunda:property id="miningFreight" value="Уул уурхайн ачаа тээврийн үйлчилгээ" />
+              <camunda:property id="warehouse" value="Агуулахын үйлчилгээ" />
+              <camunda:property id="postal" value="Шуудан, илгээмжийн үйлчилгээ" />
+              <camunda:property id="constructionMaterials" value="Барилгын материалын ачаа тээврийн үйлчилгээ" />
+              <camunda:property id="foodFreight" value="Хүнсний барааны ачаа тээврийн үйлчилгээ" />
+              <camunda:property id="otherFreight" value="Бусад ачаа тээврийн үйлчилгээ" />
+              <camunda:property id="hotel" value="Нийтийн хоол, зочид буудлын үйлчилгээ" />
+              <camunda:property id="household" value="Ахуйн үйлчилгээ" />
+              <camunda:property id="autorepair" value="Автозасварын үйлчилгээ" />
+              <camunda:property id="comunitySport" value="Олон нийтийн спорт, тоглоом, наадмын үйлчилгээ" />
+              <camunda:property id="otherServices" value="Бусад үйлчилгээ" />
+              <camunda:property id="informationTechnology" value="Мэдээлэл технологи, харилцаа холбоо" />
+              <camunda:property id="SCCs" value="ББСБайгууллага, ХЗХоршооны үйл ажиллагаа" />
+              <camunda:property id="banking" value="Банкны үйл ажиллагаа" />
+              <camunda:property id="securities" value="Үнэт цаасны үйл ажиллагаа" />
+              <camunda:property id="insurance" value="Даатгалын үйл ажиллагаа" />
+              <camunda:property id="non-governmental" value="Төрийн бус, сүм хийд, ашгийн бус бусад байгууллага" />
+              <camunda:property id="otherFinancial" value="Санхүүгийн бусад үйл ажиллагаа" />
+              <camunda:property id="rentalService" value="Үл хөдлөх хөрөнгийн түрээсийн үйлчилгээ" />
+              <camunda:property id="brokerage" value="Үл хөдлөх хөрөнгийг борлуулах зуучлалын үйл ажиллагаа" />
+              <camunda:property id="science" value="Шинжлэх ухаан, эрдэм шинжилгээ, судалгааны үа" />
+              <camunda:property id="tourism" value="Аялал жуулчлал" />
+              <camunda:property id="administration" value="Төрийн удирдлага, батлан хамгаалах байгууллага" />
+              <camunda:property id="government" value="Төрийн оролцоотой байгууллага" />
+              <camunda:property id="budgetary" value="Төсөвт байгууллага" />
+              <camunda:property id="pensions" value="Тэтгэвэр, тэтгэмж, нийгмийн халамж" />
+              <camunda:property id="education" value="Боловсрол" />
+              <camunda:property id="health" value="Эрүүл мэнд, эмнэлэг" />
+              <camunda:property id="waterSupply" value="Ус хангамж,бохир ус, хог,хаягдл менежмнт,цэврлх үа" />
+              <camunda:property id="community" value="Олон нийтыг хамарсан үйл ажиллагаа" />
+              <camunda:property id="religious" value="Шашин шүтлэг, буяны үйл ажиллагаа" />
+              <camunda:property id="other" value="Бусад /сонгож үл болно./" />
+            </camunda:properties>
+            <camunda:validation>
+              <camunda:constraint name="required" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="numberEmployees" label="Ажиллагсдын тоо" type="long">
+            <camunda:validation>
+              <camunda:constraint name="required" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="businessHousingInfo" label="Бизнесийн байрны мэдээлэл" type="string">
+            <camunda:properties>
+              <camunda:property id="rent" value="Түрээсийнх" />
+              <camunda:property id="own" value="Өөрийнх" />
+              <camunda:property id="mobile" value="Явуулын" />
+            </camunda:properties>
+            <camunda:validation>
+              <camunda:constraint name="required" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="salesChannels" label="Борлуулалтын сувгийн тоо" type="long">
+            <camunda:validation>
+              <camunda:constraint name="required" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="durationOfBusiness" label="Бизнес эрхэлсэн хугацаа /Сараар/" type="long">
+            <camunda:validation>
+              <camunda:constraint name="required" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="newBusiness" label="Шинэ бизнес эсэх" type="string">
+            <camunda:properties>
+              <camunda:property id="newBussinesYes" value="Тийм" />
+              <camunda:property id="newBussinesNo" value="Үгүй" />
+            </camunda:properties>
+            <camunda:validation>
+              <camunda:constraint name="required" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="reportPeriod" label="Тайлан хамрах хугацаа" type="long" defaultValue="12">
+            <camunda:validation>
+              <camunda:constraint name="readonly" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="salesIncome" label="Борлуулалтын орлого" type="long">
+            <camunda:validation>
+              <camunda:constraint name="required" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="otherIncome" label="Бусад орлого" type="long">
+            <camunda:validation>
+              <camunda:constraint name="required" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="soldGoods" label="Борлуулсан барааны өртөг" type="long">
+            <camunda:validation>
+              <camunda:constraint name="required" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="operationCost" label="Үйл ажиллагааны зардал" type="long">
+            <camunda:validation>
+              <camunda:constraint name="required" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="activeLoanPayment" label="Бизнесийн зээлийн сарын төлбөр" type="long" />
+          <camunda:formField id="netProfit" label="Цэвэр ашиг" type="long">
+            <camunda:validation>
+              <camunda:constraint name="readonly" />
+            </camunda:validation>
+          </camunda:formField>
+          <camunda:formField id="reCalculated" type="boolean" defaultValue="false" />
+          <camunda:formField id="mortgageCalculationCount" type="long" defaultValue="0" />
+        </camunda:formData>
+        <camunda:properties>
+          <camunda:property name="mortgageBusinessCalculationParentTaskName" value="user_task_salary_calculation" />
+        </camunda:properties>
+        <camunda:taskListener delegateExpression="${setParentTaskIdTaskListener}" event="create" />
+        <camunda:taskListener delegateExpression="${manuallyStartRelatedTaskListener}" event="complete" />
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_0ar9vxp</bpmn:incoming>
+      <bpmn:outgoing>Flow_0ccuvhb</bpmn:outgoing>
+      <bpmn:outgoing>Flow_11t5alw</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:sequenceFlow id="Flow_11t5alw" sourceRef="user_task_mortgage_business_calculation" targetRef="Task_1e1l2r5" />
+    <bpmn:sequenceFlow id="SequenceFlow_04dtj5t" sourceRef="Task_1e1l2r5" targetRef="Activity_0hwas6c" />
+    <bpmn:serviceTask id="Task_1e1l2r5" name="Calculation" camunda:delegateExpression="${businessCalculationMortgageTask}">
+      <bpmn:incoming>Flow_11t5alw</bpmn:incoming>
+      <bpmn:outgoing>SequenceFlow_04dtj5t</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:endEvent id="Event_1tjzuvz">
+      <bpmn:incoming>Flow_0ccuvhb</bpmn:incoming>
+      <bpmn:incoming>Flow_1djmrjg</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_1djmrjg" sourceRef="Activity_0hwas6c" targetRef="Event_1tjzuvz" />
+    <bpmn:serviceTask id="Activity_0hwas6c" name="Set Calculation Type" camunda:delegateExpression="${setLastCalculationTypeBusinessTask}">
+      <bpmn:incoming>SequenceFlow_04dtj5t</bpmn:incoming>
+      <bpmn:outgoing>Flow_1djmrjg</bpmn:outgoing>
+    </bpmn:serviceTask>
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Collaboration_1wbjid5">
+      <bpmndi:BPMNShape id="Participant_0a0mhr9_di" bpmnElement="Participant_0a0mhr9" isHorizontal="true">
+        <dc:Bounds x="160" y="40" width="720" height="250" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_1djmrjg_di" bpmnElement="Flow_1djmrjg">
+        <di:waypoint x="720" y="161" />
+        <di:waypoint x="802" y="161" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="SequenceFlow_04dtj5t_di" bpmnElement="SequenceFlow_04dtj5t">
+        <di:waypoint x="560" y="161" />
+        <di:waypoint x="620" y="161" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_11t5alw_di" bpmnElement="Flow_11t5alw">
+        <di:waypoint x="400" y="161" />
+        <di:waypoint x="460" y="161" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0ar9vxp_di" bpmnElement="Flow_0ar9vxp">
+        <di:waypoint x="248" y="161" />
+        <di:waypoint x="300" y="161" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="Event_0pgmchq_di" bpmnElement="Event_0pgmchq">
+        <dc:Bounds x="212" y="143" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="UserTask_0v0loyo_di" bpmnElement="user_task_mortgage_business_calculation" bioc:stroke="rgb(67, 160, 71)" bioc:fill="rgb(200, 230, 201)">
+        <dc:Bounds x="300" y="121" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="ServiceTask_0ugqan4_di" bpmnElement="Task_1e1l2r5" bioc:stroke="rgb(251, 140, 0)" bioc:fill="rgb(255, 224, 178)">
+        <dc:Bounds x="460" y="121" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_1tjzuvz_di" bpmnElement="Event_1tjzuvz">
+        <dc:Bounds x="802" y="143" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0nldkoh_di" bpmnElement="Activity_0hwas6c">
+        <dc:Bounds x="620" y="121" width="100" height="80" />
+      </bpmndi:BPMNShape>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>
